@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'findbugs'
+
+group = 'gr.james'
+version = '0.1'
+
+sourceCompatibility = 1.6
+
+repositories {
+    jcenter()
+}
+
+findbugs {
+    effort = "max"
+}
+
+wrapper {
+    gradleVersion = '4.4'
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
