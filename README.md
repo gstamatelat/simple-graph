@@ -2,6 +2,8 @@
 
 A simple graph interface for Java 6.
 
+Useful when Java 6 is required, for assignments, simple projects etc.
+
 | Class                          | Directed | Weighted | Mutable  |
 | :----------------------------- | :------- | :------- | :------- |
 | `Graph`                        |          |          |          |
