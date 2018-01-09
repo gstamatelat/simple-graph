@@ -35,6 +35,7 @@ public class MutableWeightedDirectedGraph {
         this.inEdges = new ArrayList<Map<Integer, Double>>(n);
         this.outEdges = new ArrayList<Map<Integer, Double>>(n);
         addVertices(n);
+        assert size() == n;
     }
 
     /**
@@ -150,8 +151,10 @@ public class MutableWeightedDirectedGraph {
      * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
      */
     public Double putEdge(int source, int target, double weight) {
-        outEdges.get(source).put(target, weight);
-        return inEdges.get(target).put(source, weight);
+        final Double a = outEdges.get(source).put(target, weight);
+        final Double b = inEdges.get(target).put(source, weight);
+        assert a == null ? b == null : a.equals(b);
+        return a;
     }
 
     /**
@@ -166,8 +169,10 @@ public class MutableWeightedDirectedGraph {
      * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
      */
     public Double removeEdge(int source, int target) {
-        outEdges.get(source).remove(target);
-        return inEdges.get(target).remove(source);
+        final Double a = outEdges.get(source).remove(target);
+        final Double b = inEdges.get(target).remove(source);
+        assert a == null ? b == null : a.equals(b);
+        return a;
     }
 
     /**
@@ -210,11 +215,12 @@ public class MutableWeightedDirectedGraph {
      * @throws IllegalArgumentException  if there is no edge from {@code source} to {@code target}
      */
     public double getEdgeWeight(int source, int target) {
-        checkVertex(source, target);
+        checkVertex(target);
         final Double weight = outEdges.get(source).get(target);
         if (weight == null) {
             throw new IllegalArgumentException();
         }
+        assert weight.equals(inEdges.get(target).get(source));
         return weight;
     }
 }
