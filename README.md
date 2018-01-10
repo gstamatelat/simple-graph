@@ -35,3 +35,9 @@ Using Gradle
 ```
 compile 'gr.james:simple-graph:0.1'
 ```
+
+## Examples
+
+For some usage examples see the files inside the
+[examples](https://github.com/gstamatelat/simple-graph/tree/master/src/main/java/gr/james/simplegraph/examples)
+directory.
