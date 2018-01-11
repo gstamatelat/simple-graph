@@ -26,14 +26,14 @@ Using Maven
 <dependency>
   <groupId>gr.james</groupId>
   <artifactId>simple-graph</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
 </dependency>
 ```
 
 Using Gradle
 
 ```
-compile 'gr.james:simple-graph:0.1'
+compile 'gr.james:simple-graph:0.2'
 ```
 
 ## Examples
