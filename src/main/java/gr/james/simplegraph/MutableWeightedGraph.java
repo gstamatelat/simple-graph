@@ -108,8 +108,9 @@ public class MutableWeightedGraph {
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      */
     public Double putEdge(int v, int w, double weight) {
-        this.g.putEdge(v, w, weight);
-        return this.g.putEdge(w, v, weight);
+        final Double previousWeight = this.g.putEdge(v, w, weight);
+        this.g.putEdge(w, v, weight);
+        return previousWeight;
     }
 
     /**
