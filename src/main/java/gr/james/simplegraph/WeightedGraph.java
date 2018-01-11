@@ -5,7 +5,8 @@ import java.util.Set;
 /**
  * Represents an immutable undirected and weighted graph implemented using adjacency lists.
  * <p>
- * The graph can contain self loops but cannot contain more than one edge from any set of endpoints.
+ * The graph can contain self loops but cannot contain more than one edge from any set of endpoints. The edge weights
+ * can only be finite {@link Double} values.
  * <p>
  * Memory Complexity: O(V+E)
  */

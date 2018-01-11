@@ -5,7 +5,8 @@ import java.util.Set;
 /**
  * Represents an undirected and weighted graph implemented using adjacency lists.
  * <p>
- * The graph allows self loops but does not allow more than one edge from any set of endpoints.
+ * The graph allows self loops but does not allow more than one edge from any set of endpoints. The graph only allows
+ * finite {@link Double} values as edge weights.
  * <p>
  * Memory Complexity: O(V+E)
  */
@@ -103,6 +104,7 @@ public class MutableWeightedGraph {
      * @param weight the weight of the edge
      * @return the previous weight of the edge connecting {@code v} and {@code w} or {@code null} if there was
      * previously no edge
+     * @throws IllegalArgumentException  if {@code weight} is not finite
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      */
     public Double putEdge(int v, int w, double weight) {
