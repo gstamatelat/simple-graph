@@ -75,4 +75,14 @@ public class DirectedWeightedGraph {
     public double getEdgeWeight(int source, int target) {
         return g.getEdgeWeight(source, target);
     }
+
+    /**
+     * Returns a string representation of the graph.
+     *
+     * @return a string representation of the graph
+     */
+    @Override
+    public String toString() {
+        return g.toString();
+    }
 }

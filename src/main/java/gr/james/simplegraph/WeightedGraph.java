@@ -62,4 +62,14 @@ public class WeightedGraph {
     public double getEdgeWeight(int v, int w) {
         return g.getEdgeWeight(v, w);
     }
+
+    /**
+     * Returns a string representation of the graph.
+     *
+     * @return a string representation of the graph
+     */
+    @Override
+    public String toString() {
+        return g.toString();
+    }
 }

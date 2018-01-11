@@ -46,4 +46,14 @@ public class Graph {
     public Set<Integer> getEdges(int v) {
         return g.getEdges(v);
     }
+
+    /**
+     * Returns a string representation of the graph.
+     *
+     * @return a string representation of the graph
+     */
+    @Override
+    public String toString() {
+        return g.toString();
+    }
 }

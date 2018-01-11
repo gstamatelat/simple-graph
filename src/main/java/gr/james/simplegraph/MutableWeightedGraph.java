@@ -155,4 +155,24 @@ public class MutableWeightedGraph {
     public double getEdgeWeight(int v, int w) {
         return this.g.getEdgeWeight(v, w);
     }
+
+    /**
+     * Returns a string representation of the graph.
+     *
+     * @return a string representation of the graph
+     */
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(String.format("{%n"));
+        for (int i = 0; i < size(); i++) {
+            for (int adj : getEdges(i)) {
+                if (adj >= i) {
+                    sb.append(String.format("  %d -- %d [%.2f]%n", i, adj, getEdgeWeight(i, adj)));
+                }
+            }
+        }
+        sb.append("}");
+        return sb.toString();
+    }
 }

@@ -59,4 +59,14 @@ public class DirectedGraph {
     public Set<Integer> getInEdges(int v) {
         return g.getInEdges(v);
     }
+
+    /**
+     * Returns a string representation of the graph.
+     *
+     * @return a string representation of the graph
+     */
+    @Override
+    public String toString() {
+        return g.toString();
+    }
 }

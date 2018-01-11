@@ -228,4 +228,22 @@ public class MutableWeightedDirectedGraph {
         assert weight.equals(inEdges.get(target).get(source));
         return weight;
     }
+
+    /**
+     * Returns a string representation of the graph.
+     *
+     * @return a string representation of the graph
+     */
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(String.format("{%n"));
+        for (int i = 0; i < size(); i++) {
+            for (int adj : getOutEdges(i)) {
+                sb.append(String.format("  %d -> %d [%.2f]%n", i, adj, getEdgeWeight(i, adj)));
+            }
+        }
+        sb.append("}");
+        return sb.toString();
+    }
 }
