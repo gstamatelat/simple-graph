@@ -62,6 +62,8 @@ public class DirectedGraph {
 
     /**
      * Returns a string representation of the graph.
+     * <p>
+     * Complexity: O(V+E)
      *
      * @return a string representation of the graph
      */
