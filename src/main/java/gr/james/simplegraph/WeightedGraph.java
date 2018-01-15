@@ -16,6 +16,14 @@ public class WeightedGraph implements Serializable {
 
     private final MutableWeightedGraph g;
 
+    private WeightedGraph(MutableWeightedGraph g, boolean copy) {
+        if (copy) {
+            this.g = new MutableWeightedGraph(g);
+        } else {
+            this.g = g;
+        }
+    }
+
     /**
      * Construct a new {@link WeightedGraph} from a copy of the given graph {@code g}.
      * <p>
@@ -24,7 +32,21 @@ public class WeightedGraph implements Serializable {
      * @param g the underlying mutable graph
      */
     public WeightedGraph(MutableWeightedGraph g) {
-        this.g = new MutableWeightedGraph(g);
+        this(g, true);
+    }
+
+    /**
+     * Decorate a {@link MutableWeightedGraph} as a {@link WeightedGraph} and return it.
+     * <p>
+     * Changes on the input graph will reflect on the instance returned by this method.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @param g the underlying mutable graph
+     * @return a {@link WeightedGraph} that wraps {@code g}
+     */
+    public static WeightedGraph decorate(MutableWeightedGraph g) {
+        return new WeightedGraph(g, false);
     }
 
     /**

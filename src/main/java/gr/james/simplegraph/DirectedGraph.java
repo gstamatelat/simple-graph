@@ -15,6 +15,14 @@ public class DirectedGraph implements Serializable {
 
     private final MutableDirectedGraph g;
 
+    private DirectedGraph(MutableDirectedGraph g, boolean copy) {
+        if (copy) {
+            this.g = new MutableDirectedGraph(g);
+        } else {
+            this.g = g;
+        }
+    }
+
     /**
      * Construct a new {@link DirectedGraph} from a copy of the given graph {@code g}.
      * <p>
@@ -23,7 +31,21 @@ public class DirectedGraph implements Serializable {
      * @param g the underlying mutable graph
      */
     public DirectedGraph(MutableDirectedGraph g) {
-        this.g = new MutableDirectedGraph(g);
+        this(g, true);
+    }
+
+    /**
+     * Decorate a {@link MutableDirectedGraph} as a {@link DirectedGraph} and return it.
+     * <p>
+     * Changes on the input graph will reflect on the instance returned by this method.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @param g the underlying mutable graph
+     * @return a {@link DirectedGraph} that wraps {@code g}
+     */
+    public static DirectedGraph decorate(MutableDirectedGraph g) {
+        return new DirectedGraph(g, false);
     }
 
     /**

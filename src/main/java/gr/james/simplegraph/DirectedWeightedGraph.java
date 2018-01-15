@@ -16,6 +16,14 @@ public class DirectedWeightedGraph implements Serializable {
 
     private final MutableWeightedDirectedGraph g;
 
+    private DirectedWeightedGraph(MutableWeightedDirectedGraph g, boolean copy) {
+        if (copy) {
+            this.g = new MutableWeightedDirectedGraph(g);
+        } else {
+            this.g = g;
+        }
+    }
+
     /**
      * Construct a new {@link DirectedWeightedGraph} from a copy of the given graph {@code g}.
      * <p>
@@ -24,7 +32,21 @@ public class DirectedWeightedGraph implements Serializable {
      * @param g the underlying mutable graph
      */
     public DirectedWeightedGraph(MutableWeightedDirectedGraph g) {
-        this.g = new MutableWeightedDirectedGraph(g);
+        this(g, true);
+    }
+
+    /**
+     * Decorate a {@link MutableWeightedDirectedGraph} as a {@link DirectedWeightedGraph} and return it.
+     * <p>
+     * Changes on the input graph will reflect on the instance returned by this method.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @param g the underlying mutable graph
+     * @return a {@link DirectedWeightedGraph} that wraps {@code g}
+     */
+    public static DirectedWeightedGraph decorate(MutableWeightedDirectedGraph g) {
+        return new DirectedWeightedGraph(g, false);
     }
 
     /**

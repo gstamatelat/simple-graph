@@ -15,6 +15,14 @@ public class Graph implements Serializable {
 
     private final MutableGraph g;
 
+    private Graph(MutableGraph g, boolean copy) {
+        if (copy) {
+            this.g = new MutableGraph(g);
+        } else {
+            this.g = g;
+        }
+    }
+
     /**
      * Construct a new {@link Graph} from a copy of the given graph {@code g}.
      * <p>
@@ -23,7 +31,21 @@ public class Graph implements Serializable {
      * @param g the underlying mutable graph
      */
     public Graph(MutableGraph g) {
-        this.g = new MutableGraph(g);
+        this(g, true);
+    }
+
+    /**
+     * Decorate a {@link MutableGraph} as a {@link Graph} and return it.
+     * <p>
+     * Changes on the input graph will reflect on the instance returned by this method.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @param g the underlying mutable graph
+     * @return a {@link Graph} that wraps {@code g}
+     */
+    public static Graph decorate(MutableGraph g) {
+        return new Graph(g, false);
     }
 
     /**
