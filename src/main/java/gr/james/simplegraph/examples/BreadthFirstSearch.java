@@ -11,10 +11,6 @@ import java.util.Set;
  * Demonstration of breadth first search (BFS) using a queue.
  */
 public class BreadthFirstSearch {
-    public static void main(String[] args) {
-
-    }
-
     /**
      * Performs BFS on a directed graph.
      * <p>

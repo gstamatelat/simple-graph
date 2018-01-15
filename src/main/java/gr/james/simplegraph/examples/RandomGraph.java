@@ -8,10 +8,6 @@ import java.util.Random;
  * Generate a random {@link MutableGraph}.
  */
 public class RandomGraph {
-    public static void main(String[] args) {
-
-    }
-
     /**
      * Generates a {@link MutableGraph} according to the G(n,p) model.
      * <p>

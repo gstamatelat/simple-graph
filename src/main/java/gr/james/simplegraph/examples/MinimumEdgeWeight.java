@@ -6,10 +6,6 @@ import gr.james.simplegraph.WeightedGraph;
  * Get the edge with the minimum weight from a {@link WeightedGraph}.
  */
 public class MinimumEdgeWeight {
-    public static void main(String[] args) {
-
-    }
-
     /**
      * Returns the minimum edge weight of a {@link WeightedGraph}.
      * <p>

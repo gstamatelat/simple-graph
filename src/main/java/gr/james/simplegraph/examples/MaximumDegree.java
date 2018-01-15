@@ -6,10 +6,6 @@ import gr.james.simplegraph.Graph;
  * Get the vertex with the maximum degree from a {@link Graph}.
  */
 public class MaximumDegree {
-    public static void main(String[] args) {
-
-    }
-
     /**
      * Get the maximum degree in a {@link Graph}.
      * <p>

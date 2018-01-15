@@ -11,10 +11,6 @@ import java.util.Set;
  * Demonstration of depth first search (DFS) using a stack.
  */
 public class DepthFirstSearch {
-    public static void main(String[] args) {
-
-    }
-
     /**
      * Performs DFS on a directed graph.
      * <p>

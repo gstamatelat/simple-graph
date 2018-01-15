@@ -6,10 +6,6 @@ import gr.james.simplegraph.DirectedGraph;
  * Count all the directed edges of a {@link DirectedGraph}.
  */
 public class CountEdges {
-    public static void main(String[] args) {
-
-    }
-
     /**
      * Get the number of directed edges of a {@link DirectedGraph}.
      * <p>
