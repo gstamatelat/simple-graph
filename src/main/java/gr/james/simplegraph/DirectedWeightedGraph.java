@@ -17,7 +17,7 @@ public class DirectedWeightedGraph implements Serializable {
     private final MutableWeightedDirectedGraph g;
 
     /**
-     * Construct a new {@link DirectedWeightedGraph} from the given graph {@code g}.
+     * Construct a new {@link DirectedWeightedGraph} from a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *

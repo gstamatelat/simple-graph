@@ -16,7 +16,7 @@ public class DirectedGraph implements Serializable {
     private final MutableDirectedGraph g;
 
     /**
-     * Construct a new {@link DirectedGraph} from the given graph {@code g}.
+     * Construct a new {@link DirectedGraph} from a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *

@@ -16,7 +16,7 @@ public class Graph implements Serializable {
     private final MutableGraph g;
 
     /**
-     * Construct a new {@link Graph} from the given graph {@code g}.
+     * Construct a new {@link Graph} from a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *

@@ -17,7 +17,7 @@ public class WeightedGraph implements Serializable {
     private final MutableWeightedGraph g;
 
     /**
-     * Construct a new {@link WeightedGraph} from the given graph {@code g}.
+     * Construct a new {@link WeightedGraph} from a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
