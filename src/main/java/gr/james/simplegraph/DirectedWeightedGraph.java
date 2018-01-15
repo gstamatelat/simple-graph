@@ -22,6 +22,7 @@ public class DirectedWeightedGraph implements Serializable {
         } else {
             this.g = g;
         }
+        assert this.g.equals(g);
     }
 
     /**

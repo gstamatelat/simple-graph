@@ -21,6 +21,7 @@ public class Graph implements Serializable {
         } else {
             this.g = g;
         }
+        assert this.g.equals(g);
     }
 
     /**
