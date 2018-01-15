@@ -23,7 +23,7 @@ public class RandomGraph {
      * @param p the connection probability
      * @param r the {@link Random} instance to use
      * @return a new {@link MutableGraph} complying with the G(n,p) model
-     * @throws IllegalArgumentException if {@code n < 1} or {@code p} is not in [0,1]
+     * @throws IllegalArgumentException if {@code n < 0} or {@code p} is not in [0,1]
      * @throws NullPointerException     if {@code r} is {@code null}
      */
     public static MutableGraph randomGraph(int n, double p, Random r) {

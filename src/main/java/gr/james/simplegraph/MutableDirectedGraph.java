@@ -30,7 +30,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(n)
      *
      * @param n the amount of vertices to put in the graph
-     * @throws IllegalArgumentException if {@code n < 1}
+     * @throws IllegalArgumentException if {@code n < 0}
      */
     public MutableDirectedGraph(int n) {
         this.g = new MutableWeightedDirectedGraph(n);
@@ -78,7 +78,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(n)
      *
      * @param n how many vertices to add
-     * @throws IllegalArgumentException if {@code n < 1}
+     * @throws IllegalArgumentException if {@code n < 0}
      */
     public void addVertices(int n) {
         this.g.addVertices(n);
