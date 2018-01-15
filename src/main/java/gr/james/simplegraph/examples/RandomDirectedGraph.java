@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Generate a random {@link MutableDirectedGraph}.
  */
-public class RandomGraph {
+public class RandomDirectedGraph {
     public static void main(String[] args) {
 
     }
@@ -26,7 +26,7 @@ public class RandomGraph {
      * @throws IllegalArgumentException if {@code n < 1} or {@code p} is not in [0,1]
      * @throws NullPointerException     if {@code r} is {@code null}
      */
-    public static MutableDirectedGraph randomGraph(int n, double p, Random r) {
+    public static MutableDirectedGraph randomDirectedGraph(int n, double p, Random r) {
         if (p < 0 && p > 1) {
             throw new IllegalArgumentException();
         }
