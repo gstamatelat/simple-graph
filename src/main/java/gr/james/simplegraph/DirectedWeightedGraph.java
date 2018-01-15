@@ -29,7 +29,7 @@ public class DirectedWeightedGraph implements Serializable {
      * <p>
      * Complexity: O(V+E)
      *
-     * @param g the underlying mutable graph
+     * @param g the mutable graph to copy
      */
     public DirectedWeightedGraph(MutableWeightedDirectedGraph g) {
         this(g, true);
