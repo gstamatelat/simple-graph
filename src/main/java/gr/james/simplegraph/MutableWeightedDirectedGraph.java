@@ -58,6 +58,132 @@ public class MutableWeightedDirectedGraph implements Serializable {
         assert this.equals(g);
     }
 
+    /**
+     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will set the edge weights to {@code 1.0}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableWeightedDirectedGraph(MutableDirectedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getOutEdges(v)) {
+                putEdge(v, w, 1.0);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will create two parallel directed edges for every edge in {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableWeightedDirectedGraph(MutableWeightedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w, g.getEdgeWeight(v, w));
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will set the edge weights to {@code 1.0} and create two parallel directed edges for every edge
+     * in {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableWeightedDirectedGraph(MutableGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w, 1.0);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableWeightedDirectedGraph(DirectedWeightedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getOutEdges(v)) {
+                putEdge(v, w, g.getEdgeWeight(v, w));
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will set the edge weights to {@code 1.0}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableWeightedDirectedGraph(DirectedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getOutEdges(v)) {
+                putEdge(v, w, 1.0);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will create two parallel directed edges for every edge in {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableWeightedDirectedGraph(WeightedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w, g.getEdgeWeight(v, w));
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will set the edge weights to {@code 1.0} and create two parallel directed edges for every edge
+     * in {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableWeightedDirectedGraph(Graph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w, 1.0);
+            }
+        }
+    }
+
     private void checkVertex(int... x) {
         for (int i : x) {
             if (i < 0 || i >= size()) {
