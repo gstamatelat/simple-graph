@@ -26,7 +26,7 @@ public class WeightedDirectedGraph implements Serializable {
     }
 
     /**
-     * Construct a new {@link WeightedDirectedGraph} from a copy of the given graph {@code g}.
+     * Construct a new {@link WeightedDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *

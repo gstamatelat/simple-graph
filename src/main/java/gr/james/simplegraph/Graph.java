@@ -25,7 +25,7 @@ public class Graph implements Serializable {
     }
 
     /**
-     * Construct a new {@link Graph} from a copy of the given graph {@code g}.
+     * Construct a new {@link Graph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *

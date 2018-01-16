@@ -25,7 +25,7 @@ public class DirectedGraph implements Serializable {
     }
 
     /**
-     * Construct a new {@link DirectedGraph} from a copy of the given graph {@code g}.
+     * Construct a new {@link DirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
