@@ -56,11 +56,47 @@ public class MutableGraph implements Serializable {
     /**
      * Construct a new {@link MutableGraph} as a copy of the given graph {@code g}.
      * <p>
+     * This constructor will not copy the edge weights.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableGraph(MutableWeightedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableGraph} as a copy of the given graph {@code g}.
+     * <p>
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
      */
     public MutableGraph(Graph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will not copy the edge weights.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableGraph(WeightedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {

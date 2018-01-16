@@ -39,6 +39,43 @@ public class MutableDirectedGraph implements Serializable {
     /**
      * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
+     * This constructor will not copy the edge weights.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableDirectedGraph(MutableWeightedDirectedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getOutEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will not copy the edge weights and will create two parallel directed edges for every edge in
+     * {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableDirectedGraph(MutableWeightedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
@@ -63,6 +100,43 @@ public class MutableDirectedGraph implements Serializable {
      * @param g the graph to copy
      */
     public MutableDirectedGraph(MutableGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will not copy the edge weights.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableDirectedGraph(WeightedDirectedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getOutEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will not copy the edge weights and will create two parallel directed edges for every edge in
+     * {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableDirectedGraph(WeightedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
