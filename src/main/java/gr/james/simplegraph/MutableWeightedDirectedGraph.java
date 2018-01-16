@@ -120,7 +120,7 @@ public class MutableWeightedDirectedGraph implements Serializable {
      *
      * @param g the graph to copy
      */
-    public MutableWeightedDirectedGraph(DirectedWeightedGraph g) {
+    public MutableWeightedDirectedGraph(WeightedDirectedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getOutEdges(v)) {

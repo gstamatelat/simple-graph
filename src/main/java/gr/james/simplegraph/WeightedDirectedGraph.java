@@ -11,12 +11,12 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class DirectedWeightedGraph implements Serializable {
+public class WeightedDirectedGraph implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private final MutableWeightedDirectedGraph g;
 
-    private DirectedWeightedGraph(MutableWeightedDirectedGraph g, boolean copy) {
+    private WeightedDirectedGraph(MutableWeightedDirectedGraph g, boolean copy) {
         if (copy) {
             this.g = new MutableWeightedDirectedGraph(g);
         } else {
@@ -26,28 +26,28 @@ public class DirectedWeightedGraph implements Serializable {
     }
 
     /**
-     * Construct a new {@link DirectedWeightedGraph} from a copy of the given graph {@code g}.
+     * Construct a new {@link WeightedDirectedGraph} from a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
      * @param g the mutable graph to copy
      */
-    public DirectedWeightedGraph(MutableWeightedDirectedGraph g) {
+    public WeightedDirectedGraph(MutableWeightedDirectedGraph g) {
         this(g, true);
     }
 
     /**
-     * Decorate a {@link MutableWeightedDirectedGraph} as a {@link DirectedWeightedGraph} and return it.
+     * Decorate a {@link MutableWeightedDirectedGraph} as a {@link WeightedDirectedGraph} and return it.
      * <p>
      * Changes on the input graph will reflect on the instance returned by this method.
      * <p>
      * Complexity: O(1)
      *
      * @param g the underlying mutable graph
-     * @return a {@link DirectedWeightedGraph} that wraps {@code g}
+     * @return a {@link WeightedDirectedGraph} that wraps {@code g}
      */
-    public static DirectedWeightedGraph decorate(MutableWeightedDirectedGraph g) {
-        return new DirectedWeightedGraph(g, false);
+    public static WeightedDirectedGraph decorate(MutableWeightedDirectedGraph g) {
+        return new WeightedDirectedGraph(g, false);
     }
 
     /**
@@ -133,7 +133,7 @@ public class DirectedWeightedGraph implements Serializable {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final DirectedWeightedGraph that = (DirectedWeightedGraph) obj;
+        final WeightedDirectedGraph that = (WeightedDirectedGraph) obj;
         return g.equals(that.g);
     }
 
