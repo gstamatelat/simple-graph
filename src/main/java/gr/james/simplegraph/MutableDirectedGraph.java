@@ -54,6 +54,58 @@ public class MutableDirectedGraph implements Serializable {
     }
 
     /**
+     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will create two parallel directed edges for every edge in {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableDirectedGraph(MutableGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableDirectedGraph(DirectedGraph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getOutEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
+     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * This constructor will create two parallel directed edges for every edge in {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableDirectedGraph(Graph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
      * Get the number of vertices in the graph.
      * <p>
      * Complexity: O(1)
