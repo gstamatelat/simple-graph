@@ -23,8 +23,7 @@ public class MutableWeightedDirectedGraph implements Serializable {
      * Complexity: O(1)
      */
     public MutableWeightedDirectedGraph() {
-        this.inEdges = new ArrayList<Map<Integer, Double>>();
-        this.outEdges = new ArrayList<Map<Integer, Double>>();
+        this(0);
     }
 
     /**

@@ -21,7 +21,7 @@ public class MutableGraph implements Serializable {
      * Complexity: O(1)
      */
     public MutableGraph() {
-        this.g = new MutableWeightedDirectedGraph();
+        this(0);
     }
 
     /**
