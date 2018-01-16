@@ -158,7 +158,7 @@ public class MutableGraph implements Serializable {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("{%n"));
+        sb.append(String.format("%s(%d) {%n", this.getClass().getSimpleName(), size()));
         for (int i = 0; i < size(); i++) {
             for (int adj : getEdges(i)) {
                 if (adj >= i) {

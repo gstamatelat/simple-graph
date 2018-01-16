@@ -163,7 +163,7 @@ public class MutableDirectedGraph implements Serializable {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("{%n"));
+        sb.append(String.format("%s(%d) {%n", this.getClass().getSimpleName(), size()));
         for (int i = 0; i < size(); i++) {
             for (int adj : getOutEdges(i)) {
                 sb.append(String.format("  %d -> %d%n", i, adj));
