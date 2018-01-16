@@ -24,7 +24,7 @@ public class DirectedGraph implements Serializable {
      * <p>
      * Complexity: O(V+E)
      *
-     * @param g the mutable graph to copy
+     * @param g the graph to copy
      */
     public DirectedGraph(MutableDirectedGraph g) {
         this(new MutableDirectedGraph(g), true);

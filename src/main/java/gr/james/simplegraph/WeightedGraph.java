@@ -25,7 +25,7 @@ public class WeightedGraph implements Serializable {
      * <p>
      * Complexity: O(V+E)
      *
-     * @param g the mutable graph to copy
+     * @param g the graph to copy
      */
     public WeightedGraph(MutableWeightedGraph g) {
         this(new MutableWeightedGraph(g), true);

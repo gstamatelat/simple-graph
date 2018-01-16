@@ -24,7 +24,7 @@ public class Graph implements Serializable {
      * <p>
      * Complexity: O(V+E)
      *
-     * @param g the mutable graph to copy
+     * @param g the graph to copy
      */
     public Graph(MutableGraph g) {
         this(new MutableGraph(g), true);
