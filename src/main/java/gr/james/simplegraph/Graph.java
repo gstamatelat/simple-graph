@@ -15,13 +15,8 @@ public class Graph implements Serializable {
 
     private final MutableGraph g;
 
-    private Graph(MutableGraph g, boolean copy) {
-        if (copy) {
-            this.g = new MutableGraph(g);
-        } else {
-            this.g = g;
-        }
-        assert this.g.equals(g);
+    private Graph(MutableGraph g, boolean privatePlaceholder) {
+        this.g = g;
     }
 
     /**
@@ -32,7 +27,7 @@ public class Graph implements Serializable {
      * @param g the mutable graph to copy
      */
     public Graph(MutableGraph g) {
-        this(g, true);
+        this(new MutableGraph(g), true);
     }
 
     /**
@@ -46,7 +41,7 @@ public class Graph implements Serializable {
      * @return a {@link Graph} that wraps {@code g}
      */
     public static Graph decorate(MutableGraph g) {
-        return new Graph(g, false);
+        return new Graph(g, true);
     }
 
     /**

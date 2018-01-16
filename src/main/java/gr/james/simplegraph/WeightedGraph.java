@@ -16,13 +16,8 @@ public class WeightedGraph implements Serializable {
 
     private final MutableWeightedGraph g;
 
-    private WeightedGraph(MutableWeightedGraph g, boolean copy) {
-        if (copy) {
-            this.g = new MutableWeightedGraph(g);
-        } else {
-            this.g = g;
-        }
-        assert this.g.equals(g);
+    private WeightedGraph(MutableWeightedGraph g, boolean privatePlaceholder) {
+        this.g = g;
     }
 
     /**
@@ -33,7 +28,7 @@ public class WeightedGraph implements Serializable {
      * @param g the mutable graph to copy
      */
     public WeightedGraph(MutableWeightedGraph g) {
-        this(g, true);
+        this(new MutableWeightedGraph(g), true);
     }
 
     /**
@@ -47,7 +42,7 @@ public class WeightedGraph implements Serializable {
      * @return a {@link WeightedGraph} that wraps {@code g}
      */
     public static WeightedGraph decorate(MutableWeightedGraph g) {
-        return new WeightedGraph(g, false);
+        return new WeightedGraph(g, true);
     }
 
     /**

@@ -15,13 +15,8 @@ public class DirectedGraph implements Serializable {
 
     private final MutableDirectedGraph g;
 
-    private DirectedGraph(MutableDirectedGraph g, boolean copy) {
-        if (copy) {
-            this.g = new MutableDirectedGraph(g);
-        } else {
-            this.g = g;
-        }
-        assert this.g.equals(g);
+    private DirectedGraph(MutableDirectedGraph g, boolean privatePlaceholder) {
+        this.g = g;
     }
 
     /**
@@ -32,7 +27,7 @@ public class DirectedGraph implements Serializable {
      * @param g the mutable graph to copy
      */
     public DirectedGraph(MutableDirectedGraph g) {
-        this(g, true);
+        this(new MutableDirectedGraph(g), true);
     }
 
     /**
@@ -46,7 +41,7 @@ public class DirectedGraph implements Serializable {
      * @return a {@link DirectedGraph} that wraps {@code g}
      */
     public static DirectedGraph decorate(MutableDirectedGraph g) {
-        return new DirectedGraph(g, false);
+        return new DirectedGraph(g, true);
     }
 
     /**

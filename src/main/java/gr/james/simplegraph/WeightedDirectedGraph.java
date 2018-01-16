@@ -16,13 +16,8 @@ public class WeightedDirectedGraph implements Serializable {
 
     private final MutableWeightedDirectedGraph g;
 
-    private WeightedDirectedGraph(MutableWeightedDirectedGraph g, boolean copy) {
-        if (copy) {
-            this.g = new MutableWeightedDirectedGraph(g);
-        } else {
-            this.g = g;
-        }
-        assert this.g.equals(g);
+    private WeightedDirectedGraph(MutableWeightedDirectedGraph g, boolean privatePlaceholder) {
+        this.g = g;
     }
 
     /**
@@ -33,7 +28,7 @@ public class WeightedDirectedGraph implements Serializable {
      * @param g the mutable graph to copy
      */
     public WeightedDirectedGraph(MutableWeightedDirectedGraph g) {
-        this(g, true);
+        this(new MutableWeightedDirectedGraph(g), true);
     }
 
     /**
@@ -47,7 +42,7 @@ public class WeightedDirectedGraph implements Serializable {
      * @return a {@link WeightedDirectedGraph} that wraps {@code g}
      */
     public static WeightedDirectedGraph decorate(MutableWeightedDirectedGraph g) {
-        return new WeightedDirectedGraph(g, false);
+        return new WeightedDirectedGraph(g, true);
     }
 
     /**
