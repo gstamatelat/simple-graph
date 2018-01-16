@@ -181,4 +181,38 @@ public class MutableWeightedGraph implements Serializable {
         sb.append("}");
         return sb.toString();
     }
+
+    /**
+     * Indicates whether some other object is equal to this graph.
+     * <p>
+     * Two graphs are equal if they have the same number of vertices and their edges represent the same mapping.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param obj the reference object with which to compare
+     * @return {@code true} if this graph is equal to the {@code obj} argument, otherwise {@code false}
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final MutableWeightedGraph that = (MutableWeightedGraph) obj;
+        return g.equals(that.g);
+    }
+
+    /**
+     * Returns a hash code value for this graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @return a hash code value for this graph
+     */
+    @Override
+    public int hashCode() {
+        return g.hashCode();
+    }
 }
