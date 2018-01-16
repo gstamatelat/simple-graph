@@ -56,6 +56,7 @@ public class MutableWeightedDirectedGraph implements Serializable {
                 putEdge(v, w, g.getEdgeWeight(v, w));
             }
         }
+        assert this.equals(g);
     }
 
     private void checkVertex(int... x) {

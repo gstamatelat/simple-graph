@@ -50,6 +50,7 @@ public class MutableDirectedGraph implements Serializable {
                 putEdge(v, w);
             }
         }
+        assert this.equals(g);
     }
 
     /**

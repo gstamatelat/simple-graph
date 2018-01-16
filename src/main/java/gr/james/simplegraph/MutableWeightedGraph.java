@@ -51,6 +51,7 @@ public class MutableWeightedGraph implements Serializable {
                 putEdge(v, w, g.getEdgeWeight(v, w));
             }
         }
+        assert this.equals(g);
     }
 
     /**
