@@ -54,6 +54,22 @@ public class MutableGraph implements Serializable {
     }
 
     /**
+     * Construct a new {@link MutableGraph} as a copy of the given graph {@code g}.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     */
+    public MutableGraph(Graph g) {
+        this(g.size());
+        for (int v = 0; v < g.size(); v++) {
+            for (int w : g.getEdges(v)) {
+                putEdge(v, w);
+            }
+        }
+    }
+
+    /**
      * Get the number of vertices in the graph.
      * <p>
      * Complexity: O(1)
