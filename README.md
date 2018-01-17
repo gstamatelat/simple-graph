@@ -4,6 +4,9 @@ A simple graph interface for Java 6.
 
 Useful when Java 6 is required, for assignments, simple projects etc.
 
+Graph classes in this package properly implement the `Serializable` interface as well as the `equals`, `hashCode` and
+`toString` methods.
+
 | Class                          | Directed | Weighted | Mutable  |
 | :----------------------------- | :------- | :------- | :------- |
 | `Graph`                        |          |          |          |
