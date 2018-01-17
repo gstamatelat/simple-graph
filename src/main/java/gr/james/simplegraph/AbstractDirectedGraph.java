@@ -80,7 +80,7 @@ public abstract class AbstractDirectedGraph {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final AbstractWeightedDirectedGraph that = (AbstractWeightedDirectedGraph) obj;
+        final AbstractDirectedGraph that = (AbstractDirectedGraph) obj;
         if (size() != that.size()) {
             return false;
         }

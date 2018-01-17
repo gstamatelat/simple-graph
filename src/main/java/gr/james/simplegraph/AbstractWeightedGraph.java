@@ -83,12 +83,12 @@ public abstract class AbstractWeightedGraph {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final AbstractWeightedDirectedGraph that = (AbstractWeightedDirectedGraph) obj;
+        final AbstractWeightedGraph that = (AbstractWeightedGraph) obj;
         if (size() != that.size()) {
             return false;
         }
         for (int i = 0; i < size(); i++) {
-            if (!getEdges(i).equals(that.getOutEdges(i))) {
+            if (!getEdges(i).equals(that.getEdges(i))) {
                 return false;
             }
             for (int j : getEdges(i)) {
