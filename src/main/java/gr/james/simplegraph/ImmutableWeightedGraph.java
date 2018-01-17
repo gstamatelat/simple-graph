@@ -66,49 +66,4 @@ public class ImmutableWeightedGraph extends AbstractWeightedGraph {
     public double getEdgeWeight(int v, int w) {
         return g.getEdgeWeight(v, w);
     }
-
-    /**
-     * Returns a string representation of the graph.
-     *
-     * @return a string representation of the graph
-     */
-    @Override
-    public String toString() {
-        return g.toString();
-    }
-
-    /**
-     * Indicates whether some other object is equal to this graph.
-     * <p>
-     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
-     * same mapping.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param obj the reference object with which to compare
-     * @return {@code true} if this graph is equal to the {@code obj} argument, otherwise {@code false}
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        final ImmutableWeightedGraph that = (ImmutableWeightedGraph) obj;
-        return g.equals(that.g);
-    }
-
-    /**
-     * Returns a hash code value for this graph.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @return a hash code value for this graph
-     */
-    @Override
-    public int hashCode() {
-        return g.hashCode();
-    }
 }
