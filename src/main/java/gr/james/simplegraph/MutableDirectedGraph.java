@@ -1,7 +1,7 @@
 package gr.james.simplegraph;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Represents a directed and unweighted graph implemented using adjacency lists.
@@ -13,7 +13,8 @@ import java.util.Set;
 public class MutableDirectedGraph implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private final MutableWeightedDirectedGraph g;
+    private final List<Set<Integer>> outEdges;
+    private final List<Set<Integer>> inEdges;
 
     /**
      * Construct a new empty {@link MutableDirectedGraph} without any vertices.
@@ -33,7 +34,10 @@ public class MutableDirectedGraph implements Serializable {
      * @throws IllegalArgumentException if {@code n < 0}
      */
     public MutableDirectedGraph(int n) {
-        this.g = new MutableWeightedDirectedGraph(n);
+        this.inEdges = new ArrayList<Set<Integer>>(n);
+        this.outEdges = new ArrayList<Set<Integer>>(n);
+        addVertices(n);
+        assert size() == n;
     }
 
     /**
@@ -179,6 +183,14 @@ public class MutableDirectedGraph implements Serializable {
         }
     }
 
+    private void checkVertex(int... x) {
+        for (int i : x) {
+            if (i < 0 || i >= size()) {
+                throw new IndexOutOfBoundsException();
+            }
+        }
+    }
+
     /**
      * Get the number of vertices in the graph.
      * <p>
@@ -187,7 +199,8 @@ public class MutableDirectedGraph implements Serializable {
      * @return how many vertices there are in the graph
      */
     public int size() {
-        return this.g.size();
+        assert this.inEdges.size() == this.outEdges.size();
+        return this.inEdges.size();
     }
 
     /**
@@ -196,7 +209,8 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(1)
      */
     public void addVertex() {
-        this.g.addVertex();
+        this.inEdges.add(new HashSet<Integer>());
+        this.outEdges.add(new HashSet<Integer>());
     }
 
     /**
@@ -208,7 +222,12 @@ public class MutableDirectedGraph implements Serializable {
      * @throws IllegalArgumentException if {@code n < 0}
      */
     public void addVertices(int n) {
-        this.g.addVertices(n);
+        if (n < 0) {
+            throw new IllegalArgumentException();
+        }
+        for (int i = 0; i < n; i++) {
+            addVertex();
+        }
     }
 
     /**
@@ -220,7 +239,32 @@ public class MutableDirectedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        this.g.removeVertex(v);
+        checkVertex(v);
+        for (int i = 0; i < size(); i++) {
+            Set<Integer> previousOut = outEdges.get(i);
+            Set<Integer> newOut = new HashSet<Integer>();
+            for (Integer e : previousOut) {
+                if (e > v) {
+                    newOut.add(e - 1);
+                } else if (e < v) {
+                    newOut.add(e);
+                }
+            }
+            outEdges.set(i, newOut);
+
+            Set<Integer> previousIn = inEdges.get(i);
+            Set<Integer> newIn = new HashSet<Integer>();
+            for (Integer e : previousIn) {
+                if (e > v) {
+                    newIn.add(e - 1);
+                } else if (e < v) {
+                    newIn.add(e);
+                }
+            }
+            inEdges.set(i, newIn);
+        }
+        outEdges.remove(v);
+        inEdges.remove(v);
     }
 
     /**
@@ -235,7 +279,10 @@ public class MutableDirectedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
      */
     public boolean putEdge(int source, int target) {
-        return this.g.putEdge(source, target, 1.0) == null;
+        final boolean a = outEdges.get(source).add(target);
+        final boolean b = inEdges.get(target).add(source);
+        assert a == b;
+        return a;
     }
 
     /**
@@ -250,7 +297,10 @@ public class MutableDirectedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
      */
     public boolean removeEdge(int source, int target) {
-        return this.g.removeEdge(source, target) != null;
+        final boolean a = outEdges.get(source).remove(target);
+        final boolean b = inEdges.get(target).remove(source);
+        assert a == b;
+        return a;
     }
 
     /**
@@ -263,7 +313,8 @@ public class MutableDirectedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public Set<Integer> getOutEdges(int v) {
-        return this.g.getOutEdges(v);
+        final Set<Integer> edges = this.outEdges.get(v);
+        return Collections.unmodifiableSet(edges);
     }
 
     /**
@@ -276,7 +327,8 @@ public class MutableDirectedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public Set<Integer> getInEdges(int v) {
-        return this.g.getInEdges(v);
+        final Set<Integer> edges = this.inEdges.get(v);
+        return Collections.unmodifiableSet(edges);
     }
 
     /**
@@ -319,7 +371,7 @@ public class MutableDirectedGraph implements Serializable {
             return false;
         }
         final MutableDirectedGraph that = (MutableDirectedGraph) obj;
-        return g.equals(that.g);
+        return outEdges.equals(that.outEdges) && inEdges.equals(that.inEdges);
     }
 
     /**
@@ -331,6 +383,6 @@ public class MutableDirectedGraph implements Serializable {
      */
     @Override
     public int hashCode() {
-        return g.hashCode();
+        return Arrays.hashCode(new Object[]{outEdges, inEdges});
     }
 }
