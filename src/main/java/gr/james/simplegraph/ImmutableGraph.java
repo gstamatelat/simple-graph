@@ -9,6 +9,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
+@Deprecated
 public class ImmutableGraph extends Graph {
     private final MutableGraph g;
 
