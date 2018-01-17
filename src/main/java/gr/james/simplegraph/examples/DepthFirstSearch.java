@@ -1,6 +1,6 @@
 package gr.james.simplegraph.examples;
 
-import gr.james.simplegraph.DirectedGraph;
+import gr.james.simplegraph.ImmutableDirectedGraph;
 
 import java.util.Deque;
 import java.util.HashSet;
@@ -22,7 +22,7 @@ public class DepthFirstSearch {
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code source} is not in the graph
      */
-    public static int depthFirstSearch(DirectedGraph g, int source) {
+    public static int depthFirstSearch(ImmutableDirectedGraph g, int source) {
         final Deque<Integer> stack = new LinkedList<Integer>();
         final Set<Integer> visited = new HashSet<Integer>();
         stack.push(source);

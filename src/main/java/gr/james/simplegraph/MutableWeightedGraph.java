@@ -84,7 +84,7 @@ public class MutableWeightedGraph implements Serializable {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedGraph(WeightedGraph g) {
+    public MutableWeightedGraph(ImmutableWeightedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -103,7 +103,7 @@ public class MutableWeightedGraph implements Serializable {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedGraph(Graph g) {
+    public MutableWeightedGraph(ImmutableGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {

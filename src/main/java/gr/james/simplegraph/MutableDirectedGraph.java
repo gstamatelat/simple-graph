@@ -126,7 +126,7 @@ public class MutableDirectedGraph implements Serializable {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableDirectedGraph(WeightedDirectedGraph g) {
+    public MutableDirectedGraph(ImmutableWeightedDirectedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getOutEdges(v)) {
@@ -146,7 +146,7 @@ public class MutableDirectedGraph implements Serializable {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableDirectedGraph(WeightedGraph g) {
+    public MutableDirectedGraph(ImmutableWeightedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -163,7 +163,7 @@ public class MutableDirectedGraph implements Serializable {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableDirectedGraph(DirectedGraph g) {
+    public MutableDirectedGraph(ImmutableDirectedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getOutEdges(v)) {
@@ -182,7 +182,7 @@ public class MutableDirectedGraph implements Serializable {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableDirectedGraph(Graph g) {
+    public MutableDirectedGraph(ImmutableGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {

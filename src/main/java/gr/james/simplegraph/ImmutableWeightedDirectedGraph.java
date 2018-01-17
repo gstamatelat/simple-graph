@@ -4,18 +4,19 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * Represents an immutable directed and unweighted graph implemented using adjacency lists.
+ * Represents an immutable directed and weighted graph implemented using adjacency lists.
  * <p>
- * The graph can contain self loops but cannot contain more than one edge from any set of endpoints.
+ * The graph can contain self loops but cannot contain more than one edge from any set of endpoints. The edge weights
+ * can only be finite {@link Double} values.
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class DirectedGraph implements Serializable {
+public class ImmutableWeightedDirectedGraph implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private final MutableDirectedGraph g;
+    private final MutableWeightedDirectedGraph g;
 
-    private DirectedGraph(MutableDirectedGraph g, boolean privatePlaceholder) {
+    private ImmutableWeightedDirectedGraph(MutableWeightedDirectedGraph g, boolean privatePlaceholder) {
         if (g == null) {
             throw new NullPointerException();
         }
@@ -23,19 +24,19 @@ public class DirectedGraph implements Serializable {
     }
 
     /**
-     * Construct a new {@link DirectedGraph} as a copy of the given graph {@code g}.
+     * Construct a new {@link ImmutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
      * @throws NullPointerException if {code g} is {@code null}
      */
-    public DirectedGraph(MutableDirectedGraph g) {
-        this(new MutableDirectedGraph(g), true);
+    public ImmutableWeightedDirectedGraph(MutableWeightedDirectedGraph g) {
+        this(new MutableWeightedDirectedGraph(g), true);
     }
 
     /**
-     * Decorate a {@link MutableDirectedGraph} as a {@link DirectedGraph} and return it.
+     * Decorate a {@link MutableWeightedDirectedGraph} as a {@link ImmutableWeightedDirectedGraph} and return it.
      * <p>
      * Changes on the input graph will reflect on the instance returned by this method. Thus, the instance returned by
      * this method represents an immutable graph only if no reference to {@code g} is accessible by the consumer.
@@ -43,11 +44,11 @@ public class DirectedGraph implements Serializable {
      * Complexity: O(1)
      *
      * @param g the underlying mutable graph
-     * @return a {@link DirectedGraph} that wraps {@code g}
+     * @return a {@link ImmutableWeightedDirectedGraph} that wraps {@code g}
      * @throws NullPointerException if {code g} is {@code null}
      */
-    public static DirectedGraph decorate(MutableDirectedGraph g) {
-        return new DirectedGraph(g, true);
+    public static ImmutableWeightedDirectedGraph decorate(MutableWeightedDirectedGraph g) {
+        return new ImmutableWeightedDirectedGraph(g, true);
     }
 
     /**
@@ -88,6 +89,21 @@ public class DirectedGraph implements Serializable {
     }
 
     /**
+     * Get the weight of the edge from {@code source} to {@code target}.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @param source the source of the edge
+     * @param target the target of the edge
+     * @return the weight of the edge from {@code source} to {@code target}
+     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
+     * @throws IllegalArgumentException  if there is no edge from {@code source} to {@code target}
+     */
+    public double getEdgeWeight(int source, int target) {
+        return g.getEdgeWeight(source, target);
+    }
+
+    /**
      * Returns a string representation of the graph.
      * <p>
      * Complexity: O(V+E)
@@ -118,7 +134,7 @@ public class DirectedGraph implements Serializable {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final DirectedGraph that = (DirectedGraph) obj;
+        final ImmutableWeightedDirectedGraph that = (ImmutableWeightedDirectedGraph) obj;
         return g.equals(that.g);
     }
 

@@ -1,13 +1,13 @@
 package gr.james.simplegraph.examples;
 
-import gr.james.simplegraph.DirectedGraph;
+import gr.james.simplegraph.ImmutableDirectedGraph;
 
 /**
- * Count all the directed edges of a {@link DirectedGraph}.
+ * Count all the directed edges of a {@link ImmutableDirectedGraph}.
  */
 public class CountEdges {
     /**
-     * Get the number of directed edges of a {@link DirectedGraph}.
+     * Get the number of directed edges of a {@link ImmutableDirectedGraph}.
      * <p>
      * Complexity: O(V)
      *
@@ -15,7 +15,7 @@ public class CountEdges {
      * @return the number of directed edges of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public static int countEdges(DirectedGraph g) {
+    public static int countEdges(ImmutableDirectedGraph g) {
         int edgesCount = 0;
         for (int i = 0; i < g.size(); i++) {
             edgesCount += g.getOutEdges(i).size();

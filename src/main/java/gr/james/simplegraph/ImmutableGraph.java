@@ -10,12 +10,12 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class Graph implements Serializable {
+public class ImmutableGraph implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private final MutableGraph g;
 
-    private Graph(MutableGraph g, boolean privatePlaceholder) {
+    private ImmutableGraph(MutableGraph g, boolean privatePlaceholder) {
         if (g == null) {
             throw new NullPointerException();
         }
@@ -23,19 +23,19 @@ public class Graph implements Serializable {
     }
 
     /**
-     * Construct a new {@link Graph} as a copy of the given graph {@code g}.
+     * Construct a new {@link ImmutableGraph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
      * @throws NullPointerException if {code g} is {@code null}
      */
-    public Graph(MutableGraph g) {
+    public ImmutableGraph(MutableGraph g) {
         this(new MutableGraph(g), true);
     }
 
     /**
-     * Decorate a {@link MutableGraph} as a {@link Graph} and return it.
+     * Decorate a {@link MutableGraph} as a {@link ImmutableGraph} and return it.
      * <p>
      * Changes on the input graph will reflect on the instance returned by this method. Thus, the instance returned by
      * this method represents an immutable graph only if no reference to {@code g} is accessible by the consumer.
@@ -43,11 +43,11 @@ public class Graph implements Serializable {
      * Complexity: O(1)
      *
      * @param g the underlying mutable graph
-     * @return a {@link Graph} that wraps {@code g}
+     * @return a {@link ImmutableGraph} that wraps {@code g}
      * @throws NullPointerException if {code g} is {@code null}
      */
-    public static Graph decorate(MutableGraph g) {
-        return new Graph(g, true);
+    public static ImmutableGraph decorate(MutableGraph g) {
+        return new ImmutableGraph(g, true);
     }
 
     /**
@@ -105,7 +105,7 @@ public class Graph implements Serializable {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final Graph that = (Graph) obj;
+        final ImmutableGraph that = (ImmutableGraph) obj;
         return g.equals(that.g);
     }
 

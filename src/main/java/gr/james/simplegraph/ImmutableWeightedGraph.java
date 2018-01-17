@@ -4,19 +4,19 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * Represents an immutable directed and weighted graph implemented using adjacency lists.
+ * Represents an immutable undirected and weighted graph implemented using adjacency lists.
  * <p>
  * The graph can contain self loops but cannot contain more than one edge from any set of endpoints. The edge weights
  * can only be finite {@link Double} values.
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class WeightedDirectedGraph implements Serializable {
+public class ImmutableWeightedGraph implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private final MutableWeightedDirectedGraph g;
+    private final MutableWeightedGraph g;
 
-    private WeightedDirectedGraph(MutableWeightedDirectedGraph g, boolean privatePlaceholder) {
+    private ImmutableWeightedGraph(MutableWeightedGraph g, boolean privatePlaceholder) {
         if (g == null) {
             throw new NullPointerException();
         }
@@ -24,19 +24,19 @@ public class WeightedDirectedGraph implements Serializable {
     }
 
     /**
-     * Construct a new {@link WeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * Construct a new {@link ImmutableWeightedGraph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
      * @throws NullPointerException if {code g} is {@code null}
      */
-    public WeightedDirectedGraph(MutableWeightedDirectedGraph g) {
-        this(new MutableWeightedDirectedGraph(g), true);
+    public ImmutableWeightedGraph(MutableWeightedGraph g) {
+        this(new MutableWeightedGraph(g), true);
     }
 
     /**
-     * Decorate a {@link MutableWeightedDirectedGraph} as a {@link WeightedDirectedGraph} and return it.
+     * Decorate a {@link MutableWeightedGraph} as a {@link ImmutableWeightedGraph} and return it.
      * <p>
      * Changes on the input graph will reflect on the instance returned by this method. Thus, the instance returned by
      * this method represents an immutable graph only if no reference to {@code g} is accessible by the consumer.
@@ -44,11 +44,11 @@ public class WeightedDirectedGraph implements Serializable {
      * Complexity: O(1)
      *
      * @param g the underlying mutable graph
-     * @return a {@link WeightedDirectedGraph} that wraps {@code g}
+     * @return a {@link ImmutableWeightedGraph} that wraps {@code g}
      * @throws NullPointerException if {code g} is {@code null}
      */
-    public static WeightedDirectedGraph decorate(MutableWeightedDirectedGraph g) {
-        return new WeightedDirectedGraph(g, true);
+    public static ImmutableWeightedGraph decorate(MutableWeightedGraph g) {
+        return new ImmutableWeightedGraph(g, true);
     }
 
     /**
@@ -63,50 +63,35 @@ public class WeightedDirectedGraph implements Serializable {
     }
 
     /**
-     * Get the outbound edges of a vertex.
+     * Get the edges of a vertex.
      * <p>
      * Complexity: O(1)
      *
-     * @param v the vertex index to get the outbound edges of
-     * @return an {@link Set} that holds all the outbound adjacent vertices of {@code v}
+     * @param v the vertex index to get the edges of
+     * @return an {@link Set} that holds all the adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
-    public Set<Integer> getOutEdges(int v) {
-        return g.getOutEdges(v);
+    public Set<Integer> getEdges(int v) {
+        return g.getEdges(v);
     }
 
     /**
-     * Get the inbound edges of a vertex.
+     * Get the weight of the edge connecting {@code v} and {@code w}.
      * <p>
      * Complexity: O(1)
      *
-     * @param v the vertex index to get the inbound edges of
-     * @return an {@link Set} that holds all the inbound adjacent vertices of {@code v}
-     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     * @param v one end of the edge
+     * @param w the other end of the edge
+     * @return the weight of the edge connecting {@code v} and {@code w}
+     * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
+     * @throws IllegalArgumentException  if there is no edge connecting {@code v} and {@code w}
      */
-    public Set<Integer> getInEdges(int v) {
-        return g.getInEdges(v);
-    }
-
-    /**
-     * Get the weight of the edge from {@code source} to {@code target}.
-     * <p>
-     * Complexity: O(1)
-     *
-     * @param source the source of the edge
-     * @param target the target of the edge
-     * @return the weight of the edge from {@code source} to {@code target}
-     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
-     * @throws IllegalArgumentException  if there is no edge from {@code source} to {@code target}
-     */
-    public double getEdgeWeight(int source, int target) {
-        return g.getEdgeWeight(source, target);
+    public double getEdgeWeight(int v, int w) {
+        return g.getEdgeWeight(v, w);
     }
 
     /**
      * Returns a string representation of the graph.
-     * <p>
-     * Complexity: O(V+E)
      *
      * @return a string representation of the graph
      */
@@ -134,7 +119,7 @@ public class WeightedDirectedGraph implements Serializable {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final WeightedDirectedGraph that = (WeightedDirectedGraph) obj;
+        final ImmutableWeightedGraph that = (ImmutableWeightedGraph) obj;
         return g.equals(that.g);
     }
 
