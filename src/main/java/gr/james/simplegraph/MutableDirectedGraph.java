@@ -48,6 +48,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableDirectedGraph(MutableWeightedDirectedGraph g) {
         this(g.size());
@@ -67,6 +68,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableDirectedGraph(MutableWeightedGraph g) {
         this(g.size());
@@ -83,6 +85,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableDirectedGraph(MutableDirectedGraph g) {
         this(g.size());
@@ -102,6 +105,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableDirectedGraph(MutableGraph g) {
         this(g.size());
@@ -120,6 +124,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableDirectedGraph(WeightedDirectedGraph g) {
         this(g.size());
@@ -139,6 +144,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableDirectedGraph(WeightedGraph g) {
         this(g.size());
@@ -155,6 +161,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableDirectedGraph(DirectedGraph g) {
         this(g.size());
@@ -173,6 +180,7 @@ public class MutableDirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableDirectedGraph(Graph g) {
         this(g.size());
