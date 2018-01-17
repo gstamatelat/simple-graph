@@ -1,7 +1,7 @@
 package gr.james.simplegraph;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Represents an undirected and weighted graph implemented using adjacency lists.
@@ -14,7 +14,7 @@ import java.util.Set;
 public class MutableWeightedGraph implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private final MutableWeightedDirectedGraph g;
+    private final List<Map<Integer, Double>> edges;
 
     /**
      * Construct a new empty {@link MutableWeightedGraph} without any vertices.
@@ -34,7 +34,9 @@ public class MutableWeightedGraph implements Serializable {
      * @throws IllegalArgumentException if {@code n < 0}
      */
     public MutableWeightedGraph(int n) {
-        this.g = new MutableWeightedDirectedGraph(n);
+        this.edges = new ArrayList<Map<Integer, Double>>(n);
+        addVertices(n);
+        assert size() == n;
     }
 
     /**
@@ -106,6 +108,14 @@ public class MutableWeightedGraph implements Serializable {
         }
     }
 
+    private void checkVertex(int... x) {
+        for (int i : x) {
+            if (i < 0 || i >= size()) {
+                throw new IndexOutOfBoundsException();
+            }
+        }
+    }
+
     /**
      * Get the number of vertices in the graph.
      * <p>
@@ -114,7 +124,7 @@ public class MutableWeightedGraph implements Serializable {
      * @return how many vertices there are in the graph
      */
     public int size() {
-        return this.g.size();
+        return this.edges.size();
     }
 
     /**
@@ -123,7 +133,7 @@ public class MutableWeightedGraph implements Serializable {
      * Complexity: O(1)
      */
     public void addVertex() {
-        this.g.addVertex();
+        this.edges.add(new HashMap<Integer, Double>());
     }
 
     /**
@@ -135,7 +145,12 @@ public class MutableWeightedGraph implements Serializable {
      * @throws IllegalArgumentException if {@code n < 0}
      */
     public void addVertices(int n) {
-        this.g.addVertices(n);
+        if (n < 0) {
+            throw new IllegalArgumentException();
+        }
+        for (int i = 0; i < n; i++) {
+            addVertex();
+        }
     }
 
     /**
@@ -147,7 +162,20 @@ public class MutableWeightedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        this.g.removeVertex(v);
+        checkVertex(v);
+        for (int i = 0; i < size(); i++) {
+            Map<Integer, Double> previousOut = edges.get(i);
+            Map<Integer, Double> newOut = new HashMap<Integer, Double>();
+            for (Map.Entry<Integer, Double> e : previousOut.entrySet()) {
+                if (e.getKey() > v) {
+                    newOut.put(e.getKey() - 1, e.getValue());
+                } else if (e.getKey() < v) {
+                    newOut.put(e.getKey(), e.getValue());
+                }
+            }
+            edges.set(i, newOut);
+        }
+        edges.remove(v);
     }
 
     /**
@@ -164,9 +192,13 @@ public class MutableWeightedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      */
     public Double putEdge(int v, int w, double weight) {
-        final Double previousWeight = this.g.putEdge(v, w, weight);
-        this.g.putEdge(w, v, weight);
-        return previousWeight;
+        if (Double.isNaN(weight) || Double.isInfinite(weight)) {
+            throw new IllegalArgumentException();
+        }
+        final Double a = edges.get(v).put(w, weight);
+        final Double b = edges.get(w).put(v, weight);
+        assert a == null ? b == null : a.equals(b);
+        return a;
     }
 
     /**
@@ -181,8 +213,10 @@ public class MutableWeightedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      */
     public Double removeEdge(int v, int w) {
-        this.g.removeEdge(v, w);
-        return this.g.removeEdge(w, v);
+        final Double a = edges.get(v).remove(w);
+        final Double b = edges.get(w).remove(v);
+        assert a == null ? b == null : a.equals(b);
+        return a;
     }
 
     /**
@@ -195,7 +229,8 @@ public class MutableWeightedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public Set<Integer> getEdges(int v) {
-        return this.g.getOutEdges(v);
+        final Map<Integer, Double> edges = this.edges.get(v);
+        return Collections.unmodifiableSet(edges.keySet());
     }
 
     /**
@@ -210,7 +245,13 @@ public class MutableWeightedGraph implements Serializable {
      * @throws IllegalArgumentException  if there is no edge connecting {@code v} and {@code w}
      */
     public double getEdgeWeight(int v, int w) {
-        return this.g.getEdgeWeight(v, w);
+        checkVertex(w);
+        final Double weight = edges.get(v).get(w);
+        if (weight == null) {
+            throw new IllegalArgumentException();
+        }
+        assert weight.equals(edges.get(w).get(v));
+        return weight;
     }
 
     /**
@@ -255,7 +296,7 @@ public class MutableWeightedGraph implements Serializable {
             return false;
         }
         final MutableWeightedGraph that = (MutableWeightedGraph) obj;
-        return g.equals(that.g);
+        return edges.equals(that.edges);
     }
 
     /**
@@ -267,6 +308,6 @@ public class MutableWeightedGraph implements Serializable {
      */
     @Override
     public int hashCode() {
-        return g.hashCode();
+        return edges.hashCode();
     }
 }
