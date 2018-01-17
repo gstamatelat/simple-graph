@@ -200,7 +200,7 @@ public class MutableDirectedGraph implements Serializable {
     }
 
     /**
-     * Construct and return a new {@link DirectedGraph} as a copy of this graph.
+     * Construct and return a new immutable {@link DirectedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *

@@ -201,7 +201,7 @@ public class MutableWeightedDirectedGraph implements Serializable {
     }
 
     /**
-     * Construct and return a new {@link WeightedDirectedGraph} as a copy of this graph.
+     * Construct and return a new immutable {@link WeightedDirectedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *

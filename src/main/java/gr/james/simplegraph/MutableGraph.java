@@ -120,7 +120,7 @@ public class MutableGraph implements Serializable {
     }
 
     /**
-     * Construct and return a new {@link Graph} as a copy of this graph.
+     * Construct and return a new immutable {@link Graph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *
