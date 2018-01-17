@@ -16,13 +16,6 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph, Se
 
     private final MutableWeightedDirectedGraph g;
 
-    private ImmutableWeightedDirectedGraph(MutableWeightedDirectedGraph g, boolean privatePlaceholder) {
-        if (g == null) {
-            throw new NullPointerException();
-        }
-        this.g = g;
-    }
-
     /**
      * Construct a new {@link ImmutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
@@ -32,7 +25,7 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph, Se
      * @throws NullPointerException if {code g} is {@code null}
      */
     public ImmutableWeightedDirectedGraph(MutableWeightedDirectedGraph g) {
-        this(new MutableWeightedDirectedGraph(g), true);
+        this.g = new MutableWeightedDirectedGraph(g);
     }
 
     /**

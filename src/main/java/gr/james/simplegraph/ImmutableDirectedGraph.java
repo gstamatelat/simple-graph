@@ -15,13 +15,6 @@ public class ImmutableDirectedGraph implements DirectedGraph, Serializable {
 
     private final MutableDirectedGraph g;
 
-    private ImmutableDirectedGraph(MutableDirectedGraph g, boolean privatePlaceholder) {
-        if (g == null) {
-            throw new NullPointerException();
-        }
-        this.g = g;
-    }
-
     /**
      * Construct a new {@link ImmutableDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
@@ -31,7 +24,7 @@ public class ImmutableDirectedGraph implements DirectedGraph, Serializable {
      * @throws NullPointerException if {code g} is {@code null}
      */
     public ImmutableDirectedGraph(MutableDirectedGraph g) {
-        this(new MutableDirectedGraph(g), true);
+        this.g = new MutableDirectedGraph(g);
     }
 
     /**

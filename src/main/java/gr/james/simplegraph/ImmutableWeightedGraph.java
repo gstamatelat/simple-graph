@@ -16,13 +16,6 @@ public class ImmutableWeightedGraph implements WeightedGraph, Serializable {
 
     private final MutableWeightedGraph g;
 
-    private ImmutableWeightedGraph(MutableWeightedGraph g, boolean privatePlaceholder) {
-        if (g == null) {
-            throw new NullPointerException();
-        }
-        this.g = g;
-    }
-
     /**
      * Construct a new {@link ImmutableWeightedGraph} as a copy of the given graph {@code g}.
      * <p>
@@ -32,7 +25,7 @@ public class ImmutableWeightedGraph implements WeightedGraph, Serializable {
      * @throws NullPointerException if {code g} is {@code null}
      */
     public ImmutableWeightedGraph(MutableWeightedGraph g) {
-        this(new MutableWeightedGraph(g), true);
+        this.g = new MutableWeightedGraph(g);
     }
 
     /**

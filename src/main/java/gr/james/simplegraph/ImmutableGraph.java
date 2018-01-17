@@ -15,13 +15,6 @@ public class ImmutableGraph implements Graph, Serializable {
 
     private final MutableGraph g;
 
-    private ImmutableGraph(MutableGraph g, boolean privatePlaceholder) {
-        if (g == null) {
-            throw new NullPointerException();
-        }
-        this.g = g;
-    }
-
     /**
      * Construct a new {@link ImmutableGraph} as a copy of the given graph {@code g}.
      * <p>
@@ -31,7 +24,7 @@ public class ImmutableGraph implements Graph, Serializable {
      * @throws NullPointerException if {code g} is {@code null}
      */
     public ImmutableGraph(MutableGraph g) {
-        this(new MutableGraph(g), true);
+        this.g = new MutableGraph(g);
     }
 
     /**
