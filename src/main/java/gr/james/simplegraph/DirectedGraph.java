@@ -37,7 +37,8 @@ public class DirectedGraph implements Serializable {
     /**
      * Decorate a {@link MutableDirectedGraph} as a {@link DirectedGraph} and return it.
      * <p>
-     * Changes on the input graph will reflect on the instance returned by this method.
+     * Changes on the input graph will reflect on the instance returned by this method. Thus, the instance returned by
+     * this method represents an immutable graph only if no reference to {@code g} is accessible by the consumer.
      * <p>
      * Complexity: O(1)
      *
