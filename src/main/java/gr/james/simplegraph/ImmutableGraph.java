@@ -34,6 +34,7 @@ public class ImmutableGraph implements Graph, Serializable {
      *
      * @return how many vertices there are in the graph
      */
+    @Override
     public int size() {
         return g.size();
     }
@@ -47,6 +48,7 @@ public class ImmutableGraph implements Graph, Serializable {
      * @return an {@link Set} that holds all the adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
+    @Override
     public Set<Integer> getEdges(int v) {
         return g.getEdges(v);
     }

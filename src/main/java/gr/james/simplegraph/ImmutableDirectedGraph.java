@@ -34,6 +34,7 @@ public class ImmutableDirectedGraph implements DirectedGraph, Serializable {
      *
      * @return how many vertices there are in the graph
      */
+    @Override
     public int size() {
         return g.size();
     }
@@ -47,6 +48,7 @@ public class ImmutableDirectedGraph implements DirectedGraph, Serializable {
      * @return an {@link Set} that holds all the outbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
+    @Override
     public Set<Integer> getOutEdges(int v) {
         return g.getOutEdges(v);
     }
@@ -60,6 +62,7 @@ public class ImmutableDirectedGraph implements DirectedGraph, Serializable {
      * @return an {@link Set} that holds all the inbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
+    @Override
     public Set<Integer> getInEdges(int v) {
         return g.getInEdges(v);
     }

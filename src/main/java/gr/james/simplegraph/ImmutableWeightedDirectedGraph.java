@@ -35,6 +35,7 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph, Se
      *
      * @return how many vertices there are in the graph
      */
+    @Override
     public int size() {
         return g.size();
     }
@@ -48,6 +49,7 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph, Se
      * @return an {@link Set} that holds all the outbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
+    @Override
     public Set<Integer> getOutEdges(int v) {
         return g.getOutEdges(v);
     }
@@ -61,6 +63,7 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph, Se
      * @return an {@link Set} that holds all the inbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
+    @Override
     public Set<Integer> getInEdges(int v) {
         return g.getInEdges(v);
     }
@@ -76,6 +79,7 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph, Se
      * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
      * @throws IllegalArgumentException  if there is no edge from {@code source} to {@code target}
      */
+    @Override
     public double getEdgeWeight(int source, int target) {
         return g.getEdgeWeight(source, target);
     }

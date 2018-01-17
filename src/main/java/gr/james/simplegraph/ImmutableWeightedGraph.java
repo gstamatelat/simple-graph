@@ -35,6 +35,7 @@ public class ImmutableWeightedGraph implements WeightedGraph, Serializable {
      *
      * @return how many vertices there are in the graph
      */
+    @Override
     public int size() {
         return g.size();
     }
@@ -48,6 +49,7 @@ public class ImmutableWeightedGraph implements WeightedGraph, Serializable {
      * @return an {@link Set} that holds all the adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
+    @Override
     public Set<Integer> getEdges(int v) {
         return g.getEdges(v);
     }
@@ -63,6 +65,7 @@ public class ImmutableWeightedGraph implements WeightedGraph, Serializable {
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      * @throws IllegalArgumentException  if there is no edge connecting {@code v} and {@code w}
      */
+    @Override
     public double getEdgeWeight(int v, int w) {
         return g.getEdgeWeight(v, w);
     }
