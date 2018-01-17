@@ -71,7 +71,7 @@ public abstract class Graph implements Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || !(obj instanceof Graph)) {
             return false;
         }
         final Graph that = (Graph) obj;

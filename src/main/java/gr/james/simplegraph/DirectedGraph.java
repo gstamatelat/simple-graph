@@ -80,7 +80,7 @@ public abstract class DirectedGraph implements Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || !(obj instanceof DirectedGraph)) {
             return false;
         }
         final DirectedGraph that = (DirectedGraph) obj;

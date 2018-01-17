@@ -94,7 +94,7 @@ public abstract class WeightedDirectedGraph implements Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || !(obj instanceof WeightedDirectedGraph)) {
             return false;
         }
         final WeightedDirectedGraph that = (WeightedDirectedGraph) obj;
