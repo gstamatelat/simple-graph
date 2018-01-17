@@ -121,6 +121,33 @@ public class MutableWeightedGraph implements Serializable {
     }
 
     /**
+     * Construct and return a new {@link WeightedGraph} as a copy of this graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @return a copy of this graph as a new {@link WeightedGraph}
+     */
+    public WeightedGraph toImmutable() {
+        final MutableWeightedGraph g = new MutableWeightedGraph(this);
+        return new WeightedGraph() {
+            @Override
+            public int size() {
+                return g.size();
+            }
+
+            @Override
+            public Set<Integer> getEdges(int v) {
+                return g.getEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int v, int w) {
+                return g.getEdgeWeight(v, w);
+            }
+        };
+    }
+
+    /**
      * Get the number of vertices in the graph.
      * <p>
      * Complexity: O(1)

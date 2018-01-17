@@ -120,6 +120,28 @@ public class MutableGraph implements Serializable {
     }
 
     /**
+     * Construct and return a new {@link Graph} as a copy of this graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @return a copy of this graph as a new {@link Graph}
+     */
+    public Graph toImmutable() {
+        final MutableGraph g = new MutableGraph(this);
+        return new Graph() {
+            @Override
+            public int size() {
+                return g.size();
+            }
+
+            @Override
+            public Set<Integer> getEdges(int v) {
+                return g.getEdges(v);
+            }
+        };
+    }
+
+    /**
      * Get the number of vertices in the graph.
      * <p>
      * Complexity: O(1)

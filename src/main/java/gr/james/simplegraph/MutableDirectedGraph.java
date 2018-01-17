@@ -200,6 +200,33 @@ public class MutableDirectedGraph implements Serializable {
     }
 
     /**
+     * Construct and return a new {@link DirectedGraph} as a copy of this graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @return a copy of this graph as a new {@link DirectedGraph}
+     */
+    public DirectedGraph toImmutable() {
+        final MutableDirectedGraph g = new MutableDirectedGraph(this);
+        return new DirectedGraph() {
+            @Override
+            public int size() {
+                return g.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return g.getOutEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return g.getInEdges(v);
+            }
+        };
+    }
+
+    /**
      * Get the number of vertices in the graph.
      * <p>
      * Complexity: O(1)

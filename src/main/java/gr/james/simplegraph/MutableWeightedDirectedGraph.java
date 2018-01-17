@@ -201,6 +201,38 @@ public class MutableWeightedDirectedGraph implements Serializable {
     }
 
     /**
+     * Construct and return a new {@link WeightedDirectedGraph} as a copy of this graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @return a copy of this graph as a new {@link WeightedDirectedGraph}
+     */
+    public WeightedDirectedGraph toImmutable() {
+        final MutableWeightedDirectedGraph g = new MutableWeightedDirectedGraph(this);
+        return new WeightedDirectedGraph() {
+            @Override
+            public int size() {
+                return g.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return g.getOutEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return g.getInEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int source, int target) {
+                return g.getEdgeWeight(source, target);
+            }
+        };
+    }
+
+    /**
      * Get the number of vertices in the graph.
      * <p>
      * Complexity: O(1)
