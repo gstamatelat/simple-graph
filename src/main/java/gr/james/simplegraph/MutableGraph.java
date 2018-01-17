@@ -44,6 +44,7 @@ public class MutableGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableGraph(MutableGraph g) {
         this(g.size());
@@ -63,6 +64,7 @@ public class MutableGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableGraph(MutableWeightedGraph g) {
         this(g.size());
@@ -79,6 +81,7 @@ public class MutableGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableGraph(Graph g) {
         this(g.size());
@@ -97,6 +100,7 @@ public class MutableGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableGraph(WeightedGraph g) {
         this(g.size());
