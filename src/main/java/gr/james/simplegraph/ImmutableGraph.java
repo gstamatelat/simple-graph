@@ -35,22 +35,6 @@ public class ImmutableGraph implements Serializable {
     }
 
     /**
-     * Decorate a {@link MutableGraph} as a {@link ImmutableGraph} and return it.
-     * <p>
-     * Changes on the input graph will reflect on the instance returned by this method. Thus, the instance returned by
-     * this method represents an immutable graph only if no reference to {@code g} is accessible by the consumer.
-     * <p>
-     * Complexity: O(1)
-     *
-     * @param g the underlying mutable graph
-     * @return a {@link ImmutableGraph} that wraps {@code g}
-     * @throws NullPointerException if {code g} is {@code null}
-     */
-    public static ImmutableGraph decorate(MutableGraph g) {
-        return new ImmutableGraph(g, true);
-    }
-
-    /**
      * Get the number of vertices in the graph.
      * <p>
      * Complexity: O(1)

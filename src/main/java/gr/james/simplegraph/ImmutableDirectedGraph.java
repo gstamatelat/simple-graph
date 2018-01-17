@@ -35,22 +35,6 @@ public class ImmutableDirectedGraph implements Serializable {
     }
 
     /**
-     * Decorate a {@link MutableDirectedGraph} as a {@link ImmutableDirectedGraph} and return it.
-     * <p>
-     * Changes on the input graph will reflect on the instance returned by this method. Thus, the instance returned by
-     * this method represents an immutable graph only if no reference to {@code g} is accessible by the consumer.
-     * <p>
-     * Complexity: O(1)
-     *
-     * @param g the underlying mutable graph
-     * @return a {@link ImmutableDirectedGraph} that wraps {@code g}
-     * @throws NullPointerException if {code g} is {@code null}
-     */
-    public static ImmutableDirectedGraph decorate(MutableDirectedGraph g) {
-        return new ImmutableDirectedGraph(g, true);
-    }
-
-    /**
      * Get the number of vertices in the graph.
      * <p>
      * Complexity: O(1)
