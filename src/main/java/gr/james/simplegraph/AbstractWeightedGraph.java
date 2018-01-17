@@ -109,7 +109,12 @@ public abstract class AbstractWeightedGraph {
      */
     @Override
     public int hashCode() {
-        // TODO
-        return -1;
+        int hash = 0;
+        for (int i = 0; i < size(); i++) {
+            for (int j : getEdges(i)) {
+                hash += (j ^ new Double(getEdgeWeight(i, j)).hashCode());
+            }
+        }
+        return hash;
     }
 }
