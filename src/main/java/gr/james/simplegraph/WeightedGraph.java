@@ -17,6 +17,9 @@ public class WeightedGraph implements Serializable {
     private final MutableWeightedGraph g;
 
     private WeightedGraph(MutableWeightedGraph g, boolean privatePlaceholder) {
+        if (g == null) {
+            throw new NullPointerException();
+        }
         this.g = g;
     }
 
@@ -26,6 +29,7 @@ public class WeightedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {code g} is {@code null}
      */
     public WeightedGraph(MutableWeightedGraph g) {
         this(new MutableWeightedGraph(g), true);
@@ -40,6 +44,7 @@ public class WeightedGraph implements Serializable {
      *
      * @param g the underlying mutable graph
      * @return a {@link WeightedGraph} that wraps {@code g}
+     * @throws NullPointerException if {code g} is {@code null}
      */
     public static WeightedGraph decorate(MutableWeightedGraph g) {
         return new WeightedGraph(g, true);

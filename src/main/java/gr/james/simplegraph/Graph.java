@@ -16,6 +16,9 @@ public class Graph implements Serializable {
     private final MutableGraph g;
 
     private Graph(MutableGraph g, boolean privatePlaceholder) {
+        if (g == null) {
+            throw new NullPointerException();
+        }
         this.g = g;
     }
 
@@ -25,6 +28,7 @@ public class Graph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {code g} is {@code null}
      */
     public Graph(MutableGraph g) {
         this(new MutableGraph(g), true);
@@ -39,6 +43,7 @@ public class Graph implements Serializable {
      *
      * @param g the underlying mutable graph
      * @return a {@link Graph} that wraps {@code g}
+     * @throws NullPointerException if {code g} is {@code null}
      */
     public static Graph decorate(MutableGraph g) {
         return new Graph(g, true);

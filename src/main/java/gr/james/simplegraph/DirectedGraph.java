@@ -16,6 +16,9 @@ public class DirectedGraph implements Serializable {
     private final MutableDirectedGraph g;
 
     private DirectedGraph(MutableDirectedGraph g, boolean privatePlaceholder) {
+        if (g == null) {
+            throw new NullPointerException();
+        }
         this.g = g;
     }
 
@@ -25,6 +28,7 @@ public class DirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {code g} is {@code null}
      */
     public DirectedGraph(MutableDirectedGraph g) {
         this(new MutableDirectedGraph(g), true);
@@ -39,6 +43,7 @@ public class DirectedGraph implements Serializable {
      *
      * @param g the underlying mutable graph
      * @return a {@link DirectedGraph} that wraps {@code g}
+     * @throws NullPointerException if {code g} is {@code null}
      */
     public static DirectedGraph decorate(MutableDirectedGraph g) {
         return new DirectedGraph(g, true);

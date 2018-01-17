@@ -17,6 +17,9 @@ public class WeightedDirectedGraph implements Serializable {
     private final MutableWeightedDirectedGraph g;
 
     private WeightedDirectedGraph(MutableWeightedDirectedGraph g, boolean privatePlaceholder) {
+        if (g == null) {
+            throw new NullPointerException();
+        }
         this.g = g;
     }
 
@@ -26,6 +29,7 @@ public class WeightedDirectedGraph implements Serializable {
      * Complexity: O(V+E)
      *
      * @param g the graph to copy
+     * @throws NullPointerException if {code g} is {@code null}
      */
     public WeightedDirectedGraph(MutableWeightedDirectedGraph g) {
         this(new MutableWeightedDirectedGraph(g), true);
@@ -40,6 +44,7 @@ public class WeightedDirectedGraph implements Serializable {
      *
      * @param g the underlying mutable graph
      * @return a {@link WeightedDirectedGraph} that wraps {@code g}
+     * @throws NullPointerException if {code g} is {@code null}
      */
     public static WeightedDirectedGraph decorate(MutableWeightedDirectedGraph g) {
         return new WeightedDirectedGraph(g, true);
