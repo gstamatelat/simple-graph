@@ -1,5 +1,6 @@
 package gr.james.simplegraph;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -10,7 +11,9 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public abstract class AbstractWeightedDirectedGraph {
+public abstract class AbstractWeightedDirectedGraph implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     /**
      * Get the number of vertices in the graph.
      * <p>
