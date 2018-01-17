@@ -10,7 +10,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class ImmutableGraph implements Serializable {
+public class ImmutableGraph implements Graph, Serializable {
     private static final long serialVersionUID = 1L;
 
     private final MutableGraph g;

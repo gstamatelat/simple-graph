@@ -11,7 +11,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class ImmutableWeightedDirectedGraph implements Serializable {
+public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph, Serializable {
     private static final long serialVersionUID = 1L;
 
     private final MutableWeightedDirectedGraph g;
