@@ -1,7 +1,7 @@
 package gr.james.simplegraph;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Represents an undirected and unweighted graph implemented using adjacency lists.
@@ -13,7 +13,7 @@ import java.util.Set;
 public class MutableGraph implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private final MutableWeightedDirectedGraph g;
+    private final List<Set<Integer>> edges;
 
     /**
      * Construct a new empty {@link MutableGraph} without any vertices.
@@ -33,7 +33,9 @@ public class MutableGraph implements Serializable {
      * @throws IllegalArgumentException if {@code n < 0}
      */
     public MutableGraph(int n) {
-        this.g = new MutableWeightedDirectedGraph(n);
+        this.edges = new ArrayList<Set<Integer>>(n);
+        addVertices(n);
+        assert size() == n;
     }
 
     /**
@@ -105,6 +107,14 @@ public class MutableGraph implements Serializable {
         }
     }
 
+    private void checkVertex(int... x) {
+        for (int i : x) {
+            if (i < 0 || i >= size()) {
+                throw new IndexOutOfBoundsException();
+            }
+        }
+    }
+
     /**
      * Get the number of vertices in the graph.
      * <p>
@@ -113,7 +123,7 @@ public class MutableGraph implements Serializable {
      * @return how many vertices there are in the graph
      */
     public int size() {
-        return this.g.size();
+        return this.edges.size();
     }
 
     /**
@@ -122,7 +132,7 @@ public class MutableGraph implements Serializable {
      * Complexity: O(1)
      */
     public void addVertex() {
-        this.g.addVertex();
+        this.edges.add(new HashSet<Integer>());
     }
 
     /**
@@ -134,7 +144,12 @@ public class MutableGraph implements Serializable {
      * @throws IllegalArgumentException if {@code n < 0}
      */
     public void addVertices(int n) {
-        this.g.addVertices(n);
+        if (n < 0) {
+            throw new IllegalArgumentException();
+        }
+        for (int i = 0; i < n; i++) {
+            addVertex();
+        }
     }
 
     /**
@@ -146,7 +161,20 @@ public class MutableGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        this.g.removeVertex(v);
+        checkVertex(v);
+        for (int i = 0; i < size(); i++) {
+            Set<Integer> previousOut = edges.get(i);
+            Set<Integer> newOut = new HashSet<Integer>();
+            for (Integer e : previousOut) {
+                if (e > v) {
+                    newOut.add(e - 1);
+                } else if (e < v) {
+                    newOut.add(e);
+                }
+            }
+            edges.set(i, newOut);
+        }
+        edges.remove(v);
     }
 
     /**
@@ -160,12 +188,10 @@ public class MutableGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      */
     public boolean putEdge(int v, int w) {
-        if (this.g.putEdge(v, w, 1.0) == null) {
-            this.g.putEdge(w, v, 1.0);
-            return true;
-        } else {
-            return false;
-        }
+        final boolean a = edges.get(v).add(w);
+        final boolean b = edges.get(w).add(v);
+        assert a == b;
+        return a;
     }
 
     /**
@@ -179,12 +205,10 @@ public class MutableGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      */
     public boolean removeEdge(int v, int w) {
-        if (this.g.removeEdge(v, w) != null) {
-            this.g.removeEdge(w, v);
-            return true;
-        } else {
-            return false;
-        }
+        final boolean a = edges.get(v).remove(w);
+        final boolean b = edges.get(w).remove(v);
+        assert a == b;
+        return a;
     }
 
     /**
@@ -197,7 +221,8 @@ public class MutableGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public Set<Integer> getEdges(int v) {
-        return this.g.getOutEdges(v);
+        final Set<Integer> edges = this.edges.get(v);
+        return Collections.unmodifiableSet(edges);
     }
 
     /**
@@ -242,7 +267,7 @@ public class MutableGraph implements Serializable {
             return false;
         }
         final MutableGraph that = (MutableGraph) obj;
-        return g.equals(that.g);
+        return edges.equals(that.edges);
     }
 
     /**
@@ -254,6 +279,6 @@ public class MutableGraph implements Serializable {
      */
     @Override
     public int hashCode() {
-        return g.hashCode();
+        return edges.hashCode();
     }
 }
