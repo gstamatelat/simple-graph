@@ -88,8 +88,27 @@ public abstract class AbstractWeightedDirectedGraph {
      */
     @Override
     public boolean equals(Object obj) {
-        // TODO
-        return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final AbstractWeightedDirectedGraph that = (AbstractWeightedDirectedGraph) obj;
+        if (size() != that.size()) {
+            return false;
+        }
+        for (int i = 0; i < size(); i++) {
+            if (!getOutEdges(i).equals(that.getOutEdges(i))) {
+                return false;
+            }
+            for (int j : getOutEdges(i)) {
+                if (getEdgeWeight(i, j) != that.getEdgeWeight(i, j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
