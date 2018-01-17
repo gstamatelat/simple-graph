@@ -2,7 +2,14 @@ package gr.james.simplegraph;
 
 import java.util.Set;
 
-public interface WeightedGraph {
+/**
+ * Represents an immutable directed and unweighted graph implemented using adjacency lists.
+ * <p>
+ * The graph can contain self loops but cannot contain more than one edge from any set of endpoints.
+ * <p>
+ * Memory Complexity: O(V+E)
+ */
+public abstract class AbstractDirectedGraph {
     /**
      * Get the number of vertices in the graph.
      * <p>
@@ -10,39 +17,42 @@ public interface WeightedGraph {
      *
      * @return how many vertices there are in the graph
      */
-    int size();
+    public abstract int size();
 
     /**
-     * Get the edges of a vertex.
+     * Get the outbound edges of a vertex.
      * <p>
      * Complexity: O(1)
      *
-     * @param v the vertex index to get the edges of
-     * @return an {@link Set} that holds all the adjacent vertices of {@code v}
+     * @param v the vertex index to get the outbound edges of
+     * @return an {@link Set} that holds all the outbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
-    Set<Integer> getEdges(int v);
+    public abstract Set<Integer> getOutEdges(int v);
 
     /**
-     * Get the weight of the edge connecting {@code v} and {@code w}.
+     * Get the inbound edges of a vertex.
      * <p>
      * Complexity: O(1)
      *
-     * @param v one end of the edge
-     * @param w the other end of the edge
-     * @return the weight of the edge connecting {@code v} and {@code w}
-     * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
-     * @throws IllegalArgumentException  if there is no edge connecting {@code v} and {@code w}
+     * @param v the vertex index to get the inbound edges of
+     * @return an {@link Set} that holds all the inbound adjacent vertices of {@code v}
+     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
-    double getEdgeWeight(int v, int w);
+    public abstract Set<Integer> getInEdges(int v);
 
     /**
      * Returns a string representation of the graph.
+     * <p>
+     * Complexity: O(V+E)
      *
      * @return a string representation of the graph
      */
     @Override
-    String toString();
+    public String toString() {
+        // TODO
+        return null;
+    }
 
     /**
      * Indicates whether some other object is equal to this graph.
@@ -56,7 +66,10 @@ public interface WeightedGraph {
      * @return {@code true} if this graph is equal to the {@code obj} argument, otherwise {@code false}
      */
     @Override
-    boolean equals(Object obj);
+    public boolean equals(Object obj) {
+        // TODO
+        return false;
+    }
 
     /**
      * Returns a hash code value for this graph.
@@ -66,5 +79,8 @@ public interface WeightedGraph {
      * @return a hash code value for this graph
      */
     @Override
-    int hashCode();
+    public int hashCode() {
+        // TODO
+        return -1;
+    }
 }

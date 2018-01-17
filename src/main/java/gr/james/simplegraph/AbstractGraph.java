@@ -1,6 +1,5 @@
 package gr.james.simplegraph;
 
-import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -10,23 +9,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class ImmutableGraph extends AbstractGraph implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    private final MutableGraph g;
-
-    /**
-     * Construct a new {@link ImmutableGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {code g} is {@code null}
-     */
-    public ImmutableGraph(MutableGraph g) {
-        this.g = new MutableGraph(g);
-    }
-
+public abstract class AbstractGraph {
     /**
      * Get the number of vertices in the graph.
      * <p>
@@ -34,10 +17,7 @@ public class ImmutableGraph extends AbstractGraph implements Serializable {
      *
      * @return how many vertices there are in the graph
      */
-    @Override
-    public int size() {
-        return g.size();
-    }
+    public abstract int size();
 
     /**
      * Get the edges of a vertex.
@@ -48,10 +28,7 @@ public class ImmutableGraph extends AbstractGraph implements Serializable {
      * @return an {@link Set} that holds all the adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
-    @Override
-    public Set<Integer> getEdges(int v) {
-        return g.getEdges(v);
-    }
+    public abstract Set<Integer> getEdges(int v);
 
     /**
      * Returns a string representation of the graph.
@@ -62,7 +39,8 @@ public class ImmutableGraph extends AbstractGraph implements Serializable {
      */
     @Override
     public String toString() {
-        return g.toString();
+        // TODO
+        return null;
     }
 
     /**
@@ -78,14 +56,8 @@ public class ImmutableGraph extends AbstractGraph implements Serializable {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        final ImmutableGraph that = (ImmutableGraph) obj;
-        return g.equals(that.g);
+        // TODO
+        return false;
     }
 
     /**
@@ -97,6 +69,7 @@ public class ImmutableGraph extends AbstractGraph implements Serializable {
      */
     @Override
     public int hashCode() {
-        return g.hashCode();
+        // TODO
+        return -1;
     }
 }

@@ -2,7 +2,15 @@ package gr.james.simplegraph;
 
 import java.util.Set;
 
-public interface DirectedGraph {
+/**
+ * Represents an immutable directed and weighted graph implemented using adjacency lists.
+ * <p>
+ * The graph can contain self loops but cannot contain more than one edge from any set of endpoints. The edge weights
+ * can only be finite {@link Double} values.
+ * <p>
+ * Memory Complexity: O(V+E)
+ */
+public abstract class AbstractWeightedDirectedGraph {
     /**
      * Get the number of vertices in the graph.
      * <p>
@@ -10,7 +18,7 @@ public interface DirectedGraph {
      *
      * @return how many vertices there are in the graph
      */
-    int size();
+    public abstract int size();
 
     /**
      * Get the outbound edges of a vertex.
@@ -21,7 +29,7 @@ public interface DirectedGraph {
      * @return an {@link Set} that holds all the outbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
-    Set<Integer> getOutEdges(int v);
+    public abstract Set<Integer> getOutEdges(int v);
 
     /**
      * Get the inbound edges of a vertex.
@@ -32,7 +40,20 @@ public interface DirectedGraph {
      * @return an {@link Set} that holds all the inbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
-    Set<Integer> getInEdges(int v);
+    public abstract Set<Integer> getInEdges(int v);
+
+    /**
+     * Get the weight of the edge from {@code source} to {@code target}.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @param source the source of the edge
+     * @param target the target of the edge
+     * @return the weight of the edge from {@code source} to {@code target}
+     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
+     * @throws IllegalArgumentException  if there is no edge from {@code source} to {@code target}
+     */
+    public abstract double getEdgeWeight(int source, int target);
 
     /**
      * Returns a string representation of the graph.
@@ -42,7 +63,10 @@ public interface DirectedGraph {
      * @return a string representation of the graph
      */
     @Override
-    String toString();
+    public String toString() {
+        // TODO
+        return null;
+    }
 
     /**
      * Indicates whether some other object is equal to this graph.
@@ -56,7 +80,10 @@ public interface DirectedGraph {
      * @return {@code true} if this graph is equal to the {@code obj} argument, otherwise {@code false}
      */
     @Override
-    boolean equals(Object obj);
+    public boolean equals(Object obj) {
+        // TODO
+        return false;
+    }
 
     /**
      * Returns a hash code value for this graph.
@@ -66,5 +93,8 @@ public interface DirectedGraph {
      * @return a hash code value for this graph
      */
     @Override
-    int hashCode();
+    public int hashCode() {
+        // TODO
+        return -1;
+    }
 }
