@@ -48,6 +48,84 @@ public abstract class WeightedGraph implements Serializable {
     public abstract double getEdgeWeight(int v, int w);
 
     /**
+     * Return a {@link Graph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link Graph} wrapper of this graph
+     */
+    public Graph toGraph() {
+        return new Graph() {
+            @Override
+            public int size() {
+                return WeightedGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getEdges(int v) {
+                return WeightedGraph.this.getEdges(v);
+            }
+        };
+    }
+
+    /**
+     * Return a {@link DirectedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link DirectedGraph} wrapper of this graph
+     */
+    public DirectedGraph toDirected() {
+        return new DirectedGraph() {
+            @Override
+            public int size() {
+                return WeightedGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return WeightedGraph.this.getEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return WeightedGraph.this.getEdges(v);
+            }
+        };
+    }
+
+    /**
+     * Return a {@link WeightedDirectedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link WeightedDirectedGraph} wrapper of this graph
+     */
+    public WeightedDirectedGraph toWeightedDirected() {
+        return new WeightedDirectedGraph() {
+            @Override
+            public int size() {
+                return WeightedGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return WeightedGraph.this.getEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return WeightedGraph.this.getEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int source, int target) {
+                return WeightedGraph.this.getEdgeWeight(source, target);
+            }
+        };
+    }
+
+    /**
      * Returns a string representation of the graph.
      *
      * @return a string representation of the graph

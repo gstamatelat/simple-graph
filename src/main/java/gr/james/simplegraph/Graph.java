@@ -34,6 +34,106 @@ public abstract class Graph implements Serializable {
     public abstract Set<Integer> getEdges(int v);
 
     /**
+     * Return a {@link WeightedGraph} wrapper of this graph.
+     * <p>
+     * The method {@link WeightedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw exception).
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link WeightedGraph} wrapper of this graph
+     */
+    public WeightedGraph toWeighted() {
+        return new WeightedGraph() {
+            @Override
+            public int size() {
+                return Graph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getEdges(int v) {
+                return Graph.this.getEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int v, int w) {
+                if (w < 0 || w >= size()) {
+                    throw new IndexOutOfBoundsException();
+                }
+                if (!getEdges(v).contains(w)) {
+                    throw new IllegalArgumentException();
+                }
+                return 1;
+            }
+        };
+    }
+
+    /**
+     * Return a {@link DirectedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link DirectedGraph} wrapper of this graph
+     */
+    public DirectedGraph toDirected() {
+        return new DirectedGraph() {
+            @Override
+            public int size() {
+                return Graph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return Graph.this.getEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return Graph.this.getEdges(v);
+            }
+        };
+    }
+
+    /**
+     * Return a {@link WeightedDirectedGraph} wrapper of this graph.
+     * <p>
+     * The method {@link WeightedDirectedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw
+     * exception).
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link WeightedDirectedGraph} wrapper of this graph
+     */
+    public WeightedDirectedGraph toWeightedDirected() {
+        return new WeightedDirectedGraph() {
+            @Override
+            public int size() {
+                return Graph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return Graph.this.getEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return Graph.this.getEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int source, int target) {
+                if (target < 0 || target >= size()) {
+                    throw new IndexOutOfBoundsException();
+                }
+                if (!getEdges(source).contains(target)) {
+                    throw new IllegalArgumentException();
+                }
+                return 1;
+            }
+        };
+    }
+
+    /**
      * Returns a string representation of the graph.
      * <p>
      * Complexity: O(V+E)

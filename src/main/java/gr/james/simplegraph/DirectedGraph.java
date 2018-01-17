@@ -45,6 +45,46 @@ public abstract class DirectedGraph implements Serializable {
     public abstract Set<Integer> getInEdges(int v);
 
     /**
+     * Return a {@link WeightedDirectedGraph} wrapper of this graph.
+     * <p>
+     * The method {@link WeightedDirectedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw
+     * exception).
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link WeightedDirectedGraph} wrapper of this graph
+     */
+    public WeightedDirectedGraph toWeightedDirected() {
+        return new WeightedDirectedGraph() {
+            @Override
+            public int size() {
+                return DirectedGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return DirectedGraph.this.getOutEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return DirectedGraph.this.getInEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int source, int target) {
+                if (target < 0 || target >= size()) {
+                    throw new IndexOutOfBoundsException();
+                }
+                if (!getOutEdges(source).contains(target)) {
+                    throw new IllegalArgumentException();
+                }
+                return 1;
+            }
+        };
+    }
+
+    /**
      * Returns a string representation of the graph.
      * <p>
      * Complexity: O(V+E)
