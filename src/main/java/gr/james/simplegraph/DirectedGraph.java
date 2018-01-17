@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * Represents an immutable undirected and unweighted graph implemented using adjacency lists.
+ * Represents an immutable directed and unweighted graph implemented using adjacency lists.
  * <p>
  * The graph can contain self loops but cannot contain more than one edge from any set of endpoints.
  * <p>
  * Memory Complexity: O(V+E)
  */
-public abstract class AbstractGraph implements Serializable {
+public abstract class DirectedGraph implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -23,15 +23,26 @@ public abstract class AbstractGraph implements Serializable {
     public abstract int size();
 
     /**
-     * Get the edges of a vertex.
+     * Get the outbound edges of a vertex.
      * <p>
      * Complexity: O(1)
      *
-     * @param v the vertex index to get the edges of
-     * @return an {@link Set} that holds all the adjacent vertices of {@code v}
+     * @param v the vertex index to get the outbound edges of
+     * @return an {@link Set} that holds all the outbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
-    public abstract Set<Integer> getEdges(int v);
+    public abstract Set<Integer> getOutEdges(int v);
+
+    /**
+     * Get the inbound edges of a vertex.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @param v the vertex index to get the inbound edges of
+     * @return an {@link Set} that holds all the inbound adjacent vertices of {@code v}
+     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     */
+    public abstract Set<Integer> getInEdges(int v);
 
     /**
      * Returns a string representation of the graph.
@@ -45,10 +56,8 @@ public abstract class AbstractGraph implements Serializable {
         final StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s(%d) {%n", this.getClass().getSimpleName(), size()));
         for (int i = 0; i < size(); i++) {
-            for (int adj : getEdges(i)) {
-                if (adj >= i) {
-                    sb.append(String.format("  %d -- %d%n", i, adj));
-                }
+            for (int adj : getOutEdges(i)) {
+                sb.append(String.format("  %d -> %d%n", i, adj));
             }
         }
         sb.append("}");
@@ -74,12 +83,12 @@ public abstract class AbstractGraph implements Serializable {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final AbstractGraph that = (AbstractGraph) obj;
+        final DirectedGraph that = (DirectedGraph) obj;
         if (size() != that.size()) {
             return false;
         }
         for (int i = 0; i < size(); i++) {
-            if (!getEdges(i).equals(that.getEdges(i))) {
+            if (!getOutEdges(i).equals(that.getOutEdges(i))) {
                 return false;
             }
         }
@@ -97,7 +106,7 @@ public abstract class AbstractGraph implements Serializable {
     public int hashCode() {
         int hash = 0;
         for (int i = 0; i < size(); i++) {
-            for (int j : getEdges(i)) {
+            for (int j : getOutEdges(i)) {
                 hash += j;
             }
         }

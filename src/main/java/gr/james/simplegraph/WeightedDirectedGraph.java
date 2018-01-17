@@ -11,7 +11,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public abstract class AbstractWeightedDirectedGraph implements Serializable {
+public abstract class WeightedDirectedGraph implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -97,7 +97,7 @@ public abstract class AbstractWeightedDirectedGraph implements Serializable {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final AbstractWeightedDirectedGraph that = (AbstractWeightedDirectedGraph) obj;
+        final WeightedDirectedGraph that = (WeightedDirectedGraph) obj;
         if (size() != that.size()) {
             return false;
         }

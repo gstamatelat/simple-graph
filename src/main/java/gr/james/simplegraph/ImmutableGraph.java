@@ -9,7 +9,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class ImmutableGraph extends AbstractGraph {
+public class ImmutableGraph extends Graph {
     private final MutableGraph g;
 
     /**

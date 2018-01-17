@@ -10,7 +10,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class ImmutableWeightedDirectedGraph extends AbstractWeightedDirectedGraph {
+public class ImmutableWeightedDirectedGraph extends WeightedDirectedGraph {
     private final MutableWeightedDirectedGraph g;
 
     /**
