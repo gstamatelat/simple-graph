@@ -26,11 +26,10 @@ public class DepthFirstSearch {
         final Deque<Integer> stack = new LinkedList<Integer>();
         final Set<Integer> visited = new HashSet<Integer>();
         stack.push(source);
-        visited.add(source);
         while (!stack.isEmpty()) {
             final int next = stack.pop();
-            for (int adj : g.getOutEdges(next)) {
-                if (visited.add(adj)) {
+            if (visited.add(next)) {
+                for (int adj : g.getOutEdges(next)) {
                     stack.push(adj);
                 }
             }
