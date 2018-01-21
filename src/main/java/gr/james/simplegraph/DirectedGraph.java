@@ -1,6 +1,5 @@
 package gr.james.simplegraph;
 
-import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -10,7 +9,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class DirectedGraph implements IDirectedGraph, Serializable {
+public class DirectedGraph implements IDirectedGraph {
     private static final long serialVersionUID = 1L;
 
     /**

@@ -1,6 +1,5 @@
 package gr.james.simplegraph;
 
-import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -10,7 +9,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableGraph implements IGraph, Serializable {
+public class MutableGraph implements IGraph {
     private static final long serialVersionUID = 1L;
 
     private final List<Set<Integer>> edges;

@@ -1,6 +1,5 @@
 package gr.james.simplegraph;
 
-import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -11,7 +10,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableWeightedGraph implements IWeightedGraph, Serializable {
+public class MutableWeightedGraph implements IWeightedGraph {
     private static final long serialVersionUID = 1L;
 
     private final List<Map<Integer, Double>> edges;

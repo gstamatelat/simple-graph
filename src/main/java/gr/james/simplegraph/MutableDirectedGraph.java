@@ -1,6 +1,5 @@
 package gr.james.simplegraph;
 
-import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -10,7 +9,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableDirectedGraph implements IDirectedGraph, Serializable {
+public class MutableDirectedGraph implements IDirectedGraph {
     private static final long serialVersionUID = 1L;
 
     private final List<Set<Integer>> outEdges;
