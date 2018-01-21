@@ -48,6 +48,8 @@ final class Graphs {
 
     /**
      * Check if a vertex is inside the bounds of a graph.
+     * <p>
+     * Complexity: O(1)
      *
      * @param g the graph
      * @param v the vertex
