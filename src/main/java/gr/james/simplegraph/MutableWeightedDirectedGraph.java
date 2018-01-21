@@ -11,7 +11,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableWeightedDirectedGraph implements Serializable, IWeightedDirectedGraph {
+public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph, Serializable {
     private static final long serialVersionUID = 1L;
 
     private final List<Map<Integer, Double>> outEdges;

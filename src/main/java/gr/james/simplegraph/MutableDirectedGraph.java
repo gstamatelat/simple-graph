@@ -10,7 +10,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableDirectedGraph implements Serializable, IDirectedGraph {
+public class MutableDirectedGraph implements IDirectedGraph, Serializable {
     private static final long serialVersionUID = 1L;
 
     private final List<Set<Integer>> outEdges;

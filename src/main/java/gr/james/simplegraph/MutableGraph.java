@@ -10,7 +10,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableGraph implements Serializable, IGraph {
+public class MutableGraph implements IGraph, Serializable {
     private static final long serialVersionUID = 1L;
 
     private final List<Set<Integer>> edges;
