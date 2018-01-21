@@ -71,6 +71,7 @@ final class Graphs {
      *
      * @param g the graph
      * @return a string representation of {@code g}
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     static String toString(IGraph g) {
         final StringBuilder sb = new StringBuilder();
@@ -93,6 +94,7 @@ final class Graphs {
      *
      * @param g the graph
      * @return a string representation of {@code g}
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     static String toString(IDirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
@@ -113,6 +115,7 @@ final class Graphs {
      *
      * @param g the graph
      * @return a string representation of {@code g}
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     static String toString(IWeightedGraph g) {
         final StringBuilder sb = new StringBuilder();
@@ -135,6 +138,7 @@ final class Graphs {
      *
      * @param g the graph
      * @return a string representation of {@code g}
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     static String toString(IWeightedDirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
@@ -159,6 +163,7 @@ final class Graphs {
      * @param a one graph
      * @param b the other graph
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
+     * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
     static boolean equals(IGraph a, IGraph b) {
         if (a.size() != b.size()) {
@@ -183,6 +188,7 @@ final class Graphs {
      * @param a one graph
      * @param b the other graph
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
+     * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
     static boolean equals(IDirectedGraph a, IDirectedGraph b) {
         if (a.size() != b.size()) {
@@ -207,6 +213,7 @@ final class Graphs {
      * @param a one graph
      * @param b the other graph
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
+     * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
     static boolean equals(IWeightedGraph a, IWeightedGraph b) {
         if (a.size() != b.size()) {
@@ -236,6 +243,7 @@ final class Graphs {
      * @param a one graph
      * @param b the other graph
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
+     * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
     static boolean equals(IWeightedDirectedGraph a, IWeightedDirectedGraph b) {
         if (a.size() != b.size()) {
@@ -261,6 +269,7 @@ final class Graphs {
      *
      * @param g the graph
      * @return a hash code value for {@code g}
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     static int hashCode(IGraph g) {
         int hash = 0;
@@ -279,6 +288,7 @@ final class Graphs {
      *
      * @param g the graph
      * @return a hash code value for {@code g}
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     static int hashCode(IDirectedGraph g) {
         int hash = 0;
@@ -297,6 +307,7 @@ final class Graphs {
      *
      * @param g the graph
      * @return a hash code value for {@code g}
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     static int hashCode(IWeightedGraph g) {
         int hash = 0;
@@ -315,6 +326,7 @@ final class Graphs {
      *
      * @param g the graph
      * @return a hash code value for {@code g}
+     * @throws NullPointerException if {@code g} is {@code null}
      */
     static int hashCode(IWeightedDirectedGraph g) {
         int hash = 0;
