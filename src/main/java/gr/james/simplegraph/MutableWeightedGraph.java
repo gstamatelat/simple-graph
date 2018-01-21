@@ -219,8 +219,8 @@ public class MutableWeightedGraph implements IWeightedGraph {
     public void removeVertex(int v) {
         Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
-            Map<Integer, Double> previousOut = edges.get(i);
-            Map<Integer, Double> newOut = new HashMap<Integer, Double>();
+            final Map<Integer, Double> previousOut = edges.get(i);
+            final Map<Integer, Double> newOut = new HashMap<Integer, Double>();
             for (Map.Entry<Integer, Double> e : previousOut.entrySet()) {
                 if (e.getKey() > v) {
                     newOut.put(e.getKey() - 1, e.getValue());

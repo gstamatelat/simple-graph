@@ -292,8 +292,8 @@ public class MutableDirectedGraph implements IDirectedGraph {
     public void removeVertex(int v) {
         Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
-            Set<Integer> previousOut = outEdges.get(i);
-            Set<Integer> newOut = new HashSet<Integer>();
+            final Set<Integer> previousOut = outEdges.get(i);
+            final Set<Integer> newOut = new HashSet<Integer>();
             for (Integer e : previousOut) {
                 if (e > v) {
                     newOut.add(e - 1);
@@ -303,8 +303,8 @@ public class MutableDirectedGraph implements IDirectedGraph {
             }
             outEdges.set(i, newOut);
 
-            Set<Integer> previousIn = inEdges.get(i);
-            Set<Integer> newIn = new HashSet<Integer>();
+            final Set<Integer> previousIn = inEdges.get(i);
+            final Set<Integer> newIn = new HashSet<Integer>();
             for (Integer e : previousIn) {
                 if (e > v) {
                     newIn.add(e - 1);

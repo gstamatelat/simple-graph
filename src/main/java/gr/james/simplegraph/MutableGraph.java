@@ -192,8 +192,8 @@ public class MutableGraph implements IGraph {
     public void removeVertex(int v) {
         Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
-            Set<Integer> previousOut = edges.get(i);
-            Set<Integer> newOut = new HashSet<Integer>();
+            final Set<Integer> previousOut = edges.get(i);
+            final Set<Integer> newOut = new HashSet<Integer>();
             for (Integer e : previousOut) {
                 if (e > v) {
                     newOut.add(e - 1);
