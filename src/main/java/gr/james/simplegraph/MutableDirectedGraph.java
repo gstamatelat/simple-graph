@@ -191,14 +191,6 @@ public class MutableDirectedGraph implements Serializable, IDirectedGraph {
         }
     }
 
-    private void checkVertex(int... x) {
-        for (int i : x) {
-            if (i < 0 || i >= size()) {
-                throw new IndexOutOfBoundsException();
-            }
-        }
-    }
-
     /**
      * Construct and return a new immutable {@link DirectedGraph} as a copy of this graph.
      * <p>
@@ -273,7 +265,7 @@ public class MutableDirectedGraph implements Serializable, IDirectedGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        checkVertex(v);
+        Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
             Set<Integer> previousOut = outEdges.get(i);
             Set<Integer> newOut = new HashSet<Integer>();

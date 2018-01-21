@@ -111,14 +111,6 @@ public class MutableGraph implements Serializable, IGraph {
         }
     }
 
-    private void checkVertex(int... x) {
-        for (int i : x) {
-            if (i < 0 || i >= size()) {
-                throw new IndexOutOfBoundsException();
-            }
-        }
-    }
-
     /**
      * Construct and return a new immutable {@link Graph} as a copy of this graph.
      * <p>
@@ -186,7 +178,7 @@ public class MutableGraph implements Serializable, IGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        checkVertex(v);
+        Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
             Set<Integer> previousOut = edges.get(i);
             Set<Integer> newOut = new HashSet<Integer>();

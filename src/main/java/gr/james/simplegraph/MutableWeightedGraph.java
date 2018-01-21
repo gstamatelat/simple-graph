@@ -112,14 +112,6 @@ public class MutableWeightedGraph implements Serializable, IWeightedGraph {
         }
     }
 
-    private void checkVertex(int... x) {
-        for (int i : x) {
-            if (i < 0 || i >= size()) {
-                throw new IndexOutOfBoundsException();
-            }
-        }
-    }
-
     /**
      * Construct and return a new immutable {@link WeightedGraph} as a copy of this graph.
      * <p>
@@ -192,7 +184,7 @@ public class MutableWeightedGraph implements Serializable, IWeightedGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        checkVertex(v);
+        Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
             Map<Integer, Double> previousOut = edges.get(i);
             Map<Integer, Double> newOut = new HashMap<Integer, Double>();
@@ -271,7 +263,7 @@ public class MutableWeightedGraph implements Serializable, IWeightedGraph {
      */
     @Override
     public double getEdgeWeight(int v, int w) {
-        checkVertex(w);
+        Graphs.checkVertex(this, w);
         final Double weight = edges.get(v).get(w);
         if (weight == null) {
             throw new IllegalArgumentException();

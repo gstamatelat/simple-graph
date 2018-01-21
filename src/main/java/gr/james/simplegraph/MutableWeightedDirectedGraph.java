@@ -192,14 +192,6 @@ public class MutableWeightedDirectedGraph implements Serializable, IWeightedDire
         }
     }
 
-    private void checkVertex(int... x) {
-        for (int i : x) {
-            if (i < 0 || i >= size()) {
-                throw new IndexOutOfBoundsException();
-            }
-        }
-    }
-
     /**
      * Construct and return a new immutable {@link WeightedDirectedGraph} as a copy of this graph.
      * <p>
@@ -279,7 +271,7 @@ public class MutableWeightedDirectedGraph implements Serializable, IWeightedDire
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        checkVertex(v);
+        Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
             Map<Integer, Double> previousOut = outEdges.get(i);
             Map<Integer, Double> newOut = new HashMap<Integer, Double>();
@@ -383,7 +375,7 @@ public class MutableWeightedDirectedGraph implements Serializable, IWeightedDire
      */
     @Override
     public double getEdgeWeight(int source, int target) {
-        checkVertex(target);
+        Graphs.checkVertex(this, target);
         final Double weight = outEdges.get(source).get(target);
         if (weight == null) {
             throw new IllegalArgumentException();

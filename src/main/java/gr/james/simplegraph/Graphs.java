@@ -45,4 +45,20 @@ final class Graphs {
     static boolean isWeightLegal(double weight) {
         return !Double.isNaN(weight) && !Double.isInfinite(weight);
     }
+
+    /**
+     * Check if a vertex is inside the bounds of a graph.
+     *
+     * @param g the graph
+     * @param v the vertex
+     * @return {@code v}
+     * @throws NullPointerException      if {@code g} is {@code null}
+     * @throws IndexOutOfBoundsException if {@code v} is not in {@code g}
+     */
+    static int checkVertex(IBaseGraph g, int v) {
+        if (v < 0 || v >= g.size()) {
+            throw new IndexOutOfBoundsException();
+        }
+        return v;
+    }
 }
