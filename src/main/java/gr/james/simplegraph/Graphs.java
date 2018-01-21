@@ -70,7 +70,7 @@ final class Graphs {
      * Complexity: O(V+E)
      *
      * @param g the graph
-     * @return a string representation of a graph
+     * @return a string representation of {@code g}
      */
     static String toString(IGraph g) {
         final StringBuilder sb = new StringBuilder();
@@ -92,7 +92,7 @@ final class Graphs {
      * Complexity: O(V+E)
      *
      * @param g the graph
-     * @return a string representation of a graph
+     * @return a string representation of {@code g}
      */
     static String toString(IDirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
@@ -112,7 +112,7 @@ final class Graphs {
      * Complexity: O(V+E)
      *
      * @param g the graph
-     * @return a string representation of a graph
+     * @return a string representation of {@code g}
      */
     static String toString(IWeightedGraph g) {
         final StringBuilder sb = new StringBuilder();
@@ -134,7 +134,7 @@ final class Graphs {
      * Complexity: O(V+E)
      *
      * @param g the graph
-     * @return a string representation of a graph
+     * @return a string representation of {@code g}
      */
     static String toString(IWeightedDirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
@@ -146,5 +146,77 @@ final class Graphs {
         }
         sb.append("}");
         return sb.toString();
+    }
+
+    /**
+     * Returns a hash code value for a graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph
+     * @return a hash code value for {@code g}
+     */
+    static int hashCode(IGraph g) {
+        int hash = 0;
+        for (int i = 0; i < g.size(); i++) {
+            for (int j : g.getEdges(i)) {
+                hash += j;
+            }
+        }
+        return hash;
+    }
+
+    /**
+     * Returns a hash code value for a graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph
+     * @return a hash code value for {@code g}
+     */
+    static int hashCode(IDirectedGraph g) {
+        int hash = 0;
+        for (int i = 0; i < g.size(); i++) {
+            for (int j : g.getOutEdges(i)) {
+                hash += j;
+            }
+        }
+        return hash;
+    }
+
+    /**
+     * Returns a hash code value for a graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph
+     * @return a hash code value for {@code g}
+     */
+    static int hashCode(IWeightedGraph g) {
+        int hash = 0;
+        for (int i = 0; i < g.size(); i++) {
+            for (int j : g.getEdges(i)) {
+                hash += (j ^ new Double(g.getEdgeWeight(i, j)).hashCode());
+            }
+        }
+        return hash;
+    }
+
+    /**
+     * Returns a hash code value for a graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph
+     * @return a hash code value for {@code g}
+     */
+    static int hashCode(IWeightedDirectedGraph g) {
+        int hash = 0;
+        for (int i = 0; i < g.size(); i++) {
+            for (int j : g.getOutEdges(i)) {
+                hash += (j ^ new Double(g.getEdgeWeight(i, j)).hashCode());
+            }
+        }
+        return hash;
     }
 }

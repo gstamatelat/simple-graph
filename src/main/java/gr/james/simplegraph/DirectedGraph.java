@@ -102,12 +102,6 @@ public abstract class DirectedGraph implements IDirectedGraph, Serializable {
      */
     @Override
     public int hashCode() {
-        int hash = 0;
-        for (int i = 0; i < size(); i++) {
-            for (int j : getOutEdges(i)) {
-                hash += j;
-            }
-        }
-        return hash;
+        return Graphs.hashCode(this);
     }
 }

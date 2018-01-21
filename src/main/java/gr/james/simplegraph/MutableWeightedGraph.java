@@ -308,6 +308,6 @@ public class MutableWeightedGraph implements IWeightedGraph, Serializable {
      */
     @Override
     public int hashCode() {
-        return edges.hashCode();
+        return Graphs.hashCode(this);
     }
 }

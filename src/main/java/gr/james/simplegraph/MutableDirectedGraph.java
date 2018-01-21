@@ -390,6 +390,6 @@ public class MutableDirectedGraph implements IDirectedGraph, Serializable {
      */
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{outEdges, inEdges});
+        return Graphs.hashCode(this);
     }
 }

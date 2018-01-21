@@ -420,6 +420,6 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph, Ser
      */
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{outEdges, inEdges});
+        return Graphs.hashCode(this);
     }
 }

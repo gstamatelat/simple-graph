@@ -276,6 +276,6 @@ public class MutableGraph implements IGraph, Serializable {
      */
     @Override
     public int hashCode() {
-        return edges.hashCode();
+        return Graphs.hashCode(this);
     }
 }

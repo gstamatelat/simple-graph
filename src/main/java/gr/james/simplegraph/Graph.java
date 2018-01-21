@@ -162,12 +162,6 @@ public abstract class Graph implements IGraph, Serializable {
      */
     @Override
     public int hashCode() {
-        int hash = 0;
-        for (int i = 0; i < size(); i++) {
-            for (int j : getEdges(i)) {
-                hash += j;
-            }
-        }
-        return hash;
+        return Graphs.hashCode(this);
     }
 }
