@@ -393,6 +393,7 @@ public class MutableWeightedDirectedGraph implements Serializable {
             throw new IllegalArgumentException();
         }
         assert weight.equals(inEdges.get(target).get(source));
+        assert Graphs.isWeightLegal(weight);
         return weight;
     }
 

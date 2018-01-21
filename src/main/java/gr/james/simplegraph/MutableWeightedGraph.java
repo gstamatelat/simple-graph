@@ -280,6 +280,7 @@ public class MutableWeightedGraph implements Serializable {
             throw new IllegalArgumentException();
         }
         assert weight.equals(edges.get(w).get(v));
+        assert Graphs.isWeightLegal(weight);
         return weight;
     }
 
