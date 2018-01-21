@@ -2,6 +2,9 @@ package gr.james.simplegraph;
 
 import java.util.Set;
 
+/**
+ * Base interface for undirected graphs.
+ */
 interface IGraph extends IBaseGraph {
     /**
      * Get the edges of a vertex.

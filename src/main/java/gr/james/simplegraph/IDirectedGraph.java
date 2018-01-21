@@ -2,6 +2,9 @@ package gr.james.simplegraph;
 
 import java.util.Set;
 
+/**
+ * Base interface for directed graphs.
+ */
 interface IDirectedGraph extends IBaseGraph {
     /**
      * Get the outbound edges of a vertex.

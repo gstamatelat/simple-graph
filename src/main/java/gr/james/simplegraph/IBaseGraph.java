@@ -1,5 +1,8 @@
 package gr.james.simplegraph;
 
+/**
+ * Base interface for all graph types.
+ */
 interface IBaseGraph {
     /**
      * Get the number of vertices in the graph.

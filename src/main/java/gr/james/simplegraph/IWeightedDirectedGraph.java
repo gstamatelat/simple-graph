@@ -1,5 +1,8 @@
 package gr.james.simplegraph;
 
+/**
+ * Base interface for weighted and directed graphs.
+ */
 interface IWeightedDirectedGraph extends IDirectedGraph {
     /**
      * Get the weight of the edge from {@code source} to {@code target}.
