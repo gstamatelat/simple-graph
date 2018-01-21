@@ -9,7 +9,7 @@ interface IDirectedGraph extends IBaseGraph {
      * Complexity: O(1)
      *
      * @param v the vertex index to get the outbound edges of
-     * @return an {@link Set} that holds all the outbound adjacent vertices of {@code v}
+     * @return a {@link Set} that holds all the outbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     Set<Integer> getOutEdges(int v);
@@ -20,7 +20,7 @@ interface IDirectedGraph extends IBaseGraph {
      * Complexity: O(1)
      *
      * @param v the vertex index to get the inbound edges of
-     * @return an {@link Set} that holds all the inbound adjacent vertices of {@code v}
+     * @return a {@link Set} that holds all the inbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     Set<Integer> getInEdges(int v);
