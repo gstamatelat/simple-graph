@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Generate a random {@link MutableGraph}.
  */
-public class RandomGraph {
+public class GenerateRandomGraph {
     /**
      * Generates a {@link MutableGraph} according to the G(n,p) model.
      * <p>
