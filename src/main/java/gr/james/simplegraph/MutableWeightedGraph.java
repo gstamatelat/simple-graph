@@ -294,11 +294,11 @@ public class MutableWeightedGraph implements IWeightedGraph, Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || !(obj instanceof MutableWeightedGraph)) {
             return false;
         }
         final MutableWeightedGraph that = (MutableWeightedGraph) obj;
-        return edges.equals(that.edges);
+        return Graphs.equals(this, that);
     }
 
     /**

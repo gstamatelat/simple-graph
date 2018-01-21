@@ -376,11 +376,11 @@ public class MutableDirectedGraph implements IDirectedGraph, Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || !(obj instanceof MutableDirectedGraph)) {
             return false;
         }
         final MutableDirectedGraph that = (MutableDirectedGraph) obj;
-        return outEdges.equals(that.outEdges) && inEdges.equals(that.inEdges);
+        return Graphs.equals(this, that);
     }
 
     /**

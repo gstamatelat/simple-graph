@@ -262,11 +262,11 @@ public class MutableGraph implements IGraph, Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || !(obj instanceof MutableGraph)) {
             return false;
         }
         final MutableGraph that = (MutableGraph) obj;
-        return edges.equals(that.edges);
+        return Graphs.equals(this, that);
     }
 
     /**

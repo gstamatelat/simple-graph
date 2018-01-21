@@ -406,11 +406,11 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph, Ser
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || !(obj instanceof MutableWeightedDirectedGraph)) {
             return false;
         }
         final MutableWeightedDirectedGraph that = (MutableWeightedDirectedGraph) obj;
-        return outEdges.equals(that.outEdges) && inEdges.equals(that.inEdges);
+        return Graphs.equals(this, that);
     }
 
     /**

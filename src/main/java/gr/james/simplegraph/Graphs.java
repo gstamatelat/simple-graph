@@ -149,6 +149,112 @@ final class Graphs {
     }
 
     /**
+     * Checks if two graphs are equal.
+     * <p>
+     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
+     * same mapping.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param a one graph
+     * @param b the other graph
+     * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
+     */
+    static boolean equals(IGraph a, IGraph b) {
+        if (a.size() != b.size()) {
+            return false;
+        }
+        for (int i = 0; i < a.size(); i++) {
+            if (!a.getEdges(i).equals(b.getEdges(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Checks if two graphs are equal.
+     * <p>
+     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
+     * same mapping.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param a one graph
+     * @param b the other graph
+     * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
+     */
+    static boolean equals(IDirectedGraph a, IDirectedGraph b) {
+        if (a.size() != b.size()) {
+            return false;
+        }
+        for (int i = 0; i < a.size(); i++) {
+            if (!a.getOutEdges(i).equals(b.getOutEdges(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Checks if two graphs are equal.
+     * <p>
+     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
+     * same mapping.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param a one graph
+     * @param b the other graph
+     * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
+     */
+    static boolean equals(IWeightedGraph a, IWeightedGraph b) {
+        if (a.size() != b.size()) {
+            return false;
+        }
+        for (int i = 0; i < a.size(); i++) {
+            if (!a.getEdges(i).equals(b.getEdges(i))) {
+                return false;
+            }
+            for (int j : a.getEdges(i)) {
+                if (a.getEdgeWeight(i, j) != b.getEdgeWeight(i, j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Checks if two graphs are equal.
+     * <p>
+     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
+     * same mapping.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param a one graph
+     * @param b the other graph
+     * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
+     */
+    static boolean equals(IWeightedDirectedGraph a, IWeightedDirectedGraph b) {
+        if (a.size() != b.size()) {
+            return false;
+        }
+        for (int i = 0; i < a.size(); i++) {
+            if (!a.getOutEdges(i).equals(b.getOutEdges(i))) {
+                return false;
+            }
+            for (int j : a.getOutEdges(i)) {
+                if (a.getEdgeWeight(i, j) != b.getEdgeWeight(i, j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
      * Returns a hash code value for a graph.
      * <p>
      * Complexity: O(V+E)

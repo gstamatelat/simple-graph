@@ -71,20 +71,7 @@ public abstract class WeightedDirectedGraph implements IWeightedDirectedGraph, S
             return false;
         }
         final WeightedDirectedGraph that = (WeightedDirectedGraph) obj;
-        if (size() != that.size()) {
-            return false;
-        }
-        for (int i = 0; i < size(); i++) {
-            if (!getOutEdges(i).equals(that.getOutEdges(i))) {
-                return false;
-            }
-            for (int j : getOutEdges(i)) {
-                if (getEdgeWeight(i, j) != that.getEdgeWeight(i, j)) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        return Graphs.equals(this, that);
     }
 
     /**

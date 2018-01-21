@@ -144,15 +144,7 @@ public abstract class Graph implements IGraph, Serializable {
             return false;
         }
         final Graph that = (Graph) obj;
-        if (size() != that.size()) {
-            return false;
-        }
-        for (int i = 0; i < size(); i++) {
-            if (!getEdges(i).equals(that.getEdges(i))) {
-                return false;
-            }
-        }
-        return true;
+        return Graphs.equals(this, that);
     }
 
     /**

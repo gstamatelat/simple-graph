@@ -84,15 +84,7 @@ public abstract class DirectedGraph implements IDirectedGraph, Serializable {
             return false;
         }
         final DirectedGraph that = (DirectedGraph) obj;
-        if (size() != that.size()) {
-            return false;
-        }
-        for (int i = 0; i < size(); i++) {
-            if (!getOutEdges(i).equals(that.getOutEdges(i))) {
-                return false;
-            }
-        }
-        return true;
+        return Graphs.equals(this, that);
     }
 
     /**
