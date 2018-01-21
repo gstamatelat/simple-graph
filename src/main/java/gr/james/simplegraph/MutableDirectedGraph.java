@@ -230,6 +230,32 @@ public class MutableDirectedGraph implements Serializable, IDirectedGraph {
     }
 
     /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getOutEdges(int v) {
+        final Set<Integer> edges = this.outEdges.get(v);
+        return Collections.unmodifiableSet(edges);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getInEdges(int v) {
+        final Set<Integer> edges = this.inEdges.get(v);
+        return Collections.unmodifiableSet(edges);
+    }
+
+    /**
      * Add a vertex to the graph.
      * <p>
      * Complexity: O(1)
@@ -327,32 +353,6 @@ public class MutableDirectedGraph implements Serializable, IDirectedGraph {
         final boolean b = inEdges.get(target).remove(source);
         assert a == b;
         return a;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public Set<Integer> getOutEdges(int v) {
-        final Set<Integer> edges = this.outEdges.get(v);
-        return Collections.unmodifiableSet(edges);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public Set<Integer> getInEdges(int v) {
-        final Set<Integer> edges = this.inEdges.get(v);
-        return Collections.unmodifiableSet(edges);
     }
 
     /**

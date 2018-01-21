@@ -236,6 +236,53 @@ public class MutableWeightedDirectedGraph implements Serializable, IWeightedDire
     }
 
     /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getOutEdges(int v) {
+        final Map<Integer, Double> edges = this.outEdges.get(v);
+        return Collections.unmodifiableSet(edges.keySet());
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getInEdges(int v) {
+        final Map<Integer, Double> edges = this.inEdges.get(v);
+        return Collections.unmodifiableSet(edges.keySet());
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param source {@inheritDoc}
+     * @param target {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @throws IllegalArgumentException  {@inheritDoc}
+     */
+    @Override
+    public double getEdgeWeight(int source, int target) {
+        Graphs.checkVertex(this, target);
+        final Double weight = outEdges.get(source).get(target);
+        if (weight == null) {
+            throw new IllegalArgumentException();
+        }
+        assert weight.equals(inEdges.get(target).get(source));
+        assert Graphs.isWeightLegal(weight);
+        return weight;
+    }
+
+    /**
      * Add a vertex to the graph.
      * <p>
      * Complexity: O(1)
@@ -336,53 +383,6 @@ public class MutableWeightedDirectedGraph implements Serializable, IWeightedDire
         final Double b = inEdges.get(target).remove(source);
         assert a == null ? b == null : a.equals(b);
         return a;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public Set<Integer> getOutEdges(int v) {
-        final Map<Integer, Double> edges = this.outEdges.get(v);
-        return Collections.unmodifiableSet(edges.keySet());
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public Set<Integer> getInEdges(int v) {
-        final Map<Integer, Double> edges = this.inEdges.get(v);
-        return Collections.unmodifiableSet(edges.keySet());
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param source {@inheritDoc}
-     * @param target {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     * @throws IllegalArgumentException  {@inheritDoc}
-     */
-    @Override
-    public double getEdgeWeight(int source, int target) {
-        Graphs.checkVertex(this, target);
-        final Double weight = outEdges.get(source).get(target);
-        if (weight == null) {
-            throw new IllegalArgumentException();
-        }
-        assert weight.equals(inEdges.get(target).get(source));
-        assert Graphs.isWeightLegal(weight);
-        return weight;
     }
 
     /**

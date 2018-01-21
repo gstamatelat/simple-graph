@@ -150,6 +150,40 @@ public class MutableWeightedGraph implements Serializable, IWeightedGraph {
     }
 
     /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getEdges(int v) {
+        final Map<Integer, Double> edges = this.edges.get(v);
+        return Collections.unmodifiableSet(edges.keySet());
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @param w {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @throws IllegalArgumentException  {@inheritDoc}
+     */
+    @Override
+    public double getEdgeWeight(int v, int w) {
+        Graphs.checkVertex(this, w);
+        final Double weight = edges.get(v).get(w);
+        if (weight == null) {
+            throw new IllegalArgumentException();
+        }
+        assert weight.equals(edges.get(w).get(v));
+        assert Graphs.isWeightLegal(weight);
+        return weight;
+    }
+
+    /**
      * Add a vertex to the graph.
      * <p>
      * Complexity: O(1)
@@ -237,40 +271,6 @@ public class MutableWeightedGraph implements Serializable, IWeightedGraph {
         final Double b = edges.get(w).remove(v);
         assert a == null ? b == null : a.equals(b);
         return a;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public Set<Integer> getEdges(int v) {
-        final Map<Integer, Double> edges = this.edges.get(v);
-        return Collections.unmodifiableSet(edges.keySet());
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @param w {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     * @throws IllegalArgumentException  {@inheritDoc}
-     */
-    @Override
-    public double getEdgeWeight(int v, int w) {
-        Graphs.checkVertex(this, w);
-        final Double weight = edges.get(v).get(w);
-        if (weight == null) {
-            throw new IllegalArgumentException();
-        }
-        assert weight.equals(edges.get(w).get(v));
-        assert Graphs.isWeightLegal(weight);
-        return weight;
     }
 
     /**

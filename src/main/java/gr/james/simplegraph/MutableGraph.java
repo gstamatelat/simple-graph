@@ -144,6 +144,19 @@ public class MutableGraph implements Serializable, IGraph {
     }
 
     /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getEdges(int v) {
+        final Set<Integer> edges = this.edges.get(v);
+        return Collections.unmodifiableSet(edges);
+    }
+
+    /**
      * Add a vertex to the graph.
      * <p>
      * Complexity: O(1)
@@ -226,19 +239,6 @@ public class MutableGraph implements Serializable, IGraph {
         final boolean b = edges.get(w).remove(v);
         assert a == b;
         return a;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public Set<Integer> getEdges(int v) {
-        final Set<Integer> edges = this.edges.get(v);
-        return Collections.unmodifiableSet(edges);
     }
 
     /**
