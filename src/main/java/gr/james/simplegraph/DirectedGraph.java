@@ -14,34 +14,6 @@ public abstract class DirectedGraph implements Serializable, IDirectedGraph {
     private static final long serialVersionUID = 1L;
 
     /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    public abstract int size();
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public abstract Set<Integer> getOutEdges(int v);
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public abstract Set<Integer> getInEdges(int v);
-
-    /**
      * Return a {@link WeightedDirectedGraph} wrapper of this graph.
      * <p>
      * The method {@link WeightedDirectedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw

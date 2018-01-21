@@ -15,36 +15,6 @@ public abstract class WeightedGraph implements Serializable, IWeightedGraph {
     private static final long serialVersionUID = 1L;
 
     /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    public abstract int size();
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public abstract Set<Integer> getEdges(int v);
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @param w {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     * @throws IllegalArgumentException  {@inheritDoc}
-     */
-    @Override
-    public abstract double getEdgeWeight(int v, int w);
-
-    /**
      * Return a {@link Graph} wrapper of this graph.
      * <p>
      * Complexity: O(1)

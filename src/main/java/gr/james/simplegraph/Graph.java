@@ -14,24 +14,6 @@ public abstract class Graph implements Serializable, IGraph {
     private static final long serialVersionUID = 1L;
 
     /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    public abstract int size();
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    @Override
-    public abstract Set<Integer> getEdges(int v);
-
-    /**
      * Return a {@link WeightedGraph} wrapper of this graph.
      * <p>
      * The method {@link WeightedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw exception).
