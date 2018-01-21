@@ -5,7 +5,7 @@ package gr.james.simplegraph;
  */
 final class Graphs {
     /**
-     * Check is a weight value is legal.
+     * Check if a weight value is legal.
      * <p>
      * A weight value is legal if it is not any of the following values:
      * <ul>
@@ -28,7 +28,7 @@ final class Graphs {
     }
 
     /**
-     * Check is a weight value is legal.
+     * Check if a weight value is legal.
      * <p>
      * A weight value is legal if it is not any of the following values:
      * <ul>
