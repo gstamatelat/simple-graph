@@ -56,7 +56,7 @@ public abstract class DirectedGraph implements IDirectedGraph, Serializable {
     }
 
     /**
-     * Return a {@link WeightedDirectedGraph} wrapper of this graph.
+     * Returns a {@link WeightedDirectedGraph} wrapper of this graph.
      * <p>
      * The method {@link WeightedDirectedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw
      * exception).

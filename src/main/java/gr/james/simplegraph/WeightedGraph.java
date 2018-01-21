@@ -59,7 +59,7 @@ public abstract class WeightedGraph implements IWeightedGraph, Serializable {
     }
 
     /**
-     * Return a {@link Graph} wrapper of this graph.
+     * Returns a {@link Graph} wrapper of this graph.
      * <p>
      * Complexity: O(1)
      *
@@ -80,7 +80,7 @@ public abstract class WeightedGraph implements IWeightedGraph, Serializable {
     }
 
     /**
-     * Return a {@link DirectedGraph} wrapper of this graph.
+     * Returns a {@link DirectedGraph} wrapper of this graph.
      * <p>
      * Complexity: O(1)
      *
@@ -106,7 +106,7 @@ public abstract class WeightedGraph implements IWeightedGraph, Serializable {
     }
 
     /**
-     * Return a {@link WeightedDirectedGraph} wrapper of this graph.
+     * Returns a {@link WeightedDirectedGraph} wrapper of this graph.
      * <p>
      * Complexity: O(1)
      *

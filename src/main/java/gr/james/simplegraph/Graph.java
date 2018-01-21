@@ -44,7 +44,7 @@ public abstract class Graph implements IGraph, Serializable {
     }
 
     /**
-     * Return a {@link WeightedGraph} wrapper of this graph.
+     * Returns a {@link WeightedGraph} wrapper of this graph.
      * <p>
      * The method {@link WeightedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw exception).
      * <p>
@@ -78,7 +78,7 @@ public abstract class Graph implements IGraph, Serializable {
     }
 
     /**
-     * Return a {@link DirectedGraph} wrapper of this graph.
+     * Returns a {@link DirectedGraph} wrapper of this graph.
      * <p>
      * Complexity: O(1)
      *
@@ -104,7 +104,7 @@ public abstract class Graph implements IGraph, Serializable {
     }
 
     /**
-     * Return a {@link WeightedDirectedGraph} wrapper of this graph.
+     * Returns a {@link WeightedDirectedGraph} wrapper of this graph.
      * <p>
      * The method {@link WeightedDirectedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw
      * exception).

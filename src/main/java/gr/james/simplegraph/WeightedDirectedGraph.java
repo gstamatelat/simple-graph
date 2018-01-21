@@ -71,7 +71,7 @@ public abstract class WeightedDirectedGraph implements IWeightedDirectedGraph, S
     }
 
     /**
-     * Return a {@link DirectedGraph} wrapper of this graph.
+     * Returns a {@link DirectedGraph} wrapper of this graph.
      * <p>
      * Complexity: O(1)
      *
