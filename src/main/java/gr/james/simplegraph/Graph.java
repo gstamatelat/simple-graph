@@ -28,7 +28,7 @@ public abstract class Graph implements IGraph, Serializable {
      *
      * @return a {@link WeightedGraph} wrapper of this graph
      */
-    public WeightedGraph toWeighted() {
+    public final WeightedGraph toWeighted() {
         return new WeightedGraph() {
             @Override
             public int size() {
@@ -60,7 +60,7 @@ public abstract class Graph implements IGraph, Serializable {
      *
      * @return a {@link DirectedGraph} wrapper of this graph
      */
-    public DirectedGraph toDirected() {
+    public final DirectedGraph toDirected() {
         return new DirectedGraph() {
             @Override
             public int size() {
@@ -89,7 +89,7 @@ public abstract class Graph implements IGraph, Serializable {
      *
      * @return a {@link WeightedDirectedGraph} wrapper of this graph
      */
-    public WeightedDirectedGraph toWeightedDirected() {
+    public final WeightedDirectedGraph toWeightedDirected() {
         return new WeightedDirectedGraph() {
             @Override
             public int size() {
@@ -125,7 +125,7 @@ public abstract class Graph implements IGraph, Serializable {
      * @return {@inheritDoc}
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return Graphs.toString(this);
     }
 
@@ -136,7 +136,7 @@ public abstract class Graph implements IGraph, Serializable {
      * @return {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -153,7 +153,7 @@ public abstract class Graph implements IGraph, Serializable {
      * @return {@inheritDoc}
      */
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return Graphs.hashCode(this);
     }
 }
