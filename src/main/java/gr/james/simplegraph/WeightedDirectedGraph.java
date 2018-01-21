@@ -15,9 +15,59 @@ public abstract class WeightedDirectedGraph implements IWeightedDirectedGraph, S
     private static final long serialVersionUID = 1L;
 
     /**
-     * Package-private constructor.
+     * Construct a new empty {@link WeightedDirectedGraph}.
+     * <p>
+     * Complexity: O(1)
      */
     WeightedDirectedGraph() {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getOutEdges(int v) {
+        throw new IndexOutOfBoundsException();
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getInEdges(int v) {
+        throw new IndexOutOfBoundsException();
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param source {@inheritDoc}
+     * @param target {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @throws IllegalArgumentException  {@inheritDoc}
+     */
+    @Override
+    public double getEdgeWeight(int source, int target) {
+        throw new IndexOutOfBoundsException();
     }
 
     /**

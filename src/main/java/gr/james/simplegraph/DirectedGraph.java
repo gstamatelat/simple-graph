@@ -14,9 +14,45 @@ public abstract class DirectedGraph implements IDirectedGraph, Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Package-private constructor.
+     * Construct a new empty {@link DirectedGraph}.
+     * <p>
+     * Complexity: O(1)
      */
     DirectedGraph() {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getOutEdges(int v) {
+        throw new IndexOutOfBoundsException();
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getInEdges(int v) {
+        throw new IndexOutOfBoundsException();
     }
 
     /**

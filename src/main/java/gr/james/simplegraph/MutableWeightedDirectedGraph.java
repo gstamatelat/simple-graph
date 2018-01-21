@@ -18,7 +18,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph, Ser
     private final List<Map<Integer, Double>> inEdges;
 
     /**
-     * Construct a new empty {@link MutableWeightedDirectedGraph} without any vertices.
+     * Construct a new empty {@link MutableWeightedDirectedGraph}.
      * <p>
      * Complexity: O(1)
      */

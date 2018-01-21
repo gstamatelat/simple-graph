@@ -14,9 +14,33 @@ public abstract class Graph implements IGraph, Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Package-private constructor.
+     * Construct a new empty {@link Graph}.
+     * <p>
+     * Complexity: O(1)
      */
     Graph() {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    @Override
+    public Set<Integer> getEdges(int v) {
+        throw new IndexOutOfBoundsException();
     }
 
     /**

@@ -17,7 +17,7 @@ public class MutableDirectedGraph implements IDirectedGraph, Serializable {
     private final List<Set<Integer>> inEdges;
 
     /**
-     * Construct a new empty {@link MutableDirectedGraph} without any vertices.
+     * Construct a new empty {@link MutableDirectedGraph}.
      * <p>
      * Complexity: O(1)
      */

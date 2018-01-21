@@ -16,7 +16,7 @@ public class MutableGraph implements IGraph, Serializable {
     private final List<Set<Integer>> edges;
 
     /**
-     * Construct a new empty {@link MutableGraph} without any vertices.
+     * Construct a new empty {@link MutableGraph}.
      * <p>
      * Complexity: O(1)
      */

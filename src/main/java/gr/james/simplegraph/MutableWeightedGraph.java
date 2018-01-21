@@ -17,7 +17,7 @@ public class MutableWeightedGraph implements IWeightedGraph, Serializable {
     private final List<Map<Integer, Double>> edges;
 
     /**
-     * Construct a new empty {@link MutableWeightedGraph} without any vertices.
+     * Construct a new empty {@link MutableWeightedGraph}.
      * <p>
      * Complexity: O(1)
      */
