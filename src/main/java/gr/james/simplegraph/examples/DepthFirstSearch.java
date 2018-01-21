@@ -17,7 +17,7 @@ public class DepthFirstSearch {
      * Complexity: O(V+E)
      *
      * @param g      the graph
-     * @param source the starting vertex
+     * @param source the source vertex
      * @return the number of vertices that are reachable from {@code source} (self included)
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code source} is not in the graph

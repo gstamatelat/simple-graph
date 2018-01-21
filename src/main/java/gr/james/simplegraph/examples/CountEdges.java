@@ -7,12 +7,12 @@ import gr.james.simplegraph.DirectedGraph;
  */
 public class CountEdges {
     /**
-     * Get the number of directed edges of a {@link DirectedGraph}.
+     * Get the number of directed edges in a {@link DirectedGraph}.
      * <p>
      * Complexity: O(V)
      *
      * @param g the graph
-     * @return the number of directed edges of {@code g}
+     * @return the number of directed edges in {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public static int countEdges(DirectedGraph g) {
