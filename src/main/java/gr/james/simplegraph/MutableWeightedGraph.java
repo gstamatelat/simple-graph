@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * Represents an undirected and weighted graph implemented using adjacency lists.
+ * Represents a weighted and undirected graph implemented using adjacency lists.
  * <p>
  * The graph allows self loops but does not allow more than one edge from any set of endpoints. The graph only allows
  * finite {@link Double} values as edge weights.

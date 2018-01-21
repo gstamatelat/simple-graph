@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * Represents an immutable directed and unweighted graph implemented using adjacency lists.
+ * Represents an immutable unweighted and directed graph implemented using adjacency lists.
  * <p>
  * The graph can contain self loops but cannot contain more than one edge from any set of endpoints.
  * <p>
