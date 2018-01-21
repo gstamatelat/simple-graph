@@ -120,11 +120,9 @@ public abstract class Graph implements IGraph, Serializable {
     }
 
     /**
-     * Returns a string representation of the graph.
-     * <p>
-     * Complexity: O(V+E)
+     * {@inheritDoc}
      *
-     * @return a string representation of the graph
+     * @return {@inheritDoc}
      */
     @Override
     public String toString() {
@@ -142,15 +140,10 @@ public abstract class Graph implements IGraph, Serializable {
     }
 
     /**
-     * Indicates whether some other object is equal to this graph.
-     * <p>
-     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
-     * same mapping.
-     * <p>
-     * Complexity: O(V+E)
+     * {@inheritDoc}
      *
-     * @param obj the reference object with which to compare
-     * @return {@code true} if this graph is equal to the {@code obj} argument, otherwise {@code false}
+     * @param obj {@inheritDoc}
+     * @return {@inheritDoc}
      */
     @Override
     public boolean equals(Object obj) {
@@ -173,11 +166,9 @@ public abstract class Graph implements IGraph, Serializable {
     }
 
     /**
-     * Returns a hash code value for this graph.
-     * <p>
-     * Complexity: O(V+E)
+     * {@inheritDoc}
      *
-     * @return a hash code value for this graph
+     * @return {@inheritDoc}
      */
     @Override
     public int hashCode() {
