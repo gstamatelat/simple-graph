@@ -11,51 +11,47 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public abstract class WeightedDirectedGraph implements Serializable {
+public abstract class WeightedDirectedGraph implements Serializable, IWeightedDirectedGraph {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Get the number of vertices in the graph.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @return how many vertices there are in the graph
+     * @return {@inheritDoc}
      */
+    @Override
     public abstract int size();
 
     /**
-     * Get the outbound edges of a vertex.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param v the vertex index to get the outbound edges of
-     * @return an {@link Set} that holds all the outbound adjacent vertices of {@code v}
-     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    @Override
     public abstract Set<Integer> getOutEdges(int v);
 
     /**
-     * Get the inbound edges of a vertex.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param v the vertex index to get the inbound edges of
-     * @return an {@link Set} that holds all the inbound adjacent vertices of {@code v}
-     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    @Override
     public abstract Set<Integer> getInEdges(int v);
 
     /**
-     * Get the weight of the edge from {@code source} to {@code target}.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param source the source of the edge
-     * @param target the target of the edge
-     * @return the weight of the edge from {@code source} to {@code target}
-     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
-     * @throws IllegalArgumentException  if there is no edge from {@code source} to {@code target}
+     * @param source {@inheritDoc}
+     * @param target {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @throws IllegalArgumentException  {@inheritDoc}
      */
+    @Override
     public abstract double getEdgeWeight(int source, int target);
 
     /**

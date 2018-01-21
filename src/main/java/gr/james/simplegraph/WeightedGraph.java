@@ -11,40 +11,37 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public abstract class WeightedGraph implements Serializable {
+public abstract class WeightedGraph implements Serializable, IWeightedGraph {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Get the number of vertices in the graph.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @return how many vertices there are in the graph
+     * @return {@inheritDoc}
      */
+    @Override
     public abstract int size();
 
     /**
-     * Get the edges of a vertex.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param v the vertex index to get the edges of
-     * @return an {@link Set} that holds all the adjacent vertices of {@code v}
-     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    @Override
     public abstract Set<Integer> getEdges(int v);
 
     /**
-     * Get the weight of the edge connecting {@code v} and {@code w}.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param v one end of the edge
-     * @param w the other end of the edge
-     * @return the weight of the edge connecting {@code v} and {@code w}
-     * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
-     * @throws IllegalArgumentException  if there is no edge connecting {@code v} and {@code w}
+     * @param v {@inheritDoc}
+     * @param w {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @throws IllegalArgumentException  {@inheritDoc}
      */
+    @Override
     public abstract double getEdgeWeight(int v, int w);
 
     /**

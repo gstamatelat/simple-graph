@@ -10,7 +10,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableGraph implements Serializable {
+public class MutableGraph implements Serializable, IGraph {
     private static final long serialVersionUID = 1L;
 
     private final List<Set<Integer>> edges;
@@ -142,12 +142,11 @@ public class MutableGraph implements Serializable {
     }
 
     /**
-     * Get the number of vertices in the graph.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @return how many vertices there are in the graph
+     * @return {@inheritDoc}
      */
+    @Override
     public int size() {
         return this.edges.size();
     }
@@ -238,14 +237,13 @@ public class MutableGraph implements Serializable {
     }
 
     /**
-     * Get the edges of a vertex.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param v the vertex index to get the edges of
-     * @return an {@link Set} that holds all the adjacent vertices of {@code v}
-     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    @Override
     public Set<Integer> getEdges(int v) {
         final Set<Integer> edges = this.edges.get(v);
         return Collections.unmodifiableSet(edges);

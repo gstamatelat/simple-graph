@@ -10,7 +10,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableDirectedGraph implements Serializable {
+public class MutableDirectedGraph implements Serializable, IDirectedGraph {
     private static final long serialVersionUID = 1L;
 
     private final List<Set<Integer>> outEdges;
@@ -227,12 +227,11 @@ public class MutableDirectedGraph implements Serializable {
     }
 
     /**
-     * Get the number of vertices in the graph.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @return how many vertices there are in the graph
+     * @return {@inheritDoc}
      */
+    @Override
     public int size() {
         assert this.inEdges.size() == this.outEdges.size();
         return this.inEdges.size();
@@ -339,28 +338,26 @@ public class MutableDirectedGraph implements Serializable {
     }
 
     /**
-     * Get the outbound edges of a vertex.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param v the vertex index to get the outbound edges of
-     * @return an {@link Set} that holds all the outbound adjacent vertices of {@code v}
-     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    @Override
     public Set<Integer> getOutEdges(int v) {
         final Set<Integer> edges = this.outEdges.get(v);
         return Collections.unmodifiableSet(edges);
     }
 
     /**
-     * Get the inbound edges of a vertex.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param v the vertex index to get the inbound edges of
-     * @return an {@link Set} that holds all the inbound adjacent vertices of {@code v}
-     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     * @param v {@inheritDoc}
+     * @return {@inheritDoc}
+     * @throws IndexOutOfBoundsException {@inheritDoc}
      */
+    @Override
     public Set<Integer> getInEdges(int v) {
         final Set<Integer> edges = this.inEdges.get(v);
         return Collections.unmodifiableSet(edges);
