@@ -223,9 +223,7 @@ public class MutableWeightedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      */
     public Double putEdge(int v, int w, double weight) {
-        if (Double.isNaN(weight) || Double.isInfinite(weight)) {
-            throw new IllegalArgumentException();
-        }
+        Graphs.checkWeight(weight);
         final Double a = edges.get(v).put(w, weight);
         final Double b = edges.get(w).put(v, weight);
         assert a == null ? b == null : a.equals(b);

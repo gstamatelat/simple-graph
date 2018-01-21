@@ -322,9 +322,7 @@ public class MutableWeightedDirectedGraph implements Serializable {
      * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
      */
     public Double putEdge(int source, int target, double weight) {
-        if (Double.isNaN(weight) || Double.isInfinite(weight)) {
-            throw new IllegalArgumentException();
-        }
+        Graphs.checkWeight(weight);
         final Double a = outEdges.get(source).put(target, weight);
         final Double b = inEdges.get(target).put(source, weight);
         assert a == null ? b == null : a.equals(b);
