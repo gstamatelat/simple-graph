@@ -14,6 +14,12 @@ public abstract class DirectedGraph implements Serializable, IDirectedGraph {
     private static final long serialVersionUID = 1L;
 
     /**
+     * Package-private constructor.
+     */
+    DirectedGraph() {
+    }
+
+    /**
      * Return a {@link WeightedDirectedGraph} wrapper of this graph.
      * <p>
      * The method {@link WeightedDirectedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw

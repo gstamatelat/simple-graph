@@ -15,6 +15,12 @@ public abstract class WeightedDirectedGraph implements Serializable, IWeightedDi
     private static final long serialVersionUID = 1L;
 
     /**
+     * Package-private constructor.
+     */
+    WeightedDirectedGraph() {
+    }
+
+    /**
      * Return a {@link DirectedGraph} wrapper of this graph.
      * <p>
      * Complexity: O(1)

@@ -14,6 +14,12 @@ public abstract class Graph implements Serializable, IGraph {
     private static final long serialVersionUID = 1L;
 
     /**
+     * Package-private constructor.
+     */
+    Graph() {
+    }
+
+    /**
      * Return a {@link WeightedGraph} wrapper of this graph.
      * <p>
      * The method {@link WeightedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw exception).

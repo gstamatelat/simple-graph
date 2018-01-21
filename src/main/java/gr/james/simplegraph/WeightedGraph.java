@@ -15,6 +15,12 @@ public abstract class WeightedGraph implements Serializable, IWeightedGraph {
     private static final long serialVersionUID = 1L;
 
     /**
+     * Package-private constructor.
+     */
+    WeightedGraph() {
+    }
+
+    /**
      * Return a {@link Graph} wrapper of this graph.
      * <p>
      * Complexity: O(1)
