@@ -105,17 +105,7 @@ public abstract class WeightedGraph implements IWeightedGraph, Serializable {
      */
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "WeightedGraph", size()));
-        for (int i = 0; i < size(); i++) {
-            for (int adj : getEdges(i)) {
-                if (adj >= i) {
-                    sb.append(String.format("  %d -- %d [%.2f]%n", i, adj, getEdgeWeight(i, adj)));
-                }
-            }
-        }
-        sb.append("}");
-        return sb.toString();
+        return Graphs.toString(this);
     }
 
     /**

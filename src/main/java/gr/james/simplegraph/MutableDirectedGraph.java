@@ -362,15 +362,7 @@ public class MutableDirectedGraph implements IDirectedGraph, Serializable {
      */
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", this.getClass().getSimpleName(), size()));
-        for (int i = 0; i < size(); i++) {
-            for (int adj : getOutEdges(i)) {
-                sb.append(String.format("  %d -> %d%n", i, adj));
-            }
-        }
-        sb.append("}");
-        return sb.toString();
+        return Graphs.toString(this);
     }
 
     /**

@@ -53,15 +53,7 @@ public abstract class WeightedDirectedGraph implements IWeightedDirectedGraph, S
      */
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "WeightedDirectedGraph", size()));
-        for (int i = 0; i < size(); i++) {
-            for (int adj : getOutEdges(i)) {
-                sb.append(String.format("  %d -> %d [%.2f]%n", i, adj, getEdgeWeight(i, adj)));
-            }
-        }
-        sb.append("}");
-        return sb.toString();
+        return Graphs.toString(this);
     }
 
     /**

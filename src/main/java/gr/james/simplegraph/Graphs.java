@@ -63,4 +63,88 @@ final class Graphs {
         }
         return v;
     }
+
+    /**
+     * Returns a string representation of a graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph
+     * @return a string representation of a graph
+     */
+    static String toString(IGraph g) {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%s(%d) {%n", "Graph", g.size()));
+        for (int i = 0; i < g.size(); i++) {
+            for (int adj : g.getEdges(i)) {
+                if (adj >= i) {
+                    sb.append(String.format("  %d -- %d%n", i, adj));
+                }
+            }
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Returns a string representation of a graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph
+     * @return a string representation of a graph
+     */
+    static String toString(IDirectedGraph g) {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%s(%d) {%n", "DirectedGraph", g.size()));
+        for (int i = 0; i < g.size(); i++) {
+            for (int adj : g.getOutEdges(i)) {
+                sb.append(String.format("  %d -> %d%n", i, adj));
+            }
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Returns a string representation of a graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph
+     * @return a string representation of a graph
+     */
+    static String toString(IWeightedGraph g) {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%s(%d) {%n", "WeightedGraph", g.size()));
+        for (int i = 0; i < g.size(); i++) {
+            for (int adj : g.getEdges(i)) {
+                if (adj >= i) {
+                    sb.append(String.format("  %d -- %d [%.2f]%n", i, adj, g.getEdgeWeight(i, adj)));
+                }
+            }
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Returns a string representation of a graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph
+     * @return a string representation of a graph
+     */
+    static String toString(IWeightedDirectedGraph g) {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%s(%d) {%n", "WeightedDirectedGraph", g.size()));
+        for (int i = 0; i < g.size(); i++) {
+            for (int adj : g.getOutEdges(i)) {
+                sb.append(String.format("  %d -> %d [%.2f]%n", i, adj, g.getEdgeWeight(i, adj)));
+            }
+        }
+        sb.append("}");
+        return sb.toString();
+    }
 }
