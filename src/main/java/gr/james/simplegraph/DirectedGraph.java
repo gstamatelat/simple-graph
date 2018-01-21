@@ -10,7 +10,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public abstract class DirectedGraph implements IDirectedGraph, Serializable {
+public class DirectedGraph implements IDirectedGraph, Serializable {
     private static final long serialVersionUID = 1L;
 
     /**

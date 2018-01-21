@@ -11,7 +11,7 @@ import java.util.Set;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public abstract class WeightedGraph implements IWeightedGraph, Serializable {
+public class WeightedGraph implements IWeightedGraph, Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
