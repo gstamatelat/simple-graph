@@ -29,9 +29,6 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
     public BreadthFirstIterator(DirectedGraph g, int source) {
-        if (g == null) {
-            throw new NullPointerException();
-        }
         if (source < 0 || source >= g.size()) {
             throw new IndexOutOfBoundsException();
         }
