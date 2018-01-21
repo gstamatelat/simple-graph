@@ -151,8 +151,8 @@ final class Graphs {
     /**
      * Checks if two graphs are equal.
      * <p>
-     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
-     * same mapping.
+     * Two graphs are equal if they are of the same class type, have the same number of vertices and their edges
+     * represent the same mapping.
      * <p>
      * Complexity: O(V+E)
      *
@@ -175,8 +175,8 @@ final class Graphs {
     /**
      * Checks if two graphs are equal.
      * <p>
-     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
-     * same mapping.
+     * Two graphs are equal if they are of the same class type, have the same number of vertices and their edges
+     * represent the same mapping.
      * <p>
      * Complexity: O(V+E)
      *
@@ -199,8 +199,8 @@ final class Graphs {
     /**
      * Checks if two graphs are equal.
      * <p>
-     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
-     * same mapping.
+     * Two graphs are equal if they are of the same class type, have the same number of vertices and their edges
+     * represent the same mapping.
      * <p>
      * Complexity: O(V+E)
      *
@@ -228,8 +228,8 @@ final class Graphs {
     /**
      * Checks if two graphs are equal.
      * <p>
-     * Two graphs are equal if they are of same type, have the same number of vertices and their edges represent the
-     * same mapping.
+     * Two graphs are equal if they are of the same class type, have the same number of vertices and their edges
+     * represent the same mapping.
      * <p>
      * Complexity: O(V+E)
      *
