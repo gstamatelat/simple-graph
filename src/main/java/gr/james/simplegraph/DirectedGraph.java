@@ -84,9 +84,7 @@ public abstract class DirectedGraph implements IDirectedGraph, Serializable {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                if (target < 0 || target >= size()) {
-                    throw new IndexOutOfBoundsException();
-                }
+                Graphs.checkVertex(this, target);
                 if (!getOutEdges(source).contains(target)) {
                     throw new IllegalArgumentException();
                 }

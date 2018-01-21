@@ -66,9 +66,7 @@ public abstract class Graph implements IGraph, Serializable {
 
             @Override
             public double getEdgeWeight(int v, int w) {
-                if (w < 0 || w >= size()) {
-                    throw new IndexOutOfBoundsException();
-                }
+                Graphs.checkVertex(this, w);
                 if (!getEdges(v).contains(w)) {
                     throw new IllegalArgumentException();
                 }
@@ -132,9 +130,7 @@ public abstract class Graph implements IGraph, Serializable {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                if (target < 0 || target >= size()) {
-                    throw new IndexOutOfBoundsException();
-                }
+                Graphs.checkVertex(this, target);
                 if (!getEdges(source).contains(target)) {
                     throw new IllegalArgumentException();
                 }
