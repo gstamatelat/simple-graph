@@ -39,7 +39,7 @@ Using Gradle
 compile 'gr.james:simple-graph:0.7'
 ```
 
-## Examples
+## Getting Started
 
 For some usage examples see the files inside the
 [examples](https://github.com/gstamatelat/simple-graph/tree/master/src/main/java/gr/james/simplegraph/examples)
