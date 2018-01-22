@@ -1,11 +1,25 @@
 # Simple Graph
 
-A simple graph interface for Java 6.
+**Simple Graph** is a graph interface for Java 6 that is designed to expose a
+very simple API for working with graphs. The API includes mutable and immutable
+graph classes for weighted, unweighted, directed and undirected graphs. **Simple
+Graph** does not include algorithm implementations and is meant to be used as a
+playground for graph-theoretic abstractions. This package can be used when Java
+6 is required, for assignments, simple projects etc.
 
-Useful when Java 6 is required, for assignments, simple projects etc.
+Vertex and edge objects are not generics. For simplicity, vertices are, for each
+graph instance, represented using integers in the range `[0,V)`. There is no
+inherent edge object notion; all edges are anonymous but can have a weight
+assigned on weighted graph types.
 
-Graph classes in this package properly implement the `Serializable` interface as
-well as the `equals`, `hashCode` and `toString` methods.
+Exceptions are used in a fail-fast approach when certain invocations don't make
+sense, for example trying to access the edges of a vertex that doesn't exist or
+when an argument is `null`. These exceptions exist to augment the robustness of
+a client program and should not be catched.
+
+All graph classes in this package implement the `Serializable` interface as well
+as the `equals`, `hashCode` and `toString` methods in a semantically reasonable
+way.
 
 ## API Summary
 
