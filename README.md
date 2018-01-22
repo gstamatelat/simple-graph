@@ -4,8 +4,10 @@ A simple graph interface for Java 6.
 
 Useful when Java 6 is required, for assignments, simple projects etc.
 
-Graph classes in this package properly implement the `Serializable` interface as well as the `equals`, `hashCode` and
-`toString` methods.
+Graph classes in this package properly implement the `Serializable` interface as
+well as the `equals`, `hashCode` and `toString` methods.
+
+## API Summary
 
 | Class                          | Directed | Weighted | Mutable  |
 | :----------------------------- | :------- | :------- | :------- |
@@ -20,10 +22,9 @@ Graph classes in this package properly implement the `Serializable` interface as
 
 ## Using
 
-Simple Graph is published to [jcenter](https://bintray.com/gstamatelat/simple-graph/simple-graph). You can add a
-dependency from your project as follows:
-
-Using Maven
+Simple Graph is published to
+[jcenter](https://bintray.com/gstamatelat/simple-graph/simple-graph). You can
+add a dependency from your project using Maven:
 
 ```xml
 <dependency>
@@ -33,7 +34,7 @@ Using Maven
 </dependency>
 ```
 
-Using Gradle
+Or using Gradle:
 
 ```
 compile 'gr.james:simple-graph:0.7'
@@ -42,5 +43,4 @@ compile 'gr.james:simple-graph:0.7'
 ## Getting Started
 
 For some usage examples see the files inside the
-[examples](https://github.com/gstamatelat/simple-graph/tree/master/src/main/java/gr/james/simplegraph/examples)
-directory.
+[examples](src/main/java/gr/james/simplegraph/examples) directory.
