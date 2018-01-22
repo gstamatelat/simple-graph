@@ -1,7 +1,7 @@
 # Simple Graph
 
 **Simple Graph** is a graph interface for Java 6 that is designed to expose a
-very simple API for working with graphs. The API includes mutable and immutable
+very simple API to support working with graphs. The API includes mutable and immutable
 graph classes for weighted, unweighted, directed and undirected graphs. **Simple
 Graph** does not include algorithm implementations and is meant to be used as a
 playground for graph-theoretic abstractions. This package can be used when Java
