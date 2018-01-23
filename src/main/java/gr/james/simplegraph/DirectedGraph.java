@@ -64,7 +64,7 @@ public class DirectedGraph implements IDirectedGraph {
      *
      * @return a {@link WeightedDirectedGraph} wrapper of this graph
      */
-    public final WeightedDirectedGraph toWeightedDirected() {
+    public final WeightedDirectedGraph asWeightedDirected() {
         return new WeightedDirectedGraph() {
             @Override
             public int size() {

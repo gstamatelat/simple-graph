@@ -51,7 +51,7 @@ public class Graph implements IGraph {
      *
      * @return a {@link WeightedGraph} wrapper of this graph
      */
-    public final WeightedGraph toWeighted() {
+    public final WeightedGraph asWeighted() {
         return new WeightedGraph() {
             @Override
             public int size() {
@@ -81,7 +81,7 @@ public class Graph implements IGraph {
      *
      * @return a {@link DirectedGraph} wrapper of this graph
      */
-    public final DirectedGraph toDirected() {
+    public final DirectedGraph asDirected() {
         return new DirectedGraph() {
             @Override
             public int size() {
@@ -110,7 +110,7 @@ public class Graph implements IGraph {
      *
      * @return a {@link WeightedDirectedGraph} wrapper of this graph
      */
-    public final WeightedDirectedGraph toWeightedDirected() {
+    public final WeightedDirectedGraph asWeightedDirected() {
         return new WeightedDirectedGraph() {
             @Override
             public int size() {

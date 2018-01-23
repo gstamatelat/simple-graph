@@ -52,7 +52,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
     public BreadthFirstIterator(Graph g, int source) {
-        this(g.toDirected(), source);
+        this(g.asDirected(), source);
     }
 
     /**
@@ -66,7 +66,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
     public BreadthFirstIterator(WeightedGraph g, int source) {
-        this(g.toDirected(), source);
+        this(g.asDirected(), source);
     }
 
     /**
@@ -80,7 +80,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
     public BreadthFirstIterator(WeightedDirectedGraph g, int source) {
-        this(g.toDirected(), source);
+        this(g.asDirected(), source);
     }
 
     /**
