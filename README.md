@@ -23,6 +23,9 @@ way.
 
 ## API Summary
 
+An overview of the classes in the public API of **Simple Graph** is presented in
+the following table:
+
 | Class                          | Directed | Weighted | Mutable  |
 | :----------------------------- | :------- | :------- | :------- |
 | `Graph`                        |          |          |          |
