@@ -7,24 +7,32 @@ import java.util.Set;
  */
 interface IDirectedGraph extends IBaseGraph {
     /**
-     * Get the outbound edges of a vertex.
+     * Get the outbound adjacent vertices of a vertex.
+     * <p>
+     * More formally, returns all vertices in this graph adjacent to {@code v} which can be reached by traversing
+     * {@code v}'s outgoing edges in the direction of the edge. The vertices returned are in no particular order inside
+     * the {@link Set}.
      * <p>
      * Complexity: O(1)
      *
-     * @param v the vertex index to get the outbound edges of
+     * @param v the vertex
      * @return a {@link Set} that holds all the outbound adjacent vertices of {@code v}
-     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
      */
     Set<Integer> getOutEdges(int v);
 
     /**
-     * Get the inbound edges of a vertex.
+     * Get the inbound adjacent vertices of a vertex.
+     * <p>
+     * More formally, returns all vertices in this graph adjacent to {@code v} which can be reached by traversing
+     * {@code v}'s incoming edges against the direction of the edge. The vertices returned are in no particular order
+     * inside the {@link Set}.
      * <p>
      * Complexity: O(1)
      *
-     * @param v the vertex index to get the inbound edges of
+     * @param v the vertex
      * @return a {@link Set} that holds all the inbound adjacent vertices of {@code v}
-     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
      */
     Set<Integer> getInEdges(int v);
 }
