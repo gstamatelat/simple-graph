@@ -1,11 +1,11 @@
 # Simple Graph
 
 **Simple Graph** is a graph interface for Java 6 that is designed to expose a
-very simple API to support working with graphs. The API includes mutable and immutable
-graph classes for weighted, unweighted, directed and undirected graphs. **Simple
-Graph** does not include algorithm implementations and is meant to be used as a
-playground for graph-theoretic abstractions. This package can be used when Java
-6 is required, for assignments, simple projects etc.
+very simple API to support working with graphs. The API includes mutable and
+immutable graph classes for weighted, unweighted, directed and undirected
+graphs. **Simple Graph** does not include algorithm implementations and is meant
+to be used as a playground for graph-theoretic abstractions. This package can be
+used when Java 6 is required, for assignments, simple projects etc.
 
 Vertex and edge objects are not generics. For simplicity, vertices are, for each
 graph instance, represented using integers in the range `[0,V)`. There is no
