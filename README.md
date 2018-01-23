@@ -13,9 +13,9 @@ inherent edge object notion; all edges are anonymous but can have a weight
 assigned on weighted graph types.
 
 Exceptions are used in a fail-fast approach when certain invocations don't make
-sense, for example trying to access the edges of a vertex that doesn't exist or
-when an argument is `null`. These exceptions exist to augment the robustness of
-a client program and should not be catched.
+sense, for example trying to access the adjacent nodes of a vertex that doesn't
+exist or when an argument is `null`. These exceptions exist to augment the
+robustness of a client program and should not be catched.
 
 All graph classes in this package implement the `Serializable` interface as well
 as the `equals`, `hashCode` and `toString` methods in a semantically reasonable
