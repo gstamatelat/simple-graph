@@ -3,10 +3,13 @@ package gr.james.simplegraph;
 import java.util.Set;
 
 /**
- * Represents an immutable weighted and undirected graph implemented using adjacency lists.
+ * Represents an immutable, weighted and undirected graph implemented using adjacency lists.
  * <p>
- * The graph can contain self loops but cannot contain more than one edge from any set of endpoints. The edge weights
- * can only be finite {@link Double} values.
+ * The graph can contain self loops but cannot cannot contain parallel edges. More formally, any unordered pair of
+ * endpoints may correspond to at most one edge. The edge weights can only be finite {@link Double} values.
+ * <p>
+ * An unordered pair {@code {a, b}} is a pair of objects with no particular relation between them; the order in which
+ * the objects appear in the pair is not significant.
  * <p>
  * Memory Complexity: O(V+E)
  */

@@ -7,10 +7,9 @@ graphs. **Simple Graph** does not include algorithm implementations and is meant
 to be used as a playground for graph-theoretic abstractions. This package can be
 used when Java 6 is required, for assignments, simple projects etc.
 
-Vertex and edge objects are not generics. For simplicity, vertices are, for each
-graph instance, represented using integers in the range `[0,V)`. There is no
-inherent edge object notion; all edges are anonymous but can have a weight
-assigned on weighted graph types.
+For simplicity, vertices are, for each graph instance, represented using
+integers in the range `[0,V)`. There is no inherent edge object notion; all
+edges are anonymous but can have a weight assigned on weighted graph types.
 
 Exceptions are used in a fail-fast approach when certain invocations don't make
 sense, for example trying to access the adjacent nodes of a vertex that doesn't

@@ -1,10 +1,9 @@
 /**
  * The mutable and immutable graph classes.
  * <h2>Vertices and edges</h2>
- * Vertex and edge objects are not generics. For simplicity, vertices are, for each graph instance, represented using
- * integers in the range {@code [0,V)}. There is no inherent edge object notion; all edges are anonymous but can have a
- * weight assigned on weighted graph types.
- * <h2>Characteristics</h2>
+ * For simplicity, vertices are, for each graph instance, represented using integers in the range {@code [0,V)}. There
+ * is no inherent edge object notion; all edges are anonymous but can have a weight assigned on weighted graph types.
+ * <h2>Compliance</h2>
  * All graph classes in this package implement the {@link java.io.Serializable} interface as well as the
  * {@link java.lang.Object#equals(java.lang.Object)}, {@link java.lang.Object#hashCode()} and
  * {@link java.lang.Object#toString()} methods in a semantically reasonable way.
