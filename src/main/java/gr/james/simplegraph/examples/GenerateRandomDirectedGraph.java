@@ -7,7 +7,10 @@ import java.util.Random;
 /**
  * Generate a random {@link MutableDirectedGraph}.
  */
-public class GenerateRandomDirectedGraph {
+public final class GenerateRandomDirectedGraph {
+    private GenerateRandomDirectedGraph() {
+    }
+
     /**
      * Generates a {@link MutableDirectedGraph} according to the G(n,p) model.
      * <p>

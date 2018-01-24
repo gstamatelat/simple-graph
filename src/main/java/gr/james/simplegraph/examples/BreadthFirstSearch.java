@@ -10,7 +10,10 @@ import java.util.Set;
 /**
  * Demonstration of breadth first search (BFS) using a queue.
  */
-public class BreadthFirstSearch {
+public final class BreadthFirstSearch {
+    private BreadthFirstSearch() {
+    }
+
     /**
      * Performs BFS on a directed graph.
      * <p>

@@ -5,7 +5,10 @@ import gr.james.simplegraph.DirectedGraph;
 /**
  * Count all the directed edges of a {@link DirectedGraph}.
  */
-public class CountEdges {
+public final class CountEdges {
+    private CountEdges() {
+    }
+
     /**
      * Get the number of directed edges in a {@link DirectedGraph}.
      * <p>

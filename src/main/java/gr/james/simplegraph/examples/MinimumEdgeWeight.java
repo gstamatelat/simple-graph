@@ -5,7 +5,10 @@ import gr.james.simplegraph.WeightedGraph;
 /**
  * Get the edge with the minimum weight from a {@link WeightedGraph}.
  */
-public class MinimumEdgeWeight {
+public final class MinimumEdgeWeight {
+    private MinimumEdgeWeight() {
+    }
+
     /**
      * Returns the minimum edge weight of a {@link WeightedGraph}.
      * <p>
