@@ -1,0 +1,65 @@
+/* Code blocks */
+
+.block pre {
+    background-color: #F6F8FA !important;
+    padding: 0 1rem !important;
+}
+
+/* Sans-serif font */
+
+/*body {
+    font-family: 'Fira Sans', monospace !important;
+}*/
+
+/* Serif font */
+
+/*div.block {
+    font-family: 'Fira Sans', monospace !important;
+}*/
+
+/* Monospace font */
+
+/*pre,
+code,
+tt,
+dt code,
+table tr td dt code,
+.contentContainer .description dl dd,
+.contentContainer .details dl dd,
+.serializedFormContainer dl dd {
+    font-family: 'Fira Mono', monospace !important;
+}*/
+
+/* Background color */
+
+/*.bar,
+.topNav,
+.bottomNav,
+.memberSummary caption span.tableTab span,
+.memberSummary .tableTab .tabEnd {
+    background-color: #30353c !important;
+}*/
+
+/* Other */
+
+/*li.blockList > .block,
+li.blockList dl {
+    padding: 0 0 10px 35px !important;
+}
+
+div.details ul.blockList ul.blockList ul.blockList li.blockList h4,
+div.details ul.blockList ul.blockList ul.blockListLast li.blockList h4 {
+    background: none !important;
+    border: none !important;
+}
+
+ul.blockList ul.blockList ul.blockList li.blockList,
+ul.blockList ul.blockList ul.blockListLast li.blockList {
+    border-bottom: 1px solid #383F49 !important;
+}
+
+ul.blockList ul.blockList li.blockList,
+ul.blockList ul.blockListLast li.blockList {
+    background: none !important;
+    border: none !important;
+}*/

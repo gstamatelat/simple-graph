@@ -9,6 +9,14 @@ interface IBaseGraph extends Serializable {
     /**
      * Get the number of vertices in the graph.
      * <p>
+     * Because vertices are numbered in the range {@code [0, size)}, you can use this method in a typical for-loop to
+     * iterate over the vertices in the graph:
+     * <pre><code>
+     * for (int v = 0; v &lt; g.size(); v++) {
+     *     // Do something with v
+     * }
+     * </code></pre>
+     * <p>
      * Complexity: O(1)
      *
      * @return how many vertices there are in the graph
