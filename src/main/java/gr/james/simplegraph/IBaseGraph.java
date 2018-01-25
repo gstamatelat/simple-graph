@@ -17,6 +17,13 @@ interface IBaseGraph extends Serializable {
      * }
      * </code></pre>
      * <p>
+     * Furthermore, the vertex IDs reflect the actual order at which they were inserted in the graph. So you can get the
+     * oldest and newest vertices like so:
+     * <pre><code>
+     * int oldestVertex = 0;
+     * int newestVertex = g.size() - 1;
+     * </code></pre>
+     * <p>
      * Complexity: O(1)
      *
      * @return how many vertices there are in the graph
