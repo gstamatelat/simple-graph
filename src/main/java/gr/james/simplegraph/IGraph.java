@@ -31,7 +31,14 @@ interface IGraph extends IBaseGraph {
      * The iterator doesn't support the {@link Iterator#remove()} method, which will always throw
      * {@link UnsupportedOperationException}.
      * <p>
-     * You can use this method to check if two vertices {@code a} and {@code b} are connected via an edge:
+     * You can get the degree of a certain vertex {@code v} by querying the size of the collection returned by this
+     * method:
+     * <pre><code>
+     * int degree = g.getEdges(v).size();
+     * </code></pre>
+     * The snippet will include the edge to {@code v} itself, if present.
+     * <p>
+     * You can also use this method to check if two vertices {@code a} and {@code b} are connected via an edge:
      * <pre><code>
      * if (g.getEdges(a).contains(b)) {
      *     System.out.printf("Vertices %d and %d are adjacent%n", a, b);

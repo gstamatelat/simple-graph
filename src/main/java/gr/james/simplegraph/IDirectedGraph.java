@@ -32,7 +32,14 @@ interface IDirectedGraph extends IBaseGraph {
      * The iterator doesn't support the {@link Iterator#remove()} method, which will always throw
      * {@link UnsupportedOperationException}.
      * <p>
-     * You can use this method to check if a directed edge from {@code a} to {@code b} exists:
+     * You can get the out degree of a certain vertex {@code v} by querying the size of the collection returned by this
+     * method:
+     * <pre><code>
+     * int outDegree = g.getOutEdges(v).size();
+     * </code></pre>
+     * The snippet will include the edge to {@code v} itself, if present.
+     * <p>
+     * You can also use this method to check if a directed edge from {@code a} to {@code b} exists:
      * <pre><code>
      * if (g.getOutEdges(a).contains(b)) {
      *     System.out.printf("There exists an edge from %d to %d%n", a, b);
