@@ -285,7 +285,18 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
     }
 
     /**
-     * Add a vertex to the graph.
+     * Adds a vertex to the graph.
+     * <p>
+     * This method adds a new unconnected vertex in the graph with ID equal to {@code size} and then increases the value
+     * of {@code size} by one.
+     * <pre><code>
+     * int previousSize = g.size();
+     * g.addVertex();
+     * assert g.size() == previousSize + 1;
+     * System.out.printf("The new vertex ID is %d%n", g.size() - 1);
+     * assert g.getOutEdges(g.size() - 1).isEmpty();
+     * assert g.getInEdges(g.size() - 1).isEmpty();
+     * </code></pre>
      * <p>
      * Complexity: O(1)
      */
@@ -296,6 +307,16 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
 
     /**
      * Add many vertices to the graph.
+     * <p>
+     * This method is equivalent to
+     * <pre><code>
+     * if (n &lt; 0) {
+     *     throw new IllegalArgumentException();
+     * }
+     * for (int i = 0; i &lt; n; i++) {
+     *     addVertex();
+     * }
+     * </code></pre>
      * <p>
      * Complexity: O(n)
      *
@@ -312,7 +333,13 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
     }
 
     /**
-     * Remove a vertex along with all of its edges from the graph.
+     * Removes a vertex along with all of its edges from the graph.
+     * <p>
+     * This method works in a way that preserves the insertion order of vertices. More specifically, initially all edges
+     * referring to {@code v} are removed, resulting in {@code v} being unconnected. Afterwards, while {@code v} is
+     * removed, all vertices with ID {@code > v} slide one position to the left to occupy the empty slot. Finally, the
+     * {@code size} of the graph is reduced by one. <b>A side effect of this process is that the vertices with ID higher
+     * than {@code v} are mutated to an ID that is lower by one unit.</b>
      * <p>
      * Complexity: O(V+E)
      *
@@ -349,7 +376,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
     }
 
     /**
-     * Add or update an edge to this graph.
+     * Adds an edge on this graph or updates the weight of an existing one.
      * <p>
      * Complexity: O(1)
      *
