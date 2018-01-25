@@ -76,7 +76,7 @@ interface IDirectedGraph extends IBaseGraph {
      * inside the {@link Set}.
      * <p>
      * You can use this method in the same way you would use {@link #getOutEdges(int)} and you can refer to that for
-     * additional documentation.
+     * additional information.
      * <p>
      * Complexity: O(1)
      *
