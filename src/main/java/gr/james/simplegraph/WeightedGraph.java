@@ -145,7 +145,7 @@ public class WeightedGraph implements IWeightedGraph {
      */
     @Override
     public final String toString() {
-        return Graphs.toString(this);
+        return GraphsInternal.toString(this);
     }
 
     /**
@@ -163,7 +163,7 @@ public class WeightedGraph implements IWeightedGraph {
             return false;
         }
         final WeightedGraph that = (WeightedGraph) obj;
-        return Graphs.equals(this, that);
+        return GraphsInternal.equals(this, that);
     }
 
     /**
@@ -173,6 +173,6 @@ public class WeightedGraph implements IWeightedGraph {
      */
     @Override
     public final int hashCode() {
-        return Graphs.hashCode(this);
+        return GraphsInternal.hashCode(this);
     }
 }

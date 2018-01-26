@@ -220,7 +220,7 @@ public class MutableGraph implements IGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        Graphs.checkVertex(this, v);
+        GraphsInternal.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
             final Set<Integer> previousOut = edges.get(i);
             final Set<Integer> newOut = new HashSet<Integer>();
@@ -277,7 +277,7 @@ public class MutableGraph implements IGraph {
      */
     @Override
     public String toString() {
-        return Graphs.toString(this);
+        return GraphsInternal.toString(this);
     }
 
     /**
@@ -295,7 +295,7 @@ public class MutableGraph implements IGraph {
             return false;
         }
         final MutableGraph that = (MutableGraph) obj;
-        return Graphs.equals(this, that);
+        return GraphsInternal.equals(this, that);
     }
 
     /**
@@ -305,6 +305,6 @@ public class MutableGraph implements IGraph {
      */
     @Override
     public int hashCode() {
-        return Graphs.hashCode(this);
+        return GraphsInternal.hashCode(this);
     }
 }

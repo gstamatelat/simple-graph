@@ -3,7 +3,7 @@ package gr.james.simplegraph;
 /**
  * Helper graph utilities.
  */
-final class Graphs {
+final class GraphsInternal {
     /**
      * Check if a weight value is legal.
      * <p>

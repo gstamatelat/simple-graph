@@ -69,7 +69,7 @@ public class Graph implements IGraph {
 
             @Override
             public double getEdgeWeight(int v, int w) {
-                Graphs.checkVertex(this, w);
+                GraphsInternal.checkVertex(this, w);
                 if (!getEdges(v).contains(w)) {
                     throw new IllegalArgumentException();
                 }
@@ -133,7 +133,7 @@ public class Graph implements IGraph {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                Graphs.checkVertex(this, target);
+                GraphsInternal.checkVertex(this, target);
                 if (!getEdges(source).contains(target)) {
                     throw new IllegalArgumentException();
                 }
@@ -149,7 +149,7 @@ public class Graph implements IGraph {
      */
     @Override
     public final String toString() {
-        return Graphs.toString(this);
+        return GraphsInternal.toString(this);
     }
 
     /**
@@ -167,7 +167,7 @@ public class Graph implements IGraph {
             return false;
         }
         final Graph that = (Graph) obj;
-        return Graphs.equals(this, that);
+        return GraphsInternal.equals(this, that);
     }
 
     /**
@@ -177,6 +177,6 @@ public class Graph implements IGraph {
      */
     @Override
     public final int hashCode() {
-        return Graphs.hashCode(this);
+        return GraphsInternal.hashCode(this);
     }
 }

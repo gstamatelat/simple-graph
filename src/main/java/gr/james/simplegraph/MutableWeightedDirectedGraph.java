@@ -274,13 +274,13 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      */
     @Override
     public double getEdgeWeight(int source, int target) {
-        Graphs.checkVertex(this, target);
+        GraphsInternal.checkVertex(this, target);
         final Double weight = outEdges.get(source).get(target);
         if (weight == null) {
             throw new IllegalArgumentException();
         }
         assert weight.equals(inEdges.get(target).get(source));
-        assert Graphs.isWeightLegal(weight);
+        assert GraphsInternal.isWeightLegal(weight);
         return weight;
     }
 
@@ -347,7 +347,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        Graphs.checkVertex(this, v);
+        GraphsInternal.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
             final Map<Integer, Double> previousOut = outEdges.get(i);
             final Map<Integer, Double> newOut = new HashMap<Integer, Double>();
@@ -389,7 +389,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
      */
     public Double putEdge(int source, int target, double weight) {
-        Graphs.checkWeight(weight);
+        GraphsInternal.checkWeight(weight);
         final Double a = outEdges.get(source).put(target, weight);
         final Double b = inEdges.get(target).put(source, weight);
         assert a == null ? b == null : a.equals(b);
@@ -421,7 +421,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      */
     @Override
     public String toString() {
-        return Graphs.toString(this);
+        return GraphsInternal.toString(this);
     }
 
     /**
@@ -439,7 +439,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
             return false;
         }
         final MutableWeightedDirectedGraph that = (MutableWeightedDirectedGraph) obj;
-        return Graphs.equals(this, that);
+        return GraphsInternal.equals(this, that);
     }
 
     /**
@@ -449,6 +449,6 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      */
     @Override
     public int hashCode() {
-        return Graphs.hashCode(this);
+        return GraphsInternal.hashCode(this);
     }
 }
