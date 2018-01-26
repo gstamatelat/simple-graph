@@ -280,7 +280,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
             throw new IllegalArgumentException();
         }
         assert weight.equals(inEdges.get(target).get(source));
-        assert GraphsInternal.isWeightLegal(weight);
+        assert Graphs.isWeightLegal(weight);
         return weight;
     }
 
@@ -389,7 +389,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
      */
     public Double putEdge(int source, int target, double weight) {
-        GraphsInternal.checkWeight(weight);
+        Graphs.checkWeight(weight);
         final Double a = outEdges.get(source).put(target, weight);
         final Double b = inEdges.get(target).put(source, weight);
         assert a == null ? b == null : a.equals(b);

@@ -181,7 +181,7 @@ public class MutableWeightedGraph implements IWeightedGraph {
             throw new IllegalArgumentException();
         }
         assert weight.equals(edges.get(w).get(v));
-        assert GraphsInternal.isWeightLegal(weight);
+        assert Graphs.isWeightLegal(weight);
         return weight;
     }
 
@@ -276,7 +276,7 @@ public class MutableWeightedGraph implements IWeightedGraph {
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      */
     public Double putEdge(int v, int w, double weight) {
-        GraphsInternal.checkWeight(weight);
+        Graphs.checkWeight(weight);
         final Double a = edges.get(v).put(w, weight);
         final Double b = edges.get(w).put(v, weight);
         assert a == null ? b == null : a.equals(b);
