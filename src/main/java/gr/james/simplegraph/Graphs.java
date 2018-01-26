@@ -23,7 +23,7 @@ public final class Graphs {
      * @return {@code weight}
      * @throws IllegalArgumentException if {@code weight} is not legal
      */
-    static double checkWeight(double weight) {
+    public static double checkWeight(double weight) {
         if (!isWeightLegal(weight)) {
             throw new IllegalArgumentException();
         }
@@ -45,7 +45,7 @@ public final class Graphs {
      * @param weight the weight value to check
      * @return {@code true} if {@code weight} is legal, otherwise {@code false}
      */
-    static boolean isWeightLegal(double weight) {
+    public static boolean isWeightLegal(double weight) {
         return !Double.isNaN(weight) && !Double.isInfinite(weight);
     }
 }
