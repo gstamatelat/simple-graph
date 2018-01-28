@@ -8,7 +8,23 @@ import gr.james.simplegraph.WeightedGraph;
 import java.util.*;
 
 /**
- * Implementation of breadth first search (BFS) as {@link Iterator}.
+ * Implementation of breadth-first search (BFS) as {@link Iterator Iterator&lt;Integer&gt;}.
+ * <p>
+ * The iterator iterates over the vertices of the graph at the order at which they are discovered. Only the vertices
+ * that are discoverable from the source will be returned. Therefore, if the graph is not strongly connected, only a
+ * subset of the vertices may be discovered. The source vertex itself is included in the iteration and is guaranteed to
+ * be returned first.
+ * <p>
+ * A typical usage of the {@code BreadthFirstIterator} is illustrated below.
+ * <pre><code>
+ * BreadthFirstIterator bfs = new BreadthFirstIterator(g, source);
+ * while (bfs.hasNext()) {
+ *     final int v = bfs.next();
+ *     // Do something with v
+ * }
+ * </code></pre>
+ * <p>
+ * {@code BreadthFirstIterator} does not support the {@link Iterator#remove()} method.
  * <p>
  * Memory Complexity: O(V)
  */
@@ -86,6 +102,9 @@ public class BreadthFirstIterator implements Iterator<Integer> {
     /**
      * Returns {@code true} if BFS has more vertices to discover, otherwise {@code false}.
      * <p>
+     * The first invocation to this method will always return {@code true} because the source vertex is guaranteed to be
+     * returned first.
+     * <p>
      * Complexity: O(1)
      *
      * @return {@code true} if BFS has more vertices to discover, otherwise {@code false}
@@ -96,11 +115,13 @@ public class BreadthFirstIterator implements Iterator<Integer> {
     }
 
     /**
-     * Returns the next vertex imposed by the BFS order.
+     * Returns the next vertex that is discovered by BFS.
+     * <p>
+     * The first invocation to this method will always return the source vertex.
      * <p>
      * Complexity: O(d), where d is the out degree of the next vertex
      *
-     * @return the next vertex
+     * @return the next vertex that is discovered by BFS
      * @throws NoSuchElementException if there are no more vertices to be discovered
      */
     @Override
