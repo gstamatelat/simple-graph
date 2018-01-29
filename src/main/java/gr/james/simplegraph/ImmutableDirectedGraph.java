@@ -93,7 +93,7 @@ public class ImmutableDirectedGraph implements DirectedGraph {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                GraphsInternal.checkVertex(this, target);
+                Graphs.checkVertex(this, target);
                 if (!getOutEdges(source).contains(target)) {
                     throw new IllegalArgumentException();
                 }
@@ -109,7 +109,7 @@ public class ImmutableDirectedGraph implements DirectedGraph {
      */
     @Override
     public final String toString() {
-        return GraphsInternal.toString(this);
+        return Graphs.toString(this);
     }
 
     /**
@@ -127,7 +127,7 @@ public class ImmutableDirectedGraph implements DirectedGraph {
             return false;
         }
         final ImmutableDirectedGraph that = (ImmutableDirectedGraph) obj;
-        return GraphsInternal.equals(this, that);
+        return Graphs.equals(this, that);
     }
 
     /**
@@ -137,6 +137,6 @@ public class ImmutableDirectedGraph implements DirectedGraph {
      */
     @Override
     public final int hashCode() {
-        return GraphsInternal.hashCode(this);
+        return Graphs.hashCode(this);
     }
 }

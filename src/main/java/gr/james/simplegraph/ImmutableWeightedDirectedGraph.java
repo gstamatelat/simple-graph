@@ -114,7 +114,7 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     @Override
     public final String toString() {
-        return GraphsInternal.toString(this);
+        return Graphs.toString(this);
     }
 
     /**
@@ -132,7 +132,7 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph {
             return false;
         }
         final ImmutableWeightedDirectedGraph that = (ImmutableWeightedDirectedGraph) obj;
-        return GraphsInternal.equals(this, that);
+        return Graphs.equals(this, that);
     }
 
     /**
@@ -142,6 +142,6 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     @Override
     public final int hashCode() {
-        return GraphsInternal.hashCode(this);
+        return Graphs.hashCode(this);
     }
 }

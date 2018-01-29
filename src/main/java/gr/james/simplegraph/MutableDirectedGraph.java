@@ -153,7 +153,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      */
     @Override
     public MutableDirectedGraph asDirected() {
-        throw new UnsupportedOperationException();
+        return this;
     }
 
     /**
@@ -266,7 +266,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        GraphsInternal.checkVertex(this, v);
+        Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
             final Set<Integer> previousOut = outEdges.get(i);
             final Set<Integer> newOut = new HashSet<Integer>();
@@ -337,7 +337,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      */
     @Override
     public final String toString() {
-        return GraphsInternal.toString(this);
+        return Graphs.toString(this);
     }
 
     /**
@@ -355,7 +355,7 @@ public class MutableDirectedGraph implements DirectedGraph {
             return false;
         }
         final MutableDirectedGraph that = (MutableDirectedGraph) obj;
-        return GraphsInternal.equals(this, that);
+        return Graphs.equals(this, that);
     }
 
     /**
@@ -365,6 +365,6 @@ public class MutableDirectedGraph implements DirectedGraph {
      */
     @Override
     public final int hashCode() {
-        return GraphsInternal.hashCode(this);
+        return Graphs.hashCode(this);
     }
 }

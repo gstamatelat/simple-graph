@@ -168,7 +168,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     @Override
     public MutableWeightedDirectedGraph asWeightedDirected() {
-        throw new UnsupportedOperationException();
+        return this;
     }
 
     /**
@@ -219,7 +219,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     @Override
     public double getEdgeWeight(int source, int target) {
-        GraphsInternal.checkVertex(this, target);
+        Graphs.checkVertex(this, target);
         final Double weight = outEdges.get(source).get(target);
         if (weight == null) {
             throw new IllegalArgumentException();
@@ -292,7 +292,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        GraphsInternal.checkVertex(this, v);
+        Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
             final Map<Integer, Double> previousOut = outEdges.get(i);
             final Map<Integer, Double> newOut = new HashMap<Integer, Double>();
@@ -366,7 +366,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     @Override
     public final String toString() {
-        return GraphsInternal.toString(this);
+        return Graphs.toString(this);
     }
 
     /**
@@ -384,7 +384,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
             return false;
         }
         final MutableWeightedDirectedGraph that = (MutableWeightedDirectedGraph) obj;
-        return GraphsInternal.equals(this, that);
+        return Graphs.equals(this, that);
     }
 
     /**
@@ -394,6 +394,6 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     @Override
     public final int hashCode() {
-        return GraphsInternal.hashCode(this);
+        return Graphs.hashCode(this);
     }
 }

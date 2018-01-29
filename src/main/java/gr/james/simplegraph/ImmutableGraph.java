@@ -76,7 +76,7 @@ public class ImmutableGraph implements Graph {
 
             @Override
             public double getEdgeWeight(int v, int w) {
-                GraphsInternal.checkVertex(this, w);
+                Graphs.checkVertex(this, w);
                 if (!getEdges(v).contains(w)) {
                     throw new IllegalArgumentException();
                 }
@@ -135,7 +135,7 @@ public class ImmutableGraph implements Graph {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                GraphsInternal.checkVertex(this, target);
+                Graphs.checkVertex(this, target);
                 if (!getEdges(source).contains(target)) {
                     throw new IllegalArgumentException();
                 }
@@ -151,7 +151,7 @@ public class ImmutableGraph implements Graph {
      */
     @Override
     public final String toString() {
-        return GraphsInternal.toString(this);
+        return Graphs.toString(this);
     }
 
     /**
@@ -169,7 +169,7 @@ public class ImmutableGraph implements Graph {
             return false;
         }
         final ImmutableGraph that = (ImmutableGraph) obj;
-        return GraphsInternal.equals(this, that);
+        return Graphs.equals(this, that);
     }
 
     /**
@@ -179,6 +179,6 @@ public class ImmutableGraph implements Graph {
      */
     @Override
     public final int hashCode() {
-        return GraphsInternal.hashCode(this);
+        return Graphs.hashCode(this);
     }
 }

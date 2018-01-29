@@ -132,7 +132,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      */
     @Override
     public MutableWeightedGraph asWeighted() {
-        throw new UnsupportedOperationException();
+        return this;
     }
 
     /**
@@ -179,7 +179,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      */
     @Override
     public double getEdgeWeight(int v, int w) {
-        GraphsInternal.checkVertex(this, w);
+        Graphs.checkVertex(this, w);
         final Double weight = edges.get(v).get(w);
         if (weight == null) {
             throw new IllegalArgumentException();
@@ -250,7 +250,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        GraphsInternal.checkVertex(this, v);
+        Graphs.checkVertex(this, v);
         for (int i = 0; i < size(); i++) {
             final Map<Integer, Double> previousOut = edges.get(i);
             final Map<Integer, Double> newOut = new HashMap<Integer, Double>();
@@ -312,7 +312,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      */
     @Override
     public final String toString() {
-        return GraphsInternal.toString(this);
+        return Graphs.toString(this);
     }
 
     /**
@@ -330,7 +330,7 @@ public class MutableWeightedGraph implements WeightedGraph {
             return false;
         }
         final MutableWeightedGraph that = (MutableWeightedGraph) obj;
-        return GraphsInternal.equals(this, that);
+        return Graphs.equals(this, that);
     }
 
     /**
@@ -340,6 +340,6 @@ public class MutableWeightedGraph implements WeightedGraph {
      */
     @Override
     public final int hashCode() {
-        return GraphsInternal.hashCode(this);
+        return Graphs.hashCode(this);
     }
 }

@@ -152,7 +152,7 @@ public class ImmutableWeightedGraph implements WeightedGraph {
      */
     @Override
     public final String toString() {
-        return GraphsInternal.toString(this);
+        return Graphs.toString(this);
     }
 
     /**
@@ -170,7 +170,7 @@ public class ImmutableWeightedGraph implements WeightedGraph {
             return false;
         }
         final ImmutableWeightedGraph that = (ImmutableWeightedGraph) obj;
-        return GraphsInternal.equals(this, that);
+        return Graphs.equals(this, that);
     }
 
     /**
@@ -180,6 +180,6 @@ public class ImmutableWeightedGraph implements WeightedGraph {
      */
     @Override
     public final int hashCode() {
-        return GraphsInternal.hashCode(this);
+        return Graphs.hashCode(this);
     }
 }
