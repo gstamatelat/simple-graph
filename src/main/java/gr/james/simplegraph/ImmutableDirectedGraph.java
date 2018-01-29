@@ -93,10 +93,7 @@ public class ImmutableDirectedGraph implements DirectedGraph {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                Graphs.checkVertex(this, target);
-                if (!getOutEdges(source).contains(target)) {
-                    throw new IllegalArgumentException();
-                }
+                Graphs.checkEdgeExists(ImmutableDirectedGraph.this, source, target);
                 return 1;
             }
         };

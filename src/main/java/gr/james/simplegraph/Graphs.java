@@ -50,6 +50,40 @@ public final class Graphs {
     }
 
     /**
+     * Check if an edge exists in a graph.
+     *
+     * @param g the graph
+     * @param v one end of the edge
+     * @param w the other end of the edge
+     * @throws NullPointerException      if {@code g} is {@code null}
+     * @throws IndexOutOfBoundsException if {@code v} or {@code w} are not elements of {@code g}
+     * @throws IllegalArgumentException  if no edge connecting {@code v} with {@code w} exists
+     */
+    public static void checkEdgeExists(Graph g, int v, int w) {
+        checkVertex(g, w);
+        if (!g.getEdges(v).contains(w)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * Check if an edge exists in a graph.
+     *
+     * @param g      the graph
+     * @param source the source of the edge
+     * @param target the target of the edge
+     * @throws NullPointerException      if {@code g} is {@code null}
+     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are not elements of {@code g}
+     * @throws IllegalArgumentException  if no edge from {@code source} to {@code target} exists
+     */
+    public static void checkEdgeExists(DirectedGraph g, int source, int target) {
+        checkVertex(g, target);
+        if (!g.getOutEdges(source).contains(target)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
      * Check if a vertex is inside the bounds of a graph.
      * <p>
      * Complexity: O(1)

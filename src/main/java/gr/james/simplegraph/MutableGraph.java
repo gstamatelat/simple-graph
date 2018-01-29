@@ -180,7 +180,7 @@ public class MutableGraph implements Graph {
 
             @Override
             public double getEdgeWeight(int v, int w) {
-                // TODO
+                Graphs.checkEdgeExists(MutableGraph.this, v, w);
                 return 1.0;
             }
 
@@ -236,7 +236,7 @@ public class MutableGraph implements Graph {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                // TODO
+                Graphs.checkEdgeExists(MutableGraph.this, source, target);
                 return 1.0;
             }
 

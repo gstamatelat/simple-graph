@@ -76,10 +76,7 @@ public class ImmutableGraph implements Graph {
 
             @Override
             public double getEdgeWeight(int v, int w) {
-                Graphs.checkVertex(this, w);
-                if (!getEdges(v).contains(w)) {
-                    throw new IllegalArgumentException();
-                }
+                Graphs.checkEdgeExists(ImmutableGraph.this, v, w);
                 return 1;
             }
         };
@@ -135,10 +132,7 @@ public class ImmutableGraph implements Graph {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                Graphs.checkVertex(this, target);
-                if (!getEdges(source).contains(target)) {
-                    throw new IllegalArgumentException();
-                }
+                Graphs.checkEdgeExists(ImmutableGraph.this, source, target);
                 return 1;
             }
         };

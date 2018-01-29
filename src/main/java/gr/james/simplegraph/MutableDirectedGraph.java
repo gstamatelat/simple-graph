@@ -181,7 +181,7 @@ public class MutableDirectedGraph implements DirectedGraph {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                // TODO
+                Graphs.checkEdgeExists(MutableDirectedGraph.this, source, target);
                 return 1.0;
             }
 
