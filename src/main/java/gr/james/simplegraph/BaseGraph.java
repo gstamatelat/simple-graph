@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Base interface for all graph types.
  */
-public interface IBaseGraph extends Serializable {
+public interface BaseGraph extends Serializable {
     /**
      * Get the number of vertices in the graph.
      * <p>

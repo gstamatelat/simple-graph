@@ -13,7 +13,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableWeightedGraph implements IWeightedGraph {
+public class MutableWeightedGraph implements WeightedGraph {
     private static final long serialVersionUID = 1L;
 
     private final List<Map<Integer, Double>> edges;
@@ -86,7 +86,7 @@ public class MutableWeightedGraph implements IWeightedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedGraph(WeightedGraph g) {
+    public MutableWeightedGraph(ImmutableWeightedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -105,7 +105,7 @@ public class MutableWeightedGraph implements IWeightedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedGraph(Graph g) {
+    public MutableWeightedGraph(ImmutableGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -115,15 +115,15 @@ public class MutableWeightedGraph implements IWeightedGraph {
     }
 
     /**
-     * Construct and return a new immutable {@link WeightedGraph} as a copy of this graph.
+     * Construct and return a new immutable {@link ImmutableWeightedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *
-     * @return a copy of this graph as a new {@link WeightedGraph}
+     * @return a copy of this graph as a new {@link ImmutableWeightedGraph}
      */
-    public WeightedGraph toImmutable() {
+    public ImmutableWeightedGraph toImmutable() {
         final MutableWeightedGraph g = new MutableWeightedGraph(this);
-        return new WeightedGraph() {
+        return new ImmutableWeightedGraph() {
             @Override
             public int size() {
                 return g.size();

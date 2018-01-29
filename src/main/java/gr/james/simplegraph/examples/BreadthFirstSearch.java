@@ -1,6 +1,6 @@
 package gr.james.simplegraph.examples;
 
-import gr.james.simplegraph.DirectedGraph;
+import gr.james.simplegraph.ImmutableDirectedGraph;
 
 import java.util.Deque;
 import java.util.HashSet;
@@ -25,7 +25,7 @@ public final class BreadthFirstSearch {
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code source} is not in the graph
      */
-    public static int breadthFirstSearch(DirectedGraph g, int source) {
+    public static int breadthFirstSearch(ImmutableDirectedGraph g, int source) {
         final Deque<Integer> queue = new LinkedList<Integer>();
         final Set<Integer> visited = new HashSet<Integer>();
         queue.offer(source);

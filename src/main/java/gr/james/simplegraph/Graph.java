@@ -1,28 +1,68 @@
 package gr.james.simplegraph;
 
+import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Represents an immutable, unweighted and undirected graph implemented using adjacency lists.
- * <p>
- * The graph can contain self loops but cannot cannot contain parallel edges. More formally, any unordered pair of
- * endpoints may correspond to at most one edge.
- * <p>
- * An unordered pair {@code {a, b}} is a pair of objects with no particular relation between them; the order in which
- * the objects appear in the pair is not significant.
- * <p>
- * Memory Complexity: O(V+E)
+ * Base interface for undirected graphs.
  */
-public class Graph implements IGraph {
-    private static final long serialVersionUID = 1L;
-
+public interface Graph extends BaseGraph {
     /**
-     * Construct a new empty {@link Graph}.
+     * Get the adjacent vertices of a vertex.
+     * <p>
+     * More formally, returns all vertices in this graph adjacent to {@code v}. The vertices returned are in no
+     * particular order inside the {@link Set}.
+     * <p>
+     * You can use the result of this method in a for-each loop like so:
+     * <pre><code>
+     * for (int v : g.getEdges(X)) {
+     *     // Do something with v
+     * }
+     * </code></pre>
+     * <p>
+     * You can also use the classic iterator approach:
+     * <pre><code>
+     * Iterator&lt;Integer&gt; it = g.getEdges(X).iterator();
+     * while (it.hasNext()) {
+     *     int v = it.next();
+     *     // Do something with v
+     * }
+     * </code></pre>
+     * The iterator doesn't support the {@link Iterator#remove()} method, which will always throw
+     * {@link UnsupportedOperationException}.
+     * <p>
+     * You can get the degree of a certain vertex {@code v} by querying the size of the collection returned by this
+     * method:
+     * <pre><code>
+     * int degree = g.getEdges(v).size();
+     * </code></pre>
+     * The snippet will include the edge to {@code v} itself, if present.
+     * <p>
+     * You can also use this method to check if two vertices {@code a} and {@code b} are connected via an edge:
+     * <pre><code>
+     * if (g.getEdges(a).contains(b)) {
+     *     System.out.printf("Vertices %d and %d are adjacent%n", a, b);
+     * }
+     * </code></pre>
+     * Be careful when using such construct: {@code g.getEdges(a).contains(b)} will return {@code false} if {@code b}
+     * is not an element of this graph. Because this graph is undirected, the condition is equivalent to
+     * {@code g.getEdges(b).contains(a)}, but only if both {@code a} and {@code b} are in the graph:
+     * <pre><code>
+     * boolean connected = g.getEdges(b).contains(a);
+     * assert connected == g.getEdges(a).contains(b);
+     * </code></pre>
+     * <h2>Note for mutable graphs</h2>
+     * In the case of mutable graphs the {@link Set} returned is directly backed by the graph and changes will reflect
+     * on that {@link Set}. A side effect of this property is that the iterator, like any other, will throw
+     * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
      * <p>
      * Complexity: O(1)
+     *
+     * @param v the vertex
+     * @return a {@link Set} that holds all the adjacent vertices of {@code v}
+     * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
      */
-    Graph() {
-    }
+    Set<Integer> getEdges(int v);
 
     /**
      * {@inheritDoc}
@@ -30,60 +70,47 @@ public class Graph implements IGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public int size() {
-        return 0;
-    }
+    int size();
 
     /**
-     * {@inheritDoc}
+     * Returns a {@link Graph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
      *
-     * @param v {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @return a {@link Graph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
      */
-    @Override
-    public Set<Integer> getEdges(int v) {
-        throw new IndexOutOfBoundsException();
-    }
+    Graph asGraph();
 
     /**
-     * {@inheritDoc}
+     * Returns a {@link DirectedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
      *
-     * @return {@inheritDoc}
+     * @return a {@link DirectedGraph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
      */
-    @Override
-    public Graph asGraph() {
-        return this;
-    }
+    DirectedGraph asDirected();
 
     /**
-     * {@inheritDoc}
+     * Returns a {@link WeightedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
      *
-     * @return {@inheritDoc}
+     * @return a {@link WeightedGraph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
      */
-    @Override
-    public final WeightedGraph asWeighted() {
-        return new WeightedGraph() {
-            @Override
-            public int size() {
-                return Graph.this.size();
-            }
+    WeightedGraph asWeighted();
 
-            @Override
-            public Set<Integer> getEdges(int v) {
-                return Graph.this.getEdges(v);
-            }
-
-            @Override
-            public double getEdgeWeight(int v, int w) {
-                GraphsInternal.checkVertex(this, w);
-                if (!getEdges(v).contains(w)) {
-                    throw new IllegalArgumentException();
-                }
-                return 1;
-            }
-        };
-    }
+    /**
+     * Returns a {@link WeightedDirectedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link WeightedDirectedGraph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
+     */
+    WeightedDirectedGraph asWeightedDirected();
 
     /**
      * {@inheritDoc}
@@ -91,68 +118,7 @@ public class Graph implements IGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public final DirectedGraph asDirected() {
-        return new DirectedGraph() {
-            @Override
-            public int size() {
-                return Graph.this.size();
-            }
-
-            @Override
-            public Set<Integer> getOutEdges(int v) {
-                return Graph.this.getEdges(v);
-            }
-
-            @Override
-            public Set<Integer> getInEdges(int v) {
-                return Graph.this.getEdges(v);
-            }
-        };
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    public final WeightedDirectedGraph asWeightedDirected() {
-        return new WeightedDirectedGraph() {
-            @Override
-            public int size() {
-                return Graph.this.size();
-            }
-
-            @Override
-            public Set<Integer> getOutEdges(int v) {
-                return Graph.this.getEdges(v);
-            }
-
-            @Override
-            public Set<Integer> getInEdges(int v) {
-                return Graph.this.getEdges(v);
-            }
-
-            @Override
-            public double getEdgeWeight(int source, int target) {
-                GraphsInternal.checkVertex(this, target);
-                if (!getEdges(source).contains(target)) {
-                    throw new IllegalArgumentException();
-                }
-                return 1;
-            }
-        };
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    public final String toString() {
-        return GraphsInternal.toString(this);
-    }
+    String toString();
 
     /**
      * {@inheritDoc}
@@ -161,16 +127,7 @@ public class Graph implements IGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public final boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || !(obj instanceof Graph)) {
-            return false;
-        }
-        final Graph that = (Graph) obj;
-        return GraphsInternal.equals(this, that);
-    }
+    boolean equals(Object obj);
 
     /**
      * {@inheritDoc}
@@ -178,7 +135,5 @@ public class Graph implements IGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public final int hashCode() {
-        return GraphsInternal.hashCode(this);
-    }
+    int hashCode();
 }

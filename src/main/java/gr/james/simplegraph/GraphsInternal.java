@@ -15,7 +15,7 @@ final class GraphsInternal {
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code v} is not in {@code g}
      */
-    static int checkVertex(IBaseGraph g, int v) {
+    static int checkVertex(BaseGraph g, int v) {
         if (v < 0 || v >= g.size()) {
             throw new IndexOutOfBoundsException();
         }
@@ -31,9 +31,9 @@ final class GraphsInternal {
      * @return a string representation of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static String toString(IGraph g) {
+    static String toString(Graph g) {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "Graph", g.size()));
+        sb.append(String.format("%s(%d) {%n", "ImmutableGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
             for (int adj : g.getEdges(i)) {
                 if (adj >= i) {
@@ -54,9 +54,9 @@ final class GraphsInternal {
      * @return a string representation of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static String toString(IDirectedGraph g) {
+    static String toString(DirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "DirectedGraph", g.size()));
+        sb.append(String.format("%s(%d) {%n", "ImmutableDirectedGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
             for (int adj : g.getOutEdges(i)) {
                 sb.append(String.format("  %d -> %d%n", i, adj));
@@ -75,9 +75,9 @@ final class GraphsInternal {
      * @return a string representation of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static String toString(IWeightedGraph g) {
+    static String toString(WeightedGraph g) {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "WeightedGraph", g.size()));
+        sb.append(String.format("%s(%d) {%n", "ImmutableWeightedGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
             for (int adj : g.getEdges(i)) {
                 if (adj >= i) {
@@ -98,9 +98,9 @@ final class GraphsInternal {
      * @return a string representation of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static String toString(IWeightedDirectedGraph g) {
+    static String toString(WeightedDirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "WeightedDirectedGraph", g.size()));
+        sb.append(String.format("%s(%d) {%n", "ImmutableWeightedDirectedGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
             for (int adj : g.getOutEdges(i)) {
                 sb.append(String.format("  %d -> %d [%.2f]%n", i, adj, g.getEdgeWeight(i, adj)));
@@ -123,7 +123,7 @@ final class GraphsInternal {
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
      * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
-    static boolean equals(IGraph a, IGraph b) {
+    static boolean equals(Graph a, Graph b) {
         if (a.size() != b.size()) {
             return false;
         }
@@ -148,7 +148,7 @@ final class GraphsInternal {
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
      * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
-    static boolean equals(IDirectedGraph a, IDirectedGraph b) {
+    static boolean equals(DirectedGraph a, DirectedGraph b) {
         if (a.size() != b.size()) {
             return false;
         }
@@ -173,7 +173,7 @@ final class GraphsInternal {
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
      * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
-    static boolean equals(IWeightedGraph a, IWeightedGraph b) {
+    static boolean equals(WeightedGraph a, WeightedGraph b) {
         if (a.size() != b.size()) {
             return false;
         }
@@ -203,7 +203,7 @@ final class GraphsInternal {
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
      * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
-    static boolean equals(IWeightedDirectedGraph a, IWeightedDirectedGraph b) {
+    static boolean equals(WeightedDirectedGraph a, WeightedDirectedGraph b) {
         if (a.size() != b.size()) {
             return false;
         }
@@ -229,7 +229,7 @@ final class GraphsInternal {
      * @return a hash code value for {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static int hashCode(IGraph g) {
+    static int hashCode(Graph g) {
         int hash = 0;
         for (int i = 0; i < g.size(); i++) {
             for (int j : g.getEdges(i)) {
@@ -248,7 +248,7 @@ final class GraphsInternal {
      * @return a hash code value for {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static int hashCode(IDirectedGraph g) {
+    static int hashCode(DirectedGraph g) {
         int hash = 0;
         for (int i = 0; i < g.size(); i++) {
             for (int j : g.getOutEdges(i)) {
@@ -267,7 +267,7 @@ final class GraphsInternal {
      * @return a hash code value for {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static int hashCode(IWeightedGraph g) {
+    static int hashCode(WeightedGraph g) {
         int hash = 0;
         for (int i = 0; i < g.size(); i++) {
             for (int j : g.getEdges(i)) {
@@ -286,7 +286,7 @@ final class GraphsInternal {
      * @return a hash code value for {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static int hashCode(IWeightedDirectedGraph g) {
+    static int hashCode(WeightedDirectedGraph g) {
         int hash = 0;
         for (int i = 0; i < g.size(); i++) {
             for (int j : g.getOutEdges(i)) {

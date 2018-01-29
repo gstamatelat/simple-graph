@@ -3,36 +3,21 @@ package gr.james.simplegraph;
 import java.util.Set;
 
 /**
- * Represents an immutable, weighted and directed graph implemented using adjacency lists.
- * <p>
- * The graph can contain self loops but cannot cannot contain parallel edges. More formally, any ordered pair of
- * endpoints may correspond to at most one edge. The edge weights can only be finite {@link Double} values.
- * <p>
- * An ordered pair {@code (a, b)} is a pair of objects where the order in which the objects appear in the pair is
- * significant: the ordered pair {@code (a, b)} is different from the ordered pair {@code (b, a)} unless {@code a = b}.
- * <p>
- * Memory Complexity: O(V+E)
+ * Base interface for weighted and directed graphs.
  */
-public class WeightedDirectedGraph implements IWeightedDirectedGraph {
-    private static final long serialVersionUID = 1L;
-
+public interface WeightedDirectedGraph extends DirectedGraph {
     /**
-     * Construct a new empty {@link WeightedDirectedGraph}.
+     * Get the weight of the edge from {@code source} to {@code target}.
      * <p>
      * Complexity: O(1)
-     */
-    WeightedDirectedGraph() {
-    }
-
-    /**
-     * {@inheritDoc}
      *
-     * @return {@inheritDoc}
+     * @param source the source of the edge
+     * @param target the target of the edge
+     * @return the weight of the edge from {@code source} to {@code target}
+     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
+     * @throws IllegalArgumentException  if there is no edge from {@code source} to {@code target}
      */
-    @Override
-    public int size() {
-        return 0;
-    }
+    double getEdgeWeight(int source, int target);
 
     /**
      * {@inheritDoc}
@@ -40,11 +25,10 @@ public class WeightedDirectedGraph implements IWeightedDirectedGraph {
      * @param v {@inheritDoc}
      * @return {@inheritDoc}
      * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @see #getInEdges(int)
      */
     @Override
-    public Set<Integer> getOutEdges(int v) {
-        throw new IndexOutOfBoundsException();
-    }
+    Set<Integer> getOutEdges(int v);
 
     /**
      * {@inheritDoc}
@@ -52,25 +36,10 @@ public class WeightedDirectedGraph implements IWeightedDirectedGraph {
      * @param v {@inheritDoc}
      * @return {@inheritDoc}
      * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @see #getOutEdges(int)
      */
     @Override
-    public Set<Integer> getInEdges(int v) {
-        throw new IndexOutOfBoundsException();
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param source {@inheritDoc}
-     * @param target {@inheritDoc}
-     * @return {@inheritDoc}
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     * @throws IllegalArgumentException  {@inheritDoc}
-     */
-    @Override
-    public double getEdgeWeight(int source, int target) {
-        throw new IndexOutOfBoundsException();
-    }
+    Set<Integer> getInEdges(int v);
 
     /**
      * {@inheritDoc}
@@ -78,9 +47,25 @@ public class WeightedDirectedGraph implements IWeightedDirectedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public WeightedDirectedGraph asWeightedDirected() {
-        return this;
-    }
+    int size();
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     * @throws UnsupportedOperationException {@inheritDoc}
+     */
+    @Override
+    DirectedGraph asDirected();
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     * @throws UnsupportedOperationException {@inheritDoc}
+     */
+    @Override
+    WeightedDirectedGraph asWeightedDirected();
 
     /**
      * {@inheritDoc}
@@ -88,34 +73,7 @@ public class WeightedDirectedGraph implements IWeightedDirectedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public final DirectedGraph asDirected() {
-        return new DirectedGraph() {
-            @Override
-            public int size() {
-                return WeightedDirectedGraph.this.size();
-            }
-
-            @Override
-            public Set<Integer> getOutEdges(int v) {
-                return WeightedDirectedGraph.this.getOutEdges(v);
-            }
-
-            @Override
-            public Set<Integer> getInEdges(int v) {
-                return WeightedDirectedGraph.this.getInEdges(v);
-            }
-        };
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    public final String toString() {
-        return GraphsInternal.toString(this);
-    }
+    String toString();
 
     /**
      * {@inheritDoc}
@@ -124,16 +82,7 @@ public class WeightedDirectedGraph implements IWeightedDirectedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public final boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || !(obj instanceof WeightedDirectedGraph)) {
-            return false;
-        }
-        final WeightedDirectedGraph that = (WeightedDirectedGraph) obj;
-        return GraphsInternal.equals(this, that);
-    }
+    boolean equals(Object obj);
 
     /**
      * {@inheritDoc}
@@ -141,7 +90,5 @@ public class WeightedDirectedGraph implements IWeightedDirectedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public final int hashCode() {
-        return GraphsInternal.hashCode(this);
-    }
+    int hashCode();
 }

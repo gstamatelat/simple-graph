@@ -1,16 +1,16 @@
 package gr.james.simplegraph.examples;
 
-import gr.james.simplegraph.WeightedGraph;
+import gr.james.simplegraph.ImmutableWeightedGraph;
 
 /**
- * Get the edge with the minimum weight from a {@link WeightedGraph}.
+ * Get the edge with the minimum weight from a {@link ImmutableWeightedGraph}.
  */
 public final class MinimumEdgeWeight {
     private MinimumEdgeWeight() {
     }
 
     /**
-     * Returns the minimum edge weight of a {@link WeightedGraph}.
+     * Returns the minimum edge weight of a {@link ImmutableWeightedGraph}.
      * <p>
      * Returns {@link Double#NaN} if the graph has no edges.
      * <p>
@@ -20,7 +20,7 @@ public final class MinimumEdgeWeight {
      * @return the minimum edge weight of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public static double minimumEdgeWeight(WeightedGraph g) {
+    public static double minimumEdgeWeight(ImmutableWeightedGraph g) {
         double min = Double.NaN;
         for (int i = 0; i < g.size(); i++) {
             for (int j : g.getEdges(i)) {

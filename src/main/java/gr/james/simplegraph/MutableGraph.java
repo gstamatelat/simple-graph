@@ -13,7 +13,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableGraph implements IGraph {
+public class MutableGraph implements Graph {
     private static final long serialVersionUID = 1L;
 
     private final List<Set<Integer>> edges;
@@ -86,7 +86,7 @@ public class MutableGraph implements IGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableGraph(Graph g) {
+    public MutableGraph(ImmutableGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -105,7 +105,7 @@ public class MutableGraph implements IGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableGraph(WeightedGraph g) {
+    public MutableGraph(ImmutableWeightedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -115,15 +115,15 @@ public class MutableGraph implements IGraph {
     }
 
     /**
-     * Construct and return a new immutable {@link Graph} as a copy of this graph.
+     * Construct and return a new immutable {@link ImmutableGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *
-     * @return a copy of this graph as a new {@link Graph}
+     * @return a copy of this graph as a new {@link ImmutableGraph}
      */
-    public Graph toImmutable() {
+    public ImmutableGraph toImmutable() {
         final MutableGraph g = new MutableGraph(this);
-        return new Graph() {
+        return new ImmutableGraph() {
             @Override
             public int size() {
                 return g.size();

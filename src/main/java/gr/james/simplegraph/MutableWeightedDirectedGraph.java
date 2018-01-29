@@ -13,7 +13,7 @@ import java.util.*;
  * <p>
  * Memory Complexity: O(V+E)
  */
-public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
+public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     private static final long serialVersionUID = 1L;
 
     private final List<Map<Integer, Double>> outEdges;
@@ -127,7 +127,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedDirectedGraph(WeightedDirectedGraph g) {
+    public MutableWeightedDirectedGraph(ImmutableWeightedDirectedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getOutEdges(v)) {
@@ -146,7 +146,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedDirectedGraph(DirectedGraph g) {
+    public MutableWeightedDirectedGraph(ImmutableDirectedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getOutEdges(v)) {
@@ -165,7 +165,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedDirectedGraph(WeightedGraph g) {
+    public MutableWeightedDirectedGraph(ImmutableWeightedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -185,7 +185,7 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedDirectedGraph(Graph g) {
+    public MutableWeightedDirectedGraph(ImmutableGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -195,15 +195,15 @@ public class MutableWeightedDirectedGraph implements IWeightedDirectedGraph {
     }
 
     /**
-     * Construct and return a new immutable {@link WeightedDirectedGraph} as a copy of this graph.
+     * Construct and return a new immutable {@link ImmutableWeightedDirectedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *
-     * @return a copy of this graph as a new {@link WeightedDirectedGraph}
+     * @return a copy of this graph as a new {@link ImmutableWeightedDirectedGraph}
      */
-    public WeightedDirectedGraph toImmutable() {
+    public ImmutableWeightedDirectedGraph toImmutable() {
         final MutableWeightedDirectedGraph g = new MutableWeightedDirectedGraph(this);
-        return new WeightedDirectedGraph() {
+        return new ImmutableWeightedDirectedGraph() {
             @Override
             public int size() {
                 return g.size();

@@ -18,14 +18,14 @@
  * vertex/edge addition/removal etc. Instances of immutable graphs can be created only using the method
  * {@code toImmutable()} of the respective mutable graph. For example
  * {@link gr.james.simplegraph.MutableGraph#toImmutable()} will create a copy of the graph and return it as a
- * {@link gr.james.simplegraph.Graph}. Mutable graphs have various copy constructors from compatible types. For example,
- * {@link gr.james.simplegraph.MutableGraph#MutableGraph(gr.james.simplegraph.WeightedGraph)} will construct a
+ * {@link gr.james.simplegraph.ImmutableGraph}. Mutable graphs have various copy constructors from compatible types. For example,
+ * {@link gr.james.simplegraph.MutableGraph#MutableGraph(ImmutableWeightedGraph)} will construct a
  * {@link gr.james.simplegraph.MutableGraph} from a copy of the argument.
  * <p>
  * Immutable graphs do not have mutation methods and are, for example, appropriate to use as arguments to algorithms.
  * Immutable graphs guarantee thread safety and deterministic iteration and behavior. There exist constant time
  * decorators around compatible types of immutable graphs {@code asGraph()}, {@code asDirected()}, {@code asWeighted()},
- * {@code asWeightedDirected()}. For example, {@link gr.james.simplegraph.Graph#asDirected()} will return a
- * {@link gr.james.simplegraph.DirectedGraph} decorator of that graph.
+ * {@code asWeightedDirected()}. For example, {@link gr.james.simplegraph.ImmutableGraph#asDirected()} will return a
+ * {@link gr.james.simplegraph.ImmutableDirectedGraph} decorator of that graph.
  */
 package gr.james.simplegraph;
