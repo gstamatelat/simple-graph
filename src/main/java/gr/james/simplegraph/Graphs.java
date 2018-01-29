@@ -60,7 +60,7 @@ public final class Graphs {
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code v} is not in {@code g}
      */
-    static int checkVertex(BaseGraph g, int v) {
+    public static int checkVertex(BaseGraph g, int v) {
         if (v < 0 || v >= g.size()) {
             throw new IndexOutOfBoundsException();
         }
@@ -76,7 +76,7 @@ public final class Graphs {
      * @return a string representation of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static String toString(Graph g) {
+    public static String toString(Graph g) {
         final StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s(%d) {%n", "ImmutableGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
@@ -99,7 +99,7 @@ public final class Graphs {
      * @return a string representation of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static String toString(DirectedGraph g) {
+    public static String toString(DirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s(%d) {%n", "ImmutableDirectedGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
@@ -120,7 +120,7 @@ public final class Graphs {
      * @return a string representation of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static String toString(WeightedGraph g) {
+    public static String toString(WeightedGraph g) {
         final StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s(%d) {%n", "ImmutableWeightedGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
@@ -143,7 +143,7 @@ public final class Graphs {
      * @return a string representation of {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static String toString(WeightedDirectedGraph g) {
+    public static String toString(WeightedDirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s(%d) {%n", "ImmutableWeightedDirectedGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
@@ -168,7 +168,7 @@ public final class Graphs {
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
      * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
-    static boolean equals(Graph a, Graph b) {
+    public static boolean equals(Graph a, Graph b) {
         if (a.size() != b.size()) {
             return false;
         }
@@ -193,7 +193,7 @@ public final class Graphs {
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
      * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
-    static boolean equals(DirectedGraph a, DirectedGraph b) {
+    public static boolean equals(DirectedGraph a, DirectedGraph b) {
         if (a.size() != b.size()) {
             return false;
         }
@@ -218,7 +218,7 @@ public final class Graphs {
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
      * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
-    static boolean equals(WeightedGraph a, WeightedGraph b) {
+    public static boolean equals(WeightedGraph a, WeightedGraph b) {
         if (a.size() != b.size()) {
             return false;
         }
@@ -248,7 +248,7 @@ public final class Graphs {
      * @return {@code true} if {@code a} is equal to {@code b}, otherwise {@code false}
      * @throws NullPointerException if {@code a} or {@code b} is {@code null}
      */
-    static boolean equals(WeightedDirectedGraph a, WeightedDirectedGraph b) {
+    public static boolean equals(WeightedDirectedGraph a, WeightedDirectedGraph b) {
         if (a.size() != b.size()) {
             return false;
         }
@@ -274,7 +274,7 @@ public final class Graphs {
      * @return a hash code value for {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static int hashCode(Graph g) {
+    public static int hashCode(Graph g) {
         int hash = 0;
         for (int i = 0; i < g.size(); i++) {
             for (int j : g.getEdges(i)) {
@@ -293,7 +293,7 @@ public final class Graphs {
      * @return a hash code value for {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static int hashCode(DirectedGraph g) {
+    public static int hashCode(DirectedGraph g) {
         int hash = 0;
         for (int i = 0; i < g.size(); i++) {
             for (int j : g.getOutEdges(i)) {
@@ -312,7 +312,7 @@ public final class Graphs {
      * @return a hash code value for {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static int hashCode(WeightedGraph g) {
+    public static int hashCode(WeightedGraph g) {
         int hash = 0;
         for (int i = 0; i < g.size(); i++) {
             for (int j : g.getEdges(i)) {
@@ -331,7 +331,7 @@ public final class Graphs {
      * @return a hash code value for {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    static int hashCode(WeightedDirectedGraph g) {
+    public static int hashCode(WeightedDirectedGraph g) {
         int hash = 0;
         for (int i = 0; i < g.size(); i++) {
             for (int j : g.getOutEdges(i)) {
