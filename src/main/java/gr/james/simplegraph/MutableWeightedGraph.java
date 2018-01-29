@@ -307,7 +307,7 @@ public class MutableWeightedGraph implements IWeightedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public String toString() {
+    public final String toString() {
         return GraphsInternal.toString(this);
     }
 
@@ -318,7 +318,7 @@ public class MutableWeightedGraph implements IWeightedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -335,7 +335,7 @@ public class MutableWeightedGraph implements IWeightedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return GraphsInternal.hashCode(this);
     }
 }
