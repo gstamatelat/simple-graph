@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Base interface for undirected graphs.
  */
-interface IGraph extends IBaseGraph {
+public interface IGraph extends IBaseGraph {
     /**
      * Get the adjacent vertices of a vertex.
      * <p>
@@ -63,4 +63,37 @@ interface IGraph extends IBaseGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
      */
     Set<Integer> getEdges(int v);
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    int size();
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    String toString();
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param obj {@inheritDoc}
+     * @return {@inheritDoc}
+     */
+    @Override
+    boolean equals(Object obj);
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    int hashCode();
 }

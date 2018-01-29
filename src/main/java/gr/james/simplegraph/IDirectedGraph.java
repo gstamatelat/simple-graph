@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Base interface for directed graphs.
  */
-interface IDirectedGraph extends IBaseGraph {
+public interface IDirectedGraph extends IBaseGraph {
     /**
      * Get the outbound adjacent vertices of a vertex.
      * <p>
@@ -75,7 +75,7 @@ interface IDirectedGraph extends IBaseGraph {
      * {@code v}'s incoming edges against the direction of the edge. The vertices returned are in no particular order
      * inside the {@link Set}.
      * <p>
-     * You can use this method in the same way you would use {@link #getOutEdges(int)} and you can refer to that for
+     * You can use this method in the same way you would use {@code #getOutEdges(int)} and you can refer to that for
      * additional information.
      * <p>
      * Complexity: O(1)
@@ -86,4 +86,37 @@ interface IDirectedGraph extends IBaseGraph {
      * @see #getOutEdges(int)
      */
     Set<Integer> getInEdges(int v);
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    int size();
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    String toString();
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param obj {@inheritDoc}
+     * @return {@inheritDoc}
+     */
+    @Override
+    boolean equals(Object obj);
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    int hashCode();
 }
