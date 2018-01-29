@@ -136,21 +136,41 @@ public class MutableGraph implements IGraph {
         };
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
     @Override
     public MutableGraph asGraph() {
         throw new UnsupportedOperationException();
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
     @Override
     public MutableDirectedGraph asDirected() {
         throw new UnsupportedOperationException();
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
     @Override
     public MutableWeightedGraph asWeighted() {
         throw new UnsupportedOperationException();
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
     @Override
     public MutableWeightedDirectedGraph asWeightedDirected() {
         throw new UnsupportedOperationException();

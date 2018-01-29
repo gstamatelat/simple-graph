@@ -70,6 +70,7 @@ public class DirectedGraph implements IDirectedGraph {
 
     /**
      * {@inheritDoc}
+     *
      * @return {@inheritDoc}
      */
     @Override

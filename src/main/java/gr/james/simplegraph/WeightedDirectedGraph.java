@@ -84,6 +84,7 @@ public class WeightedDirectedGraph implements IWeightedDirectedGraph {
 
     /**
      * {@inheritDoc}
+     *
      * @return {@inheritDoc}
      */
     @Override

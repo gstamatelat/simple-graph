@@ -72,6 +72,7 @@ public class WeightedGraph implements IWeightedGraph {
 
     /**
      * {@inheritDoc}
+     *
      * @return {@inheritDoc}
      */
     @Override
@@ -91,6 +92,7 @@ public class WeightedGraph implements IWeightedGraph {
 
     /**
      * {@inheritDoc}
+     *
      * @return {@inheritDoc}
      */
     @Override
@@ -115,6 +117,7 @@ public class WeightedGraph implements IWeightedGraph {
 
     /**
      * {@inheritDoc}
+     *
      * @return {@inheritDoc}
      */
     @Override

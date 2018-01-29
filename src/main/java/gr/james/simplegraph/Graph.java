@@ -58,6 +58,7 @@ public class Graph implements IGraph {
 
     /**
      * {@inheritDoc}
+     *
      * @return {@inheritDoc}
      */
     @Override
@@ -86,6 +87,7 @@ public class Graph implements IGraph {
 
     /**
      * {@inheritDoc}
+     *
      * @return {@inheritDoc}
      */
     @Override
@@ -110,6 +112,7 @@ public class Graph implements IGraph {
 
     /**
      * {@inheritDoc}
+     *
      * @return {@inheritDoc}
      */
     @Override
