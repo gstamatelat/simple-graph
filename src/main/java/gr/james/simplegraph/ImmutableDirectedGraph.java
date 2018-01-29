@@ -123,10 +123,10 @@ public class ImmutableDirectedGraph implements DirectedGraph {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof ImmutableDirectedGraph)) {
+        if (obj == null || !(obj instanceof DirectedGraph)) {
             return false;
         }
-        final ImmutableDirectedGraph that = (ImmutableDirectedGraph) obj;
+        final DirectedGraph that = (DirectedGraph) obj;
         return Graphs.equals(this, that);
     }
 

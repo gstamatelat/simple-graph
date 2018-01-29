@@ -165,10 +165,10 @@ public class ImmutableGraph implements Graph {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof ImmutableGraph)) {
+        if (obj == null || !(obj instanceof Graph)) {
             return false;
         }
-        final ImmutableGraph that = (ImmutableGraph) obj;
+        final Graph that = (Graph) obj;
         return Graphs.equals(this, that);
     }
 

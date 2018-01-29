@@ -351,10 +351,10 @@ public class MutableDirectedGraph implements DirectedGraph {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof MutableDirectedGraph)) {
+        if (obj == null || !(obj instanceof DirectedGraph)) {
             return false;
         }
-        final MutableDirectedGraph that = (MutableDirectedGraph) obj;
+        final DirectedGraph that = (DirectedGraph) obj;
         return Graphs.equals(this, that);
     }
 

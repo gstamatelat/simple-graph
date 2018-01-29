@@ -166,10 +166,10 @@ public class ImmutableWeightedGraph implements WeightedGraph {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof ImmutableWeightedGraph)) {
+        if (obj == null || !(obj instanceof WeightedGraph)) {
             return false;
         }
-        final ImmutableWeightedGraph that = (ImmutableWeightedGraph) obj;
+        final WeightedGraph that = (WeightedGraph) obj;
         return Graphs.equals(this, that);
     }
 

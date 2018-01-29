@@ -326,10 +326,10 @@ public class MutableWeightedGraph implements WeightedGraph {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof MutableWeightedGraph)) {
+        if (obj == null || !(obj instanceof WeightedGraph)) {
             return false;
         }
-        final MutableWeightedGraph that = (MutableWeightedGraph) obj;
+        final WeightedGraph that = (WeightedGraph) obj;
         return Graphs.equals(this, that);
     }
 

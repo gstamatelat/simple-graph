@@ -295,10 +295,10 @@ public class MutableGraph implements Graph {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof MutableGraph)) {
+        if (obj == null || !(obj instanceof Graph)) {
             return false;
         }
-        final MutableGraph that = (MutableGraph) obj;
+        final Graph that = (Graph) obj;
         return Graphs.equals(this, that);
     }
 

@@ -128,10 +128,10 @@ public class ImmutableWeightedDirectedGraph implements WeightedDirectedGraph {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof ImmutableWeightedDirectedGraph)) {
+        if (obj == null || !(obj instanceof WeightedDirectedGraph)) {
             return false;
         }
-        final ImmutableWeightedDirectedGraph that = (ImmutableWeightedDirectedGraph) obj;
+        final WeightedDirectedGraph that = (WeightedDirectedGraph) obj;
         return Graphs.equals(this, that);
     }
 

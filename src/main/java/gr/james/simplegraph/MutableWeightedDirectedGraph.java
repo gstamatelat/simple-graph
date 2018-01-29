@@ -380,10 +380,10 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
         if (this == obj) {
             return true;
         }
-        if (obj == null || !(obj instanceof MutableWeightedDirectedGraph)) {
+        if (obj == null || !(obj instanceof WeightedDirectedGraph)) {
             return false;
         }
-        final MutableWeightedDirectedGraph that = (MutableWeightedDirectedGraph) obj;
+        final WeightedDirectedGraph that = (WeightedDirectedGraph) obj;
         return Graphs.equals(this, that);
     }
 
