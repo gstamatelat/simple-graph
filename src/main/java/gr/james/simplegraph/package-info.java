@@ -19,7 +19,7 @@
  * {@code toImmutable()} of the respective mutable graph. For example
  * {@link gr.james.simplegraph.MutableGraph#toImmutable()} will create a copy of the graph and return it as a
  * {@link gr.james.simplegraph.ImmutableGraph}. Mutable graphs have various copy constructors from compatible types. For example,
- * {@link gr.james.simplegraph.MutableGraph#MutableGraph(ImmutableWeightedGraph)} will construct a
+ * {@link gr.james.simplegraph.MutableGraph#MutableGraph(WeightedGraph)} will construct a
  * {@link gr.james.simplegraph.MutableGraph} from a copy of the argument.
  * <p>
  * Immutable graphs do not have mutation methods and are, for example, appropriate to use as arguments to algorithms.

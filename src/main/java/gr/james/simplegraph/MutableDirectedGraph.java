@@ -53,7 +53,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableDirectedGraph(MutableWeightedDirectedGraph g) {
+    public MutableDirectedGraph(WeightedDirectedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getOutEdges(v)) {
@@ -73,7 +73,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableDirectedGraph(MutableWeightedGraph g) {
+    public MutableDirectedGraph(WeightedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -90,7 +90,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableDirectedGraph(MutableDirectedGraph g) {
+    public MutableDirectedGraph(DirectedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getOutEdges(v)) {
@@ -110,82 +110,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableDirectedGraph(MutableGraph g) {
-        this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w);
-            }
-        }
-    }
-
-    /**
-     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * This constructor will not copy the edge weights.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {@code g} is {@code null}
-     */
-    public MutableDirectedGraph(ImmutableWeightedDirectedGraph g) {
-        this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getOutEdges(v)) {
-                putEdge(v, w);
-            }
-        }
-    }
-
-    /**
-     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * This constructor will not copy the edge weights and will create two parallel directed edges for every edge in
-     * {@code g}.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {@code g} is {@code null}
-     */
-    public MutableDirectedGraph(ImmutableWeightedGraph g) {
-        this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w);
-            }
-        }
-    }
-
-    /**
-     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {@code g} is {@code null}
-     */
-    public MutableDirectedGraph(ImmutableDirectedGraph g) {
-        this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getOutEdges(v)) {
-                putEdge(v, w);
-            }
-        }
-    }
-
-    /**
-     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * This constructor will create two parallel directed edges for every edge in {@code g}.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {@code g} is {@code null}
-     */
-    public MutableDirectedGraph(ImmutableGraph g) {
+    public MutableDirectedGraph(Graph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {

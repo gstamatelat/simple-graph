@@ -51,7 +51,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedDirectedGraph(MutableWeightedDirectedGraph g) {
+    public MutableWeightedDirectedGraph(WeightedDirectedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getOutEdges(v)) {
@@ -71,7 +71,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedDirectedGraph(MutableDirectedGraph g) {
+    public MutableWeightedDirectedGraph(DirectedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getOutEdges(v)) {
@@ -90,7 +90,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedDirectedGraph(MutableWeightedGraph g) {
+    public MutableWeightedDirectedGraph(WeightedGraph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
@@ -110,82 +110,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @param g the graph to copy
      * @throws NullPointerException if {@code g} is {@code null}
      */
-    public MutableWeightedDirectedGraph(MutableGraph g) {
-        this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w, 1.0);
-            }
-        }
-    }
-
-    /**
-     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {@code g} is {@code null}
-     */
-    public MutableWeightedDirectedGraph(ImmutableWeightedDirectedGraph g) {
-        this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getOutEdges(v)) {
-                putEdge(v, w, g.getEdgeWeight(v, w));
-            }
-        }
-    }
-
-    /**
-     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * This constructor will set the edge weights to {@code 1.0}.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {@code g} is {@code null}
-     */
-    public MutableWeightedDirectedGraph(ImmutableDirectedGraph g) {
-        this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getOutEdges(v)) {
-                putEdge(v, w, 1.0);
-            }
-        }
-    }
-
-    /**
-     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * This constructor will create two parallel directed edges for every edge in {@code g}.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {@code g} is {@code null}
-     */
-    public MutableWeightedDirectedGraph(ImmutableWeightedGraph g) {
-        this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w, g.getEdgeWeight(v, w));
-            }
-        }
-    }
-
-    /**
-     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * This constructor will set the edge weights to {@code 1.0} and create two parallel directed edges for every edge
-     * in {@code g}.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {@code g} is {@code null}
-     */
-    public MutableWeightedDirectedGraph(ImmutableGraph g) {
+    public MutableWeightedDirectedGraph(Graph g) {
         this(g.size());
         for (int v = 0; v < g.size(); v++) {
             for (int w : g.getEdges(v)) {
