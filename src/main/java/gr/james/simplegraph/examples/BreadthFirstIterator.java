@@ -1,9 +1,9 @@
 package gr.james.simplegraph.examples;
 
-import gr.james.simplegraph.ImmutableDirectedGraph;
-import gr.james.simplegraph.ImmutableGraph;
-import gr.james.simplegraph.ImmutableWeightedDirectedGraph;
-import gr.james.simplegraph.ImmutableWeightedGraph;
+import gr.james.simplegraph.DirectedGraph;
+import gr.james.simplegraph.Graph;
+import gr.james.simplegraph.WeightedDirectedGraph;
+import gr.james.simplegraph.WeightedGraph;
 
 import java.util.*;
 
@@ -29,7 +29,7 @@ import java.util.*;
  * Memory Complexity: O(V)
  */
 public class BreadthFirstIterator implements Iterator<Integer> {
-    private final ImmutableDirectedGraph g;
+    private final DirectedGraph g;
 
     private final Deque<Integer> queue;
     private final Set<Integer> visited;
@@ -44,7 +44,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
-    public BreadthFirstIterator(ImmutableDirectedGraph g, int source) {
+    public BreadthFirstIterator(DirectedGraph g, int source) {
         if (source < 0 || source >= g.size()) {
             throw new IndexOutOfBoundsException();
         }
@@ -67,7 +67,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
-    public BreadthFirstIterator(ImmutableGraph g, int source) {
+    public BreadthFirstIterator(Graph g, int source) {
         this(g.asDirected(), source);
     }
 
@@ -81,7 +81,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
-    public BreadthFirstIterator(ImmutableWeightedGraph g, int source) {
+    public BreadthFirstIterator(WeightedGraph g, int source) {
         this(g.asDirected(), source);
     }
 
@@ -95,7 +95,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
-    public BreadthFirstIterator(ImmutableWeightedDirectedGraph g, int source) {
+    public BreadthFirstIterator(WeightedDirectedGraph g, int source) {
         this(g.asDirected(), source);
     }
 
