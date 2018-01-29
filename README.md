@@ -46,14 +46,14 @@ add a dependency from your project using Maven:
 <dependency>
   <groupId>gr.james</groupId>
   <artifactId>simple-graph</artifactId>
-  <version>0.9</version>
+  <version>0.10</version>
 </dependency>
 ```
 
 Or using Gradle:
 
 ```
-compile 'gr.james:simple-graph:0.9'
+compile 'gr.james:simple-graph:0.10'
 ```
 
 ## Getting Started
