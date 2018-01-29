@@ -78,7 +78,7 @@ public final class Graphs {
      */
     public static String toString(Graph g) {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "ImmutableGraph", g.size()));
+        sb.append(String.format("%s(%d) {%n", "Graph", g.size()));
         for (int i = 0; i < g.size(); i++) {
             for (int adj : g.getEdges(i)) {
                 if (adj >= i) {
@@ -101,7 +101,7 @@ public final class Graphs {
      */
     public static String toString(DirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "ImmutableDirectedGraph", g.size()));
+        sb.append(String.format("%s(%d) {%n", "DirectedGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
             for (int adj : g.getOutEdges(i)) {
                 sb.append(String.format("  %d -> %d%n", i, adj));
@@ -122,7 +122,7 @@ public final class Graphs {
      */
     public static String toString(WeightedGraph g) {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "ImmutableWeightedGraph", g.size()));
+        sb.append(String.format("%s(%d) {%n", "WeightedGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
             for (int adj : g.getEdges(i)) {
                 if (adj >= i) {
@@ -145,7 +145,7 @@ public final class Graphs {
      */
     public static String toString(WeightedDirectedGraph g) {
         final StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s(%d) {%n", "ImmutableWeightedDirectedGraph", g.size()));
+        sb.append(String.format("%s(%d) {%n", "WeightedDirectedGraph", g.size()));
         for (int i = 0; i < g.size(); i++) {
             for (int adj : g.getOutEdges(i)) {
                 sb.append(String.format("  %d -> %d [%.2f]%n", i, adj, g.getEdgeWeight(i, adj)));
