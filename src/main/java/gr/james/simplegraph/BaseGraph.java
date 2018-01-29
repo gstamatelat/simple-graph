@@ -43,8 +43,8 @@ public interface BaseGraph extends Serializable {
     /**
      * Indicates whether some other object is equal to this graph.
      * <p>
-     * Two graphs are equal if they are of the same class type, have the same number of vertices and their edges
-     * represent the same mapping.
+     * Two graphs are equal if they are of the same type, have the same number of vertices and their edges represent the
+     * same mapping.
      * <p>
      * Complexity: O(V+E)
      *
