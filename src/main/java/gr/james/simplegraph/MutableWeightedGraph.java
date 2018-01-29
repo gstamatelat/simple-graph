@@ -141,6 +141,26 @@ public class MutableWeightedGraph implements IWeightedGraph {
         };
     }
 
+    @Override
+    public MutableGraph asGraph() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MutableDirectedGraph asDirected() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MutableWeightedGraph asWeighted() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MutableWeightedDirectedGraph asWeightedDirected() {
+        throw new UnsupportedOperationException();
+    }
+
     /**
      * {@inheritDoc}
      *

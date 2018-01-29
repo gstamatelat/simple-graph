@@ -46,6 +46,11 @@ public class Graph implements IGraph {
         throw new IndexOutOfBoundsException();
     }
 
+    @Override
+    public Graph asGraph() {
+        return this;
+    }
+
     /**
      * Returns a {@link WeightedGraph} wrapper of this graph.
      * <p>
@@ -55,6 +60,7 @@ public class Graph implements IGraph {
      *
      * @return a {@link WeightedGraph} wrapper of this graph
      */
+    @Override
     public final WeightedGraph asWeighted() {
         return new WeightedGraph() {
             @Override
@@ -85,6 +91,7 @@ public class Graph implements IGraph {
      *
      * @return a {@link DirectedGraph} wrapper of this graph
      */
+    @Override
     public final DirectedGraph asDirected() {
         return new DirectedGraph() {
             @Override
@@ -114,6 +121,7 @@ public class Graph implements IGraph {
      *
      * @return a {@link WeightedDirectedGraph} wrapper of this graph
      */
+    @Override
     public final WeightedDirectedGraph asWeightedDirected() {
         return new WeightedDirectedGraph() {
             @Override

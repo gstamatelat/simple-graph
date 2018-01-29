@@ -221,6 +221,16 @@ public class MutableDirectedGraph implements IDirectedGraph {
         };
     }
 
+    @Override
+    public MutableDirectedGraph asDirected() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public MutableWeightedDirectedGraph asWeightedDirected() {
+        throw new UnsupportedOperationException();
+    }
+
     /**
      * {@inheritDoc}
      *

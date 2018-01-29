@@ -72,6 +72,14 @@ public interface IGraph extends IBaseGraph {
     @Override
     int size();
 
+    IGraph asGraph();
+
+    IDirectedGraph asDirected();
+
+    IWeightedGraph asWeighted();
+
+    IWeightedDirectedGraph asWeightedDirected();
+
     /**
      * {@inheritDoc}
      *

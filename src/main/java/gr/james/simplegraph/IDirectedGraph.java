@@ -87,6 +87,10 @@ public interface IDirectedGraph extends IBaseGraph {
      */
     Set<Integer> getInEdges(int v);
 
+    IDirectedGraph asDirected();
+
+    IWeightedDirectedGraph asWeightedDirected();
+
     /**
      * {@inheritDoc}
      *
