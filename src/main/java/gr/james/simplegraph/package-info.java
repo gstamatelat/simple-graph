@@ -12,7 +12,7 @@
  * the adjacent nodes of a vertex that doesn't exist or when an argument is {@code null}. These exceptions exist to
  * augment the robustness of a client program and should not be catched.
  * <h2>Mutable and immutable types</h2>
- * All interfaces have a {@code Mutable*} and {@code Immutable*} implementation.
+ * All interfaces have a {@code Mutable*} and an {@code Immutable*} implementation.
  * <p>
  * Mutable graphs should mainly be treated as graph builders because they have methods that support mutation, like
  * vertex/edge addition/removal etc. Instances of immutable graphs can be created only using the method
