@@ -49,9 +49,21 @@ public interface IWeightedDirectedGraph extends IDirectedGraph {
     @Override
     int size();
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     * @throws UnsupportedOperationException {@inheritDoc}
+     */
     @Override
     IDirectedGraph asDirected();
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     * @throws UnsupportedOperationException {@inheritDoc}
+     */
     @Override
     IWeightedDirectedGraph asWeightedDirected();
 

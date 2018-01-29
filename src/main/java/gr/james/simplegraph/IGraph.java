@@ -72,12 +72,44 @@ public interface IGraph extends IBaseGraph {
     @Override
     int size();
 
+    /**
+     * Returns a {@link IGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link IGraph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
+     */
     IGraph asGraph();
 
+    /**
+     * Returns a {@link IDirectedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link IDirectedGraph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
+     */
     IDirectedGraph asDirected();
 
+    /**
+     * Returns a {@link IWeightedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link IWeightedGraph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
+     */
     IWeightedGraph asWeighted();
 
+    /**
+     * Returns a {@link IWeightedDirectedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link IWeightedDirectedGraph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
+     */
     IWeightedDirectedGraph asWeightedDirected();
 
     /**

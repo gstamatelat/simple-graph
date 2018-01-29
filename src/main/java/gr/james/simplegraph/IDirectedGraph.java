@@ -87,8 +87,24 @@ public interface IDirectedGraph extends IBaseGraph {
      */
     Set<Integer> getInEdges(int v);
 
+    /**
+     * Returns a {@link IDirectedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link IDirectedGraph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
+     */
     IDirectedGraph asDirected();
 
+    /**
+     * Returns a {@link IWeightedDirectedGraph} wrapper of this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a {@link IWeightedDirectedGraph} wrapper of this graph
+     * @throws UnsupportedOperationException if this operation is not supported
+     */
     IWeightedDirectedGraph asWeightedDirected();
 
     /**

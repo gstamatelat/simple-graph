@@ -37,15 +37,39 @@ public interface IWeightedGraph extends IGraph {
     @Override
     int size();
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     * @throws UnsupportedOperationException {@inheritDoc}
+     */
     @Override
     IGraph asGraph();
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     * @throws UnsupportedOperationException {@inheritDoc}
+     */
     @Override
     IDirectedGraph asDirected();
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     * @throws UnsupportedOperationException {@inheritDoc}
+     */
     @Override
     IWeightedGraph asWeighted();
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     * @throws UnsupportedOperationException {@inheritDoc}
+     */
     @Override
     IWeightedDirectedGraph asWeightedDirected();
 

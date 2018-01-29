@@ -58,20 +58,19 @@ public class DirectedGraph implements IDirectedGraph {
         throw new IndexOutOfBoundsException();
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
     @Override
     public DirectedGraph asDirected() {
         return this;
     }
 
     /**
-     * Returns a {@link WeightedDirectedGraph} wrapper of this graph.
-     * <p>
-     * The method {@link WeightedDirectedGraph#getEdgeWeight(int, int)} will always return {@code 1.0} (or throw
-     * exception).
-     * <p>
-     * Complexity: O(1)
-     *
-     * @return a {@link WeightedDirectedGraph} wrapper of this graph
+     * {@inheritDoc}
+     * @return {@inheritDoc}
      */
     @Override
     public final WeightedDirectedGraph asWeightedDirected() {

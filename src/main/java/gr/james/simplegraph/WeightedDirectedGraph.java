@@ -72,17 +72,19 @@ public class WeightedDirectedGraph implements IWeightedDirectedGraph {
         throw new IndexOutOfBoundsException();
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
     @Override
     public WeightedDirectedGraph asWeightedDirected() {
         return this;
     }
 
     /**
-     * Returns a {@link DirectedGraph} wrapper of this graph.
-     * <p>
-     * Complexity: O(1)
-     *
-     * @return a {@link DirectedGraph} wrapper of this graph
+     * {@inheritDoc}
+     * @return {@inheritDoc}
      */
     @Override
     public final DirectedGraph asDirected() {
