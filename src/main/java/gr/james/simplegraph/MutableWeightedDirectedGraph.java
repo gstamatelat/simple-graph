@@ -126,7 +126,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      *
      * @return a copy of this graph as a new {@link ImmutableWeightedDirectedGraph}
      */
-    public ImmutableWeightedDirectedGraph toImmutable() {
+    public final ImmutableWeightedDirectedGraph toImmutable() {
         final MutableWeightedDirectedGraph g = new MutableWeightedDirectedGraph(this);
         return new ImmutableWeightedDirectedGraph() {
             @Override

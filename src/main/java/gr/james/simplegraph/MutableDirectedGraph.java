@@ -126,7 +126,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      *
      * @return a copy of this graph as a new {@link ImmutableDirectedGraph}
      */
-    public ImmutableDirectedGraph toImmutable() {
+    public final ImmutableDirectedGraph toImmutable() {
         final MutableDirectedGraph g = new MutableDirectedGraph(this);
         return new ImmutableDirectedGraph() {
             @Override

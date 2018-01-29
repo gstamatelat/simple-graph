@@ -85,7 +85,7 @@ public class MutableGraph implements Graph {
      *
      * @return a copy of this graph as a new {@link ImmutableGraph}
      */
-    public ImmutableGraph toImmutable() {
+    public final ImmutableGraph toImmutable() {
         final MutableGraph g = new MutableGraph(this);
         return new ImmutableGraph() {
             @Override
