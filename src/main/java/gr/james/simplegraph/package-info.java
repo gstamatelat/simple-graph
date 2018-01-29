@@ -24,5 +24,7 @@
  * <p>
  * Immutable graphs do not have mutation methods and are, for example, appropriate to use as arguments to algorithms.
  * Immutable graphs guarantee thread safety and deterministic iteration and behavior.
+ * <h2>Primitive operations on graphs</h2>
+ * There is a class {@link gr.james.simplegraph.Graphs} with static helper methods that operate on graphs.
  */
 package gr.james.simplegraph;
