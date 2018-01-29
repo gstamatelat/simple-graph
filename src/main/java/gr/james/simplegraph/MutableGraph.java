@@ -117,7 +117,47 @@ public class MutableGraph implements Graph {
      */
     @Override
     public MutableDirectedGraph asDirected() {
-        throw new UnsupportedOperationException();
+        return new MutableDirectedGraph() {
+            @Override
+            public int size() {
+                return MutableGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return MutableGraph.this.getEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return MutableGraph.this.getEdges(v);
+            }
+
+            @Override
+            public void addVertex() {
+                MutableGraph.this.addVertex();
+            }
+
+            @Override
+            public void addVertices(int n) {
+                MutableGraph.this.addVertices(n);
+            }
+
+            @Override
+            public void removeVertex(int v) {
+                MutableGraph.this.removeVertex(v);
+            }
+
+            @Override
+            public boolean putEdge(int source, int target) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public boolean removeEdge(int source, int target) {
+                throw new UnsupportedOperationException();
+            }
+        };
     }
 
     /**
@@ -127,7 +167,48 @@ public class MutableGraph implements Graph {
      */
     @Override
     public MutableWeightedGraph asWeighted() {
-        throw new UnsupportedOperationException();
+        return new MutableWeightedGraph() {
+            @Override
+            public int size() {
+                return MutableGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getEdges(int v) {
+                return MutableGraph.this.getEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int v, int w) {
+                // TODO
+                return 1.0;
+            }
+
+            @Override
+            public void addVertex() {
+                MutableGraph.this.addVertex();
+            }
+
+            @Override
+            public void addVertices(int n) {
+                MutableGraph.this.addVertices(n);
+            }
+
+            @Override
+            public void removeVertex(int v) {
+                MutableGraph.this.removeVertex(v);
+            }
+
+            @Override
+            public Double putEdge(int v, int w, double weight) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public Double removeEdge(int v, int w) {
+                return MutableGraph.this.removeEdge(v, w) ? 1.0 : null;
+            }
+        };
     }
 
     /**
@@ -137,7 +218,53 @@ public class MutableGraph implements Graph {
      */
     @Override
     public MutableWeightedDirectedGraph asWeightedDirected() {
-        throw new UnsupportedOperationException();
+        return new MutableWeightedDirectedGraph() {
+            @Override
+            public int size() {
+                return MutableGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return MutableGraph.this.getEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return MutableGraph.this.getEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int source, int target) {
+                // TODO
+                return 1.0;
+            }
+
+            @Override
+            public void addVertex() {
+                MutableGraph.this.addVertex();
+            }
+
+            @Override
+            public void addVertices(int n) {
+                MutableGraph.this.addVertices(n);
+            }
+
+            @Override
+            public void removeVertex(int v) {
+                MutableGraph.this.removeVertex(v);
+            }
+
+            @Override
+            public Double putEdge(int source, int target, double weight) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public Double removeEdge(int source, int target) {
+                throw new UnsupportedOperationException();
+            }
+        };
     }
 
     /**
