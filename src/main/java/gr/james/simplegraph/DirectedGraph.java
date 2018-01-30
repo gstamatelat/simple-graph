@@ -8,6 +8,14 @@ import java.util.Set;
  */
 public interface DirectedGraph extends BaseGraph {
     /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    int size();
+
+    /**
      * Get the outbound adjacent vertices of a vertex.
      * <p>
      * More formally, returns all vertices in this graph adjacent to {@code v} which can be reached by traversing
@@ -106,14 +114,6 @@ public interface DirectedGraph extends BaseGraph {
      * @throws UnsupportedOperationException if this operation is not supported
      */
     WeightedDirectedGraph asWeightedDirected();
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    int size();
 
     /**
      * {@inheritDoc}

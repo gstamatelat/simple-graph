@@ -8,6 +8,14 @@ import java.util.Set;
  */
 public interface Graph extends BaseGraph {
     /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    int size();
+    
+    /**
      * Get the adjacent vertices of a vertex.
      * <p>
      * More formally, returns all vertices in this graph adjacent to {@code v}. The vertices returned are in no
@@ -63,14 +71,6 @@ public interface Graph extends BaseGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
      */
     Set<Integer> getEdges(int v);
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    int size();
 
     /**
      * Returns a {@link Graph} wrapper of this graph.

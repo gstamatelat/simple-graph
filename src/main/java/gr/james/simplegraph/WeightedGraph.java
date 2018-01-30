@@ -7,17 +7,12 @@ import java.util.Set;
  */
 public interface WeightedGraph extends Graph {
     /**
-     * Get the weight of the edge connecting {@code v} and {@code w}.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param v one end of the edge
-     * @param w the other end of the edge
-     * @return the weight of the edge connecting {@code v} and {@code w}
-     * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
-     * @throws IllegalArgumentException  if there is no edge connecting {@code v} and {@code w}
+     * @return {@inheritDoc}
      */
-    double getEdgeWeight(int v, int w);
+    @Override
+    int size();
 
     /**
      * {@inheritDoc}
@@ -30,12 +25,17 @@ public interface WeightedGraph extends Graph {
     Set<Integer> getEdges(int v);
 
     /**
-     * {@inheritDoc}
+     * Get the weight of the edge connecting {@code v} and {@code w}.
+     * <p>
+     * Complexity: O(1)
      *
-     * @return {@inheritDoc}
+     * @param v one end of the edge
+     * @param w the other end of the edge
+     * @return the weight of the edge connecting {@code v} and {@code w}
+     * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
+     * @throws IllegalArgumentException  if there is no edge connecting {@code v} and {@code w}
      */
-    @Override
-    int size();
+    double getEdgeWeight(int v, int w);
 
     /**
      * {@inheritDoc}

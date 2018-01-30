@@ -7,17 +7,12 @@ import java.util.Set;
  */
 public interface WeightedDirectedGraph extends DirectedGraph {
     /**
-     * Get the weight of the edge from {@code source} to {@code target}.
-     * <p>
-     * Complexity: O(1)
+     * {@inheritDoc}
      *
-     * @param source the source of the edge
-     * @param target the target of the edge
-     * @return the weight of the edge from {@code source} to {@code target}
-     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
-     * @throws IllegalArgumentException  if there is no edge from {@code source} to {@code target}
+     * @return {@inheritDoc}
      */
-    double getEdgeWeight(int source, int target);
+    @Override
+    int size();
 
     /**
      * {@inheritDoc}
@@ -42,12 +37,17 @@ public interface WeightedDirectedGraph extends DirectedGraph {
     Set<Integer> getInEdges(int v);
 
     /**
-     * {@inheritDoc}
+     * Get the weight of the edge from {@code source} to {@code target}.
+     * <p>
+     * Complexity: O(1)
      *
-     * @return {@inheritDoc}
+     * @param source the source of the edge
+     * @param target the target of the edge
+     * @return the weight of the edge from {@code source} to {@code target}
+     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are outside of {@code [O,V)}
+     * @throws IllegalArgumentException  if there is no edge from {@code source} to {@code target}
      */
-    @Override
-    int size();
+    double getEdgeWeight(int source, int target);
 
     /**
      * {@inheritDoc}
