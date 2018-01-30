@@ -113,7 +113,6 @@ public interface DirectedGraph extends BaseGraph {
      * Complexity: O(1)
      *
      * @return a {@link DirectedGraph} wrapper of this graph
-     * @throws UnsupportedOperationException if this operation is not supported
      */
     DirectedGraph asDirected();
 
@@ -123,7 +122,6 @@ public interface DirectedGraph extends BaseGraph {
      * Complexity: O(1)
      *
      * @return a {@link WeightedDirectedGraph} wrapper of this graph
-     * @throws UnsupportedOperationException if this operation is not supported
      */
     WeightedDirectedGraph asWeightedDirected();
 

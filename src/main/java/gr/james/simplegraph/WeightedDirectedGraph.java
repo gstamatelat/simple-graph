@@ -64,7 +64,6 @@ public interface WeightedDirectedGraph extends DirectedGraph {
      * {@inheritDoc}
      *
      * @return {@inheritDoc}
-     * @throws UnsupportedOperationException {@inheritDoc}
      */
     @Override
     DirectedGraph asDirected();
@@ -73,7 +72,6 @@ public interface WeightedDirectedGraph extends DirectedGraph {
      * {@inheritDoc}
      *
      * @return {@inheritDoc}
-     * @throws UnsupportedOperationException {@inheritDoc}
      */
     @Override
     WeightedDirectedGraph asWeightedDirected();
