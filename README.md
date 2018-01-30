@@ -1,11 +1,11 @@
 # Simple Graph
 
 **Simple Graph** is a graph interface for Java 6 that is designed to expose a
-very simple API to support working with graphs. The API includes mutable and
-immutable graph classes for weighted, unweighted, directed and undirected
-graphs. **Simple Graph** does not include algorithm implementations and is meant
-to be used as a playground for graph-theoretic abstractions. This package can be
-used when Java 6 is required, for assignments, simple projects etc.
+very simple API to support working with graphs. The API includes interfaces and
+implementations for weighted, unweighted, directed and undirected graphs.
+**Simple Graph** does not include algorithm implementations and is meant to be
+used as a playground for graph-theoretic abstractions. This package can be used
+when Java 6 is required, for assignments, simple projects etc.
 
 For simplicity, vertices are, for each graph instance, represented using
 integers in the range `[0,V)`. There is no inherent edge object notion; all
@@ -22,19 +22,15 @@ way.
 
 ## API Summary
 
-An overview of the classes in the public API of **Simple Graph** is presented in
-the following table:
+An overview of the public API of **Simple Graph** is presented in the following
+table:
 
-| Class                          | Directed | Weighted | Mutable  |
-| :----------------------------- | :------- | :------- | :------- |
-| `Graph`                        |          |          |          |
-| `MutableGraph`                 |          |          | &#10004; |
-| `DirectedGraph`                | &#10004; |          |          |
-| `MutableDirectedGraph`         | &#10004; |          | &#10004; |
-| `WeightedGraph`                |          | &#10004; |          |
-| `MutableWeightedGraph`         |          | &#10004; | &#10004; |
-| `DirectedWeightedGraph`        | &#10004; | &#10004; |          |
-| `MutableDirectedWeightedGraph` | &#10004; | &#10004; | &#10004; |
+| Interface               | Implementation                 | Directed | Weighted |
+| :---------------------- | :----------------------------- | :------- | :------- |
+| `Graph`                 | `MutableGraph`                 |          |          |
+| `DirectedGraph`         | `MutableDirectedGraph`         | &#10004; |          |
+| `WeightedGraph`         | `MutableWeightedGraph`         |          | &#10004; |
+| `DirectedWeightedGraph` | `MutableDirectedWeightedGraph` | &#10004; | &#10004; |
 
 ## Using
 
