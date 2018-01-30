@@ -112,137 +112,6 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     }
 
     /**
-     * Construct and return a new unmodifiable {@link WeightedDirectedGraph} as a copy of this graph.
-     * <p>
-     * The object produced by this method is completely independent of this graph.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @return a copy of this graph as a new unmodifiable {@link WeightedDirectedGraph}
-     */
-    public final WeightedDirectedGraph toImmutable() {
-        return new MutableWeightedDirectedGraph(this).asUnmodifiable();
-    }
-
-    /**
-     * Returns an unmodifiable decorator around this graph.
-     * <p>
-     * Invoking any mutation methods on the resulting graph will result in {@link UnsupportedOperationException}.
-     * <p>
-     * Complexity: O(1)
-     *
-     * @return an unmodifiable decorator around this graph
-     */
-    public final WeightedDirectedGraph asUnmodifiable() {
-        return new MutableWeightedDirectedGraph() {
-            @Override
-            public int size() {
-                return MutableWeightedDirectedGraph.this.size();
-            }
-
-            @Override
-            public Set<Integer> getOutEdges(int v) {
-                return MutableWeightedDirectedGraph.this.getOutEdges(v);
-            }
-
-            @Override
-            public Set<Integer> getInEdges(int v) {
-                return MutableWeightedDirectedGraph.this.getInEdges(v);
-            }
-
-            @Override
-            public double getEdgeWeight(int source, int target) {
-                return MutableWeightedDirectedGraph.this.getEdgeWeight(source, target);
-            }
-
-            @Override
-            public void addVertex() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void removeVertex(int v) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public Double putEdge(int source, int target, double weight) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public Double removeEdge(int source, int target) {
-                throw new UnsupportedOperationException();
-            }
-        };
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    public final MutableDirectedGraph asDirected() {
-        return new MutableDirectedGraph() {
-            @Override
-            public int size() {
-                return MutableWeightedDirectedGraph.this.size();
-            }
-
-            @Override
-            public Set<Integer> getOutEdges(int v) {
-                return MutableWeightedDirectedGraph.this.getOutEdges(v);
-            }
-
-            @Override
-            public Set<Integer> getInEdges(int v) {
-                return MutableWeightedDirectedGraph.this.getInEdges(v);
-            }
-
-            @Override
-            public void addVertex() {
-                MutableWeightedDirectedGraph.this.addVertex();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                MutableWeightedDirectedGraph.this.addVertices(n);
-            }
-
-            @Override
-            public void removeVertex(int v) {
-                MutableWeightedDirectedGraph.this.removeVertex(v);
-            }
-
-            @Override
-            public boolean putEdge(int source, int target) {
-                return MutableWeightedDirectedGraph.this.putEdge(source, target, 1.0) == null;
-            }
-
-            @Override
-            public boolean removeEdge(int source, int target) {
-                return MutableWeightedDirectedGraph.this.removeEdge(source, target) != null;
-            }
-        };
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
-    public final MutableWeightedDirectedGraph asWeightedDirected() {
-        return this;
-    }
-
-    /**
      * {@inheritDoc}
      *
      * @return {@inheritDoc}
@@ -428,6 +297,137 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
         final Double b = inEdges.get(target).remove(source);
         assert a == null ? b == null : a.equals(b);
         return a;
+    }
+
+    /**
+     * Construct and return a new unmodifiable {@link WeightedDirectedGraph} as a copy of this graph.
+     * <p>
+     * The object produced by this method is completely independent of this graph.
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @return a copy of this graph as a new unmodifiable {@link WeightedDirectedGraph}
+     */
+    public final WeightedDirectedGraph toImmutable() {
+        return new MutableWeightedDirectedGraph(this).asUnmodifiable();
+    }
+
+    /**
+     * Returns an unmodifiable decorator around this graph.
+     * <p>
+     * Invoking any mutation methods on the resulting graph will result in {@link UnsupportedOperationException}.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return an unmodifiable decorator around this graph
+     */
+    public final WeightedDirectedGraph asUnmodifiable() {
+        return new MutableWeightedDirectedGraph() {
+            @Override
+            public int size() {
+                return MutableWeightedDirectedGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return MutableWeightedDirectedGraph.this.getOutEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return MutableWeightedDirectedGraph.this.getInEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int source, int target) {
+                return MutableWeightedDirectedGraph.this.getEdgeWeight(source, target);
+            }
+
+            @Override
+            public void addVertex() {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void addVertices(int n) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void removeVertex(int v) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public Double putEdge(int source, int target, double weight) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public Double removeEdge(int source, int target) {
+                throw new UnsupportedOperationException();
+            }
+        };
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public final MutableDirectedGraph asDirected() {
+        return new MutableDirectedGraph() {
+            @Override
+            public int size() {
+                return MutableWeightedDirectedGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return MutableWeightedDirectedGraph.this.getOutEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return MutableWeightedDirectedGraph.this.getInEdges(v);
+            }
+
+            @Override
+            public void addVertex() {
+                MutableWeightedDirectedGraph.this.addVertex();
+            }
+
+            @Override
+            public void addVertices(int n) {
+                MutableWeightedDirectedGraph.this.addVertices(n);
+            }
+
+            @Override
+            public void removeVertex(int v) {
+                MutableWeightedDirectedGraph.this.removeVertex(v);
+            }
+
+            @Override
+            public boolean putEdge(int source, int target) {
+                return MutableWeightedDirectedGraph.this.putEdge(source, target, 1.0) == null;
+            }
+
+            @Override
+            public boolean removeEdge(int source, int target) {
+                return MutableWeightedDirectedGraph.this.removeEdge(source, target) != null;
+            }
+        };
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public final MutableWeightedDirectedGraph asWeightedDirected() {
+        return this;
     }
 
     /**
