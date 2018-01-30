@@ -1,9 +1,6 @@
 package gr.james.simplegraph.examples;
 
-import gr.james.simplegraph.DirectedGraph;
-import gr.james.simplegraph.Graph;
-import gr.james.simplegraph.WeightedDirectedGraph;
-import gr.james.simplegraph.WeightedGraph;
+import gr.james.simplegraph.*;
 
 import java.util.*;
 
@@ -45,9 +42,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
     public BreadthFirstIterator(DirectedGraph g, int source) {
-        if (source < 0 || source >= g.size()) {
-            throw new IndexOutOfBoundsException();
-        }
+        Graphs.checkVertex(g, source);
 
         this.g = g;
         this.queue = new LinkedList<Integer>();
