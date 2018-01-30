@@ -1,5 +1,5 @@
 /**
- * The graph interfaces and the respective mutable and immutable implementations.
+ * The graph interfaces and the respective implementations.
  * <h2>Vertices and edges</h2>
  * For simplicity, vertices are, for each graph instance, represented using integers in the range {@code [0,V)}. There
  * is no inherent edge object notion; all edges are anonymous but can have a weight assigned on weighted graph types.
