@@ -11,19 +11,24 @@
  * Exceptions are used in a fail-fast approach when certain invocations don't make sense, for example trying to access
  * the adjacent nodes of a vertex that doesn't exist or when an argument is {@code null}. These exceptions exist to
  * augment the robustness of a client program and should not be catched.
- * <h2>Mutable and immutable types</h2>
- * All interfaces have a {@code Mutable*} and an {@code Immutable*} implementation.
- * <p>
- * Mutable graphs should mainly be treated as graph builders because they have methods that support mutation, like
- * vertex/edge addition/removal etc. Instances of immutable graphs can be created only using the method
- * {@code toImmutable()} of the respective mutable graph. For example
- * {@link gr.james.simplegraph.MutableGraph#toImmutable()} will create a copy of the graph and return it as a
- * {@link gr.james.simplegraph.ImmutableGraph}. Mutable graphs have various copy constructors from compatible types. For
+ * <h2>Mutable/Immutable/Unmodifiable graphs</h2>
+ * All interfaces have a {@code Mutable*} implementation that allows mutation of the object, like vertex/edge
+ * addition/removal etc. For example, the {@link gr.james.simplegraph.Graph} interface has the
+ * {@link gr.james.simplegraph.MutableGraph} implementation. The interfaces themselves do not have mutation methods.
+ * Mutable graphs have various copy constructors from compatible types. For
  * example, {@link gr.james.simplegraph.MutableGraph#MutableGraph(WeightedGraph)} will construct a
  * {@link gr.james.simplegraph.MutableGraph} from a copy of the argument.
  * <p>
- * Immutable graphs do not have mutation methods and are, for example, appropriate to use as arguments to algorithms.
- * Immutable graphs guarantee thread safety and deterministic iteration and behavior.
+ * Instances of unmodifiable graphs can be created using the {@code asUnmodifiable()} method of the respective mutable
+ * graph. This method will return a decorator graph that throws {@link java.lang.UnsupportedOperationException} when
+ * mutation methods are invoked. It is recommended to use when the client does not have access to the original graph
+ * reference.
+ * <p>
+ * Instances of immutable graphs can be created using the {@code toImmutable()} method, which will first copy the graph
+ * before decorating it. Due to the underlying copy, this method requires linear time. In essence, the
+ * {@code toImmutable()} method is equivalent to performing a deep copy of the graph and then calling the
+ * {@code asUnmodifiable()} method. Therefore, the graph produced by this method is completely independent of the
+ * original graph, whereas the {@code asUnmodifiable()} method merely returns a wrapper bound to the original graph.
  * <h2>Primitive operations on graphs</h2>
  * There is a class {@link gr.james.simplegraph.Graphs} with static helper methods that operate on graphs.
  */
