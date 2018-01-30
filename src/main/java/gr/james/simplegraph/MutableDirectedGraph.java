@@ -154,7 +154,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public MutableDirectedGraph asDirected() {
+    public final MutableDirectedGraph asDirected() {
         return this;
     }
 
@@ -164,7 +164,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public MutableWeightedDirectedGraph asWeightedDirected() {
+    public final MutableWeightedDirectedGraph asWeightedDirected() {
         return new MutableWeightedDirectedGraph() {
             @Override
             public int size() {

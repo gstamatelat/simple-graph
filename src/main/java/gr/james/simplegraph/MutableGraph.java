@@ -108,7 +108,7 @@ public class MutableGraph implements Graph {
      * @return {@inheritDoc}
      */
     @Override
-    public MutableGraph asGraph() {
+    public final MutableGraph asGraph() {
         return this;
     }
 
@@ -118,7 +118,7 @@ public class MutableGraph implements Graph {
      * @return {@inheritDoc}
      */
     @Override
-    public MutableDirectedGraph asDirected() {
+    public final MutableDirectedGraph asDirected() {
         return new MutableDirectedGraph() {
             @Override
             public int size() {
@@ -168,7 +168,7 @@ public class MutableGraph implements Graph {
      * @return {@inheritDoc}
      */
     @Override
-    public MutableWeightedGraph asWeighted() {
+    public final MutableWeightedGraph asWeighted() {
         return new MutableWeightedGraph() {
             @Override
             public int size() {
@@ -219,7 +219,7 @@ public class MutableGraph implements Graph {
      * @return {@inheritDoc}
      */
     @Override
-    public MutableWeightedDirectedGraph asWeightedDirected() {
+    public final MutableWeightedDirectedGraph asWeightedDirected() {
         return new MutableWeightedDirectedGraph() {
             @Override
             public int size() {
