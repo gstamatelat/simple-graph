@@ -122,6 +122,8 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     /**
      * Construct and return a new unmodifiable {@link WeightedDirectedGraph} as a copy of this graph.
      * <p>
+     * The object produced by this method is completely independent of this graph.
+     * <p>
      * Complexity: O(V+E)
      *
      * @return a copy of this graph as a new unmodifiable {@link WeightedDirectedGraph}
@@ -130,6 +132,15 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
         return new MutableWeightedDirectedGraph(this).asUnmodifiable();
     }
 
+    /**
+     * Returns an unmodifiable decorator around this graph.
+     * <p>
+     * Invoking any mutation methods on the resulting graph will result in {@link UnsupportedOperationException}.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return an unmodifiable decorator around this graph
+     */
     public final WeightedDirectedGraph asUnmodifiable() {
         return new MutableWeightedDirectedGraph() {
             @Override

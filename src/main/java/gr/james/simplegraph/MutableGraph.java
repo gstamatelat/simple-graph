@@ -81,6 +81,8 @@ public class MutableGraph implements Graph {
     /**
      * Construct and return a new unmodifiable {@link Graph} as a copy of this graph.
      * <p>
+     * The object produced by this method is completely independent of this graph.
+     * <p>
      * Complexity: O(V+E)
      *
      * @return a copy of this graph as a new unmodifiable {@link Graph}
@@ -89,6 +91,15 @@ public class MutableGraph implements Graph {
         return new MutableGraph(this).asUnmodifiable();
     }
 
+    /**
+     * Returns an unmodifiable decorator around this graph.
+     * <p>
+     * Invoking any mutation methods on the resulting graph will result in {@link UnsupportedOperationException}.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return an unmodifiable decorator around this graph
+     */
     public final Graph asUnmodifiable() {
         return new MutableGraph() {
             @Override

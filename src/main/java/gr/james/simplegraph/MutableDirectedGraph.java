@@ -122,6 +122,8 @@ public class MutableDirectedGraph implements DirectedGraph {
     /**
      * Construct and return a new unmodifiable {@link DirectedGraph} as a copy of this graph.
      * <p>
+     * The object produced by this method is completely independent of this graph.
+     * <p>
      * Complexity: O(V+E)
      *
      * @return a copy of this graph as a new unmodifiable {@link DirectedGraph}
@@ -130,6 +132,15 @@ public class MutableDirectedGraph implements DirectedGraph {
         return new MutableDirectedGraph(this).asUnmodifiable();
     }
 
+    /**
+     * Returns an unmodifiable decorator around this graph.
+     * <p>
+     * Invoking any mutation methods on the resulting graph will result in {@link UnsupportedOperationException}.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return an unmodifiable decorator around this graph
+     */
     public final DirectedGraph asUnmodifiable() {
         return new MutableDirectedGraph() {
             @Override

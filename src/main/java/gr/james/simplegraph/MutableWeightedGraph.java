@@ -81,6 +81,8 @@ public class MutableWeightedGraph implements WeightedGraph {
     /**
      * Construct and return a new unmodifiable {@link WeightedGraph} as a copy of this graph.
      * <p>
+     * The object produced by this method is completely independent of this graph.
+     * <p>
      * Complexity: O(V+E)
      *
      * @return a copy of this graph as a new unmodifiable {@link WeightedGraph}
@@ -89,6 +91,15 @@ public class MutableWeightedGraph implements WeightedGraph {
         return new MutableWeightedGraph(this).asUnmodifiable();
     }
 
+    /**
+     * Returns an unmodifiable decorator around this graph.
+     * <p>
+     * Invoking any mutation methods on the resulting graph will result in {@link UnsupportedOperationException}.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return an unmodifiable decorator around this graph
+     */
     public final WeightedGraph asUnmodifiable() {
         return new MutableWeightedGraph() {
             @Override
