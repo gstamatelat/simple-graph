@@ -47,6 +47,9 @@ public interface WeightedDirectedGraph extends DirectedGraph {
     /**
      * Get the weight of the edge from {@code source} to {@code target}.
      * <p>
+     * The weight of an edge can be any {@link Double} value but {@link Double#NaN}, {@link Double#POSITIVE_INFINITY}
+     * and {@link Double#NEGATIVE_INFINITY}.
+     * <p>
      * Complexity: O(1)
      *
      * @param source the source of the edge

@@ -35,6 +35,9 @@ public interface WeightedGraph extends Graph {
     /**
      * Get the weight of the edge connecting {@code v} and {@code w}.
      * <p>
+     * The weight of an edge can be any {@link Double} value but {@link Double#NaN}, {@link Double#POSITIVE_INFINITY}
+     * and {@link Double#NEGATIVE_INFINITY}.
+     * <p>
      * Complexity: O(1)
      *
      * @param v one end of the edge
