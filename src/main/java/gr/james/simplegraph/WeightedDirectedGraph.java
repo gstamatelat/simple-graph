@@ -3,7 +3,15 @@ package gr.james.simplegraph;
 import java.util.Set;
 
 /**
- * Base interface for weighted and directed graphs.
+ * Represents a weighted and directed graph.
+ * <p>
+ * The graph can contain self loops but cannot contain parallel edges. More formally, any ordered pair of endpoints may
+ * correspond to at most one edge. The edge weights can only be finite {@link Double} values.
+ * <p>
+ * An ordered pair {@code (a, b)} is a pair of objects where the order in which the objects appear in the pair is
+ * significant: the ordered pair {@code (a, b)} is different from the ordered pair {@code (b, a)} unless {@code a = b}.
+ * <p>
+ * Memory Complexity: O(V+E)
  */
 public interface WeightedDirectedGraph extends DirectedGraph {
     /**

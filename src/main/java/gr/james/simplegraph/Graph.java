@@ -4,7 +4,15 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Base interface for undirected graphs.
+ * Represents an unweighted and undirected graph.
+ * <p>
+ * The graph can contain self loops but cannot contain parallel edges. More formally, any unordered pair of endpoints
+ * may correspond to at most one edge.
+ * <p>
+ * An unordered pair {@code {a, b}} is a pair of objects with no particular relation between them; the order in which
+ * the objects appear in the pair is not significant.
+ * <p>
+ * Memory Complexity: O(V+E)
  */
 public interface Graph extends BaseGraph {
     /**
@@ -14,7 +22,7 @@ public interface Graph extends BaseGraph {
      */
     @Override
     int size();
-    
+
     /**
      * Get the adjacent vertices of a vertex.
      * <p>

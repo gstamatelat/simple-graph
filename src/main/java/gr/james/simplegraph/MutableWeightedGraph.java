@@ -3,15 +3,7 @@ package gr.james.simplegraph;
 import java.util.*;
 
 /**
- * Represents a weighted and undirected graph implemented using adjacency lists.
- * <p>
- * The graph can contain self loops but cannot cannot contain parallel edges. More formally, any unordered pair of
- * endpoints may correspond to at most one edge. The edge weights can only be finite {@link Double} values.
- * <p>
- * An unordered pair {@code {a, b}} is a pair of objects with no particular relation between them; the order in which
- * the objects appear in the pair is not significant.
- * <p>
- * Memory Complexity: O(V+E)
+ * The {@link WeightedGraph} implementation using adjacency lists.
  */
 public class MutableWeightedGraph implements WeightedGraph {
     private static final long serialVersionUID = 1L;
