@@ -79,7 +79,7 @@ public class MutableGraph implements Graph {
     }
 
     /**
-     * Construct and return a new immutable {@link ImmutableGraph} as a copy of this graph.
+     * Construct and return a new {@link ImmutableGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *

@@ -120,7 +120,7 @@ public class MutableDirectedGraph implements DirectedGraph {
     }
 
     /**
-     * Construct and return a new immutable {@link ImmutableDirectedGraph} as a copy of this graph.
+     * Construct and return a new {@link ImmutableDirectedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *

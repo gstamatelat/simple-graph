@@ -120,7 +120,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     }
 
     /**
-     * Construct and return a new immutable {@link ImmutableWeightedDirectedGraph} as a copy of this graph.
+     * Construct and return a new {@link ImmutableWeightedDirectedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *

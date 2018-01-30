@@ -79,7 +79,7 @@ public class MutableWeightedGraph implements WeightedGraph {
     }
 
     /**
-     * Construct and return a new immutable {@link ImmutableWeightedGraph} as a copy of this graph.
+     * Construct and return a new {@link ImmutableWeightedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *
