@@ -126,31 +126,8 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      *
      * @return a copy of this graph as a new {@link ImmutableWeightedDirectedGraph}
      */
-    public final ImmutableWeightedDirectedGraph toImmutable() {
-        return new ImmutableWeightedDirectedGraph() {
-            private final MutableWeightedDirectedGraph g =
-                    new MutableWeightedDirectedGraph(MutableWeightedDirectedGraph.this);
-
-            @Override
-            public int size() {
-                return g.size();
-            }
-
-            @Override
-            public Set<Integer> getOutEdges(int v) {
-                return g.getOutEdges(v);
-            }
-
-            @Override
-            public Set<Integer> getInEdges(int v) {
-                return g.getInEdges(v);
-            }
-
-            @Override
-            public double getEdgeWeight(int source, int target) {
-                return g.getEdgeWeight(source, target);
-            }
-        };
+    public final WeightedDirectedGraph toImmutable() {
+        return new MutableWeightedDirectedGraph(this).asUnmodifiable();
     }
 
     public final WeightedDirectedGraph asUnmodifiable() {

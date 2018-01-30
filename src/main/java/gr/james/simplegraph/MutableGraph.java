@@ -85,21 +85,8 @@ public class MutableGraph implements Graph {
      *
      * @return a copy of this graph as a new {@link ImmutableGraph}
      */
-    public final ImmutableGraph toImmutable() {
-        return new ImmutableGraph() {
-            private final MutableGraph g =
-                    new MutableGraph(MutableGraph.this);
-
-            @Override
-            public int size() {
-                return g.size();
-            }
-
-            @Override
-            public Set<Integer> getEdges(int v) {
-                return g.getEdges(v);
-            }
-        };
+    public final Graph toImmutable() {
+        return new MutableGraph(this).asUnmodifiable();
     }
 
     public final Graph asUnmodifiable() {

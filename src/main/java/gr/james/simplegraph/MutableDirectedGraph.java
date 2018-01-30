@@ -126,26 +126,8 @@ public class MutableDirectedGraph implements DirectedGraph {
      *
      * @return a copy of this graph as a new {@link ImmutableDirectedGraph}
      */
-    public final ImmutableDirectedGraph toImmutable() {
-        return new ImmutableDirectedGraph() {
-            private final MutableDirectedGraph g =
-                    new MutableDirectedGraph(MutableDirectedGraph.this);
-
-            @Override
-            public int size() {
-                return g.size();
-            }
-
-            @Override
-            public Set<Integer> getOutEdges(int v) {
-                return g.getOutEdges(v);
-            }
-
-            @Override
-            public Set<Integer> getInEdges(int v) {
-                return g.getInEdges(v);
-            }
-        };
+    public final DirectedGraph toImmutable() {
+        return new MutableDirectedGraph(this).asUnmodifiable();
     }
 
     public final DirectedGraph asUnmodifiable() {

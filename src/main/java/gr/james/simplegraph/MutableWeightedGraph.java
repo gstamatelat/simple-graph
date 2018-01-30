@@ -85,26 +85,8 @@ public class MutableWeightedGraph implements WeightedGraph {
      *
      * @return a copy of this graph as a new {@link ImmutableWeightedGraph}
      */
-    public final ImmutableWeightedGraph toImmutable() {
-        return new ImmutableWeightedGraph() {
-            private final MutableWeightedGraph g =
-                    new MutableWeightedGraph(MutableWeightedGraph.this);
-
-            @Override
-            public int size() {
-                return g.size();
-            }
-
-            @Override
-            public Set<Integer> getEdges(int v) {
-                return g.getEdges(v);
-            }
-
-            @Override
-            public double getEdgeWeight(int v, int w) {
-                return g.getEdgeWeight(v, w);
-            }
-        };
+    public final WeightedGraph toImmutable() {
+        return new MutableWeightedGraph(this).asUnmodifiable();
     }
 
     public final WeightedGraph asUnmodifiable() {
