@@ -26,8 +26,12 @@ public interface Graph extends BaseGraph {
     /**
      * Get the adjacent vertices of a vertex.
      * <p>
-     * More formally, returns all vertices in this graph adjacent to {@code v}. The vertices returned are in no
-     * particular order inside the {@link Set}.
+     * More formally, returns an unmodifiable view of all vertices in this graph adjacent to {@code v}. The vertices
+     * returned are in no particular order inside the {@link Set}.
+     * <p>
+     * If the graph is modifiable, the {@link Set} returned is directly backed by the graph and changes will reflect on
+     * that {@link Set}. A side effect of this property is that the iterator, like any other, will throw
+     * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
      * <p>
      * You can use the result of this method in a for-each loop like so:
      * <pre><code>
@@ -67,10 +71,6 @@ public interface Graph extends BaseGraph {
      * boolean connected = g.getEdges(b).contains(a);
      * assert connected == g.getEdges(a).contains(b);
      * </code></pre>
-     * <h2>Note for mutable graphs</h2>
-     * In the case of mutable graphs the {@link Set} returned is directly backed by the graph and changes will reflect
-     * on that {@link Set}. A side effect of this property is that the iterator, like any other, will throw
-     * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
      * <p>
      * Complexity: O(1)
      *
