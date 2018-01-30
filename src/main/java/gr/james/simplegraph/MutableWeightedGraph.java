@@ -235,6 +235,11 @@ public class MutableWeightedGraph implements WeightedGraph {
      * <p>
      * The object produced by this method is completely independent of this graph.
      * <p>
+     * This method is equivalent to
+     * <pre><code>
+     * return new MutableWeightedGraph(this).asUnmodifiable();
+     * </code></pre>
+     * <p>
      * Complexity: O(V+E)
      *
      * @return a copy of this graph as a new unmodifiable {@link WeightedGraph}

@@ -209,6 +209,11 @@ public class MutableGraph implements Graph {
      * <p>
      * The object produced by this method is completely independent of this graph.
      * <p>
+     * This method is equivalent to
+     * <pre><code>
+     * return new MutableGraph(this).asUnmodifiable();
+     * </code></pre>
+     * <p>
      * Complexity: O(V+E)
      *
      * @return a copy of this graph as a new unmodifiable {@link Graph}
