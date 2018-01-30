@@ -79,11 +79,11 @@ public class MutableWeightedGraph implements WeightedGraph {
     }
 
     /**
-     * Construct and return a new {@link ImmutableWeightedGraph} as a copy of this graph.
+     * Construct and return a new unmodifiable {@link WeightedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *
-     * @return a copy of this graph as a new {@link ImmutableWeightedGraph}
+     * @return a copy of this graph as a new unmodifiable {@link WeightedGraph}
      */
     public final WeightedGraph toImmutable() {
         return new MutableWeightedGraph(this).asUnmodifiable();

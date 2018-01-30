@@ -79,11 +79,11 @@ public class MutableGraph implements Graph {
     }
 
     /**
-     * Construct and return a new {@link ImmutableGraph} as a copy of this graph.
+     * Construct and return a new unmodifiable {@link Graph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *
-     * @return a copy of this graph as a new {@link ImmutableGraph}
+     * @return a copy of this graph as a new unmodifiable {@link Graph}
      */
     public final Graph toImmutable() {
         return new MutableGraph(this).asUnmodifiable();

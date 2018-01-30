@@ -120,11 +120,11 @@ public class MutableDirectedGraph implements DirectedGraph {
     }
 
     /**
-     * Construct and return a new {@link ImmutableDirectedGraph} as a copy of this graph.
+     * Construct and return a new unmodifiable {@link DirectedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *
-     * @return a copy of this graph as a new {@link ImmutableDirectedGraph}
+     * @return a copy of this graph as a new unmodifiable {@link DirectedGraph}
      */
     public final DirectedGraph toImmutable() {
         return new MutableDirectedGraph(this).asUnmodifiable();

@@ -120,11 +120,11 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     }
 
     /**
-     * Construct and return a new {@link ImmutableWeightedDirectedGraph} as a copy of this graph.
+     * Construct and return a new unmodifiable {@link WeightedDirectedGraph} as a copy of this graph.
      * <p>
      * Complexity: O(V+E)
      *
-     * @return a copy of this graph as a new {@link ImmutableWeightedDirectedGraph}
+     * @return a copy of this graph as a new unmodifiable {@link WeightedDirectedGraph}
      */
     public final WeightedDirectedGraph toImmutable() {
         return new MutableWeightedDirectedGraph(this).asUnmodifiable();
