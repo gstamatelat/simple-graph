@@ -148,6 +148,50 @@ public class MutableDirectedGraph implements DirectedGraph {
         };
     }
 
+    public final DirectedGraph asUnmodifiable() {
+        return new MutableDirectedGraph() {
+            @Override
+            public int size() {
+                return MutableDirectedGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return MutableDirectedGraph.this.getOutEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return MutableDirectedGraph.this.getInEdges(v);
+            }
+
+            @Override
+            public void addVertex() {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void addVertices(int n) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void removeVertex(int v) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public boolean putEdge(int source, int target) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public boolean removeEdge(int source, int target) {
+                throw new UnsupportedOperationException();
+            }
+        };
+    }
+
     /**
      * {@inheritDoc}
      *

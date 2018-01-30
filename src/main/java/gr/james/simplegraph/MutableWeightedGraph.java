@@ -107,6 +107,50 @@ public class MutableWeightedGraph implements WeightedGraph {
         };
     }
 
+    public final WeightedGraph asUnmodifiable() {
+        return new MutableWeightedGraph() {
+            @Override
+            public int size() {
+                return MutableWeightedGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getEdges(int v) {
+                return MutableWeightedGraph.this.getEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int v, int w) {
+                return MutableWeightedGraph.this.getEdgeWeight(v, w);
+            }
+
+            @Override
+            public void addVertex() {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void addVertices(int n) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void removeVertex(int v) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public Double putEdge(int v, int w, double weight) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public Double removeEdge(int v, int w) {
+                throw new UnsupportedOperationException();
+            }
+        };
+    }
+
     /**
      * {@inheritDoc}
      *

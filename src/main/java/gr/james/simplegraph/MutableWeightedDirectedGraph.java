@@ -153,6 +153,55 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
         };
     }
 
+    public final WeightedDirectedGraph asUnmodifiable() {
+        return new MutableWeightedDirectedGraph() {
+            @Override
+            public int size() {
+                return MutableWeightedDirectedGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getOutEdges(int v) {
+                return MutableWeightedDirectedGraph.this.getOutEdges(v);
+            }
+
+            @Override
+            public Set<Integer> getInEdges(int v) {
+                return MutableWeightedDirectedGraph.this.getInEdges(v);
+            }
+
+            @Override
+            public double getEdgeWeight(int source, int target) {
+                return MutableWeightedDirectedGraph.this.getEdgeWeight(source, target);
+            }
+
+            @Override
+            public void addVertex() {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void addVertices(int n) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void removeVertex(int v) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public Double putEdge(int source, int target, double weight) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public Double removeEdge(int source, int target) {
+                throw new UnsupportedOperationException();
+            }
+        };
+    }
+
     /**
      * {@inheritDoc}
      *

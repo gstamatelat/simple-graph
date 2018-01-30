@@ -102,6 +102,45 @@ public class MutableGraph implements Graph {
         };
     }
 
+    public final Graph asUnmodifiable() {
+        return new MutableGraph() {
+            @Override
+            public int size() {
+                return MutableGraph.this.size();
+            }
+
+            @Override
+            public Set<Integer> getEdges(int v) {
+                return MutableGraph.this.getEdges(v);
+            }
+
+            @Override
+            public void addVertex() {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void addVertices(int n) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void removeVertex(int v) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public boolean putEdge(int v, int w) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public boolean removeEdge(int v, int w) {
+                throw new UnsupportedOperationException();
+            }
+        };
+    }
+
     /**
      * {@inheritDoc}
      *
