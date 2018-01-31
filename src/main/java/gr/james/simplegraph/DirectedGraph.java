@@ -80,7 +80,6 @@ public interface DirectedGraph extends BaseGraph {
      * @param v the vertex
      * @return a {@link Set} that holds all the outbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
-     * @see #getInEdges(int)
      */
     Set<Integer> getOutEdges(int v);
 
@@ -95,7 +94,7 @@ public interface DirectedGraph extends BaseGraph {
      * that {@link Set}. A side effect of this property is that the iterator, like any other, will throw
      * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
      * <p>
-     * You can use this method in the same way you would use {@code #getOutEdges(int)} and you can refer to that for
+     * You can use this method in the same way you would use {@code getOutEdges(int)} and you can refer to that for
      * additional information.
      * <p>
      * Complexity: O(1)
@@ -103,18 +102,8 @@ public interface DirectedGraph extends BaseGraph {
      * @param v the vertex
      * @return a {@link Set} that holds all the inbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
-     * @see #getOutEdges(int)
      */
     Set<Integer> getInEdges(int v);
-
-    /**
-     * Returns a {@link DirectedGraph} wrapper of this graph.
-     * <p>
-     * Complexity: O(1)
-     *
-     * @return a {@link DirectedGraph} wrapper of this graph
-     */
-    DirectedGraph asDirected();
 
     /**
      * Returns a {@link WeightedDirectedGraph} wrapper of this graph.

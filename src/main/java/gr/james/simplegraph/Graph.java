@@ -81,15 +81,6 @@ public interface Graph extends BaseGraph {
     Set<Integer> getEdges(int v);
 
     /**
-     * Returns a {@link Graph} wrapper of this graph.
-     * <p>
-     * Complexity: O(1)
-     *
-     * @return a {@link Graph} wrapper of this graph
-     */
-    Graph asGraph();
-
-    /**
      * Returns a {@link DirectedGraph} wrapper of this graph.
      * <p>
      * Complexity: O(1)

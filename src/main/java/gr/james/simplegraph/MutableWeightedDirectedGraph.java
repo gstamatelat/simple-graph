@@ -431,16 +431,6 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public final MutableWeightedDirectedGraph asWeightedDirected() {
-        return this;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
     public final String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s(%d) {%n", "WeightedDirectedGraph", this.size()));

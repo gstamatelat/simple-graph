@@ -402,16 +402,6 @@ public class MutableWeightedGraph implements WeightedGraph {
      * @return {@inheritDoc}
      */
     @Override
-    public final MutableWeightedGraph asWeighted() {
-        return this;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
     public final MutableWeightedDirectedGraph asWeightedDirected() {
         return new MutableWeightedDirectedGraph() {
             @Override

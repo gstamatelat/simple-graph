@@ -276,16 +276,6 @@ public class MutableGraph implements Graph {
      * @return {@inheritDoc}
      */
     @Override
-    public final MutableGraph asGraph() {
-        return this;
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
-    @Override
     public final MutableDirectedGraph asDirected() {
         return new MutableDirectedGraph() {
             @Override
