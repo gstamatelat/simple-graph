@@ -472,6 +472,13 @@ public class MutableGraph implements Graph {
      */
     @Override
     public final int hashCode() {
-        return Graphs.hashCode(this);
+        int hash = 1;
+        for (int i = 0; i < this.size(); i++) {
+            hash = 31 * hash;
+            for (int j : this.getEdges(i)) {
+                hash += j;
+            }
+        }
+        return hash;
     }
 }
