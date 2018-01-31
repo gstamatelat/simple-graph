@@ -221,8 +221,9 @@ public final class Graphs {
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public static int hashCode(Graph g) {
-        int hash = 0;
+        int hash = 1;
         for (int i = 0; i < g.size(); i++) {
+            hash = 31 * hash;
             for (int j : g.getEdges(i)) {
                 hash += j;
             }
@@ -240,8 +241,9 @@ public final class Graphs {
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public static int hashCode(DirectedGraph g) {
-        int hash = 0;
+        int hash = 1;
         for (int i = 0; i < g.size(); i++) {
+            hash = 31 * hash;
             for (int j : g.getOutEdges(i)) {
                 hash += j;
             }
@@ -259,8 +261,9 @@ public final class Graphs {
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public static int hashCode(WeightedGraph g) {
-        int hash = 0;
+        int hash = 1;
         for (int i = 0; i < g.size(); i++) {
+            hash = 31 * hash;
             for (int j : g.getEdges(i)) {
                 hash += (j ^ new Double(g.getEdgeWeight(i, j)).hashCode());
             }
@@ -278,8 +281,9 @@ public final class Graphs {
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public static int hashCode(WeightedDirectedGraph g) {
-        int hash = 0;
+        int hash = 1;
         for (int i = 0; i < g.size(); i++) {
+            hash = 31 * hash;
             for (int j : g.getOutEdges(i)) {
                 hash += (j ^ new Double(g.getEdgeWeight(i, j)).hashCode());
             }
