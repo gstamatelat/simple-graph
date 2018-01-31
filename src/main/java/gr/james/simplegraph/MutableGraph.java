@@ -154,7 +154,7 @@ public class MutableGraph implements Graph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        Graphs.checkVertex(this, v);
+        Graphs.requireVertexInGraph(this, v);
         for (int i = 0; i < size(); i++) {
             final Set<Integer> previousOut = edges.get(i);
             final Set<Integer> newOut = new HashSet<Integer>();
@@ -340,7 +340,7 @@ public class MutableGraph implements Graph {
 
             @Override
             public double getEdgeWeight(int v, int w) {
-                Graphs.checkEdgeExists(MutableGraph.this, v, w);
+                Graphs.requireEdgeExists(MutableGraph.this, v, w);
                 return 1.0;
             }
 
@@ -396,7 +396,7 @@ public class MutableGraph implements Graph {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                Graphs.checkEdgeExists(MutableGraph.this, source, target);
+                Graphs.requireEdgeExists(MutableGraph.this, source, target);
                 return 1.0;
             }
 

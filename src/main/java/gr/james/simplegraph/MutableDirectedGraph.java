@@ -213,7 +213,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        Graphs.checkVertex(this, v);
+        Graphs.requireVertexInGraph(this, v);
         for (int i = 0; i < size(); i++) {
             final Set<Integer> previousOut = outEdges.get(i);
             final Set<Integer> newOut = new HashSet<Integer>();
@@ -373,7 +373,7 @@ public class MutableDirectedGraph implements DirectedGraph {
 
             @Override
             public double getEdgeWeight(int source, int target) {
-                Graphs.checkEdgeExists(MutableDirectedGraph.this, source, target);
+                Graphs.requireEdgeExists(MutableDirectedGraph.this, source, target);
                 return 1.0;
             }
 

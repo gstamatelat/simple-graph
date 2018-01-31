@@ -42,7 +42,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
      * @throws IndexOutOfBoundsException if {@code source} is not in {@code g}
      */
     public BreadthFirstIterator(DirectedGraph g, int source) {
-        Graphs.checkVertex(g, source);
+        Graphs.requireVertexInGraph(g, source);
 
         this.g = g;
         this.queue = new LinkedList<Integer>();

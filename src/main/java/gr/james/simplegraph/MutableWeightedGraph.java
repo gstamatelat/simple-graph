@@ -104,7 +104,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      */
     @Override
     public double getEdgeWeight(int v, int w) {
-        Graphs.checkVertex(this, w);
+        Graphs.requireVertexInGraph(this, w);
         final Double weight = edges.get(v).get(w);
         if (weight == null) {
             throw new IllegalArgumentException();
@@ -175,7 +175,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
      */
     public void removeVertex(int v) {
-        Graphs.checkVertex(this, v);
+        Graphs.requireVertexInGraph(this, v);
         for (int i = 0; i < size(); i++) {
             final Map<Integer, Double> previousOut = edges.get(i);
             final Map<Integer, Double> newOut = new HashMap<Integer, Double>();
@@ -205,7 +205,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      * @throws IndexOutOfBoundsException if {@code v} or {@code w} are outside of {@code [O,V)}
      */
     public Double putEdge(int v, int w, double weight) {
-        Graphs.checkWeight(weight);
+        Graphs.requireWeightLegal(weight);
         final Double a = edges.get(v).put(w, weight);
         final Double b = edges.get(w).put(v, weight);
         assert a == null ? b == null : a.equals(b);

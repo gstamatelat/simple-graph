@@ -20,18 +20,14 @@ public final class Graphs {
      * Complexity: O(1)
      *
      * @param weight the weight value to check
-     * @return {@code weight}
-     * @throws IllegalArgumentException if {@code weight} is not legal
+     * @return {@code true} if {@code weight} is legal, otherwise {@code false}
      */
-    public static double checkWeight(double weight) {
-        if (!isWeightLegal(weight)) {
-            throw new IllegalArgumentException();
-        }
-        return weight;
+    public static boolean isWeightLegal(double weight) {
+        return !Double.isNaN(weight) && !Double.isInfinite(weight);
     }
 
     /**
-     * Check if a weight value is legal.
+     * Check if a weight value is legal and fail with exception if it is not.
      * <p>
      * A weight value is legal if it is not any of the following values:
      * <ul>
@@ -43,44 +39,14 @@ public final class Graphs {
      * Complexity: O(1)
      *
      * @param weight the weight value to check
-     * @return {@code true} if {@code weight} is legal, otherwise {@code false}
+     * @return {@code weight}
+     * @throws IllegalArgumentException if {@code weight} is not legal
      */
-    public static boolean isWeightLegal(double weight) {
-        return !Double.isNaN(weight) && !Double.isInfinite(weight);
-    }
-
-    /**
-     * Check if an edge exists in a graph.
-     *
-     * @param g the graph
-     * @param v one end of the edge
-     * @param w the other end of the edge
-     * @throws NullPointerException      if {@code g} is {@code null}
-     * @throws IndexOutOfBoundsException if {@code v} or {@code w} are not elements of {@code g}
-     * @throws IllegalArgumentException  if no edge connecting {@code v} with {@code w} exists
-     */
-    public static void checkEdgeExists(Graph g, int v, int w) {
-        checkVertex(g, w);
-        if (!g.getEdges(v).contains(w)) {
+    public static double requireWeightLegal(double weight) {
+        if (!isWeightLegal(weight)) {
             throw new IllegalArgumentException();
         }
-    }
-
-    /**
-     * Check if an edge exists in a graph.
-     *
-     * @param g      the graph
-     * @param source the source of the edge
-     * @param target the target of the edge
-     * @throws NullPointerException      if {@code g} is {@code null}
-     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are not elements of {@code g}
-     * @throws IllegalArgumentException  if no edge from {@code source} to {@code target} exists
-     */
-    public static void checkEdgeExists(DirectedGraph g, int source, int target) {
-        checkVertex(g, target);
-        if (!g.getOutEdges(source).contains(target)) {
-            throw new IllegalArgumentException();
-        }
+        return weight;
     }
 
     /**
@@ -90,15 +56,91 @@ public final class Graphs {
      *
      * @param g the graph
      * @param v the vertex
+     * @return {@code true} if {@code v} is inside the bounds of {@code g}, otherwise {@code false}
+     * @throws NullPointerException if {@code g} is {@code null}
+     */
+    public static boolean isVertexInGraph(BaseGraph g, int v) {
+        return v >= 0 && v < g.size();
+    }
+
+    /**
+     * Check if a vertex is inside the bounds of a graph and fail with exception if it is not.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @param g the graph
+     * @param v the vertex
      * @return {@code v}
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code v} is not in {@code g}
      */
-    public static int checkVertex(BaseGraph g, int v) {
-        if (v < 0 || v >= g.size()) {
+    public static int requireVertexInGraph(BaseGraph g, int v) {
+        if (!isVertexInGraph(g, v)) {
             throw new IndexOutOfBoundsException();
         }
         return v;
+    }
+
+    /**
+     * Check if an edge exists in a graph and fail with exception if it does not.
+     *
+     * @param g the graph
+     * @param v one end of the edge
+     * @param w the other end of the edge
+     * @throws NullPointerException      if {@code g} is {@code null}
+     * @throws IndexOutOfBoundsException if {@code v} or {@code w} are not elements of {@code g}
+     * @throws IllegalArgumentException  if no edge connecting {@code v} with {@code w} exists
+     */
+    public static void requireEdgeExists(Graph g, int v, int w) {
+        requireVertexInGraph(g, w);
+        if (!g.getEdges(v).contains(w)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * Check if an edge exists in a graph and fail with exception if it does not.
+     *
+     * @param g the graph
+     * @param v one end of the edge
+     * @param w the other end of the edge
+     * @throws NullPointerException      if {@code g} is {@code null}
+     * @throws IndexOutOfBoundsException if {@code v} or {@code w} are not elements of {@code g}
+     * @throws IllegalArgumentException  if no edge connecting {@code v} with {@code w} exists
+     */
+    public static void requireEdgeExists(WeightedGraph g, int v, int w) {
+        requireEdgeExists(g.asGraph(), v, w);
+    }
+
+    /**
+     * Check if an edge exists in a graph and fail with exception if it does not.
+     *
+     * @param g      the graph
+     * @param source the source of the edge
+     * @param target the target of the edge
+     * @throws NullPointerException      if {@code g} is {@code null}
+     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are not elements of {@code g}
+     * @throws IllegalArgumentException  if no edge from {@code source} to {@code target} exists
+     */
+    public static void requireEdgeExists(DirectedGraph g, int source, int target) {
+        requireVertexInGraph(g, target);
+        if (!g.getOutEdges(source).contains(target)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * Check if an edge exists in a graph and fail with exception if it does not.
+     *
+     * @param g      the graph
+     * @param source the source of the edge
+     * @param target the target of the edge
+     * @throws NullPointerException      if {@code g} is {@code null}
+     * @throws IndexOutOfBoundsException if {@code source} or {@code target} are not elements of {@code g}
+     * @throws IllegalArgumentException  if no edge from {@code source} to {@code target} exists
+     */
+    public static void requireEdgeExists(WeightedDirectedGraph g, int source, int target) {
+        requireEdgeExists(g.asDirected(), source, target);
     }
 
     /**
