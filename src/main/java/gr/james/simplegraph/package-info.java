@@ -1,16 +1,11 @@
 /**
  * The graph interfaces and the respective implementations.
- * <h2>Vertices and edges</h2>
+ * <h2>Vertices, edges and weights</h2>
  * For simplicity, vertices are, for each graph instance, represented using integers in the range {@code [0,V)}. There
  * is no inherent edge object notion; all edges are anonymous but can have a weight assigned on weighted graph types.
- * <h2>Compliance</h2>
- * All graph classes in this package implement the {@link java.io.Serializable} interface as well as the
- * {@link java.lang.Object#equals(java.lang.Object)}, {@link java.lang.Object#hashCode()} and
- * {@link java.lang.Object#toString()} methods in a semantically reasonable way.
- * <h2>Exceptions</h2>
- * Exceptions are used in a fail-fast approach when certain invocations don't make sense, for example trying to access
- * the adjacent nodes of a vertex that doesn't exist or when an argument is {@code null}. These exceptions exist to
- * augment the robustness of a client program and should not be catched.
+ * Weights can be of any {@link java.lang.Double} value except {@link java.lang.Double#NaN},
+ * {@link java.lang.Double#POSITIVE_INFINITY} and {@link java.lang.Double#NEGATIVE_INFINITY}. If the graph is mutable,
+ * attempts to assign an illegal weight will fail with {@link java.lang.IllegalArgumentException}.
  * <h2>Mutable/Immutable/Unmodifiable graphs</h2>
  * All interfaces have a {@code Mutable*} implementation that allows mutation of the object, like vertex/edge
  * addition/removal etc. For example, the {@link gr.james.simplegraph.Graph} interface has the
@@ -29,6 +24,14 @@
  * {@code toImmutable()} method is equivalent to performing a deep copy of the graph and then calling the
  * {@code asUnmodifiable()} method. Therefore, the graph produced by this method is completely independent of the
  * original graph, whereas the {@code asUnmodifiable()} method merely returns a wrapper bound to the original graph.
+ * <h2>Compliance</h2>
+ * All graph classes in this package implement the {@link java.io.Serializable} interface as well as the
+ * {@link java.lang.Object#equals(java.lang.Object)}, {@link java.lang.Object#hashCode()} and
+ * {@link java.lang.Object#toString()} methods in a semantically reasonable way.
+ * <h2>Exceptions</h2>
+ * Exceptions are used in a fail-fast approach when certain invocations don't make sense, for example trying to access
+ * the adjacent nodes of a vertex that doesn't exist or when an argument is {@code null}. These exceptions exist to
+ * augment the robustness of a client program and should not be catched.
  * <h2>Primitive operations on graphs</h2>
  * There is a class {@link gr.james.simplegraph.Graphs} with static helper methods that operate on graphs.
  */

@@ -83,8 +83,12 @@ public interface WeightedGraph extends BaseGraph {
     /**
      * Get the weight of the edge connecting {@code v} and {@code w}.
      * <p>
-     * The weight of an edge can be any {@link Double} value but {@link Double#NaN}, {@link Double#POSITIVE_INFINITY}
-     * and {@link Double#NEGATIVE_INFINITY}.
+     * The weight of an edge can be any {@link Double} value except {@link Double#NaN}, {@link Double#POSITIVE_INFINITY}
+     * and {@link Double#NEGATIVE_INFINITY}. In other words, it can be any finite {@link Double} value.
+     * <p>
+     * Because the graph is undirected this method is commutative. Invoking {@code getEdgeWeight} with arguments
+     * {@code (x, y)} is identical to invoking it with the arguments {@code (y, x)}. In both cases, the method will
+     * either throw the same exception or return the same value.
      * <p>
      * Complexity: O(1)
      *

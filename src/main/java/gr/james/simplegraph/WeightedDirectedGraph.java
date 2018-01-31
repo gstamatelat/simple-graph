@@ -110,8 +110,8 @@ public interface WeightedDirectedGraph extends BaseGraph {
     /**
      * Get the weight of the edge from {@code source} to {@code target}.
      * <p>
-     * The weight of an edge can be any {@link Double} value but {@link Double#NaN}, {@link Double#POSITIVE_INFINITY}
-     * and {@link Double#NEGATIVE_INFINITY}.
+     * The weight of an edge can be any {@link Double} value except {@link Double#NaN}, {@link Double#POSITIVE_INFINITY}
+     * and {@link Double#NEGATIVE_INFINITY}. In other words, it can be any finite {@link Double} value.
      * <p>
      * Complexity: O(1)
      *
