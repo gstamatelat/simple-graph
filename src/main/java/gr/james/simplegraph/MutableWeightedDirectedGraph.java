@@ -128,6 +128,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @param v {@inheritDoc}
      * @return {@inheritDoc}
      * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @see #getInEdges(int)
      */
     @Override
     public Set<Integer> getOutEdges(int v) {
@@ -141,6 +142,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @param v {@inheritDoc}
      * @return {@inheritDoc}
      * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @see #getOutEdges(int)
      */
     @Override
     public Set<Integer> getInEdges(int v) {
