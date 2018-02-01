@@ -16,11 +16,11 @@ public class MutableWeightedGraph implements WeightedGraph {
      * Complexity: O(1)
      */
     public MutableWeightedGraph() {
-        this(0);
+        this.edges = new ArrayList<Map<Integer, Double>>();
     }
 
     /**
-     * Construct a new empty {@link MutableWeightedGraph} with {@code n} vertices.
+     * Construct a new empty {@link MutableWeightedGraph} with {@code n} unconnected vertices.
      * <p>
      * Complexity: O(n)
      *

@@ -16,11 +16,11 @@ public class MutableGraph implements Graph {
      * Complexity: O(1)
      */
     public MutableGraph() {
-        this(0);
+        this.edges = new ArrayList<Set<Integer>>();
     }
 
     /**
-     * Construct a new empty {@link MutableGraph} with {@code n} vertices.
+     * Construct a new empty {@link MutableGraph} with {@code n} unconnected vertices.
      * <p>
      * Complexity: O(n)
      *

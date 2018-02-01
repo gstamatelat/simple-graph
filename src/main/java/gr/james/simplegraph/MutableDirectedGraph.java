@@ -17,11 +17,12 @@ public class MutableDirectedGraph implements DirectedGraph {
      * Complexity: O(1)
      */
     public MutableDirectedGraph() {
-        this(0);
+        this.inEdges = new ArrayList<Set<Integer>>();
+        this.outEdges = new ArrayList<Set<Integer>>();
     }
 
     /**
-     * Construct a new empty {@link MutableDirectedGraph} with {@code n} vertices.
+     * Construct a new empty {@link MutableDirectedGraph} with {@code n} unconnected vertices.
      * <p>
      * Complexity: O(n)
      *

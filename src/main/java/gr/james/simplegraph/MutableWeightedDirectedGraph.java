@@ -17,11 +17,12 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * Complexity: O(1)
      */
     public MutableWeightedDirectedGraph() {
-        this(0);
+        this.inEdges = new ArrayList<Map<Integer, Double>>();
+        this.outEdges = new ArrayList<Map<Integer, Double>>();
     }
 
     /**
-     * Construct a new empty {@link MutableWeightedDirectedGraph} with {@code n} vertices.
+     * Construct a new empty {@link MutableWeightedDirectedGraph} with {@code n} unconnected vertices.
      * <p>
      * Complexity: O(n)
      *
