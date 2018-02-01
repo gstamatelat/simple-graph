@@ -30,10 +30,6 @@ public interface WeightedDirectedGraph extends BaseGraph {
      * reached by traversing {@code v}'s outgoing edges in the direction of the edge. The vertices returned are in no
      * particular order inside the {@link Set}.
      * <p>
-     * If the graph is modifiable, the {@link Set} returned is directly backed by the graph and changes will reflect on
-     * that {@link Set}. A side effect of this property is that the iterator, like any other, will throw
-     * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
-     * <p>
      * You can use the result of this method in a for-each loop like so:
      * <pre><code>
      * for (int v : g.getOutEdges(X)) {
@@ -90,10 +86,6 @@ public interface WeightedDirectedGraph extends BaseGraph {
      * More formally, returns an unmodifiable view of all vertices in this graph adjacent to {@code v} which can be
      * reached by traversing {@code v}'s incoming edges against the direction of the edge. The vertices returned are in
      * no particular order inside the {@link Set}.
-     * <p>
-     * If the graph is modifiable, the {@link Set} returned is directly backed by the graph and changes will reflect on
-     * that {@link Set}. A side effect of this property is that the iterator, like any other, will throw
-     * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
      * <p>
      * You can use this method in the same way you would use {@code getOutEdges(int)} and you can refer to that for
      * additional information.

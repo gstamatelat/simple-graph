@@ -125,6 +125,10 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
 
     /**
      * {@inheritDoc}
+     * <h2>Implementation note</h2>
+     * The {@link Set} returned is directly backed by the graph and changes will reflect on that {@link Set}. A side
+     * effect of this property is that the iterator, like any other, will throw
+     * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
      *
      * @param v {@inheritDoc}
      * @return {@inheritDoc}
@@ -139,6 +143,10 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
 
     /**
      * {@inheritDoc}
+     * <h2>Implementation note</h2>
+     * The {@link Set} returned is directly backed by the graph and changes will reflect on that {@link Set}. A side
+     * effect of this property is that the iterator, like any other, will throw
+     * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
      *
      * @param v {@inheritDoc}
      * @return {@inheritDoc}

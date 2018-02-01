@@ -29,10 +29,6 @@ public interface Graph extends BaseGraph {
      * More formally, returns an unmodifiable view of all vertices in this graph adjacent to {@code v}. The vertices
      * returned are in no particular order inside the {@link Set}.
      * <p>
-     * If the graph is modifiable, the {@link Set} returned is directly backed by the graph and changes will reflect on
-     * that {@link Set}. A side effect of this property is that the iterator, like any other, will throw
-     * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
-     * <p>
      * You can use the result of this method in a for-each loop like so:
      * <pre><code>
      * for (int v : g.getEdges(X)) {
