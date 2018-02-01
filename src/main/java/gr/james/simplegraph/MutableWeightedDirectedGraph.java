@@ -210,7 +210,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @param n how many vertices to add
      * @throws IllegalArgumentException if {@code n < 0}
      */
-    public void addVertices(int n) {
+    public final void addVertices(int n) {
         if (n < 0) {
             throw new IllegalArgumentException();
         }
@@ -356,11 +356,6 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
             }
 
             @Override
-            public void addVertices(int n) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public void removeVertex(int v) {
                 throw new UnsupportedOperationException();
             }
@@ -403,11 +398,6 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
             @Override
             public void addVertex() {
                 MutableWeightedDirectedGraph.this.addVertex();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                MutableWeightedDirectedGraph.this.addVertices(n);
             }
 
             @Override

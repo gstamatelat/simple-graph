@@ -189,7 +189,7 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @param n how many vertices to add
      * @throws IllegalArgumentException if {@code n < 0}
      */
-    public void addVertices(int n) {
+    public final void addVertices(int n) {
         if (n < 0) {
             throw new IllegalArgumentException();
         }
@@ -327,11 +327,6 @@ public class MutableDirectedGraph implements DirectedGraph {
             }
 
             @Override
-            public void addVertices(int n) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public void removeVertex(int v) {
                 throw new UnsupportedOperationException();
             }
@@ -380,11 +375,6 @@ public class MutableDirectedGraph implements DirectedGraph {
             @Override
             public void addVertex() {
                 MutableDirectedGraph.this.addVertex();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                MutableDirectedGraph.this.addVertices(n);
             }
 
             @Override

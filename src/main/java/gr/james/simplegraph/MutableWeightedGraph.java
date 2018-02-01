@@ -151,7 +151,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      * @param n how many vertices to add
      * @throws IllegalArgumentException if {@code n < 0}
      */
-    public void addVertices(int n) {
+    public final void addVertices(int n) {
         if (n < 0) {
             throw new IllegalArgumentException();
         }
@@ -280,11 +280,6 @@ public class MutableWeightedGraph implements WeightedGraph {
             }
 
             @Override
-            public void addVertices(int n) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public void removeVertex(int v) {
                 throw new UnsupportedOperationException();
             }
@@ -322,11 +317,6 @@ public class MutableWeightedGraph implements WeightedGraph {
             @Override
             public void addVertex() {
                 MutableWeightedGraph.this.addVertex();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                MutableWeightedGraph.this.addVertices(n);
             }
 
             @Override
@@ -372,11 +362,6 @@ public class MutableWeightedGraph implements WeightedGraph {
             @Override
             public void addVertex() {
                 MutableWeightedGraph.this.addVertex();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                MutableWeightedGraph.this.addVertices(n);
             }
 
             @Override
@@ -427,11 +412,6 @@ public class MutableWeightedGraph implements WeightedGraph {
             @Override
             public void addVertex() {
                 MutableWeightedGraph.this.addVertex();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                MutableWeightedGraph.this.addVertices(n);
             }
 
             @Override

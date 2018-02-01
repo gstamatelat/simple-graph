@@ -130,7 +130,7 @@ public class MutableGraph implements Graph {
      * @param n how many vertices to add
      * @throws IllegalArgumentException if {@code n < 0}
      */
-    public void addVertices(int n) {
+    public final void addVertices(int n) {
         if (n < 0) {
             throw new IllegalArgumentException();
         }
@@ -249,11 +249,6 @@ public class MutableGraph implements Graph {
             }
 
             @Override
-            public void addVertices(int n) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public void removeVertex(int v) {
                 throw new UnsupportedOperationException();
             }
@@ -296,11 +291,6 @@ public class MutableGraph implements Graph {
             @Override
             public void addVertex() {
                 MutableGraph.this.addVertex();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                MutableGraph.this.addVertices(n);
             }
 
             @Override
@@ -347,11 +337,6 @@ public class MutableGraph implements Graph {
             @Override
             public void addVertex() {
                 MutableGraph.this.addVertex();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                MutableGraph.this.addVertices(n);
             }
 
             @Override
@@ -403,11 +388,6 @@ public class MutableGraph implements Graph {
             @Override
             public void addVertex() {
                 MutableGraph.this.addVertex();
-            }
-
-            @Override
-            public void addVertices(int n) {
-                MutableGraph.this.addVertices(n);
             }
 
             @Override
