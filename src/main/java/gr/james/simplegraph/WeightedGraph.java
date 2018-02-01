@@ -99,6 +99,13 @@ public interface WeightedGraph extends BaseGraph {
     /**
      * Returns a collection of all the edges in this graph.
      * <p>
+     * This method is suitable to use in a for-each loop:
+     * <pre><code>
+     * for (WeightedEdge e : g.edges()) {
+     *     System.out.println(e);
+     * }
+     * </code></pre>
+     * <p>
      * Complexity: O(1)
      *
      * @return a collection of all the edges in this graph
