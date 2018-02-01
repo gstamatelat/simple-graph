@@ -29,17 +29,17 @@ final class WeightedDirectedEdgeImpl implements WeightedDirectedEdge {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || !(obj instanceof WeightedDirectedEdge)) {
             return false;
         }
-        final WeightedDirectedEdgeImpl that = (WeightedDirectedEdgeImpl) o;
-        return source == that.source &&
-                target == that.target &&
-                weight == that.weight;
+        final WeightedDirectedEdge that = (WeightedDirectedEdge) obj;
+        return source == that.source() &&
+                target == that.target() &&
+                weight == that.weight();
     }
 
     @Override

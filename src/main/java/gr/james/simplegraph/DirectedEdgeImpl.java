@@ -22,16 +22,16 @@ final class DirectedEdgeImpl implements DirectedEdge {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || !(obj instanceof DirectedEdge)) {
             return false;
         }
-        final DirectedEdgeImpl that = (DirectedEdgeImpl) o;
-        return source == that.source &&
-                target == that.target;
+        final DirectedEdge that = (DirectedEdge) obj;
+        return source == that.source() &&
+                target == that.target();
     }
 
     @Override
