@@ -81,6 +81,15 @@ public interface Graph extends BaseGraph {
     Set<Integer> getEdges(int v);
 
     /**
+     * Returns a collection of all the edges in this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a collection of all the edges in this graph
+     */
+    Iterable<Edge> edges();
+
+    /**
      * Returns a {@link DirectedGraph} wrapper of this graph.
      * <p>
      * Complexity: O(1)

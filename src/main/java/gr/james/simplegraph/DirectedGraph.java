@@ -108,6 +108,15 @@ public interface DirectedGraph extends BaseGraph {
     Set<Integer> getInEdges(int v);
 
     /**
+     * Returns a collection of all the edges in this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a collection of all the edges in this graph
+     */
+    Iterable<DirectedEdge> edges();
+
+    /**
      * Returns a {@link WeightedDirectedGraph} wrapper of this graph.
      * <p>
      * Complexity: O(1)

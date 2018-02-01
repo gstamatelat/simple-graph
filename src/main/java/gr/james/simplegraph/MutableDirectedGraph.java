@@ -152,6 +152,16 @@ public class MutableDirectedGraph implements DirectedGraph {
     }
 
     /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public final Iterable<DirectedEdge> edges() {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
      * Adds a vertex to the graph.
      * <p>
      * This method adds a new unconnected vertex in the graph with ID equal to {@code size} and then increases the value

@@ -173,6 +173,16 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     }
 
     /**
+     * {@inheritDoc}
+     *
+     * @return {@inheritDoc}
+     */
+    @Override
+    public final Iterable<WeightedDirectedEdge> edges() {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
      * Adds a vertex to the graph.
      * <p>
      * This method adds a new unconnected vertex in the graph with ID equal to {@code size} and then increases the value

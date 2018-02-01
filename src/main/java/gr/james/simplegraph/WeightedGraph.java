@@ -101,6 +101,15 @@ public interface WeightedGraph extends BaseGraph {
     double getEdgeWeight(int v, int w);
 
     /**
+     * Returns a collection of all the edges in this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a collection of all the edges in this graph
+     */
+    Iterable<WeightedEdge> edges();
+
+    /**
      * Returns a {@link Graph} wrapper of this graph.
      * <p>
      * Complexity: O(1)

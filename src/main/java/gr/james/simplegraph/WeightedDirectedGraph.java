@@ -124,6 +124,15 @@ public interface WeightedDirectedGraph extends BaseGraph {
     double getEdgeWeight(int source, int target);
 
     /**
+     * Returns a collection of all the edges in this graph.
+     * <p>
+     * Complexity: O(1)
+     *
+     * @return a collection of all the edges in this graph
+     */
+    Iterable<WeightedDirectedEdge> edges();
+
+    /**
      * Returns a {@link DirectedGraph} wrapper of this graph.
      * <p>
      * Complexity: O(1)
