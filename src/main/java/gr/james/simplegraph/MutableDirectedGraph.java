@@ -12,7 +12,7 @@ public class MutableDirectedGraph implements DirectedGraph {
     private final List<Set<Integer>> inEdges;
 
     /**
-     * Construct a new empty {@link MutableDirectedGraph}.
+     * Constructs a new empty {@link MutableDirectedGraph}.
      * <p>
      * Complexity: O(1)
      */
@@ -22,7 +22,7 @@ public class MutableDirectedGraph implements DirectedGraph {
     }
 
     /**
-     * Construct a new empty {@link MutableDirectedGraph} with {@code n} unconnected vertices.
+     * Constructs a new empty {@link MutableDirectedGraph} with {@code n} unconnected vertices.
      * <p>
      * Complexity: O(n)
      *
@@ -37,7 +37,7 @@ public class MutableDirectedGraph implements DirectedGraph {
     }
 
     /**
-     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * This constructor will not copy the edge weights.
      * <p>
@@ -56,7 +56,7 @@ public class MutableDirectedGraph implements DirectedGraph {
     }
 
     /**
-     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * This constructor will not copy the edge weights and will create two parallel directed edges for every edge in
      * {@code g}.
@@ -76,7 +76,7 @@ public class MutableDirectedGraph implements DirectedGraph {
     }
 
     /**
-     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
@@ -94,7 +94,7 @@ public class MutableDirectedGraph implements DirectedGraph {
     }
 
     /**
-     * Construct a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * This constructor will create two parallel directed edges for every edge in {@code g}.
      * <p>

@@ -11,7 +11,7 @@ public class MutableWeightedGraph implements WeightedGraph {
     private final List<Map<Integer, Double>> edges;
 
     /**
-     * Construct a new empty {@link MutableWeightedGraph}.
+     * Constructs a new empty {@link MutableWeightedGraph}.
      * <p>
      * Complexity: O(1)
      */
@@ -20,7 +20,7 @@ public class MutableWeightedGraph implements WeightedGraph {
     }
 
     /**
-     * Construct a new empty {@link MutableWeightedGraph} with {@code n} unconnected vertices.
+     * Constructs a new empty {@link MutableWeightedGraph} with {@code n} unconnected vertices.
      * <p>
      * Complexity: O(n)
      *
@@ -34,7 +34,7 @@ public class MutableWeightedGraph implements WeightedGraph {
     }
 
     /**
-     * Construct a new {@link MutableWeightedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableWeightedGraph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
@@ -52,7 +52,7 @@ public class MutableWeightedGraph implements WeightedGraph {
     }
 
     /**
-     * Construct a new {@link MutableWeightedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableWeightedGraph} as a copy of the given graph {@code g}.
      * <p>
      * This constructor will set the edge weights to {@code 1.0}.
      * <p>

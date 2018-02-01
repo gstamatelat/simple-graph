@@ -12,7 +12,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     private final List<Map<Integer, Double>> inEdges;
 
     /**
-     * Construct a new empty {@link MutableWeightedDirectedGraph}.
+     * Constructs a new empty {@link MutableWeightedDirectedGraph}.
      * <p>
      * Complexity: O(1)
      */
@@ -22,7 +22,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     }
 
     /**
-     * Construct a new empty {@link MutableWeightedDirectedGraph} with {@code n} unconnected vertices.
+     * Constructs a new empty {@link MutableWeightedDirectedGraph} with {@code n} unconnected vertices.
      * <p>
      * Complexity: O(n)
      *
@@ -37,7 +37,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     }
 
     /**
-     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
@@ -55,7 +55,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     }
 
     /**
-     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * This constructor will set the edge weights to {@code 1.0}.
      * <p>
@@ -74,7 +74,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     }
 
     /**
-     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * This constructor will create two parallel directed edges for every edge in {@code g}.
      * <p>
@@ -93,7 +93,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     }
 
     /**
-     * Construct a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableWeightedDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
      * This constructor will set the edge weights to {@code 1.0} and create two parallel directed edges for every edge
      * in {@code g}.

@@ -11,7 +11,7 @@ public class MutableGraph implements Graph {
     private final List<Set<Integer>> edges;
 
     /**
-     * Construct a new empty {@link MutableGraph}.
+     * Constructs a new empty {@link MutableGraph}.
      * <p>
      * Complexity: O(1)
      */
@@ -20,7 +20,7 @@ public class MutableGraph implements Graph {
     }
 
     /**
-     * Construct a new empty {@link MutableGraph} with {@code n} unconnected vertices.
+     * Constructs a new empty {@link MutableGraph} with {@code n} unconnected vertices.
      * <p>
      * Complexity: O(n)
      *
@@ -34,7 +34,7 @@ public class MutableGraph implements Graph {
     }
 
     /**
-     * Construct a new {@link MutableGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableGraph} as a copy of the given graph {@code g}.
      * <p>
      * Complexity: O(V+E)
      *
@@ -52,7 +52,7 @@ public class MutableGraph implements Graph {
     }
 
     /**
-     * Construct a new {@link MutableGraph} as a copy of the given graph {@code g}.
+     * Constructs a new {@link MutableGraph} as a copy of the given graph {@code g}.
      * <p>
      * This constructor will not copy the edge weights.
      * <p>
