@@ -120,6 +120,10 @@ public class MutableWeightedGraph implements WeightedGraph {
 
     /**
      * {@inheritDoc}
+     * <h2>Implementation note</h2>
+     * The {@link Iterable} returned is directly backed by the graph and changes will reflect on that {@link Iterable}.
+     * A side effect of this property is that the iterator, like any other, will throw
+     * {@link java.util.ConcurrentModificationException} if elements are modified during iteration.
      *
      * @return {@inheritDoc}
      */
