@@ -30,13 +30,15 @@ final class EdgeImpl implements Edge {
             return false;
         }
         final Edge that = (Edge) obj;
-        return v() == that.v() &&
-                w() == that.w();
+        return Math.min(v(), w()) == Math.min(that.v(), that.w()) &&
+                Math.max(v(), w()) == Math.max(that.v(), that.w());
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{v(), w()});
+        return Arrays.hashCode(new Object[]{
+                Math.min(v(), w()),
+                Math.max(v(), w())});
     }
 
     @Override

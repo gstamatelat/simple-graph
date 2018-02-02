@@ -37,14 +37,17 @@ final class WeightedEdgeImpl implements WeightedEdge {
             return false;
         }
         final WeightedEdge that = (WeightedEdge) obj;
-        return v() == that.v() &&
-                w() == that.w() &&
+        return Math.min(v(), w()) == Math.min(that.v(), that.w()) &&
+                Math.max(v(), w()) == Math.max(that.v(), that.w()) &&
                 weight() == that.weight();
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{v(), w(), weight()});
+        return Arrays.hashCode(new Object[]{
+                Math.min(v(), w()),
+                Math.max(v(), w()),
+                weight()});
     }
 
     @Override
