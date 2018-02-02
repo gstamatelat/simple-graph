@@ -4,6 +4,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The {@link BipartiteGraph} implementation using adjacency lists.
+ */
 public class MutableBipartiteGraph implements BipartiteGraph {
     private static final long serialVersionUID = 1L;
 
