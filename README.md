@@ -7,6 +7,8 @@ implementations for weighted, unweighted, directed and undirected graphs.
 used as a playground for graph-theoretic abstractions. This package can be used
 when Java 6 is required, for assignments, simple projects etc.
 
+### Capabilities
+
 For simplicity, vertices are, for each graph instance, represented using
 integers in the range `[0,V)`. There is no inherent edge value notion; all
 edges are anonymous but can have a weight assigned on weighted graph types.
@@ -25,12 +27,16 @@ way.
 An overview of the public API of **Simple Graph** is presented in the following
 tables:
 
+### Base Graphs
+
 | Interface               | Implementation                 | Directed | Weighted |
 | :---------------------- | :----------------------------- | :------- | :------- |
 | `Graph`                 | `MutableGraph`                 |          |          |
 | `DirectedGraph`         | `MutableDirectedGraph`         | &#10004; |          |
 | `WeightedGraph`         | `MutableWeightedGraph`         |          | &#10004; |
 | `DirectedWeightedGraph` | `MutableDirectedWeightedGraph` | &#10004; | &#10004; |
+
+### Derived Graphs
 
 | Interface               | Implementation                 | Base Type |
 | :---------------------- | :----------------------------- | :-------- |
