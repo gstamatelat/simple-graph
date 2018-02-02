@@ -63,11 +63,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableWeightedDirectedGraph(DirectedGraph g) {
-        this(g.size());
-        for (DirectedEdge e : g.edges()) {
-            putEdge(e.source(), e.target(), 1.0);
-        }
-        assert g.asWeightedDirected().equals(this);
+        this(g.asWeightedDirected());
     }
 
     /**
@@ -81,12 +77,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableWeightedDirectedGraph(WeightedGraph g) {
-        this(g.size());
-        for (WeightedEdge e : g.edges()) {
-            putEdge(e.v(), e.w(), e.weight());
-            putEdge(e.w(), e.v(), e.weight());
-        }
-        assert g.asWeightedDirected().equals(this);
+        this(g.asWeightedDirected());
     }
 
     /**
@@ -101,12 +92,7 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableWeightedDirectedGraph(Graph g) {
-        this(g.size());
-        for (Edge e : g.edges()) {
-            putEdge(e.v(), e.w(), 1.0);
-            putEdge(e.w(), e.v(), 1.0);
-        }
-        assert g.asWeightedDirected().equals(this);
+        this(g.asWeightedDirected());
     }
 
     /**

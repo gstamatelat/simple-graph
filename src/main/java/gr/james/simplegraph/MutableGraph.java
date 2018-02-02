@@ -60,11 +60,7 @@ public class MutableGraph implements Graph {
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableGraph(WeightedGraph g) {
-        this(g.size());
-        for (WeightedEdge e : g.edges()) {
-            putEdge(e.v(), e.w());
-        }
-        assert g.asGraph().equals(this);
+        this(g.asGraph());
     }
 
     /**
