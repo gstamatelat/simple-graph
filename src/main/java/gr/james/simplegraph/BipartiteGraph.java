@@ -69,13 +69,6 @@ public interface BipartiteGraph extends Graph {
      *
      * @return {@inheritDoc}
      */
-    Graph asGraph();
-
-    /**
-     * {@inheritDoc}
-     *
-     * @return {@inheritDoc}
-     */
     @Override
     DirectedGraph asDirected();
 

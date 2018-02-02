@@ -22,6 +22,13 @@ final class EdgeImpl implements Edge {
     }
 
     @Override
+    public Edge swap() {
+        Edge e = new EdgeImpl(w, v);
+        assert this.equals(e);
+        return e;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
