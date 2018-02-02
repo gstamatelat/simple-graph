@@ -43,8 +43,9 @@ public interface BaseGraph extends Serializable {
     /**
      * Indicates whether some other object is equal to this graph.
      * <p>
-     * Two graphs are equal if they are of the same type ({@link Graph}, {@link DirectedGraph}, {@link WeightedGraph},
-     * {@link WeightedDirectedGraph}), have the same number of vertices and their edges represent the same mapping.
+     * Two graphs are equal if they are instances of the same base type ({@link Graph}, {@link DirectedGraph},
+     * {@link WeightedGraph}, {@link WeightedDirectedGraph}), have the same number of vertices and their edges represent
+     * the same mapping.
      * <p>
      * Complexity: O(V+E)
      *

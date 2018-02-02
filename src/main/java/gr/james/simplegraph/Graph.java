@@ -132,6 +132,7 @@ public interface Graph extends BaseGraph {
      *
      * @param obj {@inheritDoc}
      * @return {@inheritDoc}
+     * @see Graphs#equals(Graph, Graph)
      */
     @Override
     boolean equals(Object obj);

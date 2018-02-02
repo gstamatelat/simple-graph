@@ -137,6 +137,7 @@ public interface DirectedGraph extends BaseGraph {
      *
      * @param obj {@inheritDoc}
      * @return {@inheritDoc}
+     * @see Graphs#equals(DirectedGraph, DirectedGraph)
      */
     @Override
     boolean equals(Object obj);

@@ -152,6 +152,7 @@ public interface WeightedGraph extends BaseGraph {
      *
      * @param obj {@inheritDoc}
      * @return {@inheritDoc}
+     * @see Graphs#equals(WeightedGraph, WeightedGraph)
      */
     @Override
     boolean equals(Object obj);
