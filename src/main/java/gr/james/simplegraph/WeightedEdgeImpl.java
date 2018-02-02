@@ -37,18 +37,18 @@ final class WeightedEdgeImpl implements WeightedEdge {
             return false;
         }
         final WeightedEdge that = (WeightedEdge) obj;
-        return v == that.v() &&
-                w == that.w() &&
-                weight == that.weight();
+        return v() == that.v() &&
+                w() == that.w() &&
+                weight() == that.weight();
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{v, w, weight});
+        return Arrays.hashCode(new Object[]{v(), w(), weight()});
     }
 
     @Override
     public String toString() {
-        return String.format("%d -- %d [%.2f]", v, w, weight);
+        return String.format("%d -- %d [%.2f]", v(), w(), weight());
     }
 }

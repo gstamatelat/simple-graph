@@ -37,18 +37,18 @@ final class WeightedDirectedEdgeImpl implements WeightedDirectedEdge {
             return false;
         }
         final WeightedDirectedEdge that = (WeightedDirectedEdge) obj;
-        return source == that.source() &&
-                target == that.target() &&
-                weight == that.weight();
+        return source() == that.source() &&
+                target() == that.target() &&
+                weight() == that.weight();
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{source, target, weight});
+        return Arrays.hashCode(new Object[]{source(), target(), weight()});
     }
 
     @Override
     public String toString() {
-        return String.format("%d -> %d [%.2f]", source, target, weight);
+        return String.format("%d -> %d [%.2f]", source(), target(), weight());
     }
 }

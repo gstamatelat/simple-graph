@@ -30,17 +30,17 @@ final class EdgeImpl implements Edge {
             return false;
         }
         final Edge that = (Edge) obj;
-        return v == that.v() &&
-                w == that.w();
+        return v() == that.v() &&
+                w() == that.w();
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{v, w});
+        return Arrays.hashCode(new Object[]{v(), w()});
     }
 
     @Override
     public String toString() {
-        return String.format("%d -- %d", v, w);
+        return String.format("%d -- %d", v(), w());
     }
 }

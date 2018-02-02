@@ -30,17 +30,17 @@ final class DirectedEdgeImpl implements DirectedEdge {
             return false;
         }
         final DirectedEdge that = (DirectedEdge) obj;
-        return source == that.source() &&
-                target == that.target();
+        return source() == that.source() &&
+                target() == that.target();
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{source, target});
+        return Arrays.hashCode(new Object[]{source(), target()});
     }
 
     @Override
     public String toString() {
-        return String.format("%d -> %d", source, target);
+        return String.format("%d -> %d", source(), target());
     }
 }
