@@ -134,6 +134,9 @@ public interface WeightedDirectedGraph extends BaseGraph {
     /**
      * Returns a {@link DirectedGraph} wrapper of this graph.
      * <p>
+     * The resulting graph is treated like unweighted and will, thus, lose the ability to get the weights assigned to
+     * the edges of this graph.
+     * <p>
      * Complexity: O(1)
      *
      * @return a {@link DirectedGraph} wrapper of this graph

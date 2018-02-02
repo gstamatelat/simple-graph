@@ -413,6 +413,10 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
 
     /**
      * {@inheritDoc}
+     * <h2>Implementation note</h2>
+     * Because there are semantic differences among different types of graphs, some mutation methods in the resulting
+     * graph may be ambiguous when forwarded to this graph. Instead of trying to circumvent these types of restrictions
+     * with unusual or opinionated ways, these methods will immediately throw {@link UnsupportedOperationException}.
      *
      * @return {@inheritDoc}
      */

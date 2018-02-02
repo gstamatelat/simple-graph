@@ -118,6 +118,8 @@ public interface DirectedGraph extends BaseGraph {
     /**
      * Returns a {@link WeightedDirectedGraph} wrapper of this graph.
      * <p>
+     * The resulting graph will contain the same edges as this graph with assigned weight {@code 1.0}.
+     * <p>
      * Complexity: O(1)
      *
      * @return a {@link WeightedDirectedGraph} wrapper of this graph

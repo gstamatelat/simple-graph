@@ -95,6 +95,8 @@ public interface Graph extends BaseGraph {
     /**
      * Returns a {@link DirectedGraph} wrapper of this graph.
      * <p>
+     * The resulting graph will contain two parallel directed edges for each undirected edge of this graph.
+     * <p>
      * Complexity: O(1)
      *
      * @return a {@link DirectedGraph} wrapper of this graph
@@ -104,6 +106,8 @@ public interface Graph extends BaseGraph {
     /**
      * Returns a {@link WeightedGraph} wrapper of this graph.
      * <p>
+     * The resulting graph will contain the same edges as this graph with assigned weight {@code 1.0}.
+     * <p>
      * Complexity: O(1)
      *
      * @return a {@link WeightedGraph} wrapper of this graph
@@ -112,6 +116,9 @@ public interface Graph extends BaseGraph {
 
     /**
      * Returns a {@link WeightedDirectedGraph} wrapper of this graph.
+     * <p>
+     * The resulting graph will contain two parallel directed edges for each undirected edge of this graph with assigned
+     * weight {@code 1.0}.
      * <p>
      * Complexity: O(1)
      *

@@ -115,6 +115,9 @@ public interface WeightedGraph extends BaseGraph {
     /**
      * Returns a {@link Graph} wrapper of this graph.
      * <p>
+     * The resulting graph is treated like unweighted and will, thus, lose the ability to get the weights assigned to
+     * the edges of this graph.
+     * <p>
      * Complexity: O(1)
      *
      * @return a {@link Graph} wrapper of this graph
@@ -124,6 +127,9 @@ public interface WeightedGraph extends BaseGraph {
     /**
      * Returns a {@link DirectedGraph} wrapper of this graph.
      * <p>
+     * The resulting graph will contain two parallel directed edges for each undirected edge of this graph but will lose
+     * the ability to get the weights assigned to the edges of this graph.
+     * <p>
      * Complexity: O(1)
      *
      * @return a {@link DirectedGraph} wrapper of this graph
@@ -132,6 +138,8 @@ public interface WeightedGraph extends BaseGraph {
 
     /**
      * Returns a {@link WeightedDirectedGraph} wrapper of this graph.
+     * <p>
+     * The resulting graph will contain two parallel directed edges for each undirected edge of this graph.
      * <p>
      * Complexity: O(1)
      *
