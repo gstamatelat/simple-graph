@@ -469,12 +469,8 @@ public class MutableGraph implements Graph {
     public final String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s(%d) {%n", "Graph", this.size()));
-        for (int i = 0; i < this.size(); i++) {
-            for (int adj : this.getEdges(i)) {
-                if (adj >= i) {
-                    sb.append(String.format("  %d -- %d%n", i, adj));
-                }
-            }
+        for (Edge e : edges()) {
+            sb.append(String.format("  %s%n", e));
         }
         sb.append("}");
         return sb.toString();

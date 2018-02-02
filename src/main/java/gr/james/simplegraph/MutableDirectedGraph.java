@@ -458,10 +458,8 @@ public class MutableDirectedGraph implements DirectedGraph {
     public final String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s(%d) {%n", "DirectedGraph", this.size()));
-        for (int i = 0; i < this.size(); i++) {
-            for (int adj : this.getOutEdges(i)) {
-                sb.append(String.format("  %d -> %d%n", i, adj));
-            }
+        for (DirectedEdge e : edges()) {
+            sb.append(String.format("  %s%n", e));
         }
         sb.append("}");
         return sb.toString();

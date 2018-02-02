@@ -482,10 +482,8 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
     public final String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s(%d) {%n", "WeightedDirectedGraph", this.size()));
-        for (int i = 0; i < this.size(); i++) {
-            for (int adj : this.getOutEdges(i)) {
-                sb.append(String.format("  %d -> %d [%.2f]%n", i, adj, this.getEdgeWeight(i, adj)));
-            }
+        for (WeightedDirectedEdge e : edges()) {
+            sb.append(String.format("  %s%n", e));
         }
         sb.append("}");
         return sb.toString();
