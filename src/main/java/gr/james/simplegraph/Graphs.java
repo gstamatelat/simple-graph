@@ -149,8 +149,8 @@ public final class Graphs {
     /**
      * Checks if two graphs are equal.
      * <p>
-     * Two graphs are equal if they are of the same type, have the same number of vertices and their edges represent the
-     * same mapping.
+     * Two graphs are equal if they are of the same type ({@link Graph}, {@link DirectedGraph}, {@link WeightedGraph},
+     * {@link WeightedDirectedGraph}), have the same number of vertices and their edges represent the same mapping.
      * <p>
      * Complexity: O(V+E)
      *
@@ -174,8 +174,8 @@ public final class Graphs {
     /**
      * Checks if two graphs are equal.
      * <p>
-     * Two graphs are equal if they are of the same type, have the same number of vertices and their edges represent the
-     * same mapping.
+     * Two graphs are equal if they are of the same type ({@link Graph}, {@link DirectedGraph}, {@link WeightedGraph},
+     * {@link WeightedDirectedGraph}), have the same number of vertices and their edges represent the same mapping.
      * <p>
      * Complexity: O(V+E)
      *
@@ -199,8 +199,8 @@ public final class Graphs {
     /**
      * Checks if two graphs are equal.
      * <p>
-     * Two graphs are equal if they are of the same type, have the same number of vertices and their edges represent the
-     * same mapping.
+     * Two graphs are equal if they are of the same type ({@link Graph}, {@link DirectedGraph}, {@link WeightedGraph},
+     * {@link WeightedDirectedGraph}), have the same number of vertices and their edges represent the same mapping.
      * <p>
      * Complexity: O(V+E)
      *
@@ -229,8 +229,8 @@ public final class Graphs {
     /**
      * Checks if two graphs are equal.
      * <p>
-     * Two graphs are equal if they are of the same type, have the same number of vertices and their edges represent the
-     * same mapping.
+     * Two graphs are equal if they are of the same type ({@link Graph}, {@link DirectedGraph}, {@link WeightedGraph},
+     * {@link WeightedDirectedGraph}), have the same number of vertices and their edges represent the same mapping.
      * <p>
      * Complexity: O(V+E)
      *
