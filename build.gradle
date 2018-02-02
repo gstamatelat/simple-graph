@@ -3,7 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'findbugs'
 
 group = 'gr.james'
-version = '0.14'
+version = '0.15'
 
 sourceCompatibility = 1.6
 
