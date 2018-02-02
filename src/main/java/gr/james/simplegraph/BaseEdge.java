@@ -4,7 +4,8 @@ interface BaseEdge {
     /**
      * Indicates whether some other object is equal to this edge.
      * <p>
-     * Two edges are equal if they are of the same type and all their fields are equal.
+     * Two edges are equal if they are of the same type, represent the same graph connection and have the same weight
+     * (if they are weighted).
      * <p>
      * Complexity: O(1)
      *
