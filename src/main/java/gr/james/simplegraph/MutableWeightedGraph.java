@@ -43,12 +43,10 @@ public class MutableWeightedGraph implements WeightedGraph {
      */
     public MutableWeightedGraph(WeightedGraph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w, g.getEdgeWeight(v, w));
-            }
+        for (WeightedEdge e : g.edges()) {
+            putEdge(e.v(), e.w(), e.weight());
         }
-        assert this.equals(g);
+        assert g.equals(this);
     }
 
     /**
@@ -63,11 +61,10 @@ public class MutableWeightedGraph implements WeightedGraph {
      */
     public MutableWeightedGraph(Graph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w, 1.0);
-            }
+        for (Edge e : g.edges()) {
+            putEdge(e.v(), e.w(), 1.0);
         }
+        assert g.asWeighted().equals(this);
     }
 
     /**

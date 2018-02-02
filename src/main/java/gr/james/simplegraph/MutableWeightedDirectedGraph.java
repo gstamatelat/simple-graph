@@ -46,12 +46,10 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     public MutableWeightedDirectedGraph(WeightedDirectedGraph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getOutEdges(v)) {
-                putEdge(v, w, g.getEdgeWeight(v, w));
-            }
+        for (WeightedDirectedEdge e : g.edges()) {
+            putEdge(e.source(), e.target(), e.weight());
         }
-        assert this.equals(g);
+        assert g.equals(this);
     }
 
     /**
@@ -66,11 +64,10 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     public MutableWeightedDirectedGraph(DirectedGraph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getOutEdges(v)) {
-                putEdge(v, w, 1.0);
-            }
+        for (DirectedEdge e : g.edges()) {
+            putEdge(e.source(), e.target(), 1.0);
         }
+        assert g.asWeightedDirected().equals(this);
     }
 
     /**
@@ -85,11 +82,11 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     public MutableWeightedDirectedGraph(WeightedGraph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w, g.getEdgeWeight(v, w));
-            }
+        for (WeightedEdge e : g.edges()) {
+            putEdge(e.v(), e.w(), e.weight());
+            putEdge(e.w(), e.v(), e.weight());
         }
+        assert g.asWeightedDirected().equals(this);
     }
 
     /**
@@ -105,11 +102,11 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     public MutableWeightedDirectedGraph(Graph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w, 1.0);
-            }
+        for (Edge e : g.edges()) {
+            putEdge(e.v(), e.w(), 1.0);
+            putEdge(e.w(), e.v(), 1.0);
         }
+        assert g.asWeightedDirected().equals(this);
     }
 
     /**

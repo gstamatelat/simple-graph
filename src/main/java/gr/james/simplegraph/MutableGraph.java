@@ -43,12 +43,10 @@ public class MutableGraph implements Graph {
      */
     public MutableGraph(Graph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w);
-            }
+        for (Edge e : g.edges()) {
+            putEdge(e.v(), e.w());
         }
-        assert this.equals(g);
+        assert g.equals(this);
     }
 
     /**
@@ -63,11 +61,10 @@ public class MutableGraph implements Graph {
      */
     public MutableGraph(WeightedGraph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w);
-            }
+        for (WeightedEdge e : g.edges()) {
+            putEdge(e.v(), e.w());
         }
+        assert g.asGraph().equals(this);
     }
 
     /**

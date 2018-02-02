@@ -39,6 +39,22 @@ public class MutableDirectedGraph implements DirectedGraph {
     /**
      * Constructs a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
      * <p>
+     * Complexity: O(V+E)
+     *
+     * @param g the graph to copy
+     * @throws NullPointerException if {@code g} is {@code null}
+     */
+    public MutableDirectedGraph(DirectedGraph g) {
+        this(g.size());
+        for (DirectedEdge e : g.edges()) {
+            putEdge(e.source(), e.target());
+        }
+        assert g.equals(this);
+    }
+
+    /**
+     * Constructs a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
+     * <p>
      * This constructor will not copy the edge weights.
      * <p>
      * Complexity: O(V+E)
@@ -48,11 +64,10 @@ public class MutableDirectedGraph implements DirectedGraph {
      */
     public MutableDirectedGraph(WeightedDirectedGraph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getOutEdges(v)) {
-                putEdge(v, w);
-            }
+        for (WeightedDirectedEdge e : g.edges()) {
+            putEdge(e.source(), e.target());
         }
+        assert g.asDirected().equals(this);
     }
 
     /**
@@ -68,29 +83,11 @@ public class MutableDirectedGraph implements DirectedGraph {
      */
     public MutableDirectedGraph(WeightedGraph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w);
-            }
+        for (WeightedEdge e : g.edges()) {
+            putEdge(e.v(), e.w());
+            putEdge(e.w(), e.v());
         }
-    }
-
-    /**
-     * Constructs a new {@link MutableDirectedGraph} as a copy of the given graph {@code g}.
-     * <p>
-     * Complexity: O(V+E)
-     *
-     * @param g the graph to copy
-     * @throws NullPointerException if {@code g} is {@code null}
-     */
-    public MutableDirectedGraph(DirectedGraph g) {
-        this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getOutEdges(v)) {
-                putEdge(v, w);
-            }
-        }
-        assert this.equals(g);
+        assert g.asDirected().equals(this);
     }
 
     /**
@@ -105,11 +102,11 @@ public class MutableDirectedGraph implements DirectedGraph {
      */
     public MutableDirectedGraph(Graph g) {
         this(g.size());
-        for (int v = 0; v < g.size(); v++) {
-            for (int w : g.getEdges(v)) {
-                putEdge(v, w);
-            }
+        for (Edge e : g.edges()) {
+            putEdge(e.v(), e.w());
+            putEdge(e.w(), e.v());
         }
+        assert g.asDirected().equals(this);
     }
 
     /**

@@ -44,7 +44,7 @@ public class MutableBipartiteGraph implements BipartiteGraph {
             boolean inserted = putEdge(e.v(), e.w());
             assert inserted;
         }
-        assert this.equals(g);
+        assert g.equals(this);
     }
 
     /**
