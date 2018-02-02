@@ -18,7 +18,7 @@ public final class MaximumDegree {
      * Complexity: O(V)
      *
      * @param g the graph
-     * @return the maximum degree in {@code g}.
+     * @return the maximum degree in {@code g}
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public static int maximumDegree(Graph g) {
