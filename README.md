@@ -23,7 +23,7 @@ way.
 ## API Summary
 
 An overview of the public API of **Simple Graph** is presented in the following
-table:
+tables:
 
 | Interface               | Implementation                 | Directed | Weighted |
 | :---------------------- | :----------------------------- | :------- | :------- |
@@ -31,6 +31,10 @@ table:
 | `DirectedGraph`         | `MutableDirectedGraph`         | &#10004; |          |
 | `WeightedGraph`         | `MutableWeightedGraph`         |          | &#10004; |
 | `DirectedWeightedGraph` | `MutableDirectedWeightedGraph` | &#10004; | &#10004; |
+
+| Interface               | Implementation                 | Base Type |
+| :---------------------- | :----------------------------- | :-------- |
+| `BipartiteGraph`        | `MutableBipartiteGraph`        | `Graph`   |
 
 ## Using
 
