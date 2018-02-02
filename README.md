@@ -8,7 +8,7 @@ used as a playground for graph-theoretic abstractions. This package can be used
 when Java 6 is required, for assignments, simple projects etc.
 
 For simplicity, vertices are, for each graph instance, represented using
-integers in the range `[0,V)`. There is no inherent edge object notion; all
+integers in the range `[0,V)`. There is no inherent edge value notion; all
 edges are anonymous but can have a weight assigned on weighted graph types.
 
 Exceptions are used in a fail-fast approach when certain invocations don't make

@@ -2,7 +2,7 @@
  * The graph interfaces and the respective implementations.
  * <h2>Vertices, edges and weights</h2>
  * For simplicity, vertices are, for each graph instance, represented using integers in the range {@code [0,V)}. There
- * is no inherent edge object notion; all edges are anonymous but can have a weight assigned on weighted graph types.
+ * is no inherent edge value notion; all edges are anonymous but can have a weight assigned on weighted graph types.
  * Weights can be of any {@link java.lang.Double} value except {@link java.lang.Double#NaN},
  * {@link java.lang.Double#POSITIVE_INFINITY} and {@link java.lang.Double#NEGATIVE_INFINITY}. If the graph is mutable,
  * attempts to assign an illegal weight will fail with {@link java.lang.IllegalArgumentException}.
