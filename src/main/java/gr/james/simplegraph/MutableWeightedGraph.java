@@ -129,7 +129,43 @@ public class MutableWeightedGraph implements WeightedGraph {
      */
     @Override
     public final Iterable<WeightedEdge> edges() {
-        throw new UnsupportedOperationException();
+        return new Iterable<WeightedEdge>() {
+            @Override
+            public Iterator<WeightedEdge> iterator() {
+                return new AbstractIterator<WeightedEdge>() {
+                    private int currentVertex;
+                    private Iterator<Integer> edges;
+
+                    @Override
+                    void init() {
+                        currentVertex = -1;
+                        edges = Graphs.emptyIterator();
+                    }
+
+                    @Override
+                    WeightedEdge computeNext() {
+                        while (true) {
+                            if (currentVertex >= MutableWeightedGraph.this.size()) {
+                                return null;
+                            }
+                            if (currentVertex == MutableWeightedGraph.this.size() - 1 && !edges.hasNext()) {
+                                return null;
+                            }
+                            if (!edges.hasNext()) {
+                                edges = MutableWeightedGraph.this.getEdges(++currentVertex).iterator();
+                                continue;
+                            }
+                            final int e = edges.next();
+                            if (e < currentVertex) {
+                                continue;
+                            }
+                            return new WeightedEdgeImpl(currentVertex, e,
+                                    MutableWeightedGraph.this.getEdgeWeight(currentVertex, e));
+                        }
+                    }
+                };
+            }
+        };
     }
 
     /**

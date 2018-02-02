@@ -7,7 +7,7 @@ final class WeightedDirectedEdgeImpl implements WeightedDirectedEdge {
     private final int target;
     private final double weight;
 
-    WeightedDirectedEdgeImpl(int source, int target, int weight) {
+    WeightedDirectedEdgeImpl(int source, int target, double weight) {
         this.source = source;
         this.target = target;
         this.weight = weight;

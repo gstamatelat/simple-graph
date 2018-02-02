@@ -108,7 +108,42 @@ public class MutableGraph implements Graph {
      */
     @Override
     public final Iterable<Edge> edges() {
-        throw new UnsupportedOperationException();
+        return new Iterable<Edge>() {
+            @Override
+            public Iterator<Edge> iterator() {
+                return new AbstractIterator<Edge>() {
+                    private int currentVertex;
+                    private Iterator<Integer> edges;
+
+                    @Override
+                    void init() {
+                        currentVertex = -1;
+                        edges = Graphs.emptyIterator();
+                    }
+
+                    @Override
+                    Edge computeNext() {
+                        while (true) {
+                            if (currentVertex >= MutableGraph.this.size()) {
+                                return null;
+                            }
+                            if (currentVertex == MutableGraph.this.size() - 1 && !edges.hasNext()) {
+                                return null;
+                            }
+                            if (!edges.hasNext()) {
+                                edges = MutableGraph.this.getEdges(++currentVertex).iterator();
+                                continue;
+                            }
+                            final int e = edges.next();
+                            if (e < currentVertex) {
+                                continue;
+                            }
+                            return new EdgeImpl(currentVertex, e);
+                        }
+                    }
+                };
+            }
+        };
     }
 
     /**

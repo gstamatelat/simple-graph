@@ -170,7 +170,39 @@ public class MutableDirectedGraph implements DirectedGraph {
      */
     @Override
     public final Iterable<DirectedEdge> edges() {
-        throw new UnsupportedOperationException();
+        return new Iterable<DirectedEdge>() {
+            @Override
+            public Iterator<DirectedEdge> iterator() {
+                return new AbstractIterator<DirectedEdge>() {
+                    private int currentVertex;
+                    private Iterator<Integer> edges;
+
+                    @Override
+                    void init() {
+                        currentVertex = -1;
+                        edges = Graphs.emptyIterator();
+                    }
+
+                    @Override
+                    DirectedEdge computeNext() {
+                        while (true) {
+                            if (currentVertex >= MutableDirectedGraph.this.size()) {
+                                return null;
+                            }
+                            if (currentVertex == MutableDirectedGraph.this.size() - 1 && !edges.hasNext()) {
+                                return null;
+                            }
+                            if (!edges.hasNext()) {
+                                edges = MutableDirectedGraph.this.getOutEdges(++currentVertex).iterator();
+                                continue;
+                            }
+                            final int e = edges.next();
+                            return new DirectedEdgeImpl(currentVertex, e);
+                        }
+                    }
+                };
+            }
+        };
     }
 
     /**

@@ -1,5 +1,8 @@
 package gr.james.simplegraph;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * Helper graph utilities.
  */
@@ -251,5 +254,24 @@ public final class Graphs {
             }
         }
         return true;
+    }
+
+    static <E> Iterator<E> emptyIterator() {
+        return new Iterator<E>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public E next() {
+                throw new NoSuchElementException();
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+        };
     }
 }

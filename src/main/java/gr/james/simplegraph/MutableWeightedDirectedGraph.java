@@ -191,7 +191,40 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      */
     @Override
     public final Iterable<WeightedDirectedEdge> edges() {
-        throw new UnsupportedOperationException();
+        return new Iterable<WeightedDirectedEdge>() {
+            @Override
+            public Iterator<WeightedDirectedEdge> iterator() {
+                return new AbstractIterator<WeightedDirectedEdge>() {
+                    private int currentVertex;
+                    private Iterator<Integer> edges;
+
+                    @Override
+                    void init() {
+                        currentVertex = -1;
+                        edges = Graphs.emptyIterator();
+                    }
+
+                    @Override
+                    WeightedDirectedEdge computeNext() {
+                        while (true) {
+                            if (currentVertex >= MutableWeightedDirectedGraph.this.size()) {
+                                return null;
+                            }
+                            if (currentVertex == MutableWeightedDirectedGraph.this.size() - 1 && !edges.hasNext()) {
+                                return null;
+                            }
+                            if (!edges.hasNext()) {
+                                edges = MutableWeightedDirectedGraph.this.getOutEdges(++currentVertex).iterator();
+                                continue;
+                            }
+                            final int e = edges.next();
+                            return new WeightedDirectedEdgeImpl(currentVertex, e,
+                                    MutableWeightedDirectedGraph.this.getEdgeWeight(currentVertex, e));
+                        }
+                    }
+                };
+            }
+        };
     }
 
     /**
