@@ -74,7 +74,7 @@ public interface WeightedGraph extends BaseGraph {
      * @return a {@link Set} that holds all the adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
      */
-    Set<Integer> getEdges(int v);
+    Set<Integer> adjacent(int v);
 
     /**
      * Get the weight of the edge connecting {@code v} and {@code w}.

@@ -217,10 +217,10 @@ public final class Graphs {
             return false;
         }
         for (int i = 0; i < a.size(); i++) {
-            if (!a.getEdges(i).equals(b.getEdges(i))) {
+            if (!a.adjacent(i).equals(b.adjacent(i))) {
                 return false;
             }
-            for (int j : a.getEdges(i)) {
+            for (int j : a.adjacent(i)) {
                 if (a.getEdgeWeight(i, j) != b.getEdgeWeight(i, j)) {
                     return false;
                 }
@@ -248,10 +248,10 @@ public final class Graphs {
             return false;
         }
         for (int i = 0; i < a.size(); i++) {
-            if (!a.getOutEdges(i).equals(b.getOutEdges(i))) {
+            if (!a.adjacentOut(i).equals(b.adjacentOut(i))) {
                 return false;
             }
-            for (int j : a.getOutEdges(i)) {
+            for (int j : a.adjacentOut(i)) {
                 if (a.getEdgeWeight(i, j) != b.getEdgeWeight(i, j)) {
                     return false;
                 }

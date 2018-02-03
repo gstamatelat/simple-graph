@@ -378,7 +378,7 @@ public class MutableGraph implements Graph {
             }
 
             @Override
-            public Set<Integer> getEdges(int v) {
+            public Set<Integer> adjacent(int v) {
                 return MutableGraph.this.adjacent(v);
             }
 
@@ -428,12 +428,12 @@ public class MutableGraph implements Graph {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
+            public Set<Integer> adjacentOut(int v) {
                 return MutableGraph.this.adjacent(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
+            public Set<Integer> adjacentIn(int v) {
                 return MutableGraph.this.adjacent(v);
             }
 

@@ -399,12 +399,12 @@ public class MutableDirectedGraph implements DirectedGraph {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
+            public Set<Integer> adjacentOut(int v) {
                 return MutableDirectedGraph.this.adjacentOut(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
+            public Set<Integer> adjacentIn(int v) {
                 return MutableDirectedGraph.this.adjacentIn(v);
             }
 

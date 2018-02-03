@@ -345,7 +345,7 @@ public class MutableBipartiteGraph implements BipartiteGraph {
             }
 
             @Override
-            public Set<Integer> getEdges(int v) {
+            public Set<Integer> adjacent(int v) {
                 return MutableBipartiteGraph.this.adjacent(v);
             }
 
@@ -395,12 +395,12 @@ public class MutableBipartiteGraph implements BipartiteGraph {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
+            public Set<Integer> adjacentOut(int v) {
                 return MutableBipartiteGraph.this.adjacent(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
+            public Set<Integer> adjacentIn(int v) {
                 return MutableBipartiteGraph.this.adjacent(v);
             }
 

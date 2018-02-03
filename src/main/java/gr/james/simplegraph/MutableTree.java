@@ -244,7 +244,7 @@ public class MutableTree implements Tree {
             }
 
             @Override
-            public Set<Integer> getEdges(int v) {
+            public Set<Integer> adjacent(int v) {
                 return MutableTree.this.adjacent(v);
             }
 
@@ -296,12 +296,12 @@ public class MutableTree implements Tree {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
+            public Set<Integer> adjacentOut(int v) {
                 return MutableTree.this.adjacent(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
+            public Set<Integer> adjacentIn(int v) {
                 return MutableTree.this.adjacent(v);
             }
 

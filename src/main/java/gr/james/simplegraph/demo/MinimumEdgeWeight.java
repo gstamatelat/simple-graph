@@ -23,7 +23,7 @@ public final class MinimumEdgeWeight {
     public static double minimumEdgeWeight(WeightedGraph g) {
         double min = Double.NaN;
         for (int i = 0; i < g.size(); i++) {
-            for (int j : g.getEdges(i)) {
+            for (int j : g.adjacent(i)) {
                 final double weight = g.getEdgeWeight(i, j);
                 if (Double.isNaN(min) || weight < min) {
                     min = weight;

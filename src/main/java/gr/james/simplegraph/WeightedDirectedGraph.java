@@ -76,9 +76,9 @@ public interface WeightedDirectedGraph extends BaseGraph {
      * @param v the vertex
      * @return a {@link Set} that holds all the outbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
-     * @see #getInEdges(int)
+     * @see #adjacentIn(int)
      */
-    Set<Integer> getOutEdges(int v);
+    Set<Integer> adjacentOut(int v);
 
     /**
      * Get the inbound adjacent vertices of a vertex.
@@ -95,9 +95,9 @@ public interface WeightedDirectedGraph extends BaseGraph {
      * @param v the vertex
      * @return a {@link Set} that holds all the inbound adjacent vertices of {@code v}
      * @throws IndexOutOfBoundsException if {@code v} is outside the range {@code [O,V)}
-     * @see #getOutEdges(int)
+     * @see #adjacentOut(int)
      */
-    Set<Integer> getInEdges(int v);
+    Set<Integer> adjacentIn(int v);
 
     /**
      * Get the weight of the edge from {@code source} to {@code target}.

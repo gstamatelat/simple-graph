@@ -85,7 +85,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
     @Override
-    public Set<Integer> getEdges(int v) {
+    public Set<Integer> adjacent(int v) {
         final Map<Integer, Double> edges = this.edges.get(v);
         return Collections.unmodifiableSet(edges.keySet());
     }
@@ -145,7 +145,7 @@ public class MutableWeightedGraph implements WeightedGraph {
                                 return null;
                             }
                             if (!edges.hasNext()) {
-                                edges = MutableWeightedGraph.this.getEdges(++currentVertex).iterator();
+                                edges = MutableWeightedGraph.this.adjacent(++currentVertex).iterator();
                                 continue;
                             }
                             final int e = edges.next();
@@ -312,8 +312,8 @@ public class MutableWeightedGraph implements WeightedGraph {
             }
 
             @Override
-            public Set<Integer> getEdges(int v) {
-                return MutableWeightedGraph.this.getEdges(v);
+            public Set<Integer> adjacent(int v) {
+                return MutableWeightedGraph.this.adjacent(v);
             }
 
             @Override
@@ -362,7 +362,7 @@ public class MutableWeightedGraph implements WeightedGraph {
 
             @Override
             public Set<Integer> adjacent(int v) {
-                return MutableWeightedGraph.this.getEdges(v);
+                return MutableWeightedGraph.this.adjacent(v);
             }
 
             @Override
@@ -406,12 +406,12 @@ public class MutableWeightedGraph implements WeightedGraph {
 
             @Override
             public Set<Integer> adjacentOut(int v) {
-                return MutableWeightedGraph.this.getEdges(v);
+                return MutableWeightedGraph.this.adjacent(v);
             }
 
             @Override
             public Set<Integer> adjacentIn(int v) {
-                return MutableWeightedGraph.this.getEdges(v);
+                return MutableWeightedGraph.this.adjacent(v);
             }
 
             @Override
@@ -454,13 +454,13 @@ public class MutableWeightedGraph implements WeightedGraph {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
-                return MutableWeightedGraph.this.getEdges(v);
+            public Set<Integer> adjacentOut(int v) {
+                return MutableWeightedGraph.this.adjacent(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
-                return MutableWeightedGraph.this.getEdges(v);
+            public Set<Integer> adjacentIn(int v) {
+                return MutableWeightedGraph.this.adjacent(v);
             }
 
             @Override
@@ -534,7 +534,7 @@ public class MutableWeightedGraph implements WeightedGraph {
         int hash = 1;
         for (int i = 0; i < this.size(); i++) {
             hash = 31 * hash;
-            for (int j : this.getEdges(i)) {
+            for (int j : this.adjacent(i)) {
                 hash += (j ^ new Double(this.getEdgeWeight(i, j)).hashCode());
             }
         }
