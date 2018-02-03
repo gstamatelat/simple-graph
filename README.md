@@ -41,6 +41,7 @@ tables:
 | Interface               | Implementation                 | Base Type |
 | :---------------------- | :----------------------------- | :-------- |
 | `BipartiteGraph`        | `MutableBipartiteGraph`        | `Graph`   |
+| `Tree`                  | `MutableTree`                  | `Graph`   |
 
 ## Using
 
