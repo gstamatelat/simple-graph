@@ -54,7 +54,7 @@ public interface BipartiteGraph extends Graph {
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
     @Override
-    Set<Integer> getEdges(int v);
+    Set<Integer> adjacent(int v);
 
     /**
      * {@inheritDoc}

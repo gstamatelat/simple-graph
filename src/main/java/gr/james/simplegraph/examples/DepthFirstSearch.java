@@ -32,7 +32,7 @@ public final class DepthFirstSearch {
         while (!stack.isEmpty()) {
             final int next = stack.pop();
             if (visited.add(next)) {
-                for (int adj : g.getOutEdges(next)) {
+                for (int adj : g.adjacentOut(next)) {
                     stack.push(adj);
                 }
             }

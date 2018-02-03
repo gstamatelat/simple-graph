@@ -32,7 +32,7 @@ public final class BreadthFirstSearch {
         visited.add(source);
         while (!queue.isEmpty()) {
             final int next = queue.poll();
-            for (int adj : g.getOutEdges(next)) {
+            for (int adj : g.adjacentOut(next)) {
                 if (visited.add(adj)) {
                     queue.offer(adj);
                 }

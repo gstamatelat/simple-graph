@@ -220,8 +220,8 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
      * g.addVertex();
      * assert g.size() == previousSize + 1;
      * System.out.printf("The new vertex ID is %d%n", g.size() - 1);
-     * assert g.getOutEdges(g.size() - 1).isEmpty();
-     * assert g.getInEdges(g.size() - 1).isEmpty();
+     * assert g.adjacentOut(g.size() - 1).isEmpty();
+     * assert g.adjacentIn(g.size() - 1).isEmpty();
      * </code></pre>
      * <p>
      * Complexity: O(1)
@@ -429,12 +429,12 @@ public class MutableWeightedDirectedGraph implements WeightedDirectedGraph {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
+            public Set<Integer> adjacentOut(int v) {
                 return MutableWeightedDirectedGraph.this.getOutEdges(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
+            public Set<Integer> adjacentIn(int v) {
                 return MutableWeightedDirectedGraph.this.getInEdges(v);
             }
 

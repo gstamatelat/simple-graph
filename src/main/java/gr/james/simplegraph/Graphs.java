@@ -96,7 +96,7 @@ public final class Graphs {
      */
     public static void requireEdgeExists(Graph g, int v, int w) {
         requireVertexInGraph(g, w);
-        if (!g.getEdges(v).contains(w)) {
+        if (!g.adjacent(v).contains(w)) {
             throw new IllegalArgumentException();
         }
     }
@@ -127,7 +127,7 @@ public final class Graphs {
      */
     public static void requireEdgeExists(DirectedGraph g, int source, int target) {
         requireVertexInGraph(g, target);
-        if (!g.getOutEdges(source).contains(target)) {
+        if (!g.adjacentOut(source).contains(target)) {
             throw new IllegalArgumentException();
         }
     }
@@ -165,7 +165,7 @@ public final class Graphs {
             return false;
         }
         for (int i = 0; i < a.size(); i++) {
-            if (!a.getEdges(i).equals(b.getEdges(i))) {
+            if (!a.adjacent(i).equals(b.adjacent(i))) {
                 return false;
             }
         }
@@ -191,7 +191,7 @@ public final class Graphs {
             return false;
         }
         for (int i = 0; i < a.size(); i++) {
-            if (!a.getOutEdges(i).equals(b.getOutEdges(i))) {
+            if (!a.adjacentOut(i).equals(b.adjacentOut(i))) {
                 return false;
             }
         }

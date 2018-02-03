@@ -116,10 +116,10 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @param v {@inheritDoc}
      * @return {@inheritDoc}
      * @throws IndexOutOfBoundsException {@inheritDoc}
-     * @see #getInEdges(int)
+     * @see #adjacentIn(int)
      */
     @Override
-    public Set<Integer> getOutEdges(int v) {
+    public Set<Integer> adjacentOut(int v) {
         final Set<Integer> edges = this.outEdges.get(v);
         return Collections.unmodifiableSet(edges);
     }
@@ -134,10 +134,10 @@ public class MutableDirectedGraph implements DirectedGraph {
      * @param v {@inheritDoc}
      * @return {@inheritDoc}
      * @throws IndexOutOfBoundsException {@inheritDoc}
-     * @see #getOutEdges(int)
+     * @see #adjacentOut(int)
      */
     @Override
-    public Set<Integer> getInEdges(int v) {
+    public Set<Integer> adjacentIn(int v) {
         final Set<Integer> edges = this.inEdges.get(v);
         return Collections.unmodifiableSet(edges);
     }
@@ -176,7 +176,7 @@ public class MutableDirectedGraph implements DirectedGraph {
                                 return null;
                             }
                             if (!edges.hasNext()) {
-                                edges = MutableDirectedGraph.this.getOutEdges(++currentVertex).iterator();
+                                edges = MutableDirectedGraph.this.adjacentOut(++currentVertex).iterator();
                                 continue;
                             }
                             final int e = edges.next();
@@ -198,8 +198,8 @@ public class MutableDirectedGraph implements DirectedGraph {
      * g.addVertex();
      * assert g.size() == previousSize + 1;
      * System.out.printf("The new vertex ID is %d%n", g.size() - 1);
-     * assert g.getOutEdges(g.size() - 1).isEmpty();
-     * assert g.getInEdges(g.size() - 1).isEmpty();
+     * assert g.adjacentOut(g.size() - 1).isEmpty();
+     * assert g.adjacentIn(g.size() - 1).isEmpty();
      * </code></pre>
      * <p>
      * Complexity: O(1)
@@ -350,13 +350,13 @@ public class MutableDirectedGraph implements DirectedGraph {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
-                return MutableDirectedGraph.this.getOutEdges(v);
+            public Set<Integer> adjacentOut(int v) {
+                return MutableDirectedGraph.this.adjacentOut(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
-                return MutableDirectedGraph.this.getInEdges(v);
+            public Set<Integer> adjacentIn(int v) {
+                return MutableDirectedGraph.this.adjacentIn(v);
             }
 
             @Override
@@ -400,12 +400,12 @@ public class MutableDirectedGraph implements DirectedGraph {
 
             @Override
             public Set<Integer> getOutEdges(int v) {
-                return MutableDirectedGraph.this.getOutEdges(v);
+                return MutableDirectedGraph.this.adjacentOut(v);
             }
 
             @Override
             public Set<Integer> getInEdges(int v) {
-                return MutableDirectedGraph.this.getInEdges(v);
+                return MutableDirectedGraph.this.adjacentIn(v);
             }
 
             @Override
@@ -480,7 +480,7 @@ public class MutableDirectedGraph implements DirectedGraph {
         int hash = 1;
         for (int i = 0; i < this.size(); i++) {
             hash = 31 * hash;
-            for (int j : this.getOutEdges(i)) {
+            for (int j : this.adjacentOut(i)) {
                 hash += j;
             }
         }

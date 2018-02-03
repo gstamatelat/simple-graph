@@ -64,8 +64,8 @@ public class MutableTree implements Tree {
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
     @Override
-    public Set<Integer> getEdges(int v) {
-        return this.g.getEdges(v);
+    public Set<Integer> adjacent(int v) {
+        return this.g.adjacent(v);
     }
 
     /**
@@ -130,8 +130,8 @@ public class MutableTree implements Tree {
             }
 
             @Override
-            public Set<Integer> getEdges(int v) {
-                return MutableTree.this.getEdges(v);
+            public Set<Integer> adjacent(int v) {
+                return MutableTree.this.adjacent(v);
             }
 
             @Override
@@ -159,13 +159,13 @@ public class MutableTree implements Tree {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
-                return MutableTree.this.getEdges(v);
+            public Set<Integer> adjacentOut(int v) {
+                return MutableTree.this.adjacent(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
-                return MutableTree.this.getEdges(v);
+            public Set<Integer> adjacentIn(int v) {
+                return MutableTree.this.adjacent(v);
             }
 
             @Override
@@ -209,7 +209,7 @@ public class MutableTree implements Tree {
 
             @Override
             public Set<Integer> getEdges(int v) {
-                return MutableTree.this.getEdges(v);
+                return MutableTree.this.adjacent(v);
             }
 
             @Override
@@ -259,12 +259,12 @@ public class MutableTree implements Tree {
 
             @Override
             public Set<Integer> getOutEdges(int v) {
-                return MutableTree.this.getEdges(v);
+                return MutableTree.this.adjacent(v);
             }
 
             @Override
             public Set<Integer> getInEdges(int v) {
-                return MutableTree.this.getEdges(v);
+                return MutableTree.this.adjacent(v);
             }
 
             @Override

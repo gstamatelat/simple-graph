@@ -171,7 +171,7 @@ public class MutableWeightedGraph implements WeightedGraph {
      * g.addVertex();
      * assert g.size() == previousSize + 1;
      * System.out.printf("The new vertex ID is %d%n", g.size() - 1);
-     * assert g.getEdges(g.size() - 1).isEmpty();
+     * assert g.adjacent(g.size() - 1).isEmpty();
      * </code></pre>
      * <p>
      * Complexity: O(1)
@@ -361,7 +361,7 @@ public class MutableWeightedGraph implements WeightedGraph {
             }
 
             @Override
-            public Set<Integer> getEdges(int v) {
+            public Set<Integer> adjacent(int v) {
                 return MutableWeightedGraph.this.getEdges(v);
             }
 
@@ -405,12 +405,12 @@ public class MutableWeightedGraph implements WeightedGraph {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
+            public Set<Integer> adjacentOut(int v) {
                 return MutableWeightedGraph.this.getEdges(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
+            public Set<Integer> adjacentIn(int v) {
                 return MutableWeightedGraph.this.getEdges(v);
             }
 

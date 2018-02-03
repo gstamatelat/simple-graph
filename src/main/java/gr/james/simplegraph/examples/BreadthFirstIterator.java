@@ -127,7 +127,7 @@ public class BreadthFirstIterator implements Iterator<Integer> {
             throw new NoSuchElementException();
         }
 
-        for (int v : g.getOutEdges(next)) {
+        for (int v : g.adjacentOut(next)) {
             if (visited.add(v)) {
                 queue.offer(v);
             }

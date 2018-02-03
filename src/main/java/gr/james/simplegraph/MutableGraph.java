@@ -85,7 +85,7 @@ public class MutableGraph implements Graph {
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
     @Override
-    public Set<Integer> getEdges(int v) {
+    public Set<Integer> adjacent(int v) {
         final Set<Integer> edges = this.edges.get(v);
         return Collections.unmodifiableSet(edges);
     }
@@ -124,7 +124,7 @@ public class MutableGraph implements Graph {
                                 return null;
                             }
                             if (!edges.hasNext()) {
-                                edges = MutableGraph.this.getEdges(++currentVertex).iterator();
+                                edges = MutableGraph.this.adjacent(++currentVertex).iterator();
                                 continue;
                             }
                             final int e = edges.next();
@@ -149,7 +149,7 @@ public class MutableGraph implements Graph {
      * g.addVertex();
      * assert g.size() == previousSize + 1;
      * System.out.printf("The new vertex ID is %d%n", g.size() - 1);
-     * assert g.getEdges(g.size() - 1).isEmpty();
+     * assert g.adjacent(g.size() - 1).isEmpty();
      * </code></pre>
      * <p>
      * Complexity: O(1)
@@ -285,8 +285,8 @@ public class MutableGraph implements Graph {
             }
 
             @Override
-            public Set<Integer> getEdges(int v) {
-                return MutableGraph.this.getEdges(v);
+            public Set<Integer> adjacent(int v) {
+                return MutableGraph.this.adjacent(v);
             }
 
             @Override
@@ -329,13 +329,13 @@ public class MutableGraph implements Graph {
             }
 
             @Override
-            public Set<Integer> getOutEdges(int v) {
-                return MutableGraph.this.getEdges(v);
+            public Set<Integer> adjacentOut(int v) {
+                return MutableGraph.this.adjacent(v);
             }
 
             @Override
-            public Set<Integer> getInEdges(int v) {
-                return MutableGraph.this.getEdges(v);
+            public Set<Integer> adjacentIn(int v) {
+                return MutableGraph.this.adjacent(v);
             }
 
             @Override
@@ -379,7 +379,7 @@ public class MutableGraph implements Graph {
 
             @Override
             public Set<Integer> getEdges(int v) {
-                return MutableGraph.this.getEdges(v);
+                return MutableGraph.this.adjacent(v);
             }
 
             @Override
@@ -429,12 +429,12 @@ public class MutableGraph implements Graph {
 
             @Override
             public Set<Integer> getOutEdges(int v) {
-                return MutableGraph.this.getEdges(v);
+                return MutableGraph.this.adjacent(v);
             }
 
             @Override
             public Set<Integer> getInEdges(int v) {
-                return MutableGraph.this.getEdges(v);
+                return MutableGraph.this.adjacent(v);
             }
 
             @Override
@@ -509,7 +509,7 @@ public class MutableGraph implements Graph {
         int hash = 1;
         for (int i = 0; i < this.size(); i++) {
             hash = 31 * hash;
-            for (int j : this.getEdges(i)) {
+            for (int j : this.adjacent(i)) {
                 hash += j;
             }
         }

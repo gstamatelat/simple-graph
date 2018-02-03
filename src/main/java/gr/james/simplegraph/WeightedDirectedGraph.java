@@ -32,14 +32,14 @@ public interface WeightedDirectedGraph extends BaseGraph {
      * <p>
      * You can use the result of this method in a for-each loop like so:
      * <pre><code>
-     * for (int v : g.getOutEdges(X)) {
+     * for (int v : g.adjacentOut(X)) {
      *     // Do something with v
      * }
      * </code></pre>
      * <p>
      * You can also use the classic iterator approach:
      * <pre><code>
-     * Iterator&lt;Integer&gt; it = g.getOutEdges(X).iterator();
+     * Iterator&lt;Integer&gt; it = g.adjacentOut(X).iterator();
      * while (it.hasNext()) {
      *     int v = it.next();
      *     // Do something with v
@@ -51,22 +51,22 @@ public interface WeightedDirectedGraph extends BaseGraph {
      * You can get the out degree of a certain vertex {@code v} by querying the size of the collection returned by this
      * method:
      * <pre><code>
-     * int outDegree = g.getOutEdges(v).size();
+     * int outDegree = g.adjacentOut(v).size();
      * </code></pre>
      * The snippet will include the edge to {@code v} itself, if present.
      * <p>
      * You can also use this method to check if a directed edge from {@code a} to {@code b} exists:
      * <pre><code>
-     * if (g.getOutEdges(a).contains(b)) {
+     * if (g.adjacentOut(a).contains(b)) {
      *     System.out.printf("There exists an edge from %d to %d%n", a, b);
      * }
      * </code></pre>
-     * Be careful when using such construct: {@code g.getOutEdges(a).contains(b)} will return {@code false} if {@code b}
+     * Be careful when using such construct: {@code g.adjacentOut(a).contains(b)} will return {@code false} if {@code b}
      * is not an element of this graph.
      * <p>
      * Likewise, you can check if the opposite parallel edge exists:
      * <pre><code>
-     * if (g.getOutEdges(b).contains(a)) {
+     * if (g.adjacentOut(b).contains(a)) {
      *     System.out.printf("There exists an edge from %d to %d%n", b, a);
      * }
      * </code></pre>
@@ -87,7 +87,7 @@ public interface WeightedDirectedGraph extends BaseGraph {
      * reached by traversing {@code v}'s incoming edges against the direction of the edge. The vertices returned are in
      * no particular order inside the {@link Set}.
      * <p>
-     * You can use this method in the same way you would use {@code getOutEdges(int)} and you can refer to that for
+     * You can use this method in the same way you would use {@code adjacentOut(int)} and you can refer to that for
      * additional information.
      * <p>
      * Complexity: O(1)

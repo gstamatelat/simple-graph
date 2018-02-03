@@ -31,14 +31,14 @@ public interface WeightedGraph extends BaseGraph {
      * <p>
      * You can use the result of this method in a for-each loop like so:
      * <pre><code>
-     * for (int v : g.getEdges(X)) {
+     * for (int v : g.adjacent(X)) {
      *     // Do something with v
      * }
      * </code></pre>
      * <p>
      * You can also use the classic iterator approach:
      * <pre><code>
-     * Iterator&lt;Integer&gt; it = g.getEdges(X).iterator();
+     * Iterator&lt;Integer&gt; it = g.adjacent(X).iterator();
      * while (it.hasNext()) {
      *     int v = it.next();
      *     // Do something with v
@@ -50,22 +50,22 @@ public interface WeightedGraph extends BaseGraph {
      * You can get the degree of a certain vertex {@code v} by querying the size of the collection returned by this
      * method:
      * <pre><code>
-     * int degree = g.getEdges(v).size();
+     * int degree = g.adjacent(v).size();
      * </code></pre>
      * The snippet will include the edge to {@code v} itself, if present.
      * <p>
      * You can also use this method to check if two vertices {@code a} and {@code b} are connected via an edge:
      * <pre><code>
-     * if (g.getEdges(a).contains(b)) {
+     * if (g.adjacent(a).contains(b)) {
      *     System.out.printf("Vertices %d and %d are adjacent%n", a, b);
      * }
      * </code></pre>
-     * Be careful when using such construct: {@code g.getEdges(a).contains(b)} will return {@code false} if {@code b}
+     * Be careful when using such construct: {@code g.adjacent(a).contains(b)} will return {@code false} if {@code b}
      * is not an element of this graph. Because this graph is undirected, the condition is equivalent to
-     * {@code g.getEdges(b).contains(a)}, but only if both {@code a} and {@code b} are in the graph:
+     * {@code g.adjacent(b).contains(a)}, but only if both {@code a} and {@code b} are in the graph:
      * <pre><code>
-     * boolean connected = g.getEdges(b).contains(a);
-     * assert connected == g.getEdges(a).contains(b);
+     * boolean connected = g.adjacent(b).contains(a);
+     * assert connected == g.adjacent(a).contains(b);
      * </code></pre>
      * <p>
      * Complexity: O(1)

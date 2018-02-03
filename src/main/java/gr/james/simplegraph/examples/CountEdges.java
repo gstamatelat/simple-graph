@@ -21,7 +21,7 @@ public final class CountEdges {
     public static int countEdges(DirectedGraph g) {
         int edgesCount = 0;
         for (int i = 0; i < g.size(); i++) {
-            edgesCount += g.getOutEdges(i).size();
+            edgesCount += g.adjacentOut(i).size();
         }
         return edgesCount;
     }

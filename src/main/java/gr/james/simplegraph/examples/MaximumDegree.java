@@ -24,7 +24,7 @@ public final class MaximumDegree {
     public static int maximumDegree(Graph g) {
         int max = -1;
         for (int i = 0; i < g.size(); i++) {
-            final int degree = g.getEdges(i).size();
+            final int degree = g.adjacent(i).size();
             if (degree > max) {
                 max = degree;
             }
