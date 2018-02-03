@@ -1,4 +1,4 @@
-package gr.james.simplegraph.examples;
+package gr.james.simplegraph.demo;
 
 import gr.james.simplegraph.DirectedGraph;
 
@@ -8,14 +8,14 @@ import java.util.LinkedList;
 import java.util.Set;
 
 /**
- * Demonstration of breadth first search (BFS) using a queue.
+ * Demonstration of depth first search (DFS) using a stack.
  */
-public final class BreadthFirstSearch {
-    private BreadthFirstSearch() {
+public final class DepthFirstSearch {
+    private DepthFirstSearch() {
     }
 
     /**
-     * Performs BFS on a directed graph.
+     * Performs DFS on a directed graph.
      * <p>
      * Complexity: O(V+E)
      *
@@ -25,16 +25,15 @@ public final class BreadthFirstSearch {
      * @throws NullPointerException      if {@code g} is {@code null}
      * @throws IndexOutOfBoundsException if {@code source} is not in the graph
      */
-    public static int breadthFirstSearch(DirectedGraph g, int source) {
-        final Deque<Integer> queue = new LinkedList<Integer>();
+    public static int depthFirstSearch(DirectedGraph g, int source) {
+        final Deque<Integer> stack = new LinkedList<Integer>();
         final Set<Integer> visited = new HashSet<Integer>();
-        queue.offer(source);
-        visited.add(source);
-        while (!queue.isEmpty()) {
-            final int next = queue.poll();
-            for (int adj : g.adjacentOut(next)) {
-                if (visited.add(adj)) {
-                    queue.offer(adj);
+        stack.push(source);
+        while (!stack.isEmpty()) {
+            final int next = stack.pop();
+            if (visited.add(next)) {
+                for (int adj : g.adjacentOut(next)) {
+                    stack.push(adj);
                 }
             }
         }

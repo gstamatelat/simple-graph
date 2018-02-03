@@ -66,4 +66,4 @@ compile 'gr.james:simple-graph:0.16'
 ## Getting Started
 
 For some usage examples see the files inside the
-[examples](src/main/java/gr/james/simplegraph/examples) directory.
+[demo](src/main/java/gr/james/simplegraph/demo) directory.

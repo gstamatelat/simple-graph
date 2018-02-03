@@ -1,4 +1,4 @@
-package gr.james.simplegraph.examples;
+package gr.james.simplegraph.demo;
 
 import gr.james.simplegraph.DirectedGraph;
 
