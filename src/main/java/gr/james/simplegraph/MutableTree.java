@@ -96,6 +96,35 @@ public class MutableTree implements Tree {
     }
 
     /**
+     * Removes a vertex along with all of its edges from the graph.
+     * <p>
+     * In order to preserve the tree data structure invariants, this method can only remove leaf vertices, that is
+     * vertices with exactly one adherent edge because this is the only way for the graph to remain a tree. The method
+     * will return {@code true} if {@code v} is a leaf vertex and was able to be removed, otherwise will return
+     * {@code false}.
+     * <p>
+     * This method works in a way that preserves the insertion order of vertices. More specifically, initially all edges
+     * referring to {@code v} are removed, resulting in {@code v} being unconnected. Afterwards, while {@code v} is
+     * removed, all vertices with ID {@code > v} slide one position to the left to occupy the empty slot. Finally, the
+     * {@code size} of the graph is reduced by one. <b>A side effect of this process is that the vertices with ID higher
+     * than {@code v} are mutated to an ID that is lower by one unit.</b>
+     * <p>
+     * Complexity: O(V+E)
+     *
+     * @param v the vertex to remove from the graph
+     * @return {@code true} if {@code v} was removed from the graph, otherwise {@code false}
+     * @throws IndexOutOfBoundsException if {@code v} is outside of {@code [O,V)}
+     */
+    public boolean removeVertex(int v) {
+        if (adjacent(v).size() == 1) {
+            this.g.removeVertex(v);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Construct and return a new unmodifiable {@link Tree} as a copy of this graph.
      * <p>
      * The object produced by this method is completely independent of this graph.
@@ -138,6 +167,11 @@ public class MutableTree implements Tree {
             public void addVertex(int v) {
                 throw new UnsupportedOperationException();
             }
+
+            @Override
+            public boolean removeVertex(int v) {
+                throw new UnsupportedOperationException();
+            }
         };
     }
 
@@ -175,7 +209,9 @@ public class MutableTree implements Tree {
 
             @Override
             public void removeVertex(int v) {
-                throw new UnsupportedOperationException();
+                if (!MutableTree.this.removeVertex(v)) {
+                    throw new UnsupportedOperationException();
+                }
             }
 
             @Override
@@ -225,7 +261,9 @@ public class MutableTree implements Tree {
 
             @Override
             public void removeVertex(int v) {
-                throw new UnsupportedOperationException();
+                if (!MutableTree.this.removeVertex(v)) {
+                    throw new UnsupportedOperationException();
+                }
             }
 
             @Override
@@ -280,7 +318,9 @@ public class MutableTree implements Tree {
 
             @Override
             public void removeVertex(int v) {
-                throw new UnsupportedOperationException();
+                if (!MutableTree.this.removeVertex(v)) {
+                    throw new UnsupportedOperationException();
+                }
             }
 
             @Override
