@@ -15,7 +15,7 @@ public class MutableBipartiteGraph implements BipartiteGraph {
     private final Set<Integer> b;
 
     /**
-     * Constructs a new empty {@link MutableGraph}.
+     * Constructs a new empty {@link MutableBipartiteGraph}.
      * <p>
      * Complexity: O(1)
      */
@@ -34,19 +34,9 @@ public class MutableBipartiteGraph implements BipartiteGraph {
      * @throws NullPointerException if {@code g} is {@code null}
      */
     public MutableBipartiteGraph(BipartiteGraph g) {
-        this();
-        for (int v = 0; v < g.size(); v++) {
-            assert g.setA().contains(v) ^ g.setB().contains(v);
-            if (g.setA().contains(v)) {
-                addVertexInA();
-            } else if (g.setB().contains(v)) {
-                addVertexInB();
-            }
-        }
-        for (Edge e : g.edges()) {
-            boolean inserted = putEdge(e.v(), e.w());
-            assert inserted;
-        }
+        this.g = new MutableGraph(g);
+        this.a = new HashSet<Integer>(g.setA());
+        this.b = new HashSet<Integer>(g.setB());
         assert g.equals(this);
     }
 
@@ -224,7 +214,7 @@ public class MutableBipartiteGraph implements BipartiteGraph {
      * <p>
      * Complexity: O(V+E)
      *
-     * @return a copy of this graph as a new unmodifiable {@link Graph}
+     * @return a copy of this graph as a new unmodifiable {@link BipartiteGraph}
      */
     public final BipartiteGraph toImmutable() {
         return new MutableBipartiteGraph(this).asUnmodifiable();
