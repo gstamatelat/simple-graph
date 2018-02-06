@@ -219,6 +219,9 @@ public class MutableGraph implements Graph {
     /**
      * Adds an edge on this graph.
      * <p>
+     * Because this graph is undirected, this method is behaviorally commutative: the call to {@code putEdge(x,y)} will
+     * exhibit the same behavior as the call to {@code putEdge(y,x)}.
+     * <p>
      * Complexity: O(1)
      *
      * @param v one end of the edge
@@ -235,6 +238,9 @@ public class MutableGraph implements Graph {
 
     /**
      * Remove an edge from this graph.
+     * <p>
+     * Because this graph is undirected, this method is behaviorally commutative: the call to {@code removeEdge(x,y)}
+     * will exhibit the same behavior as the call to {@code removeEdge(y,x)}.
      * <p>
      * Complexity: O(1)
      *

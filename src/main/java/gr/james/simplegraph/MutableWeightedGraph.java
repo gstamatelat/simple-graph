@@ -241,6 +241,9 @@ public class MutableWeightedGraph implements WeightedGraph {
     /**
      * Adds an edge on this graph or updates the weight of an existing one.
      * <p>
+     * Because this graph is undirected, this method is behaviorally commutative: the call to
+     * {@code putEdge(x,y,weight)} will exhibit the same behavior as the call to {@code putEdge(y,x,weight)}.
+     * <p>
      * Complexity: O(1)
      *
      * @param v      one end of the edge
@@ -261,6 +264,9 @@ public class MutableWeightedGraph implements WeightedGraph {
 
     /**
      * Remove an edge from this graph.
+     * <p>
+     * Because this graph is undirected, this method is behaviorally commutative: the call to {@code removeEdge(x,y)}
+     * will exhibit the same behavior as the call to {@code removeEdge(y,x)}.
      * <p>
      * Complexity: O(1)
      *
