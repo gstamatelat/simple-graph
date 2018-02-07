@@ -1,5 +1,8 @@
 package gr.james.simplegraph;
 
+/**
+ * Base interface for all edge types.
+ */
 interface BaseEdge {
     /**
      * Indicates whether some other object is equal to this edge.

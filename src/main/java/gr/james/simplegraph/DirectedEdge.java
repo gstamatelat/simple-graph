@@ -3,6 +3,8 @@ package gr.james.simplegraph;
 /**
  * Represents an edge of a {@link DirectedGraph}.
  * <p>
+ * Normally, this interface is used when calling the method {@link DirectedGraph#edges()}.
+ * <p>
  * Memory Complexity: O(1)
  */
 public interface DirectedEdge extends BaseEdge {
