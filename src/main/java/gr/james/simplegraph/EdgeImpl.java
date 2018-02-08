@@ -23,7 +23,7 @@ final class EdgeImpl implements Edge {
 
     @Override
     public Edge swap() {
-        Edge e = new EdgeImpl(w, v);
+        final Edge e = new EdgeImpl(w, v);
         assert this.equals(e);
         return e;
     }

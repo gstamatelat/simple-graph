@@ -30,7 +30,7 @@ final class WeightedEdgeImpl implements WeightedEdge {
 
     @Override
     public WeightedEdge swap() {
-        WeightedEdge e = new WeightedEdgeImpl(w, v, weight);
+        final WeightedEdge e = new WeightedEdgeImpl(w, v, weight);
         assert this.equals(e);
         return e;
     }

@@ -3,7 +3,7 @@ package gr.james.simplegraph;
 /**
  * Represents an edge of a {@link WeightedDirectedGraph}.
  * <p>
- * Normally, this interface is used when calling the method {@link WeightedDirectedGraph#edges()}.
+ * Normally, this interface is only used when calling the method {@link WeightedDirectedGraph#edges()}.
  * <p>
  * Memory Complexity: O(1)
  */
