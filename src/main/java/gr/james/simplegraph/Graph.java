@@ -9,8 +9,8 @@ import java.util.Set;
  * The graph can contain self loops but cannot contain parallel edges. More formally, any unordered pair of endpoints
  * may correspond to at most one edge.
  * <p>
- * An unordered pair {@code {a, b}} is a pair of objects with no particular relation between them; the order in which
- * the objects appear in the pair is not significant.
+ * An unordered pair {@code {a,b}} is a pair of objects with no particular relation between them; the order in which the
+ * objects appear in the pair is not significant.
  * <p>
  * Memory Complexity: O(V+E)
  */
