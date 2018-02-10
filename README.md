@@ -43,7 +43,7 @@ tables:
 | `BipartiteGraph`        | `MutableBipartiteGraph`        | `Graph`   |
 | `Tree`                  | `MutableTree`                  | `Graph`   |
 
-## Using
+## Getting started
 
 Simple Graph is published to
 [jcenter](https://bintray.com/gstamatelat/simple-graph/simple-graph). You can
@@ -62,8 +62,6 @@ Or using Gradle:
 ```
 compile 'gr.james:simple-graph:0.16'
 ```
-
-## Getting Started
 
 For some usage examples see the files inside the
 [demo](src/main/java/gr/james/simplegraph/demo) directory.
