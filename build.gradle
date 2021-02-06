@@ -1,6 +1,8 @@
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'findbugs'
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id "com.github.spotbugs" version "4.6.0"
+}
 
 group = 'gr.james'
 version = '0.16'
@@ -8,15 +10,56 @@ version = '0.16'
 sourceCompatibility = 1.6
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
-findbugs {
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+spotbugs {
+    spotbugsTest.enabled = false
     effort = "max"
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            pom {
+                name = 'Simple Graph'
+                description = 'Simple Graph is a graph interface for Java 6 that is designed to expose a very simple API to support working with graphs'
+                url = 'https://github.com/gstamatelat/simple-graph'
+                licenses {
+                    license {
+                        name = 'The MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'gstamatelat'
+                        name = 'Giorgos Stamatelatos'
+                        email = 'gstamatelat@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/gstamatelat/simple-graph.git'
+                    developerConnection = 'scm:git:git@github.com:gstamatelat/simple-graph.git'
+                    url = 'https://github.com/gstamatelat/simple-graph'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url = uri("${buildDir}/publishing-repository")
+        }
+    }
+}
+
 wrapper {
-    gradleVersion = '4.4'
+    gradleVersion = '6.5.1'
 }
 
 javadoc {
@@ -26,21 +69,6 @@ javadoc {
     options.header('simple-graph ' + version)
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
-
 dependencies {
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 }
