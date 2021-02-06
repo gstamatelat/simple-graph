@@ -26,6 +26,7 @@ spotbugs {
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            from components.java
             pom {
                 name = 'Simple Graph'
                 description = 'Simple Graph is a graph interface for Java 6 that is designed to expose a very simple API to support working with graphs'
