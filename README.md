@@ -45,9 +45,7 @@ tables:
 
 ## Getting started
 
-Simple Graph is published to
-[jcenter](https://bintray.com/gstamatelat/simple-graph/simple-graph). You can
-add a dependency from your project using Maven:
+You can add a dependency from your project using Maven:
 
 ```xml
 <dependency>
@@ -59,8 +57,9 @@ add a dependency from your project using Maven:
 
 Or using Gradle:
 
-```
-compile 'gr.james:simple-graph:0.16'
+```gradle
+implementation 'gr.james:simple-graph:0.16' // Runtime
+api            'gr.james:simple-graph:0.16' // Public API
 ```
 
 For some usage examples see the files inside the
